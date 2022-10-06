@@ -28,7 +28,7 @@ session_start();
 				
 			}else{
 				
-				$senha=md5($senha);
+				$senha=password_hash($senha,PASSWORD_DEFAULT);
 				
 				
 			}
@@ -37,12 +37,10 @@ session_start();
 		$cada->bind_param("issssssss",$id,$nome,$sobrenome,$email,$senha,$sexo,$cre,$mod,$tipo);
 		$cada->execute();
 		
-		$cada= $cone->prepare("select `email` from ?");
-		$cada->bind_param("s",$email);
-		$cada->execute();
-		$cada->bind_result($veri);
+		$cada->store_result();
+		$teste=$cada->affected_rows;
 		
-		if ($veri==$email){
+		if ($teste>0){
 			
 			$_SESSION['msg']="conta cadastrada com sucesso";
 			header("location: ../formulario.php");
@@ -50,7 +48,7 @@ session_start();
 			
 		}else{
 			
-			$_SESSION['msg']="erro conta não foi cadastrada";
+			$_SESSION['msg']="não foi possivel cadastrar essa conta";
 			header("location: ../formulario.php");
 			
 			

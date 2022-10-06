@@ -4,58 +4,53 @@
 	
 	
 	
-	if (isset($_POST['email']) && (isset($_POST['senha']))){
-		
-		//$senha= md5($senha);
+	if (!empty($_POST['email']) && (!empty($_POST['senha']))){
 		
 		
-		
-		$email =mysqli_real_escape_string($cone,$_POST['email']);
-		$senha =mysqli_real_escape_string($cone,$_POST['senha']);
-		
-		$consulta= "select * from pessoa where email = '$email' && senha = '$senha';";
-		$id= "select id from pessoa where email = '$email';";
-		$nome= "select nome from pessoa where email = '$email';";
-		$teste = mysqli_query($cone,$consulta);
-		
-		$resultado=mysqli_fetch_assoc($teste);
-		$t1=mysqli_query($cone,$nome);
-		$t2=mysqli_query($cone,$id);
+		$email =$_POST['email'];
+		$senha =$_POST['senha'];
 		
 		
-		if (empty($resultado)){
-			$_SESSION['errologin'] = "erro no login";
-			header("location: ../login.php");
-			
-			
-		}else{
-				$nome=mysqli_fetch_array($t1);
-				$_SESSION['nome']= $nome[0];
+		$consulta=$cone->prepare("select  * from pessoa where email = ? limit 1");
+		$consulta->bind_param("s",$email);
+		$consulta->execute();
+		$consulta->bind_result($id,$nome,$sobrenome,$email,$teste,$sexo,$cre,$mod,$tipo);
+		
+		
+			if ($consulta->fetch()){
 				
-				$id=mysqli_fetch_array($t2);
-				$_SESSION['id']= $id[0];
+				if (password_verify($senha,$teste)){
 				
+			
+				$_SESSION['id']=$id;
+				$_SESSION['nome']=$nome;
+				
+				if (!is_dir('../friend/'. $id)){
 					
-	
-						$amigos= "SELECT * FROM `pessoa`;";
-						$reposta= mysqli_query($cone,$amigos);
-						while($exibir=mysqli_fetch_assoc($reposta)){
-						if (!is_dir('../friend/'. $exibir['id'])){
-							mkdir('../friend/'. $exibir['id'],0777,true);
+						mkdir('../friend/'. $id,0777,true);
+						copy('../other/exemplo/exemplo.txt','../friend/'. $id . '/'. $nome);
 							
-						}
-						copy('../other/exemplo/exemplo.txt','../friend/'. $exibir['id'] . '/'. $exibir['nome']);
+					}else{
+						
+						
+						copy('../other/exemplo/exemplo.txt','../friend/'. $id . '/'. $nome);
 						
 
-						}
-
+					}
 				
+				$_SESSION['login']="on";
+				header("location: ../userdefault.php");
+				
+			}else{
+				
+				$_SESSION['errologin']="erro no login verificar se o email e a senha estão correto";
+				header("location: ../login.php");
+				
+				
+			}
 			
-			$_SESSION['login']="on";
-			header("location: ../userdefault.php");
+			}
 			
-			
-		}
 		
 	}else{
 		$_SESSION['errologin']= "erro no email ou senha";
