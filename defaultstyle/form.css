@@ -1,0 +1,14 @@
+.form{
+	
+	display: flex;
+	flex-direction: column;
+	margin: 100px  500px;
+	
+}
+
+h1{
+	
+	position: relative;
+	margin-left: 20px;
+	
+}

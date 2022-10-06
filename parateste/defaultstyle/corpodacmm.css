@@ -1,0 +1,27 @@
+.corpo{
+	border-style: default;
+	
+	
+}
+
+#foto{
+	height: 50px;
+	
+	
+}
+
+.grupo{
+	border:solid;
+	display:flex;
+	margin-left: 250px;
+	margin-top: 200px;
+	
+}
+
+.grupo ul{
+	list-style: none;
+	margin-left:0px;
+	padding-left: 0px;
+	
+	
+}

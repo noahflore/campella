@@ -1,0 +1,57 @@
+html , body{
+	
+	padding: 0px;
+	margin: 0px;
+	background-color: 	#708090;
+	
+}
+
+
+
+.cabeça {
+	display:flex;
+	justify-content: space-between;
+	background-color: #4169E1;
+	
+}
+.cabeça li{
+	list-style: none;
+	display: inline;
+	padding-right: 5px;
+	position: relative;
+	
+	
+	
+	
+}
+.lado ul{
+		padding-left: 5px;
+		padding-right: 5px;
+		background-color: #8B4513;
+	
+}
+
+.lado li{
+	list-style: none;
+	padding-top: 5px;
+	
+}
+
+.lado{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 50px;
+}
+
+
+.fotopa div{
+	display: flex;
+	justify-content: space-between;
+	height: 20px;
+	
+}
+
+#principal{
+	height: 110px;
+	
+}

@@ -1,0 +1,47 @@
+.bloco{
+	
+	background-color: #DD2519;
+	margin-left: 200px;
+	
+	
+}
+
+.ico{
+	
+	width: 30px;
+	height: 30px;
+	
+	
+}
+
+.cmmestilo{
+	
+	background-color:#5E100A;
+	color: white;
+	
+	
+}
+
+
+@media (max-width: 980px){
+	
+	.bloco{
+		margin-top: 190px;
+	}
+	
+	.bloco div{
+		
+		font-size: 50px !important;
+		margin-top: 20px;
+		
+		
+	}
+	.cmmestilo {
+		
+		margin-top: 10px;
+		
+	}
+	
+	
+	
+}

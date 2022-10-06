@@ -1,0 +1,169 @@
+html , body{
+	
+	padding: 0px;
+	margin: 0px;
+	background-color: 	#708090;
+	
+}
+
+a {
+	text-decoration:none;
+	background-color:#3E16A1;
+	color:#A19506;
+	
+	
+	
+}
+
+a:hover {
+	
+	background-color: white;
+	color: black;
+	
+	
+	
+}
+
+
+
+.cabeça {
+	
+	position:fixed;
+	top:0%;
+	width: 100%;
+	display:flex;
+	justify-content: space-between;
+	background-color: #4169E1;
+	
+}
+.cabeça li{
+	list-style: none;
+	display: inline;
+	padding-right: 5px;
+	position: relative;
+	
+	
+	
+	
+}
+.lado ul{
+	
+		
+		padding-left: 5px;
+		padding-right: 5px;
+		background-color: #8657FF;
+	
+}
+
+.lado li{
+	list-style: none;
+	padding-top: 5px;
+	
+}
+
+.lado{
+	
+	padding-top: 50px;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 50px;
+}
+
+
+.fotopa div{
+	
+	
+	display: flex;
+	justify-content: space-between;
+	height: 20px;
+	
+}
+
+.flutuar{
+	
+	position: fixed;
+	
+	
+}
+
+
+
+#principal{
+	height: 110px;
+	
+}
+
+
+#fotope{
+	
+	
+	height: 45px;
+	width: 49px;
+	
+}
+
+
+@media (max-width:980px){/* lembra de configurar a versão mobile */
+	
+	
+	.lado{
+		
+		
+		padding-right: 50px;
+		display: inline;
+		
+		
+	}
+	
+	.fotopa img {
+		
+		width: 100px !important;
+		height: 100px;
+		
+	}
+	
+	.flutuar{
+		
+		position: inherit;
+		
+		
+	}
+	
+	
+	li{
+		font-size: 40px;
+		margin-top: 100px;
+		color: white;
+	
+	}
+	
+	a{
+		
+		color: white;
+		
+		
+		
+	}
+	#fotomenor{
+		
+		width: 50px;
+		
+		
+	}
+	
+	#especial {
+		width: 400px;
+		height: 600px !important;
+		
+		
+	}
+	
+	#principal{
+		width: 300px;
+		height: 300px;
+		margin-left: 290px;
+		
+	}
+	
+	
+}

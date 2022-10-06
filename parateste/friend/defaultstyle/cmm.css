@@ -1,0 +1,20 @@
+
+
+section{
+	display: flex;
+	
+}
+
+.texto{
+	height: 200px;
+	width: 400px;
+
+	
+}
+
+.cmm input{
+	display: flex;
+	flex-direction: column;
+	
+	
+}

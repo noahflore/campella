@@ -1,0 +1,10 @@
+.apresenta{
+	display: flex;
+	list-style: none;
+	
+	
+}
+
+.apresenta li{
+	margin-left: 25px;
+}

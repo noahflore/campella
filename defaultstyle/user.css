@@ -1,0 +1,20 @@
+.principal{
+	display: flex;
+	margin-left: 120px;
+	
+	
+}
+
+.principal img{
+	height: 90px;
+	
+	
+}
+.caixa{
+	
+	width: 500px;
+	height: 185px;
+	border-style: double;
+	border-width: 6px;
+	
+}

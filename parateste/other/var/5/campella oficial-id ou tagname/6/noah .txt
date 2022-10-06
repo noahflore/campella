@@ -1,0 +1,2 @@
+noah -[color=blue]agora é só lembra que só jogar o id na url  
+em vez de criar uma var  08/09/2022

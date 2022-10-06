@@ -1,0 +1,19 @@
+.foto img{
+	height: 30px;
+	
+	
+}
+
+.foto{
+	display: flex;
+	flex-direction: column;
+	width: 40px;
+	
+	
+}
+
+.for input{
+	display: flex;
+	flex-direction: column;
+	
+}
