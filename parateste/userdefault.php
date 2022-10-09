@@ -134,6 +134,37 @@
 					
 					</div>
 					<div>
+						<b>visitantes: </b>
+							<?php
+							
+								if (is_dir("other/". $id ."/visi/")){
+									
+									$scan=array_diff(scandir("other/". $id ."/visi/"),['.','..']);
+									
+									foreach ($scan as $vi){
+										
+										$abrir=fopen("other/". $id ."/visi/". $vi,"r+");
+										$col=fgets($abrir);
+										fclose($abrir);
+										
+										echo "<span style='color: blue'>". $col ."</span>  ";
+										
+										
+									}
+									
+									
+									
+									
+								}
+							
+							
+							
+							
+							?>
+					
+					
+					</div>
+					<div>
 						<?php
 							if (file_exists("other/". $id ."/desc.txt")) {
 								$abrir= fopen("other/". $id ."/desc.txt",'r');

@@ -2,14 +2,34 @@
 
 	
 	$id= $_SESSION['id'];
+	$nome= $_SESSION['nome'];
 	$idfriend=$_GET['id'];
+	$dia= date("d");
 	if (file_exists("../other/". $idfriend ."/amigo/block/". $id .".txt")){
 		
 		header("location: ../userdefault.php");
 		
 	}
 
-
+	if (!is_dir("../other/". $idfriend ."/visi/")){
+		
+		mkdir("../other/". $idfriend ."/visi/",0777,true);
+		copy("../other/exemplo/exemplo.txt","../other/". $idfriend ."/visi/". $dia .".txt");
+		$abrir=fopen("../other/". $idfriend ."/visi/". $dia .".txt","w+");
+		fwrite($abrir,$nome);
+		fclose($abrir);
+		
+		
+	}else{
+		
+		copy("../other/exemplo/exemplo.txt","../other/". $idfriend ."/visi/". $dia .".txt");
+		$abrir=fopen("../other/". $idfriend ."/visi/". $dia .".txt","w+");
+		fwrite($abrir,$nome);
+		fclose($abrir);
+		
+		
+		
+	}
 
 ?>
 <!docktype html>
@@ -20,8 +40,8 @@
 	 
 	 <title>user-see-user || campella</title>
 	 <meta charset="utf-8" />
-	 <link rel="stylesheet" href="defaultstyle/baseestilo.css" />
-	 <link rel="stylesheet" href="defaultstyle/user.css" />
+	 <link rel="stylesheet" href="../defaultstyle/baseestilo.css" />
+	 <link rel="stylesheet" href="../defaultstyle/user.css" />
 	 
 	 </head>
 	 
@@ -52,10 +72,9 @@
 					
 					
 					
-					
-						if((is_dir("../other/" . $_SESSION['seefriend'])) and (file_exists("../other/" . $_SESSION['seefriend'] ."/fotoperso.png"))){
+						if((is_dir("../other/" . $idfriend)) and (file_exists("../other/" . $idfriend ."/fotoperso.png"))){
 								
-								echo "<img id='especial' src='../other/". $_SESSION['seefriend'] ."/fotoperso.png' alt='foto do usuario' />";
+								echo "<img id='especial' src='../other/". $idfriend ."/fotoperso.png' alt='foto do usuario' />";
 							
 						}else{
 							

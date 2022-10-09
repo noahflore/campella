@@ -73,7 +73,7 @@
 							
 							$id=$_GET['id'];
 							
-								if(is_dir('../../other/' . $_SESSION['seefriend'] .'/recado')){
+								if((is_dir('../../other/' . $_SESSION['seefriend'] .'/recado')) && (!file_exists("../../other/". $_SESSION['seefriend'] ."/priva/p1"))){
 									if ((file_exists("../../other/". $id ."/recado/min.txt")) and (file_exists("../../other/". $id ."/recado/max.txt")) and (file_exists("../../other/". $id ."/recado/index.txt"))){
 										
 										//print_r($id);
