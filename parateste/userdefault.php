@@ -1,17 +1,18 @@
 <?php session_start();
 	
 	
-	if(!empty($_GET['login'])){
-		$_SESSION['login']=$_GET['login'];
-	
-	
+	if(empty($_SESSION['login'])){
+		$_SESSION['login']="off";
+		
+		
 	}
+	
 	$login=$_SESSION['login'];
 	
 	
 	if ($login=="off"){
 		
-		header("location: index.php");
+		header("location: login.php");
 		
 	}
 
@@ -24,7 +25,7 @@
 
 	 <head>
 	 
-	 <title>user || campella</title>
+	 <title><?php echo $_SESSION['nome']. "  ". $_SESSION['sobrenome']; ?> || campella</title>
 	 <meta charset="utf-8" />
 	 <link rel="stylesheet" href="defaultstyle/baseestilo.css" />
 	 <link rel="stylesheet" href="defaultstyle/user.css" />
@@ -137,17 +138,20 @@
 						<b>visitantes: </b>
 							<?php
 							
-								if (is_dir("other/". $id ."/visi/")){
+								$dia= date("d");
+								
+								if (is_dir("other/". $id ."/visi/". $dia)){
 									
-									$scan=array_diff(scandir("other/". $id ."/visi/"),['.','..']);
+									$scan=array_diff(scandir("other/". $id ."/visi/". $dia),['.','..']);
 									
 									foreach ($scan as $vi){
 										
-										$abrir=fopen("other/". $id ."/visi/". $vi,"r+");
+										$abrir=fopen("other/". $id ."/visi/". $dia ."/". $vi,"r+");
 										$col=fgets($abrir);
 										fclose($abrir);
+										$vi= str_replace(".txt","",$vi);
 										
-										echo "<span style='color: blue'>". $col ."</span>  ";
+										echo "<a style='color: blue; background-color:transparent;' href='friend/userseeuser.php?id=$vi'>". $col ."</a>  ";
 										
 										
 									}

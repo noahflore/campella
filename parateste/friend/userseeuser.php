@@ -11,19 +11,45 @@
 		
 	}
 
-	if (!is_dir("../other/". $idfriend ."/visi/")){
+		if (is_dir("../other/". $idfriend ."/visi/")){
+			
+			$ante=array_diff(scandir("../other/". $idfriend ."/visi/"),['.','..']);
+			
 		
-		mkdir("../other/". $idfriend ."/visi/",0777,true);
-		copy("../other/exemplo/exemplo.txt","../other/". $idfriend ."/visi/". $dia .".txt");
-		$abrir=fopen("../other/". $idfriend ."/visi/". $dia .".txt","w+");
+			foreach ($ante as $an){
+				
+				if ($an !=$dia){
+					
+					$del=array_diff(scandir("../other/". $idfriend ."/visi/". $an),['.','..']);
+					
+					foreach ($del as $dd){
+						
+						unlink("../other/". $idfriend ."/visi/". $an ."/". $dd);
+						
+					}
+					rmdir("../other/". $idfriend ."/visi/". $an);
+					
+					
+				}
+				
+				
+			}
+
+
+		}
+	if (!is_dir("../other/". $idfriend ."/visi/". $dia)){
+		
+		mkdir("../other/". $idfriend ."/visi/". $dia,0777,true);
+		copy("../other/exemplo/exemplo.txt","../other/". $idfriend ."/visi/". $dia ."/". $id .".txt");
+		$abrir=fopen("../other/". $idfriend ."/visi/". $dia ."/". $id .".txt","w+");
 		fwrite($abrir,$nome);
 		fclose($abrir);
 		
 		
 	}else{
 		
-		copy("../other/exemplo/exemplo.txt","../other/". $idfriend ."/visi/". $dia .".txt");
-		$abrir=fopen("../other/". $idfriend ."/visi/". $dia .".txt","w+");
+		copy("../other/exemplo/exemplo.txt","../other/". $idfriend ."/visi/". $dia ."/". $id .".txt");
+		$abrir=fopen("../other/". $idfriend ."/visi/". $dia ."/". $id .".txt","w+");
 		fwrite($abrir,$nome);
 		fclose($abrir);
 		

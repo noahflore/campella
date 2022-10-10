@@ -24,6 +24,7 @@
 			
 				$_SESSION['id']=$id;
 				$_SESSION['nome']=$nome;
+				$_SESSION['sobrenome']=$sobrenome;
 				
 				if (!is_dir('../friend/'. $id)){
 					
