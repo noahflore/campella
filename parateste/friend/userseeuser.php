@@ -1,5 +1,24 @@
 <?php session_start();
 
+
+
+	if(!empty($_GET['login'])){
+		$_SESSION['login']="off";
+		
+		
+	}
+	
+	$login=$_SESSION['login'];
+	
+	
+	if (($login=="off") || (empty($_SESSION['login']))){
+		
+		header("location: ../login.php");
+		
+	}
+
+
+
 	
 	$id= $_SESSION['id'];
 	$nome= $_SESSION['nome'];
@@ -77,8 +96,8 @@
 			<img src="ico/logocampella.png" alt="logo do site" /><br>
 			<nav> 
 				<ul>
-					<li><a href="principaldefault.php">principal</a></li>
-					<li><a href="configdefault.php">configuração</a></li>
+					<li><a href="../principaldefault.php">principal</a></li>
+					<li><a href="../configdefault.php">configuração</a></li>
 					<li><s>camp</s></li>
 					<li>feed back</li>
 					<li><a href="sair">sair</a></li>
@@ -141,7 +160,38 @@
 					</div>
 					
 					<div>
-						nome e sobrenome do outro usuario
+						<?php
+						
+							if (!empty($_GET['id'])){
+								
+								$info= array_diff(scandir("../friend/". $idfriend ."/"),['.','..']);
+								
+								for ($pro=2;$pro<=5;$pro++){
+									
+									
+									if(empty($nomef)){$nomef=str_replace("1-","",$info[$pro]);}elseif
+									(empty($sobrenomef)){$sobrenomef=str_replace("2-","",$info[$pro]);}
+									elseif(empty($sexof)){$sexof=str_replace("3-","",$info[$pro]);}
+									
+									
+									//print_r($info);
+								}
+								
+								if ($sexof=="f"){ $se="feminimo";}else{$se="masculino";}
+													   
+							echo $nomef ."  ". $sobrenomef ."  do sexo: ". $se;
+								
+								
+								
+								
+							}
+						
+						
+						
+						
+						
+						
+						?>
 					
 					</div>
 					<div>

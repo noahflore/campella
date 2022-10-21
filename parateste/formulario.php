@@ -1,4 +1,20 @@
-<?php session_start(); ?>
+<?php session_start(); 
+
+	if (!empty($_SESSION['login'])){
+	$login=$_SESSION['login'];
+	
+	if ($login=="on"){
+		
+		header("location: userdefault.php");
+		
+	}
+
+}
+
+
+
+
+?>
 
 
 <!docktype html>

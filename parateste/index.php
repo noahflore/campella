@@ -1,6 +1,11 @@
 <?php session_start();
 
-	$login=$_SESSION['login'];
+//	$login=$_SESSION['login']; isso corrigir o erro do linux apagar na vers?o final
+
+	$login="on";
+	$_SESSION['id']=2;
+	$_SESSION['nome']="bigode";
+	$_SESSION['sobrenome']='melo';
 	
 	if ($login=="on"){
 		

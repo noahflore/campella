@@ -25,16 +25,28 @@
 				$_SESSION['id']=$id;
 				$_SESSION['nome']=$nome;
 				$_SESSION['sobrenome']=$sobrenome;
+					
+					if ($id==1){
+						
+						$_SESSION['login']= "on";
+						header("location: admin/super_admin/useradmin.php");
+						
+						
+					}
 				
 				if (!is_dir('../friend/'. $id)){
 					
 						mkdir('../friend/'. $id,0777,true);
-						copy('../other/exemplo/exemplo.txt','../friend/'. $id . '/'. $nome);
+						copy('../other/exemplo/exemplo.txt','../friend/'. $id . '/1-'. $nome);
+						copy('../other/exemplo/exemplo.txt','../friend/'. $id . '/2-'. $sobrenome);
+						copy('../other/exemplo/exemplo.txt','../friend/'. $id . '/3-'. $sexo);
 							
 					}else{
 						
 						
-						copy('../other/exemplo/exemplo.txt','../friend/'. $id . '/'. $nome);
+						copy('../other/exemplo/exemplo.txt','../friend/'. $id . '/1-'. $nome);
+						copy('../other/exemplo/exemplo.txt','../friend/'. $id . '/2-'. $sobrenome);
+						copy('../other/exemplo/exemplo.txt','../friend/'. $id . '/3-'. $sexo);
 						
 
 					}

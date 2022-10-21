@@ -1,7 +1,6 @@
 <?php session_start();
 	
-	
-	if(empty($_SESSION['login'])){
+		if(!empty($_GET['login'])){
 		$_SESSION['login']="off";
 		
 		
@@ -10,11 +9,12 @@
 	$login=$_SESSION['login'];
 	
 	
-	if ($login=="off"){
+	if (($login=="off") || (empty($_SESSION['login']))){
 		
 		header("location: login.php");
 		
 	}
+
 
 
 
@@ -454,6 +454,8 @@
 								
 								
 								$pu=0;
+								echo "<div style='display:flex; flex-direction: column'><div>";
+								
 								for ($i=1; $i<=1000; $i++){
 									
 									$pu++;
@@ -463,37 +465,38 @@
 										$ler=fgets($abrir);
 										fclose($abrir);
 											
-											if ($pu<=2){
+											
+											if ($pu<=3){
 												
 												if (file_exists("other/". $i ."/fotoperso.png")){
 												
 
-													echo "<div style='display:flex; flex-direction: column'><img style='width: 50px;' src='other/$i/fotoperso.png' alt='foto_user' />". $ler ."</div>  ";
+													echo "<img style='width: 50px;' src='other/$i/fotoperso.png' alt='foto_user' />". $ler ."  ";
 													$pu++;
 													
 													
 												}else{
 													
-													echo "<div style='display:flex; flex-direction: column'><img style='width: 50px;' src='ico/perfil.png' alt='foto_user' />". $ler ."</div>  ";
+													echo "<div><img style='width: 50px;' src='ico/perfil.png' alt='foto_user' />". $ler ." ";
 													$pu++;
 													
 													
 												}
 										
-											
+												
 											
 											
 											}else{
 												
 												if (file_exists("other/". $i ."/fotoperso.png")){
 												
-													echo "<div style='display:flex; flex-direction: column'><img style='width: 50px;' src='other/$i/fotoperso.png' alt='foto_user' />". $ler. "</div><br>";
+													echo "<img style='width: 50px;' src='other/$i/fotoperso.png' alt='foto_user' />". $ler. "</div>";
 													$pu=0;
 													
 													
 													}else{
 													
-													echo "<div style='display:flex; flex-direction: column'><img style='width: 50px;' src='ico/perfil.png' alt='foto_user' />". $ler ."</div><br>  ";
+													echo "<img style='width: 50px;' src='ico/perfil.png' alt='foto_user' />". $ler ."</div>  ";
 													$pu=0;
 													
 													
@@ -503,6 +506,7 @@
 												
 											}
 										
+										
 									
 									
 								}
@@ -510,6 +514,8 @@
 								
 								}
 								
+								
+								echo "</div>";
 							}
 						
 						

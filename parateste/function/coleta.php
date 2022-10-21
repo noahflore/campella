@@ -22,6 +22,7 @@ session_start();
 		$cre= "$ano-$mes-$dia $hora:$min:00";
 		$mod= "0000-00-00 00:00:00";
 		
+		
 			if ($senha!=$repita){
 				$_SESSION['msg']="erro senha e repitir a senha estão incorreto ,tente usar outra senha";
 				header("location: ../formulario.php");
@@ -32,6 +33,9 @@ session_start();
 				
 				
 			}
+		
+		
+		
 		
 		$cada=$cone->prepare("insert into pessoa values (?,?,?,?,?,?,?,?,?)");
 		$cada->bind_param("issssssss",$id,$nome,$sobrenome,$email,$senha,$sexo,$cre,$mod,$tipo);
@@ -48,7 +52,7 @@ session_start();
 			
 		}else{
 			
-			$_SESSION['msg']="não foi possivel cadastrar essa conta";
+			$_SESSION['msg']="não foi possivel cadastrar essa conta: motivos email já existe";
 			header("location: ../formulario.php");
 			
 			

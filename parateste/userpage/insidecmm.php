@@ -2,6 +2,22 @@
 
 	$meuid=$_SESSION['id'];
 
+	if(!empty($_GET['login'])){
+		$_SESSION['login']="off";
+		
+		
+	}
+	
+	$login=$_SESSION['login'];
+	
+	
+	if (($login=="off") || (empty($_SESSION['login']))){
+		
+		header("location: ../login.php");
+		
+	}
+
+
 
 ?>
 <!doctype html>

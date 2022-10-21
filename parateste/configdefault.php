@@ -1,4 +1,25 @@
-<?php session_start(); ?>
+<?php session_start(); 
+
+		if(!empty($_GET['login'])){
+		$_SESSION['login']="off";
+		
+		
+	}
+	
+	$login=$_SESSION['login'];
+	
+	
+	if (($login=="off") || (empty($_SESSION['login']))){
+		
+		header("location: login.php");
+		
+	}
+
+
+
+
+
+?>
 <!docktype html>
 <!--
 		você tem que arruma essa config
@@ -37,10 +58,11 @@
 		
 		</header>
 		<section class="lado">
-								<h1>configurar seu perfil</h1>
 			<section class="user">
 			<!--lateral esq com principal user-->
 				<aside>
+					
+					<h1>configurar seu perfil</h1>
 				
 				<?php
 					$id= $_SESSION['id'];

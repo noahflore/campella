@@ -1,4 +1,25 @@
-<?php session_start(); ?>
+<?php session_start(); 
+
+			if(!empty($_GET['login'])){
+		$_SESSION['login']="off";
+		
+		
+	}
+	
+	$login=$_SESSION['login'];
+	
+	
+	if (($login=="off") || (empty($_SESSION['login']))){
+		
+		header("location: ../login.php");
+		
+	}
+
+
+
+
+
+?>
 <!docktype html>
 
 <html>
@@ -199,7 +220,7 @@
 										  
 										  
 										  
-										  </div><br>
+										  </div><br></form>
 									
 									
 									
@@ -227,10 +248,11 @@
 													$foto= (!empty($r[1]))? "<img style='width: 50px' src='../other/$r[1]/fotoperso.png' alt='foto_png_user' />": "<img src='../ico/perfil.png' alt='foto_png_user' />";
 													$po=fopen("../other/". $id ."/recado/". $index ."/". $i ."/". $r[2],"r+");
 													$receba=fgets($po);
+													$puro= $r[2];
 													$r[2]=str_replace(".txt"," - ",$r[2]);
 													fclose($po);
 													
-														echo "<div>". $foto ."   ". $r[2]." ". $receba ."</div><form method='post' action='functionuser/recado.php?i=$i&r=$r[2]&index=$index'>
+														echo "<div>". $foto ."   ". $r[2]." ". $receba ."</div><form method='post' action='functionuser/recado.php?i=$i&r=$puro&index=$index&id=$r[1]'>
 														
 																							
 																						<span id='res$i'><input class='aperta' type='button' value='responde' id='responde$i' onclick='responde($i,$r[1])' /></span>

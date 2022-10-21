@@ -1,4 +1,25 @@
-<?php session_start(); ?>
+<?php session_start();
+
+		if(!empty($_GET['login'])){
+		$_SESSION['login']="off";
+		
+		
+	}
+	
+	$login=$_SESSION['login'];
+	
+	
+	if (($login=="off") || (empty($_SESSION['login']))){
+		
+		header("location: login.php");
+		
+	}
+
+
+
+
+
+?>
 <!docktype html>
 
 <html>
@@ -52,7 +73,7 @@
 			
 			</main>
 			
-			<aside>
+			<aside class="meucmm">
 				<?php
 					$id= $_SESSION['id'];
 					if (is_dir('other/var/'. $id)){
