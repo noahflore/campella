@@ -206,6 +206,7 @@
 									if ((file_exists('friend/'. $contado .'/fotoperso.png')) and ($contado!=$lem1) and ($contado!=$lem2) and ($contado!=$lem3) and ($contado!=$lem4)){
 										
 											if (!file_exists("other/". $contado ."/amigo/block/". $id .".txt") and ($contado!=$id)){//print_r("exploder na tela");
+												$amigo[$li]=str_replace("1-","",$amigo[$li]);
 											echo "<div class='perfilu'><img id='fotomenor' src='friend/". $contado."/fotoperso.png' alt='foto_usuario' /><a href='friend/userseeuser.php?id=$contado'>". $amigo[$li] .'</a></div> ';
 											$_SESSION['seefriend']=$contado;
 											
@@ -234,6 +235,7 @@
 									}elseif (($contado!=$lem1) and ($contado!=$lem2) and ($contado!=$lem3) and ($contado!=$lem4)){
 										
 										if (!file_exists("other/". $contado ."/amigo/block/". $id .".txt") and ($contado!=$id)){//print_r("exploder na tela 2");
+											$amigo[$li]=str_replace("1-","",$amigo[$li]);
 											echo "<div class='perfilu'><img id='fotomenor' src='ico/userdefault.png' alt='foto_usuario' /><a href='friend/userseeuser.php?id=$contado'>". $amigo[$li] .'</a></div> ';
 											$_SESSION['seefriend']=$contado;
 											
@@ -274,6 +276,7 @@
 										if ((file_exists('friend/'. $contado .'/fotoperso.png')) and ($contado!=$lem1) and ($contado!=$lem2) and ($contado!=$lem3) and ($contado!=$lem4)){
 											
 											if (!file_exists("other/". $contado ."/amigo/block/". $id .".txt") and ($contado!=$id)){//print_r("exploder na tela 3");
+												$amigo[$li]=str_replace("1-","",$amigo[$li]);
 											echo "<div class='perfilu'> <img id='fotomenor' src='friend/". $contado."/fotoperso.png' alt='foto_usuario' /><a href='friend/userseeuser.php?id=$contado'>". $amigo[$li] .'</a></div> ';
 											$_SESSION['seefriend']=$contado;
 											
@@ -304,6 +307,7 @@
 										}elseif (($contado!=$lem1) and ($contado!=$lem2) and ($contado!=$lem3) and ($contado!=$lem4)){
 											
 										if (!file_exists("other/". $contado ."/amigo/block/". $id .".txt") and ($contado!=$id)){//print_r("exploder na tela 4");
+											$amigo[$li]=str_replace("1-","",$amigo[$li]);
 											echo "<div class='perfilu'><img id='fotomenor' src='ico/userdefault.png' alt='foto_usuario' /><a href='friend/userseeuser.php?id=$contado'>". $amigo[$li] .'</a></div> ';
 											$_SESSION['seefriend']=$contado;
 											
