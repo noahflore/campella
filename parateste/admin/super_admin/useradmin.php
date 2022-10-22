@@ -1,11 +1,17 @@
 <?php session_start();
 	
-	/*
-	if(!empty($_GET['login'])){
-		$_SESSION['login']=$_GET['login'];
+	/*                                                   !!!!!!!!        lembra de remove o comentario e deixar o codigo rodando !!!!!!!!!
+	
+	if((!empty($_SESSIO['login'])) and ($_SESSION['id']==1)){
 		$login=$_SESSION['login'];
 		
 	
+	}else{
+		
+		$login="off";	
+		
+		
+		
 	}
 	
 	
@@ -15,8 +21,8 @@
 		header("location: ../../index.php");
 		
 	}
-
-	*/
+*/
+	
 
 ?>
 <!docktype html>
@@ -53,7 +59,7 @@
 		
 		
 		</header>
-		<section  onmouseout="sair()" class="lado">
+		<section  id="check" onmouseout="sair(0)" class="lado">
 			<section class="user">
 			<!--lateral esq com principal user-->
 				<aside>
