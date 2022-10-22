@@ -20,6 +20,7 @@
 					campo.setAttribute('id','campo')
 					campo.style.display='inline'
 					op.setAttribute('name','link')
+					op.setAttribute('id','seleciona')
 					for (let i=1; i<=4; i++){
 						li[i]= document.createElement('option')
 						li[i].innerText= "gera chaves"
@@ -43,6 +44,16 @@
 			}
 			
 			function sair(ch){
+				
+				let seleciona= document.getElementById('seleciona')
+				let index=seleciona.selectedIndex
+				if (index!=0){
+					
+					ch=0
+					campo.removeAttribute('action')
+					campo.setAttribute('action','manu.php')
+				}
+				
 				
 				if  (ch==1){
 				
