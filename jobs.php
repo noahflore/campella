@@ -4,7 +4,7 @@
 
 	 <head>
 	 
-	 <title>formulario</title>
+	 <title>jobs || campella</title>
 	 <meta charset="utf-8" />
 	 <link rel="stylesheet" href="defaultstyle/baseestilo.css" />
 	 
@@ -44,6 +44,7 @@
 							<li><s>validação</s></li>
 							<li>monitor</li>
 							<!-- o de cima vai analisa denuncia e tals-->
+							<li><a href="function/gera.php?id=userid">convida um amigo/a</a></li>
 						
 						
 						</ul>

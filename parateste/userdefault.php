@@ -5,6 +5,8 @@
 		
 		
 	}
+
+	if (file_exists("other/". $_SESSION['id'] ."/manu/1")){$_SESSION['login']="off"; unlink("other/". $_SESSION['id'] ."/manu/1");}
 	
 	$login=$_SESSION['login'];
 	

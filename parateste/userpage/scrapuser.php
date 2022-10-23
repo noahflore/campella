@@ -214,8 +214,8 @@
 									//exibi o index
 									//print_r($mostrar);
 									echo "<form method='post' action='../function/recado.php'>
-										  <input class='recado' type='text' placeholder='digita aqui seu recado' name='texto' />
-										  <input class='recado' type='submit' value='enviar' />
+										  <textarea type='text' id='recado' placeholder='digita aqui seu recado' name='texto' cols='30' rows='5'></textarea>
+										  <input type='submit' id='recadobutao' value='enviar' />
 										  <div class='recadomeu'>
 										  
 										  
