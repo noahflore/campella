@@ -20,14 +20,16 @@
 	 
 	 <title>Campella</title>
 	 <meta charset="utf-8" />
+	<link rel="stylesheet" href="defaultstyle/baseestilo.css" />
+	<link rel="stylesheet" href="defaultstyle/apresentacao.css" />
 	 
 	 </head>
 	 
 	 <body>
 	 
-		<h1>campella</h1><br>
+		<h1>kampella</h1><br>
 		groups AA
-		<p>seja bem-vindo(a) a rede social campella, aqui você pode fazer amigos, fletar, jogar<br>
+		<p>seja bem-vindo(a) a rede<wbr> social campella, aqui você pode fazer amigos, fletar, jogar<br>
 		minigames em groupos ou sozinho. temos novidades para as primeiras pessoas se registra</p>
 		<div>
 			<a href="formulario.html">registra</a>
@@ -37,6 +39,12 @@
 	
 		</div>
 	 
+		 
+		 
+		 
+		 <footer>&copy; <a href="sobre.html">sobre kampella</a>  quem somos n�s proximos passos </footer>
+		 
+		 
 	 </body>
 
 
