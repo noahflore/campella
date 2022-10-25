@@ -1,11 +1,10 @@
 <?php session_start(); 
-		if(!empty($_GET['login'])){
+
+	if(!empty($_GET['login'])){
 		$_SESSION['login']="off";
 		
 		
 	}
-
-	if (file_exists("other/". $_SESSION['id'] ."/manu/1")){$_SESSION['login']="off"; $_SESSION['errologin']= "site em manutenção volte mais tarde";}
 	
 	$login=$_SESSION['login'];
 	
@@ -15,7 +14,6 @@
 		header("location: ../login.php");
 		
 	}
-
 
 
 
@@ -215,13 +213,13 @@
 									//exibi o index
 									//print_r($mostrar);
 									echo "<form method='post' action='../function/recado.php'>
-										  <textarea type='text' id='recado' placeholder='digita aqui seu recado' name='texto' cols='30' rows='5'></textarea>
-										  <input type='submit' id='recadobutao' value='enviar' />
+										  <input class='recado' type='text' placeholder='digita aqui seu recado' name='texto' />
+										  <input class='recado' type='submit' value='enviar' />
 										  <div class='recadomeu'>
 										  
 										  
 										  
-										  </div><br></form>
+										  </div><br>
 									
 									
 									
@@ -249,11 +247,10 @@
 													$foto= (!empty($r[1]))? "<img style='width: 50px' src='../other/$r[1]/fotoperso.png' alt='foto_png_user' />": "<img src='../ico/perfil.png' alt='foto_png_user' />";
 													$po=fopen("../other/". $id ."/recado/". $index ."/". $i ."/". $r[2],"r+");
 													$receba=fgets($po);
-													$puro= $r[2];
 													$r[2]=str_replace(".txt"," - ",$r[2]);
 													fclose($po);
 													
-														echo "<div>". $foto ."   ". $r[2]." ". $receba ."</div><form method='post' action='functionuser/recado.php?i=$i&r=$puro&index=$index&id=$r[1]'>
+														echo "<div>". $foto ."   ". $r[2]." ". $receba ."</div><form method='post' action='functionuser/recado.php?i=$i&r=$r[2]&index=$index'>
 														
 																							
 																						<span id='res$i'><input class='aperta' type='button' value='responde' id='responde$i' onclick='responde($i,$r[1])' /></span>
