@@ -15,6 +15,19 @@
 			
 			
 			
+		}elseif ($_POST['valor']==0){
+			
+			for ($i=0;$i<=1000; $i++){
+				if ((is_dir("../../other/". $i ."/manu/")) and (is_dir("../../other/". $i))){unlink("../../other/". $i ."/manu/1");}
+				
+				
+				
+				
+				
+			}
+			
+			
+			
 		}
 	
 	

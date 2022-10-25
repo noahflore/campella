@@ -1,10 +1,11 @@
 <?php session_start(); 
-
-			if(!empty($_GET['login'])){
+		if(!empty($_GET['login'])){
 		$_SESSION['login']="off";
 		
 		
 	}
+
+	if (file_exists("other/". $_SESSION['id'] ."/manu/1")){$_SESSION['login']="off"; $_SESSION['errologin']= "site em manutenção volte mais tarde";}
 	
 	$login=$_SESSION['login'];
 	

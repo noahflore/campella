@@ -6,7 +6,7 @@
 		
 	}
 
-	if (file_exists("other/". $_SESSION['id'] ."/manu/1")){$_SESSION['login']="off"; unlink("other/". $_SESSION['id'] ."/manu/1");}
+	if (file_exists("other/". $_SESSION['id'] ."/manu/1")){$_SESSION['login']="off"; $_SESSION['errologin']= "site em manutenção volte mais tarde";}
 	
 	$login=$_SESSION['login'];
 	

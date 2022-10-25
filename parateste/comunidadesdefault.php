@@ -5,6 +5,8 @@
 		
 		
 	}
+
+	if (file_exists("other/". $_SESSION['id'] ."/manu/1")){$_SESSION['login']="off"; $_SESSION['errologin']= "site em manutenção volte mais tarde";}
 	
 	$login=$_SESSION['login'];
 	
@@ -14,6 +16,8 @@
 		header("location: login.php");
 		
 	}
+
+
 
 
 
