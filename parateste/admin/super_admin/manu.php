@@ -10,6 +10,7 @@
 				if ((!is_dir("../../other/". $i ."/manu/")) and (is_dir("../../other/". $i))){mkdir("../../other/". $i ."/manu/",0777,true);}
 				
 				copy("../../other/exemplo/exemplo.txt","../../other/". $i ."/manu/1");
+				copy("../../other/exemplo/exemplo.txt","../../other/". $i ."/manu/11");
 				
 			}
 			
