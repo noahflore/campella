@@ -1,4 +1,4 @@
-<?php session_start(); 
+<?php session_start(); require_once "compactar.php";
 	
 
 	if(!empty($_GET['login'])){
@@ -19,7 +19,7 @@
 		
 	}
 
-
+	compacta($_SESSION['id']);
 
 
 ?>

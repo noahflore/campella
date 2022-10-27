@@ -18,7 +18,7 @@
 			<img src="../ico/logocampella.png" alt="logo do site" />
 			<nav> 
 				<ul>
-					<?php echo "<li><a href='../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
+					<?php echo "<li><a href='../../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
 					<!-- o de cima é nome do usuario-->
 					<li>configuração</li>
 					<li><s>camp</s></li>
@@ -37,6 +37,7 @@
 				<aside>
 						<?php
 					$id= $_SESSION['id'];
+					if (!empty($_GET['id'])){$_SESSION['seefriend']= $_GET['id'];}
 					
 						if((is_dir("../../other/" . $_SESSION['seefriend'])) and (file_exists("../../other/" . $_SESSION['seefriend']."/fotoperso.png"))){
 								

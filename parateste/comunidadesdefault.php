@@ -18,7 +18,7 @@
 	}
 
 
-
+	compacta($_SESSION['id']);
 
 
 

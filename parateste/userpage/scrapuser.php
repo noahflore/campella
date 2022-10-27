@@ -19,7 +19,7 @@
 		header("location: ../login.php");
 		
 	}
-	
+	if (file_exists("../other/". $_SESSION['id'] ."/zip.zip")){descompacta($_SESSION['id']);unlink("../other/". $_SESSION['id'] ."/zip.zip");}
 
 ?>
 <!docktype html>
@@ -289,7 +289,7 @@
 								}
 							
 							
-							compacta($_SESSION['id']);
+							
 							
 							?>
 					

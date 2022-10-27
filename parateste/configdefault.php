@@ -64,12 +64,12 @@
 		
 		</header>
 		<section class="lado">
-								<h1>configurar seu perfil</h1>
+								
 			<section class="user">
 			<!--lateral esq com principal user-->
-				<h1>configurar seu perfil</h1>
-				<aside>
 				
+				<aside>
+				<h1>configurar seu perfil</h1>
 				<?php
 					$id= $_SESSION['id'];
 					
@@ -160,7 +160,7 @@
 							<div>
 								<?php
 											echo "
-												<input type='text' placeholder='escreva sua descrição' name='desc' />
+												<textarea placeholder='escreva sua descrição' name='desc' cols='30' rows='5'></textarea>
 												<input type='submit' value='enviar' />
 												
 											
@@ -183,6 +183,43 @@
 										}
 								
 								// esse muda a descrição
+								echo "
+									
+									
+									<form method='post' action='function/configsql.php'>
+											
+										<fieldset><legend>genero</legend>
+											
+											<label for='f'>feminino</label>: 
+											<input type='radio' id='f' name='genero' checked /><br>
+											<label for='m'>masculino</label>: 
+											<input type='radio' name='genero' id='m' />
+											<input type='submit' value='enviar' />
+										
+										
+											
+									
+									
+									
+										</fieldset>
+									
+									</form>
+									
+									
+									
+									<form method='post' action=''>
+									
+										nome: <input type='text' /><br>
+										sobrenome: <input type='text' /><br>
+										pais: <input type='text' /><br>
+										estado: <input type='text' /><br>
+										cidade:<input type='text' /><br>
+										status civil: <input type='text' /><br>
+										
+									
+										</form>
+								
+										";
 								?>
 							
 							</div>

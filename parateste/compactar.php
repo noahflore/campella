@@ -96,6 +96,26 @@
 		
 	}
 
+	function descompacta($id){
+		
+			$zipa= new ZipArchive();
+			$path= __DIR__ ."/other/". $id;
+			$fullpath= $path ."/zip.zip";
+			echo $fullpath;
+		
+			if ($zipa->open("../other/$id/zip.zip")){
+				
+				$zipa->extractTo("../other/$id/");
+				$zipa->close();
+				
+				
+				
+			}
+		
+		
+		
+	}
+
 
 
 

@@ -1,4 +1,6 @@
 <?php session_start();
+
+	require_once "compactar.php";
 	
 	if(!empty($_GET['login'])){
 		$_SESSION['login']="off";
@@ -18,7 +20,9 @@
 		
 	}
 
+	if (!empty($_SESSION['idfriend'])){ unlink("other/". $_SESSION['idfriend'] ."/true"); unset($_SESSION['idfriend']);}
 
+	compacta($_SESSION['id']);
 
 ?>
 <!docktype html>
