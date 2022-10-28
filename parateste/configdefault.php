@@ -183,47 +183,56 @@
 										}
 								
 								// esse muda a descrição
-								echo "
-									
-									
-									<form method='post' action='function/configsql.php'>
-											
-										<fieldset><legend>genero</legend>
-											
-											<label for='f'>feminino</label>: 
-											<input type='radio' id='f' name='genero' checked /><br>
-											<label for='m'>masculino</label>: 
-											<input type='radio' name='genero' id='m' />
-											<input type='submit' value='enviar' />
-										
-										
-											
 									
 									
 									
-										</fieldset>
-									
-									</form>
-									
-									
-									
-									<form method='post' action=''>
-									
-										nome: <input type='text' /><br>
-										sobrenome: <input type='text' /><br>
-										pais: <input type='text' /><br>
-										estado: <input type='text' /><br>
-										cidade:<input type='text' /><br>
-										status civil: <input type='text' /><br>
-										
-									
-										</form>
 								
-										";
+										
 								?>
+								
+									
+									
+								
 							
 							</div>
 					</form>
+					
+					
+							<form method='post' action='function/configsql.php'>
+											
+								<fieldset><legend>genero</legend>
+											
+										<label for='f'>feminino</label>: 
+										<input type='radio' id='f' name='genero' value='f' checked /><br>
+										<label for='m'>masculino</label>: 
+										<input type='radio' name='genero' id='m' value='m' /><br>
+										<label for='o'>outro</label>
+										<input type='radio' name='genero' id='o' value='o' /><br>
+										<input type='text' name='outro' />
+										<input type='submit' value='enviar' />
+										
+										
+											
+									
+									
+									
+								</fieldset>
+									
+							</form>
+					
+								
+								<form method='post' action=''>
+									
+									nome: <input type='text' /><br>
+									sobrenome: <input type='text' /><br>
+									pais: <input type='text' /><br>
+									estado: <input type='text' /><br>
+									cidade:<input type='text' /><br>
+									status civil: <input type='text' /><br>
+										
+									
+								</form>
+					
 				</div>
 			</section>
 			<!--lateral dir-->
