@@ -28,7 +28,8 @@
 	$_SESSION['idfriend']= $idfriend;
 	$dia= date("d");
 
-	if (!file_exists("../other/". $idfriend ."/open")){descompacta($idfriend);copy("../other/exemplo/exemplo.txt","../other/". $idfriend ."/true");copy("../other/exemplo/exemplo.txt","../other/". $idfriend ."/open");}
+	copy("../other/exemplo/exemplo.txt","../other/". $idfriend ."/true");
+	if (!file_exists("../other/". $idfriend ."/open")){descompacta($idfriend);copy("../other/exemplo/exemplo.txt","../other/". $idfriend ."/open");}
 
 	if (file_exists("../other/". $idfriend ."/amigo/block/". $id .".txt")){
 		

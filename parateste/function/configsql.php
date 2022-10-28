@@ -20,13 +20,10 @@
 				
 				$id=$_SESSION['id'];
 				
-				$change= $cone->prepare("UPDATE pessoa SET sexo = ? WHERE pessoa . id = ? ");
-				$change->bind_param("si",$genero,$id);
+				$change= $cone->prepare("UPDATE pessoa SET sexo = ?  AND mod = ?  WHERE pessoa . id = ? ");
+				$change->bind_param("ssi",$genero,$data,$id);
 				$change->execute();
 				
-				$changemod= $cone->prepare("UPDATE pessoa SET mod = ? WHERE pessoa . id = ? ");
-				$changemod->bind_param("si",$data,$id);
-				$changemod->execute();
 				
 				
 				
