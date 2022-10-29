@@ -122,20 +122,36 @@
 												$ler=fgets($abrir);
 												fclose($abrir);
 												
-												if ($ler!=$max){
+												if (($ler!=$max) and ($max-$min==$max-4)){
 													
 													$abrir3=fopen("../other/". $id ."/recado/max.txt","w+");
 													fwrite($abrir3,$ler);
 													//fclose($abrir);
 													fclose($abrir3);
 													
+												}else{
+													
+													$abrir3=fopen("../other/". $id ."/recado/max.txt","w+");
+													fwrite($abrir3,$min+4);
+													//fclose($abrir);
+													fclose($abrir3);
+													
+													
+													
 												}
 												
-												if($min-$max!=$max-4){
+												if(($min-$max!=$max-4) and ($min-$max>5)){
 													
 													$abrir3=fopen("../other/". $id ."/recado/min.txt","w+");
 													fwrite($abrir3,$max-4);
 													fclose($abrir3);
+													
+												}else{
+													$abrir3=fopen("../other/". $id ."/recado/min.txt","w+");
+													fwrite($abrir3,1);
+													fclose($abrir3);
+													
+													
 													
 												}
 												
@@ -189,13 +205,13 @@
 										$abrir2=fopen("../other/". $id ."/recado/index.txt","w+");
 										$abrir3=fopen("../other/". $id ."/recado/max.txt","w+");
 										fwrite($abrir,$min);
-										fwrite($abrir2,1);
+										fwrite($abrir2,$ler);
 										fwrite($abrir3,$max);
 										fclose($abrir);
 										fclose($abrir2);
 										fclose($abrir3);
 										
-										header("location: scrapuser.php?index=1");
+										header("location: scrapuser.php?index=$ler");
 										
 									}//configura o minimo ,maximo e o index
 									
@@ -216,7 +232,7 @@
 									//exibi o index
 									//print_r($mostrar);
 									echo "<form method='post' action='../function/recado.php'>
-										  <input class='recado' type='text' placeholder='digita aqui seu recado' name='texto' />
+										  <textarea cols='30' rows='5' class='recado' type='text' placeholder='digita aqui seu recado' name='texto'></textarea>
 										  <input class='recado' type='submit' value='enviar' />
 										  <div class='recadomeu'>
 										  
@@ -253,7 +269,7 @@
 													$r[2]=str_replace(".txt"," - ",$r[2]);
 													fclose($po);
 													
-														echo "<div>". $foto ."   ". $r[2]." ". $receba ."</div><form method='post' action='functionuser/recado.php?i=$i&r=$r[2]&index=$index'>
+														echo "<div class='linha'>". $foto ."   ". $r[2]." ". $receba ."</div><form method='post' action='functionuser/recado.php?i=$i&r=$r[2]&index=$index'>
 														
 																							
 																						<span id='res$i'><input class='aperta' type='button' value='responde' id='responde$i' onclick='responde($i,$r[1])' /></span>
@@ -271,7 +287,7 @@
 								}else{
 									
 									echo "<form method='post' action='../function/recado.php'>
-										  <input class='recado' type='text' placeholder='digita aqui seu recado' name='texto' />
+										  <textarea cols='30' rows='5' class='recado' type='text' placeholder='digita aqui seu recado' name='texto'></textarea>
 										  <input class='recado' type='submit' value='enviar' />
 										  <div class='recadomeu'>
 										  

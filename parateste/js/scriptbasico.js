@@ -60,6 +60,7 @@
 			op[1].innerHTML= "configuração"
 			op[2].setAttribute("onclick","janela()")
 			op[2].innerText= "privacidade"
+			op[3].innerText= "backup"
 			
 			if (localStorage.fundo){
 				
