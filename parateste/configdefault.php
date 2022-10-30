@@ -1,4 +1,4 @@
-<?php session_start();
+<?php session_start(); require_once "function/objeto/Usuario.php";
 	
 
 	if(!empty($_GET['login'])){
@@ -18,7 +18,9 @@
 		header("location: login.php");
 		
 	}
-
+	
+	$nome=$_SESSION['nome'];
+	$sobrenome=$_SESSION['sobrenome'];
 
 
 
@@ -196,9 +198,10 @@
 							
 							</div>
 					</form>
+							
+							<?php if ($_GET['true']==1){$user= new Usuario($nome,$sobrenome,$id); print_r($user);} ?>
 					
-					
-							<form method='post' action='function/configsql.php'>
+							<form method='post' action='configdefault.php?true=1'>
 											
 								<fieldset><legend>genero</legend>
 											
