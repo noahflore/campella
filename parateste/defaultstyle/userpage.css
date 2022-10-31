@@ -7,6 +7,8 @@
 .linha{
 	
 	background-color: #F09667;
+	border-radius: 5px;
+	
 	
 	
 }
@@ -44,6 +46,19 @@
 	margin-top:  20px;
 	margin-left: 100px;
 	background-color: #DA7F69;
+	border-radius: 5px;
+	border-style: groove;
+	border-width: 5px;
+	border-color: #8C4735;
+	
+}
+
+.caixa h1,h2{
+	
+	color: #A2DEB9;
+	font-family: monospace;
+	
+	
 	
 }
 

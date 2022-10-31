@@ -29,7 +29,7 @@
 	$dia= date("d");
 
 	copy("../other/exemplo/exemplo.txt","../other/". $idfriend ."/true");
-	if (!file_exists("../other/". $idfriend ."/open")){descompacta($idfriend);copy("../other/exemplo/exemplo.txt","../other/". $idfriend ."/open");}
+	if ((!file_exists("../other/". $idfriend ."/open")) and (file_exists("../other/". $idfriend ."/zip.zip"))){descompacta($idfriend);copy("../other/exemplo/exemplo.txt","../other/". $idfriend ."/open");}
 
 	if (file_exists("../other/". $idfriend ."/amigo/block/". $id .".txt")){
 		
@@ -83,6 +83,21 @@
 		
 	}
 
+							if (!empty($_GET['id'])){
+								
+								$info= array_diff(scandir("../friend/". $idfriend ."/"),['.','..']);
+								
+								for ($pro=2;$pro<=5;$pro++){
+									
+									
+									if(empty($nomef)){$nomef=str_replace("1-","",$info[$pro]);}elseif
+									(empty($sobrenomef)){$sobrenomef=str_replace("2-","",$info[$pro]);}
+									elseif(empty($sexof)){$sexof=str_replace("3-","",$info[$pro]);}
+									
+									
+									//print_r($info);
+								}
+
 ?>
 <!docktype html>
 
@@ -90,7 +105,7 @@
 
 	 <head>
 	 
-	 <title>user-see-user || campella</title>
+	<?php echo "<title>$nomef $sobrenomef || campella</title>"; ?>
 	 <meta charset="utf-8" />
 	 <link rel="stylesheet" href="../defaultstyle/baseestilo.css" />
 	 <link rel="stylesheet" href="../defaultstyle/user.css" />
@@ -169,20 +184,7 @@
 					<div>
 						<?php
 						
-							if (!empty($_GET['id'])){
-								
-								$info= array_diff(scandir("../friend/". $idfriend ."/"),['.','..']);
-								
-								for ($pro=2;$pro<=5;$pro++){
-									
-									
-									if(empty($nomef)){$nomef=str_replace("1-","",$info[$pro]);}elseif
-									(empty($sobrenomef)){$sobrenomef=str_replace("2-","",$info[$pro]);}
-									elseif(empty($sexof)){$sexof=str_replace("3-","",$info[$pro]);}
-									
-									
-									//print_r($info);
-								}
+							
 								
 								if ($sexof=="f"){ $se="feminimo";}else{$se="masculino";}
 													   

@@ -45,7 +45,7 @@
 							
 						}else{
 							
-							echo"<img id='especial' src='../ico/userdefault.png' alt='foto do usuario' />";
+							echo"<img id='especial' src='../../ico/userdefault.png' alt='foto do usuario' />";
 							
 						}
 						
