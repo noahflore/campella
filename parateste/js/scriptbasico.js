@@ -96,26 +96,27 @@
 		
 		let janela= document.createElement("div")
 		let palavra= localStorage.pa
+		let palavrb= localStorage.pb
 		
 			if (palavra==1){
 				
 				var pa1="on"
 				
-			}else if (localStorage.pa ==0){
+			}else if (palavra ==0){
 				
 				var pa1="off"
 				
-			}
+			}else{ var pa1="off"}
 			
-			if (palavra==2){
+			if (palavrb==1){
 				
 				var pa2="on"
 				
-			}else if (localStorage.pa == -1){
+			}else if (palavrb == 0){
 				
 				var pa2="off"
 				
-			}
+			}else{ var pa2="off"}
 		
 		
 			janela.setAttribute("style","background-color: white; position: fixed; top: 43%; right:50%;")
@@ -129,22 +130,31 @@
 	
 	function priva(p){
 		
-		if (localStorage.pa==1){
+		if ((localStorage.pa==1) && (p==1)){
 			
 			
 			localStorage.pa = 0
 			
 			
 			
-		}else if (localStorage.pa==2) {
+		}else if (p==1){
+		
+		
+		localStorage.pa = 1
+		
+		
+		
+	}
+		
+		if ((localStorage.pb==1) && (p==2)) {
 			
 			
-			localStorage.pa = -1
+			localStorage.pb = 0
 			
 			
-		}else{
+		}else if (p==2){
 			
-			localStorage.pa = p
+			localStorage.pb = 1
 			
 			
 		}

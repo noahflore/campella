@@ -203,8 +203,8 @@
 					</div>
 					<div>
 						<?php
-							if (file_exists("other/". $id ."/desc.txt")) {
-								$abrir= fopen("other/". $id ."/desc.txt",'r');
+							if (file_exists("../other/". $idfriend ."/desc.txt")) {
+								$abrir= fopen("../other/". $idfriend ."/desc.txt",'r');
 								while (!feof($abrir)){
 									$buffer= fgets($abrir);
 									echo $buffer;
@@ -224,6 +224,75 @@
 					
 					<div class="amigos">
 						<?php
+						
+							
+							if (is_dir("../other/". $idfriend ."/amigo/")){
+								
+								
+								$pu=0;
+								echo "<div style='display:flex; flex-direction: column'><div>";
+								
+								for ($i=1; $i<=1000; $i++){
+									
+									$pu++;
+									
+									if (file_exists("../other/". $idfriend ."/amigo/". $i .".txt")){
+										$abrir=fopen("../other/". $idfriend ."/amigo/". $i .".txt","r+");
+										$ler=fgets($abrir);
+										fclose($abrir);
+											
+											
+											if ($pu<=3){
+												
+												if (file_exists("../other/". $i ."/fotoperso.png")){
+												
+
+													echo "<img style='width: 50px;' src='../other/$i/fotoperso.png' alt='foto_user' />". $ler ."  ";
+													$pu++;
+													
+													
+												}else{
+													
+													echo "<div><img style='width: 50px;' src='../ico/perfil.png' alt='foto_user' />". $ler ." ";
+													$pu++;
+													
+													
+												}
+										
+												
+											
+											
+											}else{
+												
+												if (file_exists("../other/". $i ."/fotoperso.png")){
+												
+													echo "<img style='width: 50px;' src='../other/$i/fotoperso.png' alt='foto_user' />". $ler. "</div>";
+													$pu=0;
+													
+													
+													}else{
+													
+													echo "<img style='width: 50px;' src='../ico/perfil.png' alt='foto_user' />". $ler ."</div>  ";
+													$pu=0;
+													
+													
+												}
+												
+												
+												
+											}
+										
+										
+									
+									
+								}
+								
+								
+								}
+								
+								
+								echo "</div>";
+							}
 						
 						
 						?>

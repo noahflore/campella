@@ -90,7 +90,7 @@
 								$ler=fgets($abrir);
 								fclose($abrir);
 								
-								echo "<li><div><a href='userpage/scrapuser.php?index=1'>recados   ". $ler ."</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+								echo "<li><div><a href='userpage/scrapuser.php?index=1&&tmp=1'>recados   ". $ler ."</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
 								
 							}else{
 								
@@ -141,7 +141,7 @@
 					
 					</div>
 					<div>
-						<b>visitantes: </b>
+						<b>visitantes: </b><?php if (file_exists("other/". $id ."/priva/p2")){echo "você desativo visitas clicar em configuração para ativar";} ?>
 							<?php
 							
 								$dia= date("d");

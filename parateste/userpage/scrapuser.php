@@ -21,6 +21,8 @@
 	}
 	if (file_exists("../other/". $_SESSION['id'] ."/zip.zip")){descompacta($_SESSION['id']);unlink("../other/". $_SESSION['id'] ."/zip.zip");}
 
+	if (file_exists("../other/". $_SESSION['id'] ."/tmp/tmpupdate.txt")){unlink("../other/". $_SESSION['id'] ."/tmp/tmpupdate.txt"); rmdir("../other/". $_SESSION['id'] ."/tmp/");}
+
 ?>
 <!docktype html>
 
@@ -91,7 +93,6 @@
 				
 				<div>
 					<div>
-						<h2>meus recados</h2>
 							<?php
 								if (is_dir("../other/". $id ."/recado")){
 									
@@ -232,7 +233,7 @@
 									//exibi o index
 									//print_r($mostrar);
 									echo "<form method='post' action='../function/recado.php'>
-										  <textarea cols='30' rows='5' class='recado' type='text' placeholder='digita aqui seu recado' name='texto'></textarea>
+										  <textarea cols='90' rows='5' class='recado' type='text' placeholder='digita aqui seu recado' name='texto'></textarea>
 										  <input class='recado' type='submit' value='enviar' />
 										  <div class='recadomeu'>
 										  
