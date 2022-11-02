@@ -42,7 +42,7 @@
 		<header class="cabeça">
 		
 			<img src="ico/logocampella.png" alt="logo do site" /><br>
-			<div>bem-vindo <?php echo $_SESSION['nome']; ?> </div>
+			<div>bem-vindo <?php echo"<span style='line-height:50px;color:white'>". $_SESSION['nome'] ."</span>"; ?> </div>
 			<nav> 
 				<ul>
 					<li onclick='usuario(2)'><a href="principaldefault.php">principal</a></li>

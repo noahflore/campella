@@ -1,4 +1,16 @@
-
+footer{
+	position:fixed;
+	bottom:0%;
+	background-color: #2D3842;
+	display:flex;
+	justify-content: space-between;
+    width: 100%;
+	height: 40px;
+	line-height: 40px;
+	
+	
+	
+}
 
 
 

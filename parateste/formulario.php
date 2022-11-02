@@ -27,6 +27,7 @@
 	 <meta charset="utf-8" />
 	 <link rel="stylesheet" href="defaultstyle/baseestilo.css" />
 	 <link rel="stylesheet" href="defaultstyle/form.css" />
+	 <link rel="stylesheet" href="defaultstyle/apresentacao.css" />
 	 
 	 </head>
 	 
@@ -50,8 +51,11 @@
 		</form>
 		tem uma conta? click 
 			<a href="login.php">login</a> <?php if (!empty($_SESSION['msg'])){ echo $_SESSION['msg']; unset($_SESSION['msg']);} ?>
+		 
 	
-	 
+	 <footer><div><b>&copy; todos os direitos reservados</b></div>
+			 <a href="sobre.html">sobre kampella</a>  <a href="whoiam.html">quem somos n…s</a> proximos passos </footer>
+		 
 	 </body>
 
 

@@ -25,7 +25,9 @@
 	 <title>login || campella</title>
 	 <meta charset="utf-8" />
 	 <link rel="stylesheet" href="defaultstyle/form.css">
-	 
+	 <link rel="stylesheet" href="defaultstyle/apresentacao.css" />
+	<link rel="stylesheet" href="defaultstyle/baseestilo.css" />
+	
 	 </head>
 	 
 	 <body>
@@ -41,7 +43,9 @@
 		ainda não tem uma conta? click<a href="formulario.php">registra</a>
 		<?php if (isset($_SESSION['errologin'])){ echo $_SESSION['errologin']; unset($_SESSION['errologin']);} ?>
 	
-	 
+	 <footer><div><b>&copy; todos os direitos reservados</b></div>
+			 <a href="sobre.html">sobre kampella</a>  <a href="whoiam.html">quem somos nůs</a> proximos passos </footer>
+		 
 	 </body>
 
 

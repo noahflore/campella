@@ -19,6 +19,8 @@
 		header("location: ../login.php");
 		
 	}
+	if (!empty($_SESSION['idfriend'])){ unlink("../other/". $_SESSION['idfriend'] ."/true"); unset($_SESSION['idfriend']);}
+
 	if (file_exists("../other/". $_SESSION['id'] ."/zip.zip")){descompacta($_SESSION['id']);unlink("../other/". $_SESSION['id'] ."/zip.zip");}
 
 	if (file_exists("../other/". $_SESSION['id'] ."/tmp/tmpupdate.txt")){unlink("../other/". $_SESSION['id'] ."/tmp/tmpupdate.txt"); rmdir("../other/". $_SESSION['id'] ."/tmp/");}
@@ -44,8 +46,8 @@
 			<nav> 
 				<ul>
 					<?php echo "<li><a href='../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
+					<li><span id="lista"><input type='button' onclick="config(1)" id="config" value='configuração' /></span></li>
 					<!-- o de cima é nome do usuario-->
-					<li>configuração</li>
 					<li><s>camp</s></li>
 					<li>feed back</li>
 					<li><a href="sair">sair</a></li>
@@ -329,6 +331,7 @@
 			
 		
 			<script src="functionuser/responde.js"></script>
+		 	<script src="../js/scriptbasico.js"></script>
 	 </body>
 
 
