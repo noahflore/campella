@@ -1,4 +1,5 @@
 <?php session_start(); require_once "function/objeto/Usuario.php";
+						require_once "function/conexao.php";
 	
 
 	if(!empty($_GET['login'])){
@@ -199,7 +200,7 @@
 							</div>
 					</form>
 							
-							<?php if ($_GET['true']==1){$user= new Usuario($nome,$sobrenome,$id); print_r($user);} ?>
+							<?php if ($_GET['true']==1){$user= new Usuario($nome,$sobrenome,$id,$cone); $user->configsql();print_r($user);} ?>
 					
 							<form method='post' action='configdefault.php?true=1'>
 											

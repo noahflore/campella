@@ -1,13 +1,14 @@
 <?php
 
 	require_once "Pessoa.php";
-	require_once "../function/conexao.php";
 	
 	
 	class  Usuario extends Pessoa{
 		
 		
-	public	function __construct ($nome,$sobrenome,$id){
+	private	$cone;
+		
+	public	function __construct ($nome,$sobrenome,$id,$cone){
 			
 			
 		
@@ -16,12 +17,13 @@
 				$this->setsobrenome($sobrenome);
 				$this->setid($id);
 				$this->setativo(1);
+				$this->cone= $cone;
 				
 				$veri= $cone->prepare("SELECT * FROM pessoa WHERE id = ? and nome = ? and sobrenome = ?");
 				$veri->bind_param("iss",$id,$nome,$sobrenome);
 				$veri->execute();
 				$veri->store_result();
-				$teste=$veri->affected_rows();
+				$teste=$veri->affected_rows;
 		
 				if ($teste>0){
 					
@@ -61,7 +63,7 @@
 				
 				$id=$_SESSION['id'];
 				
-				$change= $cone->prepare("UPDATE pessoa SET sexo = ?  AND mod = ?  WHERE pessoa . id = ? ");
+				$change= $this->cone->prepare("UPDATE pessoa SET sexo = ? , modi = ?  WHERE pessoa . id = ? ");
 				$change->bind_param("ssi",$genero,$data,$id);
 				$change->execute();
 				
@@ -73,7 +75,7 @@
 				
 				$id=$_SESSION['id'];
 				
-				$change= $cone->prepare("UPDATE pessoa SET sexo = ? WHERE pessoa . id = ? ");
+				$change= $this->cone->prepare("UPDATE pessoa SET sexo = ? , modi = ?  WHERE pessoa . id = ? ");
 				$change->bind_param("si",$genero,$id);
 				$change->execute();
 				
