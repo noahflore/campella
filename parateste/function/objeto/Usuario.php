@@ -66,7 +66,9 @@
 				$change= $this->cone->prepare("UPDATE pessoa SET sexo = ? , modi = ?  WHERE pessoa . id = ? ");
 				$change->bind_param("ssi",$genero,$data,$id);
 				$change->execute();
-				
+				if (file_exists("friend/". $this->getid() ."/3-f")){unlink("friend/". $this->getid() ."/3-f");}
+				if (file_exists("friend/". $this->getid() ."/3-m")){unlink("friend/". $this->getid() ."/3-m");}
+				copy("../other/exemplo/exemplo.txt","friend/". $this->getid() ."/3-$genero");
 				
 				
 				
@@ -74,11 +76,17 @@
 				
 				
 				$id=$_SESSION['id'];
+				$outro= $_POST['outro'];
 				
 				$change= $this->cone->prepare("UPDATE pessoa SET sexo = ? , modi = ?  WHERE pessoa . id = ? ");
-				$change->bind_param("si",$genero,$id);
+				$change->bind_param("ssi",$genero,$data,$id);
 				$change->execute();
-				
+				if (file_exists("friend/". $this->getid() ."/3-f")){unlink("friend/". $this->getid() ."/3-f");}
+				if (file_exists("friend/". $this->getid() ."/3-m")){unlink("friend/". $this->getid() ."/3-m");}
+				copy("../other/exemplo/exemplo.txt","friend/". $this->getid() ."/3-o");
+				$abrir=fopen("friend/". $this->getid() ."/3-o","w+");
+				fwrite($abrir,$outro);
+				fclose($abrir);
 				
 			}
 			
@@ -142,42 +150,42 @@
 		}
 		
 		
-	function getnome($nome){
+	function getnome(){
 			
 			return $this->nome;
 			
 			
 		}
 		
-	function getsobrenome($sobrenome){
+	function getsobrenome(){
 			
 			return $this->sobrenome;
 			
 			
 		}
 		
-	function getid($id){
+	function getid(){
 			
 			
 			return $this->id;
 			
 		}
 		
-	function getativo($ativo){
+	function getativo(){
 			
 			return $this->ativo;
 			
 			
 		}
 		
-	function getverificado($verificado){
+	function getverificado(){
 			
 			return $this->verificado;
 			
 			
 		}
 		
-	function gettipo($tipo){
+	function gettipo(){
 			
 			
 			return $this->tipo;
