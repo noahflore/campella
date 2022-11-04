@@ -50,7 +50,7 @@ session_start();
 			</header>
 			
 			<section class="grupo">
-						<span>
+						<span class="coluna">
 							<?php
 								$idcm=$_GET['idcmm'];
 								

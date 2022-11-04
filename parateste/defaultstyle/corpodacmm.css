@@ -4,17 +4,24 @@
 	
 }
 
-#foto{
-	height: 50px;
+.coluna{
+	
+	background-color:white;
+	
+	
 	
 	
 }
+
+
 
 .grupo{
 	border:solid;
 	display:flex;
 	margin-left: 250px;
 	margin-top: 200px;
+	width: 500px;
+	background-color: red;
 	
 }
 
@@ -22,6 +29,12 @@
 	list-style: none;
 	margin-left:0px;
 	padding-left: 0px;
+	
+	
+}
+
+#foto{
+	height: 50px;
 	
 	
 }
