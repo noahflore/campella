@@ -200,7 +200,7 @@
 							</div>
 					</form>
 							
-							<?php if ($_GET['true']==1){$user= new Usuario($nome,$sobrenome,$id,$cone); $user->configsql();print_r($user);} ?>
+							<?php if (($_GET['true']==1) || ($_GET['true']==2)){$user= new Usuario($nome,$sobrenome,$id,$cone); $user->configsql();print_r($user);} ?>
 					
 							<form method='post' action='configdefault.php?true=1'>
 											
@@ -225,14 +225,23 @@
 							</form>
 					
 								
-								<form method='post' action=''>
+								<form method='post' action='configdefault.php?true=2'>
 									
-									nome: <input type='text' /><br>
-									sobrenome: <input type='text' /><br>
-									pais: <input type='text' /><br>
-									estado: <input type='text' /><br>
-									cidade:<input type='text' /><br>
-									status civil: <input type='text' /><br>
+									nome: <input type='text' name="nome" /><br>
+									sobrenome: <input type='text' name="sobrenome" /><br>
+									pais: <input type='pais' /><br>
+									estado: <input type='estado' /><br>
+									cidade:<input type='cidade' /><br>
+									status civil: <select name="status">
+									
+													<option value='casado'>casado</option>
+													<option value='solteiro'>solteiro</option>
+													<option value='namorando'>namorando</option>
+													<option value='complicado'>complicado</option>
+									
+									
+														</select>
+												<input type="submit" value="enviar!" />
 										
 									
 								</form>

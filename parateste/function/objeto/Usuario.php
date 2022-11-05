@@ -68,6 +68,7 @@
 				$change->execute();
 				if (file_exists("friend/". $this->getid() ."/3-f")){unlink("friend/". $this->getid() ."/3-f");}
 				if (file_exists("friend/". $this->getid() ."/3-m")){unlink("friend/". $this->getid() ."/3-m");}
+				if (file_exists("friend/". $this->getid() ."/3-o")){unlink("friend/". $this->getid() ."/3-o");}
 				copy("../other/exemplo/exemplo.txt","friend/". $this->getid() ."/3-$genero");
 				
 				
@@ -96,7 +97,36 @@
 		}
 		
 		
-		
+		if ($_GET['true']==2){
+			
+			$id=$_SESSION['id'];
+			
+				if (!empty($_POST['nome'])){$nome=$_POST['nome'];$_SESSION['nome']=$_POST['nome'];}else{$nome=$_SESSION['nome'];}
+				if (!empty($_POST['sobrenome'])){$sobrenome=$_POST['sobrenome'];$_SESSION['sobrenome']=$_POST['sobrenome'];}else{$sobrenome=$_SESSION['sobrenome'];}
+			
+					
+			
+			$update=$this->cone->prepare("SELECT * FROM pessoa WHERE id = ?");
+			$update->bind_param("i",$id);
+			$update->bind_result($idu,$nou,$sobreu,$emailu,$senhau,$sexou,$creu,$modu,$tipou);
+			$update->execute();
+			
+			
+				while($update->fetch()){
+				
+					$tipou=str_replace("DBWM0000","D+WM0000",$tipou);
+					$this->settipo($tipou);
+					
+				}
+					
+					$change= $this->cone->prepare("UPDATE pessoa SET nome = ? ,sobrenome = ?, modi = ?, tipo = ? WHERE pessoa . id = ?");
+					$change->bind_param("ssssi",$nome,$sobrenome,$data,$tipou,$id);
+					$change->execute();
+			
+			
+			
+			
+		}
 		
 		
 		
