@@ -35,3 +35,14 @@
 		
 		
 	}
+
+
+		let resa= document.getElementById("resa")
+		let mais= document.createElement("button")
+		
+		mais.setAttribute("value","mais")
+		mais.innerText= "mais^"
+		resa.appendChild(mais)
+		
+		
+	

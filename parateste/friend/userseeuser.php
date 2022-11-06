@@ -29,7 +29,7 @@
 	$dia= date("d");
 
 	copy("../other/exemplo/exemplo.txt","../other/". $idfriend ."/true");
-	if (!file_exists("../other/". $idfriend ."/open")){descompacta($idfriend);copy("../other/exemplo/exemplo.txt","../other/". $idfriend ."/open");}
+	if ((!file_exists("../other/". $idfriend ."/open")) and (file_exists("../other/". $idfriend ."/zip.zip"))){descompacta($idfriend);copy("../other/exemplo/exemplo.txt","../other/". $idfriend ."/open");}
 
 	if (file_exists("../other/". $idfriend ."/amigo/block/". $id .".txt")){
 		
@@ -148,7 +148,7 @@
 						?>
 						<li><div><a href="userpage/depoiuser.php">depoimento</a><img src="ico/depoi.png" alt="depoi_png" /></div></li>
 						<li><div>valor<img src="ico/logocampella.png" alt="valor_png" /></div></li>
-						<?php if (!file_exists("../other/". $idfriend ."/amigo/". $id .".txt")){echo "<li><div id='res'><button id='add' onclick='amigo($idfriend)'>mais^</button></div></li>";}
+						<?php if (!file_exists("../other/". $idfriend ."/amigo/". $id .".txt")){echo "<li><div id='res'><button id='add' onclick='amigo($idfriend)'>mais^</button></div></li>";}else{echo "<div id='resa'></div>";}
 							  if (!empty($_SESSION['add'])){ echo $_SESSION['add']; unset($_SESSION['add']);}?>
 						<!-- use o php no valor ai cima-->
 					</ul>
@@ -184,7 +184,13 @@
 									//print_r($info);
 								}
 								
-								if ($sexof=="f"){ $se="feminimo";}else{$se="masculino";}
+								if ($sexof=="o"){
+									
+									$abrir=fopen("../friend/". $idfriend ."/3-o","r+");
+									$se=fgets($abrir);
+									fclose($abrir);
+									
+								}elseif ($sexof=="f"){ $se="feminimo";}else{$se="masculino";}
 													   
 							echo $nomef ."  ". $sobrenomef ."  do sexo: ". $se;
 								
@@ -224,7 +230,16 @@
 					
 					<div class="amigos">
 						<?php
-						
+						// essa parte esta desativada
+				
+						?>
+					
+					</div>
+					
+				</div>
+				
+				<?php
+				
 							
 							if (is_dir("../other/". $idfriend ."/amigo/")){
 								
@@ -295,11 +310,11 @@
 							}
 						
 						
-						?>
-					
-					</div>
-					
-				</div>
+				
+				
+				
+				
+				?>
 				
 			</section>
 			<!--lateral dir-->
