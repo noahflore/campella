@@ -140,6 +140,22 @@
 						<b>sorte do dia</b>
 					
 					</div>
+					
+					<div>
+						
+						<strong>emblemas: </strong>
+						<?php
+						
+						
+						
+						
+						
+						?>
+						
+						
+						
+					</div>
+					
 					<div>
 						<b>visitantes: </b><?php if (file_exists("other/". $id ."/priva/p2")){echo "você desativo visitas clicar em configuração para ativar";} ?>
 							<?php

@@ -32,7 +32,7 @@
 
 	 <head>
 	 
-	 <title>scrapbook-user || campella</title>
+	 <title><?php echo "recados d ". $_SESSION['nome']; ?> || campella</title>
 	 <meta charset="utf-8" />
 	 <link rel="stylesheet" href="../defaultstyle/baseestilo.css" />
 	 <link rel="stylesheet" href="../defaultstyle/userpage.css" />
@@ -46,7 +46,7 @@
 			<nav> 
 				<ul>
 					<?php echo "<li><a href='../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
-					<li><span id="lista"><input type='button' onclick="config(1)" id="config" value='configuração' /></span></li>
+					<li><span id="lista"><input type='button' onclick="config(3)" id="config" value='configuração' /></span></li>
 					<!-- o de cima é nome do usuario-->
 					<li><s>camp</s></li>
 					<li>feed back</li>

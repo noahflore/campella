@@ -23,7 +23,14 @@
 					
 			}
 			
-		}
+		}/*else if (localstorage.num==3){
+			
+			let caixa= document.getElementsByClassName("caixa")[0]
+			caixa.style.backgroundColor= localStorage.caixa
+			
+			
+		}*/
+	//	alert(localstorage.num)
 		
 		let cabeca= document.getElementsByClassName("cabeça")[0]
 			
@@ -78,16 +85,17 @@
 			
 			
 		
-		if (num==1){
 			
-			localStorage.num= 1
+			localStorage.num= num
+			
+			if (num==3){
+				
+				localStorage.caixa ="#000000"	
+				
+				
+			}
 			
 			
-		}else if (num==2){
-			
-			localStorage.num= 2
-			
-		}
 		
 		
 	}
