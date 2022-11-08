@@ -1,15 +1,25 @@
 <?php
 
 	require_once "Pessoa.php";
+	// o de baixo tbm é para teste e dever ser apagado
+	require_once "../conexao.php";
 	
 	
 	class  Usuario extends Pessoa{
 		
 		
 	private	$cone;
+	private $data;
 		
 	public	function __construct ($nome,$sobrenome,$id,$cone){
 			
+			$ano= date('Y');
+			$mes= date('m');
+			$dia= date('d');
+			$hora= date('h');
+			$minuto= date('i');
+
+			$this->data= "$ano-$mes-$dia $hora:$dia:00";
 			
 		
 				
@@ -21,9 +31,17 @@
 				
 				$veri= $cone->prepare("SELECT * FROM pessoa WHERE id = ? and nome = ? and sobrenome = ?");
 				$veri->bind_param("iss",$id,$nome,$sobrenome);
+				$veri->bind_result($idu,$nomeu,$sobrenomeu,$emailu,$senhau,$sexou,$creu,$modiu,$diau,$tipou);
 				$veri->execute();
 				$veri->store_result();
 				$teste=$veri->affected_rows;
+		
+			while ($veri->fetch()){
+				
+				
+				$this->settipo($tipou);
+				
+			}
 		
 				if ($teste>0){
 					
@@ -46,13 +64,7 @@
 	function configsql(){
 		
 		
-		$ano= date('Y');
-		$mes= date('m');
-		$dia= date('d');
-		$hora= date('h');
-		$minuto= date('i');
-
-		$data= "$ano-$mes-$dia $hora:$dia:00";
+		
 
 
 		if (!empty($_POST['genero'])){
@@ -64,7 +76,7 @@
 				$id=$_SESSION['id'];
 				
 				$change= $this->cone->prepare("UPDATE pessoa SET sexo = ? , modi = ?  WHERE pessoa . id = ? ");
-				$change->bind_param("ssi",$genero,$data,$id);
+				$change->bind_param("ssi",$genero,$this->data,$id);
 				$change->execute();
 				if (file_exists("friend/". $this->getid() ."/3-f")){unlink("friend/". $this->getid() ."/3-f");}
 				if (file_exists("friend/". $this->getid() ."/3-m")){unlink("friend/". $this->getid() ."/3-m");}
@@ -80,7 +92,7 @@
 				$outro= $_POST['outro'];
 				
 				$change= $this->cone->prepare("UPDATE pessoa SET sexo = ? , modi = ?  WHERE pessoa . id = ? ");
-				$change->bind_param("ssi",$genero,$data,$id);
+				$change->bind_param("ssi",$genero,$this->data,$id);
 				$change->execute();
 				if (file_exists("friend/". $this->getid() ."/3-f")){unlink("friend/". $this->getid() ."/3-f");}
 				if (file_exists("friend/". $this->getid() ."/3-m")){unlink("friend/". $this->getid() ."/3-m");}
@@ -108,7 +120,7 @@
 			
 			$update=$this->cone->prepare("SELECT * FROM pessoa WHERE id = ?");
 			$update->bind_param("i",$id);
-			$update->bind_result($idu,$nou,$sobreu,$emailu,$senhau,$sexou,$creu,$modu,$tipou);
+			$update->bind_result($idu,$nou,$sobreu,$emailu,$senhau,$sexou,$creu,$modu,$diau,$tipou);
 			$update->execute();
 			
 			
@@ -132,6 +144,35 @@
 		
 		
 	}
+		
+		
+	function bonusday(){
+		
+		
+		while ($veri->fetch()){
+			
+			
+			
+			if ($dia==$diau){
+				
+				$bonus=$this->cone->prepare("INSERT INTO  kants VALUE (?,?,?)");
+				$bonus->bind_param("iis",$this->getid(),1000,"tu");
+				$bonus->execute();
+				
+				
+				
+				
+			}
+			
+			
+			
+		}
+			
+		
+		
+		
+		
+	}//em desevolvimento
 			
 	function setnome($nome){
 			
@@ -231,7 +272,11 @@
 //a linha de baixo apenas teste dever apagada na versÃ£o final
 		
 		
-		
+		$userteste= new Usuario("noah","flores",1,$cone);
+
+		print_r($userteste);
+
+		$userteste->bonusday();
 		
 		//print_r($p1);
 
