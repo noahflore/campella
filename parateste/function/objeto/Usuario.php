@@ -148,18 +148,31 @@
 		
 	function bonusday(){
 		
+		$dia= date("d");
+		$id=$this->getid();
 		
-		while ($veri->fetch()){
+		$sql= $this->cone->prepare("SELECT * FROM pessoa WHERE id = ? ");
+		$sql->bind_param("i",$id);
+		$sql->bind_result($idu,$nomeu,$sobrenomeu,$emaiu,$senhau,$sexou,$creu,$modiu,$diau,$tipou);
+		$sql->execute();
+		
+		while ($sql->fetch()){
 			
 			
 			
-			if ($dia==$diau){
+			if ($dia!=$diau){
+				
+				unset($sql);
 				
 				$bonus=$this->cone->prepare("INSERT INTO  kants VALUE (?,?,?)");
-				$bonus->bind_param("iis",$this->getid(),1000,"tu");
+				$bonus->bind_param("iis",$id,$id,$id);  				// !!!!!!   lembra de modifica essa linha !!!!!!!
 				$bonus->execute();
 				
+				unset($bonus);
 				
+				$update= $this->cone->prepare("UPDATE pessoa SET dia = ? WHERE pessoa . id = ?");
+				$update->bind_param("ii",$dia,$id);
+				$update->execute();
 				
 				
 			}
