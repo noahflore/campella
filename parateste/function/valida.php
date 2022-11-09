@@ -13,8 +13,8 @@
 		
 		$consulta=$cone->prepare("select  * from pessoa where email = ? limit 1");
 		$consulta->bind_param("s",$email);
+		$consulta->bind_result($id,$nome,$sobrenome,$email,$teste,$sexo,$cre,$mod,$diau,$tipo);
 		$consulta->execute();
-		$consulta->bind_result($id,$nome,$sobrenome,$email,$teste,$sexo,$cre,$mod,$tipo);
 		
 		
 			if ($consulta->fetch()){
@@ -25,6 +25,14 @@
 				$_SESSION['id']=$id;
 				$_SESSION['nome']=$nome;
 				$_SESSION['sobrenome']=$sobrenome;
+					
+					unset($consulta);
+					
+					$dia= date("d");
+					
+					$update= $cone->prepare("UPDATE pessoa SET dia = ? WHERE pessoa . id = ?");
+					$update->bind_param("ii",$dia,$id);
+					$update->execute();
 					
 					if ($id==1){
 						
