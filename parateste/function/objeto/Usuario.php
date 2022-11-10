@@ -163,9 +163,23 @@
 			if ($dia!=$diau){
 				
 				unset($sql);
+				$mil=1000;
 				
-				$bonus=$this->cone->prepare("INSERT INTO  kants VALUE (?,?,?)");
-				$bonus->bind_param("iis",$id,$id,$id);  				// !!!!!!   lembra de modifica essa linha !!!!!!!
+				$bonus= $this->cone->prepare("SELECT * FROM kants WHERE id = ?");
+				$bonus->bind_param("i",$id);
+				$bonus->bind_result($ida,$qua,$che);
+				$bonus->execute();
+				
+				while($bonus->fetch()){
+					
+					$mil+=$qua;
+					
+				}
+				
+				unset($bonus);
+				
+				$bonus=$this->cone->prepare("UPDATE kants SET quantidade = ? WHERE kants . id = ?");
+				$bonus->bind_param("ii",$mil,$id);  				
 				$bonus->execute();
 				
 				unset($bonus);
