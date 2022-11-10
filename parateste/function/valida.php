@@ -33,6 +33,30 @@
 					$update= $cone->prepare("UPDATE pessoa SET dia = ? WHERE pessoa . id = ?");
 					$update->bind_param("ii",$dia,$id);
 					$update->execute();
+					unset($update);
+					
+					$update= $cone->prepare("SELECT * FROM kants WHERE id= ?");
+					$update->bind_param("i",$id);
+					$update->execute();
+					$update->store_result();
+					
+					$teste= $update->affected_rows;
+					
+					if ($teste==0){
+						
+						$zero=0;
+						$pin=random_bytes(8);
+						$pin= password_hash($pin,PASSWORD_DEFAULT);
+						$_SESSION['pin']= $pin;
+						
+						unset($update);
+						
+						$update= $cone->prepare("INSERT INTO kants VALUE (?,?,?)");
+						$update->bind_param("iis",$id,$zero,$pin);
+						$update->execute();
+						
+						
+					}
 					
 					if ($id==1){
 						
