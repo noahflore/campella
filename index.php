@@ -14,11 +14,11 @@
  ?>
 <!docktype html>
 
-<html>
+<html lang="PT-BR">
 
 	 <head>
 	 
-	 <title>Campella</title>
+	 <title>kampella</title>
 	 <meta charset="utf-8" />
 	<link rel="stylesheet" href="defaultstyle/baseestilo.css" />
 	<link rel="stylesheet" href="defaultstyle/apresentacao.css" />
@@ -34,7 +34,6 @@
 		<div>
 			<a href="formulario.html">registra</a>
 			<a href="login.html">login</a>
-			<a href="parateste/">teste</a>
 			<!-- o link parateste apenas para teste -->
 	
 		</div>
@@ -42,7 +41,8 @@
 		 
 		 
 		 
-		 <footer>&copy; <a href="sobre.html">sobre kampella</a>  quem somos nós proximos passos </footer>
+		 <footer><div><b>&copy; todos os direitos reservados</b></div>
+			 <a href="sobre.html">sobre kampella</a>  <a href="whoiam.html">quem somos nós</a> proximos passos </footer>
 		 
 		 
 	 </body>

@@ -1,0 +1,38 @@
+footer{
+	position:fixed;
+	bottom:0%;
+	background-color: #2D3842;
+	display:flex;
+	justify-content: space-between;
+    width: 100%;
+	height: 40px;
+	
+	
+	
+}
+
+
+
+@media(max-width:980px){
+	
+	p{
+		
+		font-size: 40px;	
+		
+		
+		
+		
+		
+	}
+	
+	div{
+		
+		font-size: 40px;	
+		
+		
+	}
+	
+	
+	
+	
+}
