@@ -22,6 +22,10 @@
 		
 	}
 
+
+	$user= new Usuario($_SESSION['id'],$_SESSION['nome'],$_SESSION['sobrenome'],$cone);
+
+
 	if (!empty($_SESSION['idfriend'])){ unlink("other/". $_SESSION['idfriend'] ."/true"); unset($_SESSION['idfriend']);}
 
 	if (!file_exists("other/". $_SESSION['id'] ."/true")){compacta($_SESSION['id']); if (file_exists("other/". $_SESSION['id'] ."/open")){unlink("other/". $_SESSION['id'] ."/open");}}
