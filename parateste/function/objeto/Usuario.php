@@ -200,6 +200,29 @@
 		
 		
 	}//em desevolvimento
+		
+		
+	function mostrar(){
+		
+		$id= $this->getid();
+		
+		$exibir= $this->cone->prepare("SELECT * FROM kants WHERE id = ?");
+		$exibir->bind_param("i",$id);
+		$exibir->execute();
+		$exibir->bind_result($idu,$quau,$cheu);
+		
+		while ($exibir->fetch()){
+			
+			return $quau;
+			
+			
+		}
+		
+		
+		
+		
+		
+	}
 			
 	function setnome($nome){
 			
