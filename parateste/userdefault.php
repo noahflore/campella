@@ -1,6 +1,8 @@
 <?php session_start();
 
 	require_once "compactar.php";
+	require_once "function/conexao.php";
+	require_once "function/objeto/Usuario.php";
 	
 	if(!empty($_GET['login'])){
 		$_SESSION['login']="off";
@@ -119,7 +121,12 @@
 						
 						
 						?>
-						<li><div>valor<img src="ico/logocampella.png" alt="valor_png" /></div></li>
+						<?php
+						
+							echo "<li><div>valor<img src='ico/logocampella.png' alt='valor_png' /></div></li>";
+						
+						
+						?>
 						<!-- use o php no valor ai cima-->
 					</ul>
 				
