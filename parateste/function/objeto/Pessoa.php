@@ -24,17 +24,17 @@
 	abstract function settipo($tipo);
 		
 		
-	abstract function getnome($nome);
+	abstract function getnome();
 		
-	abstract function getsobrenome($sobrenome);
+	abstract function getsobrenome();
 		
-	abstract function getid($id);
+	abstract function getid();
 		
-	abstract function getativo($ativo);
+	abstract function getativo();
 		
-	abstract function getverificado($verificado);
+	abstract function getverificado();
 		
-	abstract function gettipo($tipo);
+	abstract function gettipo();
 		
 		
 		

@@ -23,13 +23,7 @@
 					
 			}
 			
-		}/*else if (localstorage.num==3){
-			
-			let caixa= document.getElementsByClassName("caixa")[0]
-			caixa.style.backgroundColor= localStorage.caixa
-			
-			
-		}*/
+		}
 	//	alert(localstorage.num)
 		
 		let cabeca= document.getElementsByClassName("cabeça")[0]
@@ -60,7 +54,7 @@
 			lista.setAttribute('id','voltar')
 			opcao.setAttribute("style","position: fixed; display: flex; flex-direction: column;")
 			op[0].setAttribute('value','modo dark')
-			op[0].setAttribute('onclick','preto()')
+			if (num==3){op[0].setAttribute('onclick','preto(1)');num=1}else{op[0].setAttribute('onclick','preto()')}
 			op[0].innerText= "modo dark"
 			op[1].setAttribute("value","config")
 			op[1].setAttribute("onclick","perfil()")
@@ -85,15 +79,12 @@
 			
 			
 		
+				
+				localStorage.num= num
+				
 			
-			localStorage.num= num
 			
-			if (num==3){
-				
-				localStorage.caixa ="#000000"	
-				
-				
-			}
+			
 			
 			
 		
@@ -180,10 +171,10 @@
 		
 	}
 	
-	function preto(){
+	function preto(i=0){
 		
 			localStorage.bloco= "#9E1B11"
-			localStorage.caixa ="#BF9E4B"
+			if (i==0){localStorage.caixa ="#BF9E4B"}else{localStorage.caixa ="#995949"}
 			localStorage.fundo= "#000033"
 			localStorage.cabeça= "#2F4BA1"
 			location= location

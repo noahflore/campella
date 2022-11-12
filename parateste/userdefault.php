@@ -23,7 +23,7 @@
 	}
 
 
-	$user= new Usuario($_SESSION['id'],$_SESSION['nome'],$_SESSION['sobrenome'],$cone);
+	$user= new Usuario($_SESSION['nome'],$_SESSION['sobrenome'],$_SESSION['id'],$cone);
 
 
 	if (!empty($_SESSION['idfriend'])){ unlink("other/". $_SESSION['idfriend'] ."/true"); unset($_SESSION['idfriend']);}
@@ -127,7 +127,35 @@
 						?>
 						<?php
 						
-							echo "<li><div>valor<img src='ico/logocampella.png' alt='valor_png' /></div></li>";
+							$valor=$user->mostrar();
+							$user->bonusday();
+						
+						
+							if (!empty($_SESSION['pin'])){
+								
+								echo "<span id='pop' style='position:fixed; background-color:white;top:50%;'>essa é sua senha guarde em um local seguro<hr><br>
+								<strong>senha:</strong> ". $_SESSION['pin'] ."</span>";
+								unset($_SESSION['pin']);
+								
+								
+								
+							}
+						//	print_r($user);
+						
+							if ($valor>$_SESSION['valor']){
+								
+								$_SESSION['valor']=$valor;
+						
+								echo "<li><div style='font-size:20px;color:green'>+". $_SESSION['valor'] ."<img src='ico/logocampella.png' alt='valor_png' /></div></li>";
+							//	unset($_SESSION['valor']);
+								
+							}else {
+								
+								
+								echo "<li><div>". $valor ."<img src='ico/logocampella.png' alt='valor_png' /></div></li>";
+								
+								
+							}
 						
 						
 						?>
