@@ -45,7 +45,7 @@
 			<img src="../ico/logocampella.png" alt="logo do site" />
 			<nav> 
 				<ul>
-					<?php echo "<li><a onclick='preto()' href='../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
+					<?php echo "<li><a id='click' href='../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
 					<li><span id="lista"><input type='button' onclick="config(3)" id="config" value='configuração' /></span></li>
 					<!-- o de cima é nome do usuario-->
 					<li><s>camp</s></li>

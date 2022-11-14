@@ -33,6 +33,26 @@
 		
 		
 		}
+
+			let clicar= document.getElementById('click')
+			
+			var pp= localStorage.clase
+			
+			if (pp== "p"){clicar.setAttribute('class','pp')}
+			
+			if (clicar.hasAttribute('class')){
+			
+				clicar.setAttribute('onclick','preto()')
+				
+				
+			}else{
+				
+				let ben= document.getElementById('ben')
+					ben.removeAttribute('oncick')
+				
+				
+				
+			}
 	
 	function config(num){
 		
@@ -173,6 +193,8 @@
 	
 	function preto(i=0){
 		
+			
+			localStorage.clase= "p"
 			localStorage.bloco= "#9E1B11"
 			if (i==0){localStorage.caixa ="#BF9E4B"}else{localStorage.caixa ="#995949"}
 			localStorage.fundo= "#000033"
@@ -184,6 +206,7 @@
 	
 	function original(){
 		
+		localStorage.clase= 0
 		localStorage.bloco= "#DD2519"
 		localStorage.caixa ="#FFD463"
 		localStorage.fundo =""
@@ -199,3 +222,5 @@
 		location.href= "configdefault.php"
 		
 	}
+
+	
