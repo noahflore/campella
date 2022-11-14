@@ -223,6 +223,41 @@
 		
 		
 	}
+		
+		
+		
+	function comprar($valor,$pin){
+		
+		$id= $this->getid();
+		
+		$exibir= $this->cone->prepare("SELECT * FROM kants WHERE id = ?");
+		$exibir->bind_param("i",$id);
+		$exibir->bind_result($idu,$quau,$check);
+		$exibir->execute();
+		
+		while($exibir->fetch()){
+			
+			$true= password_verify($pin,$check);
+			
+			if (($quau>0) and ($quau>=$valor) and ($true)){
+				
+				unset($exibir);
+				
+				$com=$this->cone->prepare("UPDATE kants SET quantidade = ? WHERE kants . id = ?");
+				$com->bind_param("ii",$valor,$id);
+				$com->execute();
+				
+				
+			}
+			
+			
+		}
+		
+		
+		
+		
+		
+	}
 			
 	function setnome($nome){
 			
