@@ -4,4 +4,6 @@
 	
 	echo "esse é o seu codigo de convite <b>$recebe</b> receba valor de camp";
 
+	//o arquivo job.php precisa se revisado antes de mexer aqui
+
 ?>

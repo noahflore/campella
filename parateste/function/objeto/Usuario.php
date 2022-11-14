@@ -152,8 +152,8 @@
 		
 		$sql= $this->cone->prepare("SELECT * FROM pessoa WHERE id = ? ");
 		$sql->bind_param("i",$id);
-		$sql->bind_result($idu,$nomeu,$sobrenomeu,$emaiu,$senhau,$sexou,$creu,$modiu,$diau,$tipou);
 		$sql->execute();
+		$sql->bind_result($idu,$nomeu,$sobrenomeu,$emaiu,$senhau,$sexou,$creu,$modiu,$diau,$tipou);
 		
 		while ($sql->fetch()){
 			

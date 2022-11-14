@@ -147,7 +147,7 @@
 								$_SESSION['valor']=$valor;
 						
 								echo "<li><div style='font-size:20px;color:green'>+". $_SESSION['valor'] ."<img src='ico/logocampella.png' alt='valor_png' /></div></li>";
-							//	unset($_SESSION['valor']);
+								unset($_SESSION['valor']);
 								
 							}else {
 								
