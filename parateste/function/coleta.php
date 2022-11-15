@@ -12,6 +12,7 @@ session_start();
 		$email=$_POST['email'];
 		$senha=$_POST['senha'];
 		$repita=$_POST['repita'];
+		$chavek=(!empty($_POST['chave']))? $_POST['chave']: 0;
 		$sexo="f";
 		$tipo="DBWM0000";
 		$ano= date("Y");
@@ -25,7 +26,7 @@ session_start();
 		
 			if ($senha!=$repita){
 				$_SESSION['msg']="erro senha e repitir a senha estão incorreto ,tente usar outra senha";
-				header("location: ../formulario.php");
+				echo "<script>location.href=history.back()</script>";
 				
 			}else{
 				
@@ -33,7 +34,22 @@ session_start();
 				
 				
 			}
-		
+			
+			for ($i=1;$i<=1000;$i++){
+				
+				if (file_exists("../other/". $i ."/convida/". $chave)){
+					
+					$abrir=fopen("../other/". $i ."/convida/". $chave,"r+");
+					$ler=fgets($abrir);
+					fclose($abrir);
+					$abrir=fopen("../other/". $i ."/convida/". $chave,"w+");
+					fwrite($abrir,$ler-1);
+					fclose($abrir);
+					
+				}
+				
+				
+			}//esse for pode se usado tbm para dir, indir e especial
 		
 		
 		

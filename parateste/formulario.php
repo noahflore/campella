@@ -43,7 +43,8 @@
 			<label for="senha">senha</label>
 			<input type="password" id="senha" name="senha"  required />
 			<label for="repita">repita a senha</label>
-			<input type="password" id="repita" name="repita"  required />
+			<input type="password" id="repita" name="repita"  required /><br>
+coloca sua chave: <input type="text" name="chave" placeholder="esse campo Ã© opcional" />
 			<input type="submit" value="enviar" />
 		
 		
@@ -54,7 +55,7 @@
 		 
 	
 	 <footer><div><b>&copy; todos os direitos reservados</b></div>
-			 <a href="sobre.html">sobre kampella</a>  <a href="whoiam.html">quem somos n…s</a> proximos passos </footer>
+			 <a href="sobre.html">sobre kampella</a>  <a href="whoiam.html">quem somos nï¿½s</a> proximos passos </footer>
 		 
 	 </body>
 

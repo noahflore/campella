@@ -1,3 +1,13 @@
+<?php session_start(); 
+
+	$id=$_SESSION['id'];
+
+
+
+
+
+?>
+
 <!docktype html>
 
 <html>
@@ -44,7 +54,7 @@
 							<li><s>validação</s></li>
 							<li>monitor</li>
 							<!-- o de cima vai analisa denuncia e tals-->
-							<li><a href="function/gera.php?id=userid">convida um amigo/a</a></li>
+						<?php	echo "<li><a href='function/gera.php?id=$id'>convida um amigo/a</a></li>"; ?>
 						
 						
 						</ul>
