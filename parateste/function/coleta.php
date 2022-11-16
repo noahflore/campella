@@ -41,10 +41,22 @@ session_start();
 					
 					$abrir=fopen("../other/". $i ."/convida/". $chave,"r+");
 					$ler=fgets($abrir);
-					fclose($abrir);
-					$abrir=fopen("../other/". $i ."/convida/". $chave,"w+");
-					fwrite($abrir,$ler-1);
-					fclose($abrir);
+					
+					if($ler==0){
+						
+						unlink("../other/". $i ."/convida/". $chave);	
+						rmdir("../other/". $i ."/convida/");
+						fclose($abrir);
+						
+					}else{
+						
+						fclose($abrir);
+						$abrir=fopen("../other/". $i ."/convida/". $chave,"w+");
+						fwrite($abrir,$ler-1);
+						fclose($abrir);
+						$tipo="SBWM0000";
+						
+					}
 					
 				}
 				
