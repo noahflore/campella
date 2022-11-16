@@ -257,7 +257,9 @@
 		
 		
 		
-	}
+	}//precisa se testado
+		
+	
 			
 	function setnome($nome){
 			
@@ -354,7 +356,26 @@
 	}
 
 
+		
+		function boasvinda($valor){
+
+
+			$depo=$cone->prepare("INSERT INTO kants VALUE (?,?,?)");
+			$depo->bind_param("iis",$id,$valor,$pin);
+			$depo->execute();
+
+
+
+		}
+
+
 //a linha de baixo apenas teste dever apagada na versão final
+
+
+
+			
+		
+		
 		
 		
 		$userteste= new Usuario("noah","flores",1,$cone);
