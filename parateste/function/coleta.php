@@ -37,21 +37,21 @@ session_start();
 			
 			for ($i=1;$i<=1000;$i++){
 				
-				if (file_exists("../other/". $i ."/convida/". $chave)){
+				if (file_exists("../other/". $i ."/convida/". $chavek)){
 					
-					$abrir=fopen("../other/". $i ."/convida/". $chave,"r+");
+					$abrir=fopen("../other/". $i ."/convida/". $chavek,"r+");
 					$ler=fgets($abrir);
 					
 					if($ler==0){
 						
-						unlink("../other/". $i ."/convida/". $chave);	
+						unlink("../other/". $i ."/convida/". $chavek);	
 						rmdir("../other/". $i ."/convida/");
 						fclose($abrir);
 						
 					}else{
 						
 						fclose($abrir);
-						$abrir=fopen("../other/". $i ."/convida/". $chave,"w+");
+						$abrir=fopen("../other/". $i ."/convida/". $chavek,"w+");
 						fwrite($abrir,$ler-1);
 						fclose($abrir);
 						$tipo="SBWM0000";
@@ -65,8 +65,8 @@ session_start();
 		
 		
 		
-		$cada=$cone->prepare("insert into pessoa values (?,?,?,?,?,?,?,?,?)");
-		$cada->bind_param("issssssss",$id,$nome,$sobrenome,$email,$senha,$sexo,$cre,$mod,$tipo);
+		$cada=$cone->prepare("insert into pessoa values (?,?,?,?,?,?,?,?,?,?)");
+		$cada->bind_param("isssssssss",$id,$nome,$sobrenome,$email,$senha,$sexo,$cre,$mod,$dia,$tipo);
 		$cada->execute();
 		
 		$cada->store_result();

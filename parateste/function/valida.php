@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	require_once "conexao.php";
+	require_once "objeto/Usuario.php";
 	
 	
 	
@@ -25,6 +26,13 @@
 				$_SESSION['id']=$id;
 				$_SESSION['nome']=$nome;
 				$_SESSION['sobrenome']=$sobrenome;
+					
+					if ($tipo=="SBWM0000"){
+						
+						
+						boasvinda($valor);
+						
+					}
 					
 					unset($consulta);
 					
