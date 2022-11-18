@@ -2,7 +2,7 @@
 
 	require_once "Pessoa.php";
 	// o de baixo tbm é para teste e dever ser apagado
-	require_once "../conexao.php";
+//	require_once "../conexao.php";
 	
 	
 	class  Usuario extends Pessoa{
@@ -357,8 +357,8 @@
 
 
 		
-		function boasvinda($valor){
-
+		function boasvinda($valor,$pin,$id,$cone){
+				$valor=7000;
 
 			$depo=$cone->prepare("INSERT INTO kants VALUE (?,?,?)");
 			$depo->bind_param("iis",$id,$valor,$pin);
@@ -377,13 +377,15 @@
 		
 		
 		
-		
+	/*	
 		$userteste= new Usuario("noah","flores",1,$cone);
 
 		print_r($userteste);
 
 		$userteste->bonusday();
 		
+		
+		*/
 		//print_r($p1);
 
 

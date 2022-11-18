@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	require_once "conexao.php";
+	require_once "objeto/Usuario.php";
 	
 	
 	
@@ -13,8 +14,8 @@
 		
 		$consulta=$cone->prepare("select  * from pessoa where email = ? limit 1");
 		$consulta->bind_param("s",$email);
+		$consulta->bind_result($id,$nome,$sobrenome,$email,$teste,$sexo,$cre,$mod,$diau,$tipo);
 		$consulta->execute();
-		$consulta->bind_result($id,$nome,$sobrenome,$email,$teste,$sexo,$cre,$mod,$tipo);
 		
 		
 			if ($consulta->fetch()){
@@ -25,6 +26,62 @@
 				$_SESSION['id']=$id;
 				$_SESSION['nome']=$nome;
 				$_SESSION['sobrenome']=$sobrenome;
+					
+					if ($tipo=="SBWM0000"){
+						
+						unset($consulta);
+						
+						$pin=random_bytes(8);
+						$pin= password_hash($pin,PASSWORD_DEFAULT);
+						$user= new Usuario($nome,$sobrenome,$id,$cone);// esse arquivo tem que levar ao master
+						
+						$update= $cone->prepare("SELECT * FROM kants WHERE id= ?");
+						$update->bind_param("i",$id);
+						$update->execute();
+						$update->store_result();
+
+						$teste= $update->affected_rows;
+					
+							if ($teste==0){
+								$valor=7001;
+								boasvinda($valor,$pin,$id,$cone);
+								
+							}
+						unset($update);
+						
+					}
+					
+					if (!empty($consulta)){unset($consulta);}
+					
+					$dia= date("d");
+					
+					$update= $cone->prepare("UPDATE pessoa SET dia = ? WHERE pessoa . id = ?");
+					$update->bind_param("ii",$dia,$id);
+					$update->execute();
+					unset($update);
+					
+					$update= $cone->prepare("SELECT * FROM kants WHERE id= ?");
+					$update->bind_param("i",$id);
+					$update->execute();
+					$update->store_result();
+					
+					$teste= $update->affected_rows;
+					
+					if ($teste==0){
+						
+						$zero=0;
+						$pin=random_bytes(8);
+						$pin= password_hash($pin,PASSWORD_DEFAULT);
+						$_SESSION['pin']= $pin;
+						
+						unset($update);
+						
+						$update= $cone->prepare("INSERT INTO kants VALUE (?,?,?)");
+						$update->bind_param("iis",$id,$zero,$pin);
+						$update->execute();
+						
+						
+					}
 					
 					if ($id==1){
 						

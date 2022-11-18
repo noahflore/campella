@@ -37,8 +37,8 @@ session_start();
 		
 		
 		
-		$cada=$cone->prepare("insert into pessoa values (?,?,?,?,?,?,?,?,?)");
-		$cada->bind_param("issssssss",$id,$nome,$sobrenome,$email,$senha,$sexo,$cre,$mod,$tipo);
+		$cada=$cone->prepare("insert into pessoa values (?,?,?,?,?,?,?,?,?,?)");
+		$cada->bind_param("isssssssss",$id,$nome,$sobrenome,$email,$senha,$sexo,$cre,$mod,$dia,$tipo);
 		$cada->execute();
 		
 		$cada->store_result();
