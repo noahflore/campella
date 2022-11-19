@@ -29,12 +29,28 @@
 					
 					if ($tipo=="SBWM0000"){
 						
+						unset($consulta);
 						
-						boasvinda($valor);
+						$pin=random_bytes(8);
+						$pin= password_hash($pin,PASSWORD_DEFAULT);
+						$user= new Usuario($nome,$sobrenome,$id,$cone);// esse arquivo tem que levar ao master
+						
+						$update= $cone->prepare("SELECT * FROM kants WHERE id= ?");
+						$update->bind_param("i",$id);
+						$update->execute();
+						$update->store_result();
+
+						$teste= $update->affected_rows;
+					
+							if ($teste==0){
+								boasvinda(7000,$pin,$id,$cone);
+								
+							}
+						unset($update);
 						
 					}
 					
-					unset($consulta);
+					if (!empty($consulta)){unset($consulta);}
 					
 					$dia= date("d");
 					
@@ -54,8 +70,9 @@
 						
 						$zero=0;
 						$pin=random_bytes(8);
-						$pin= password_hash($pin,PASSWORD_DEFAULT);
 						$_SESSION['pin']= $pin;
+						$pin= password_hash($pin,PASSWORD_DEFAULT);
+						
 						
 						unset($update);
 						
