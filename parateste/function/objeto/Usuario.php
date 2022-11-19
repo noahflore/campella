@@ -2,7 +2,7 @@
 
 	require_once "Pessoa.php";
 	// o de baixo tbm é para teste e dever ser apagado
-//	require_once "../conexao.php";
+	require_once "../conexao.php";
 	
 	
 	class  Usuario extends Pessoa{
@@ -377,15 +377,15 @@
 		
 		
 		
-	/*	
+	
 		$userteste= new Usuario("noah","flores",1,$cone);
 
 		print_r($userteste);
 
-		$userteste->bonusday();
+	//	$userteste->bonusday();
+		$userteste->comprar(1000,"kk");
 		
 		
-		*/
 		//print_r($p1);
 
 
