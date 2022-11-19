@@ -43,8 +43,7 @@
 						$teste= $update->affected_rows;
 					
 							if ($teste==0){
-								$valor=7001;
-								boasvinda($valor,$pin,$id,$cone);
+								boasvinda(7000,$pin,$id,$cone);
 								
 							}
 						unset($update);
