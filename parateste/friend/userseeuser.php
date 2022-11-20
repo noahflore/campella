@@ -157,12 +157,35 @@
 				</aside>
 				<div class="caixa">
 					<div id="fotoi">
-						<img src="ico/perfil.png" alt="amavel" />
-						<img src="l" alt="legal" />
-						<img src="l" alt="sexy" />
-						<img src="l" alt="bigode/bigode_de_ouro" />
-						<img src="l" alt="conquista %" />
+						
+						<?php
+						
+							if (file_exists("../other/". $idfriend ."/amigo/". $id .".txt")){
+								
+								
+								echo "
+										<img onclick='qualida($idfriend)' id='amor' src='../ico/heart.png' alt='amavel' />
+										<img onclick='qualida($idfriend)' id='legal' src='../ico/cool.png' alt='legal' />
+										<img onclick='qualida($idfriend)' id='fogo' src='../ico/fire.png' alt='sexy' />
+										<img src='l' alt='bigode/bigode_de_ouro' />
+										<img src='l' alt='conquista %' />
 					
+									";
+								
+								}else{
+								
+								
+								echo "
+										<img src='../ico/heart.png' alt='amavel' />
+										<img src='../ico/cool.png' alt='legal' />
+										<img src='../ico/fire.png' alt='sexy' />
+										<img src='l' alt='bigode/bigode_de_ouro' />
+										<img src='l' alt='conquista %' />
+					
+									";
+								
+							}
+								?>
 					
 					</div>
 					

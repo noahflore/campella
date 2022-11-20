@@ -166,13 +166,13 @@
 				</aside>
 				<div class="caixa">
 					<div id="fotoi">
-						<img src="ico/perfil.png" alt="amavel" />
-						<img src="l" alt="legal" />
-						<img src="l" alt="sexy" />
+						<img src="ico/heart.png" alt="amavel" />
+						<img src="ico/cool.png" alt="legal" />
+						<img src="ico/fire.png" alt="sexy" />
 						<img src="l" alt="bigode/bigode_de_ouro" />
 						<img src="l" alt="conquista %" />
 					
-					
+					<!-- o php vai se usado para exibi a quantidade de icone no perfil -->
 					</div>
 					
 					<div>

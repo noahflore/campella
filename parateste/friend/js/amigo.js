@@ -44,5 +44,19 @@
 		mais.innerText= "mais^"
 		resa.appendChild(mais)
 		
-		
+		function qualida(idf){
+			
+			let amor= document.getElementById("amor")
+			let fogo= document.getElementById("fogo")
+			let legal= document.getElementById("legal")
+			let ico= document.getElementById("fotoi")
+			
+				ico.removeChild(amor)
+				ico.removeChild(fogo)
+				ico.removeChild(legal)
+			//isso precisa se atualizado
+			
+			
+			
+		}
 	
