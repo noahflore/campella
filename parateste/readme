@@ -1,27 +1,5 @@
-campella/index.php
-campella/defaultstyle/apresentacao.css
-campella/sobre.html
-parateste/defaultstyle/userpage.css
+
 parateste/admin/super_admin/manu.php passive
-parateste/userpage/scrapuser.php
-parateste/userdefault.php
-parateste/comunidadesdefault.php
-parateste/configdefault.php
-parateste/principaldefault.php
-parateste/compactar.php
-parateste/friend/userseeuser.php
-parateste/function/configsql.php
-campella/whoiam.html
-parateste/js/scriptbasico.js
-parateste/function/pedido.php
-parateste/function/recado.php
-parateste/login.php
-parateste/defaultstyle/corpodacmm.css
-parateste/userpage/usercmm/showtpc.php
-parateste/friend/js/amigo.js
-parateste/function/valida.php
-parateste/defaultstyle/user.css
+parateste/function/configsql.php erro
 parateste/function/gera.php
 parateste/jobs.php
-parateste/formulario.php
-parateste/function/coleta.php
