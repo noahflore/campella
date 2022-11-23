@@ -1,4 +1,4 @@
-<?php session_start(); 
+<?php session_start(); require_once "compactar.php";
 
 			if(!empty($_GET['login'])){
 		$_SESSION['login']="off";
@@ -79,7 +79,8 @@
 			
 			</main>
 			
-			<aside>
+			<aside style="margin-top:110px">
+				
 				<?php
 					$id= $_SESSION['id'];
 					if (is_dir('other/var/'. $id)){
