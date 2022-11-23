@@ -167,143 +167,155 @@
 					foreach ($r as $l){
 						
 						
-						while(!is_dir("other/var/". $id ."/". $l ."/")){
-			
-							$abrir=fopen("other/var/index/update/update.txt","r+");
-							$ler=fgets($abrir);
-							fclose($abrir);
-							for ($i=$lembra; $i<=$ler;$i++){
-								$abrir=fopen("other/var/index/update/". $i .".txt","r+");
-								$id=fgets($abrir);
-								if (is_dir("other/var/". $id ."/". $l ."/")){break;}
+							
+							
+							while(!is_dir("other/var/". $id ."/". $l ."/")){
+
+								$abrir=fopen("other/var/index/update/update.txt","r+");
+								$ler=fgets($abrir);
 								fclose($abrir);
-								
+								for ($i=$lembra; $i<=$ler;$i++){
+									$abrir=fopen("other/var/index/update/". $i .".txt","r+");
+									$id=fgets($abrir);
+									if (is_dir("other/var/". $id ."/". $l ."/")){break;}
+									fclose($abrir);
+
+								}
+								break;
 							}
-							break;
+							$lembra=$i;
+						if(file_exists("other/var/". $id ."/". $l ."/momento.txt")){
+
+							$assunto= fopen("other/var/". $id ."/". $l ."/momento.txt","r+");
+
 						}
-						$lembra=$i;
-					if(file_exists("other/var/". $id ."/". $l ."/momento.txt")){
-						
-						$assunto= fopen("other/var/". $id ."/". $l ."/momento.txt","r+");
-						
-					}
-					
-					
-					if (file_exists("other/var/". $id ."/". $l . "/show2.txt")){
-						$lendo2 = fopen("other/var/". $id ."/". $l . "/show2.txt",'r');
-						
-						
-					}
-					
-					if (file_exists("other/var/". $id ."/". $l . "/show3.txt")){
-						$lendo3 = fopen("other/var/". $id ."/". $l . "/show3.txt",'r');
-						
-						
-					}
-					
-					
-					if (file_exists("other/var/". $id ."/". $l . "/show.txt")){
-						$lendo = fopen("other/var/". $id ."/". $l . "/show.txt",'r');
-						$buffer4= (file_exists("other/var/". $id ."/". $l . "/momento.txt"))? fgets($assunto): " " ;
-						while(!feof($lendo))
-						{ $buffer= fgets($lendo);  
-						  $buffer2= (file_exists("other/var/". $id ."/". $l . "/show2.txt"))? fgets($lendo2): " " ;
-						  $buffer3= (file_exists("other/var/". $id ."/". $l . "/show3.txt"))? fgets($lendo3): " " ;
-						  $fshow=(file_exists("other/var/". $id ."/". $l . "/show.png"))? "<img class='ico' src='other/var/". $id ."/". $l ."/show.png' alt='foto_show' />": "<img class='ico' src='ico/perfil.png' alt='foto_show' /> ";
-						  $fshow2=(file_exists("other/var/". $id ."/". $l . "/show2.png"))? "<img class='ico' src='other/var/". $id ."/". $l ."/show2.png' alt='foto_show' />": "<img class='ico' src='ico/perfil.png' alt='foto_show' /> ";
-						  $fshow3=(file_exists("other/var/". $id ."/". $l . "/show3.png"))? "<img class='ico' src='other/var/". $id ."/". $l ."/show3.png' alt='foto_show' />": "<img class='ico' src='ico/perfil.png' alt='foto_show' /> ";
-						  
-						  $dina++;
-						  $bina= $dina;
-						  $tina= $dina;
-						  $cina= $dina;
-						  
-						echo "
-						
-						<div><div class='bloco'><div class='cmmestilo'><img id='fotope' src='other/var/". $id ."/". $l ."/fotocmm.png' alt='fotocmm' />    <a href='userpage/usercmm/todotpc.php?id=$id&idcmm=$l' >" . $l . "</a></div><br>
-						<div><b id='". $dina ."' >". $buffer4 ."</b><input id='responde' type='button' value='responde' onclick='responde($dina,`d`)' /></div>
-						<div id='t$tina'>". $fshow . $buffer . "<input id='responde' type='button' value='responde' onclick='responde($tina,`t`)' /></div>
-						<div>". $fshow2 ."<span id='b$bina'>". $buffer2 . "</span><input id='responde' type='button' value='responde' onclick='responde($bina,`b`)' /></div>
-						<div id='c$cina'>". $fshow3 .  $buffer3 . "<input id='responde' type='button' value='responde' onclick='responde($cina,`c`)' /></div>";
-						
-						
-						$meuid=$_SESSION['id'];
-						
-						if (is_dir("other/var/". $id ."/". $l ."/busca/")){
-							
-							
-							$busca=array_diff(scandir("other/var/". $id ."/". $l ."/busca/"),['.','..']);
-							
-							if ((is_dir("other/var/". $id ."/". $busca[2] ."/privado/")) && (file_exists("other/var/". $id ."/". $l ."/autoria/". $meuid))){
-								
-								$privado=0;
-								
-								
-							}elseif (is_dir("other/var/". $id ."/". $busca[2] ."/privado/")){
-								
-								
-								$abrir=fopen("other/var/". $id ."/". $busca[2] ."/privado/1.txt","r+");
-								$privado=fgets($abrir);
-								fclose($abrir);
-								
-								
-							}
-							
+
+
+						if (file_exists("other/var/". $id ."/". $l . "/show2.txt")){
+							$lendo2 = fopen("other/var/". $id ."/". $l . "/show2.txt",'r');
+
+
 						}
-						if (empty($privado)){$privado=0;}
-						
-						if ((file_exists("other/var/". $id ."/". $l ."/autoria/". $meuid) && ($privado==0)) || ($id==$meuid)){
-							echo "<form method='post' action='function/reccmm.php?idcmm=" . $l . "&&id=". $id ."'>
-								<textarea id='di$dina' name='texto' cols='100' rows='5'></textarea>
-								<input type='submit' value='enviar' />
-							
-								</form>
-								</div><br><br><br></div>";
-						
-						
-						
-						}else{
-							
-							echo "</div><br><br>";
-							
+
+						if (file_exists("other/var/". $id ."/". $l . "/show3.txt")){
+							$lendo3 = fopen("other/var/". $id ."/". $l . "/show3.txt",'r');
+
+
 						}
-						
-						}
-						
-						fclose($lendo);
-						
-					}
-						else{
-							
-							if(file_exists("other/var/". $id ."/". $l ."/momento.txt")){
-						
-						$assunto= fopen("other/var/". $id ."/". $l ."/momento.txt","r+");
-						
-					}
-					
-					
-					
-					$buffer4= (file_exists("other/var/". $id ."/". $l . "/momento.txt"))? fgets($assunto): " " ;
-							
-							
+
+
+						if (file_exists("other/var/". $id ."/". $l . "/show.txt")){
+							$lendo = fopen("other/var/". $id ."/". $l . "/show.txt",'r');
+							$buffer4= (file_exists("other/var/". $id ."/". $l . "/momento.txt"))? fgets($assunto): " " ;
+							while(!feof($lendo))
+							{ $buffer= fgets($lendo);  
+							  $buffer2= (file_exists("other/var/". $id ."/". $l . "/show2.txt"))? fgets($lendo2): " " ;
+							  $buffer3= (file_exists("other/var/". $id ."/". $l . "/show3.txt"))? fgets($lendo3): " " ;
+							  $fshow=(file_exists("other/var/". $id ."/". $l . "/show.png"))? "<img class='ico' src='other/var/". $id ."/". $l ."/show.png' alt='foto_show' />": "<img class='ico' src='ico/perfil.png' alt='foto_show' /> ";
+							  $fshow2=(file_exists("other/var/". $id ."/". $l . "/show2.png"))? "<img class='ico' src='other/var/". $id ."/". $l ."/show2.png' alt='foto_show' />": "<img class='ico' src='ico/perfil.png' alt='foto_show' /> ";
+							  $fshow3=(file_exists("other/var/". $id ."/". $l . "/show3.png"))? "<img class='ico' src='other/var/". $id ."/". $l ."/show3.png' alt='foto_show' />": "<img class='ico' src='ico/perfil.png' alt='foto_show' /> ";
+
+							  $dina++;
+							  $bina= $dina;
+							  $tina= $dina;
+							  $cina= $dina;
+
+				//		if (!file_exists("other/var/". $id ."/". $l ."/updatetcp.txt")){
 							
 							echo "
-						
-						<p><div class='bloco'><div class='cmmestilo'><img id='fotope' src='other/var/". $id ."/". $l ."/fotocmm.png' alt='fotocmm' />" . $l . "</div><br>
-						<div><b>". $buffer4 ."</b></div>
-						<div></div><br>
-						<div></div><br>
-						<div></div>
-						<form method='post' action='function/reccmm.php?idcmm=" . $l . "&&id=". $id ."'>
-							<textarea name='texto' cols='100' rows='5'></textarea>
-							<input type='submit' value='enviar' />
-						
-						</form>
-						</div><br></p>";
+
+							<div><div class='bloco'><div class='cmmestilo'><img id='fotope' src='other/var/". $id ."/". $l ."/fotocmm.png' alt='fotocmm' />    <a href='userpage/usercmm/todotpc.php?id=$id&idcmm=$l' >" . $l . "</a></div><br>
+							<div><b id='". $dina ."' >". $buffer4 ."</b><input id='responde' type='button' value='responde' onclick='responde($dina,`d`)' /></div>
+							<div id='t$tina'>". $fshow . $buffer . "<input id='responde' type='button' value='responde' onclick='responde($tina,`t`)' /></div>
+							<div>". $fshow2 ."<span id='b$bina'>". $buffer2 . "</span><input id='responde' type='button' value='responde' onclick='responde($bina,`b`)' /></div>
+							<div id='c$cina'>". $fshow3 .  $buffer3 . "<input id='responde' type='button' value='responde' onclick='responde($cina,`c`)' /></div>";
+
+
+							$meuid=$_SESSION['id'];
 							
 						
-						
+
+							if (is_dir("other/var/". $id ."/". $l ."/busca/")){
+
+
+								$busca=array_diff(scandir("other/var/". $id ."/". $l ."/busca/"),['.','..']);
+
+								if ((is_dir("other/var/". $id ."/". $busca[2] ."/privado/")) && (file_exists("other/var/". $id ."/". $l ."/autoria/". $meuid))){
+
+									$privado=0;
+
+
+								}elseif (is_dir("other/var/". $id ."/". $busca[2] ."/privado/")){
+
+
+									$abrir=fopen("other/var/". $id ."/". $busca[2] ."/privado/1.txt","r+");
+									$privado=fgets($abrir);
+									fclose($abrir);
+
+
+								}
+
+							}
+							if (empty($privado)){$privado=0;}
+
+							if ((file_exists("other/var/". $id ."/". $l ."/autoria/". $meuid) && ($privado==0)) || ($id==$meuid)){
+								echo "<form method='post' action='function/reccmm.php?idcmm=" . $l . "&&id=". $id ."'>
+									<textarea id='di$dina' name='texto' cols='100' rows='5'></textarea>
+									<input type='submit' value='enviar' />
+
+									</form>
+									</div><br><br><br></div>";
+
+
+
+							}else{
+
+								echo "</div><br><br>";
+
+							}
+							
+				//		}
+
+							}
+
+							fclose($lendo);
+
 						}
+							else{
+
+								if(file_exists("other/var/". $id ."/". $l ."/momento.txt")){
+
+							$assunto= fopen("other/var/". $id ."/". $l ."/momento.txt","r+");
+
+						}
+
+
+
+						$buffer4= (file_exists("other/var/". $id ."/". $l . "/momento.txt"))? fgets($assunto): " " ;
+
+
+
+							if (!file_exists("other/var/". $id ."/". $l ."/updatetcp.txt")){
+								echo "
+
+							<p><div class='bloco'><div class='cmmestilo'><img id='fotope' src='other/var/". $id ."/". $l ."/fotocmm.png' alt='fotocmm' />" . $l . "</div><br>
+							<div><b>". $buffer4 ."</b></div>
+							<div></div><br>
+							<div></div><br>
+							<div></div>
+							<form method='post' action='function/reccmm.php?idcmm=" . $l . "&&id=". $id ."'>
+								<textarea name='texto' cols='100' rows='5'></textarea>
+								<input type='submit' value='enviar' />
+
+							</form>
+							</div><br></p>";
+
+
+
+							}
+
+						}
+						
 						
 					}
 				
