@@ -1,0 +1,124 @@
+												arvore de diretorio campella
+
+					!!!aviso!! alguns arquivos php não pode se lido online é necessario ter codigo fonte
+
+
+diretorio "function"
+
+	esse diretorio é responsavel por se comunica com mysql e comunicação entre usuarios
+	
+
+	arquivos importante na comunicação do sql
+	
+	conexao.php
+	coleta.php
+	valida.php
+
+	o arquivo conexao.php ele é feito só com codigos php impossivel usuario ler, ele é
+	responsavel por se conecta com mysql  e é sempre chamado no metedo include 
+	ou require.
+
+	coleta.php e valida.php, ambos chama atráves do include ou require o conexao.php
+	o coleta.php coleta os dados atraves do formulario.php e processa os dados dentr
+	o ele não exibi msg ao usuario apenas criar um cookie no navergado para sinaliza
+	por exemplo "impossivel cadastra esse o usuario" ou redicionacional ao login.php
+
+	o valida.php coleta os dados do login.php e verifica se o usuario existi e se ele 
+	tem um codigo especial , ele não exibi msg apenas criar cookie de sinalização
+	ou redicionaciona a userdefault.php
+
+
+	arquivos importante para comunicação entre usuario
+
+	recado.php
+	bbcode.php
+	idsave.php
+	compactar.php
+	
+
+	recado.php é um do mais complexo arquivo atualmente ele é chamado para
+	pegar e enviar a mensagem na caixa de recados do usuario ,e é chamado
+	de varias maneiras dentro dele ficar o include de compactar.php, ele 
+	não exibi numa msg.
+
+	compactar.php serve para compactar e descompactar diretorios e arquivos
+	em um arquivo.zip esse php foi criado para reduzir a quantidade de inodes
+
+	bbcode.php conter um array de bbcode é chamado no include
+
+	idsave.php (conhecido como cambiarra) ele pegar o id do usuario que 
+	crio a cmm e coloca no diretorio chamado /other/var/index/update
+	isso ocorre porque existi um erro de indetificação de id e cmm
+
+	nota importante dentro do diretorio function tem o diretorio objeto e
+	seus arquivos Pessoa.php e Usuario.php esses arquivos são classe
+	de objeto o Usuario.php possui de herança o Pessoa.php , o Usuario
+	.php faz consulta escondido no mysql sem o usuario sabe.
+
+	os outros demais arquivos são intuitivo ou faço de ler... qualquer co
+	isa esse documento pode se modificado
+
+
+
+diretorio "friend" ele serve para encontra usuario e realiza a primeira com
+unicação.
+
+	as principais arquivos de comunicação de usuario
+
+	userseeuser.php
+
+	esse arquivo exibi por usuario que visitou o outro usuario ele é
+	uma copia do userdefault.php modificado para exibir informação
+	de outro usuario outras demais diretorios não numericos são 
+	copias modificadas para acompanha o userseeuser.php
+
+	os diretorios numericos são ids de usuarios com informação ba
+	sica dentro como 1-nome do usuario 2-sobrenome 3-sexo
+	esses arquivos começa com numero para o php sabe qual é o
+	primeiro
+
+	nota importante as pasta são criada toda vez que o usuario faz o login
+
+
+
+diretorio "other" ele armazena varios tipos de diretorios e arquivos
+
+
+		as principais diretorios para armazena dados diversos
+
+		os numericos
+		diretorio var
+		diretorio exemplo
+
+
+		os diretorios numericos são ids de usuarios e dentro
+		de cada id ficar tudo o que o usuario fez considerado
+		como não importante, exemplo "recados, videos, dep
+		oimentos e etc"
+
+		o diretorio var armazena diretorios numericos que sã
+		o id mas diferente do other ele armazena dados de c
+		mm dos usuarios.
+ 
+		diretorio exemplo talvez você possa pergunta o php
+		criar arquivo? resposta não, ai vem outra pergunta e
+		ntão onde vem esses arquivo criado pelo usuario?
+		a resposta diretorio exemplo dentro dele tem um 
+		arquivo  do mesmo  nome  .txt que só serve para se 
+		copiado.
+
+
+		nota importante do diretorio var dentro dele tem	
+		o diretorio index dentro dele fica arquivos numeri
+		co de 1 a 50 .txt esses arquivos exibir qual cmm
+		foi atualizada sendo que o 1.txt  sempre exibi
+		o que ta no topo esses arquivos são criado 
+		no diretorio function um arquivo chamado 
+		reccmm.php
+
+
+
+
+
+
+
