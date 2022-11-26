@@ -261,12 +261,12 @@
 							while($loop<=5){
 							$contado=random_int(1,1000);
 							
-									if((is_dir('friend/' . $contado)) and ($contado!=$id) and ($contado!=$lem1) and ($contado!=$lem2) and ($contado!=$lem3) and ($contado!=$lem4)){
+									if((is_dir('friend/' . $contado)) and ($contado!=$id) and ($contado!=$lem1) and ($contado!=$lem2) and ($contado!=$lem3) and ($contado!=$lem4) and (!file_exists("other/". $id ."/amigo/". $contado .".txt"))){
 									$amigo= array_diff(scandir('friend/'. $contado),['.','..']);
 									while ($li <3){
-									if ((file_exists('friend/'. $contado .'/fotoperso.png')) and ($contado!=$lem1) and ($contado!=$lem2) and ($contado!=$lem3) and ($contado!=$lem4)){
+									if ((file_exists('friend/'. $contado .'/fotoperso.png')) and ($contado!=$lem1) and ($contado!=$lem2) and ($contado!=$lem3) and ($contado!=$lem4) and (!file_exists("other/". $id ."/amigo/". $contado .".txt"))){
 										
-											if (!file_exists("other/". $contado ."/amigo/block/". $id .".txt") and ($contado!=$id)){//print_r("exploder na tela");
+											if (!file_exists("other/". $contado ."/amigo/block/". $id .".txt") and ($contado!=$id) and (!file_exists("other/". $id ."/amigo/". $contado .".txt"))){//print_r("exploder na tela");
 												$amigo[$li]=str_replace("1-","",$amigo[$li]);
 											echo "<div class='perfilu'><img id='fotomenor' src='friend/". $contado."/fotoperso.png' alt='foto_usuario' /><a href='friend/userseeuser.php?id=$contado'>". $amigo[$li] .'</a></div> ';
 											$_SESSION['seefriend']=$contado;
@@ -293,9 +293,9 @@
 												
 											}
 											
-									}elseif (($contado!=$lem1) and ($contado!=$lem2) and ($contado!=$lem3) and ($contado!=$lem4)){
+									}elseif (($contado!=$lem1) and ($contado!=$lem2) and ($contado!=$lem3) and ($contado!=$lem4) and (!file_exists("other/". $id ."/amigo/". $contado .".txt"))){
 										
-										if (!file_exists("other/". $contado ."/amigo/block/". $id .".txt") and ($contado!=$id)){//print_r("exploder na tela 2");
+										if (!file_exists("other/". $contado ."/amigo/block/". $id .".txt") and ($contado!=$id) and (!file_exists("other/". $id ."/amigo/". $contado .".txt"))){//print_r("exploder na tela 2");
 											$amigo[$li]=str_replace("1-","",$amigo[$li]);
 											echo "<div class='perfilu'><img id='fotomenor' src='ico/userdefault.png' alt='foto_usuario' /><a href='friend/userseeuser.php?id=$contado'>". $amigo[$li] .'</a></div> ';
 											$_SESSION['seefriend']=$contado;
@@ -329,14 +329,14 @@
 									}
 						
 							}else{
-								while((!is_dir('friend/' . $contado)) and ($contado!=$id) and ($contado!=$lem1) and ($contado!=$lem2) and ($contado!=$lem3) and ($contado!=$lem4)){
+								while((!is_dir('friend/' . $contado)) and ($contado!=$id) and ($contado!=$lem1) and ($contado!=$lem2) and ($contado!=$lem3) and ($contado!=$lem4) and (!file_exists("other/". $id ."/amigo/". $contado .".txt"))){
 										$contado=random_int(1,1000);
-										if((is_dir('friend/' . $contado)) and ($contado!=$lem1) and ($contado!=$lem2) and ($contado!=$lem3) and ($contado!=$lem4)){
+										if((is_dir('friend/' . $contado)) and ($contado!=$lem1) and ($contado!=$lem2) and ($contado!=$lem3) and ($contado!=$lem4) and (!file_exists("other/". $id ."/amigo/". $contado .".txt"))){
 									$amigo= array_diff(scandir('friend/'. $contado),['.','..']);
 									while ($li <3){
-										if ((file_exists('friend/'. $contado .'/fotoperso.png')) and ($contado!=$lem1) and ($contado!=$lem2) and ($contado!=$lem3) and ($contado!=$lem4)){
+										if ((file_exists('friend/'. $contado .'/fotoperso.png')) and ($contado!=$lem1) and ($contado!=$lem2) and ($contado!=$lem3) and ($contado!=$lem4) and (!file_exists("other/". $id ."/amigo/". $contado .".txt"))){
 											
-											if (!file_exists("other/". $contado ."/amigo/block/". $id .".txt") and ($contado!=$id)){//print_r("exploder na tela 3");
+											if (!file_exists("other/". $contado ."/amigo/block/". $id .".txt") and ($contado!=$id) and (!file_exists("other/". $id ."/amigo/". $contado .".txt"))){//print_r("exploder na tela 3");
 												$amigo[$li]=str_replace("1-","",$amigo[$li]);
 											echo "<div class='perfilu'> <img id='fotomenor' src='friend/". $contado."/fotoperso.png' alt='foto_usuario' /><a href='friend/userseeuser.php?id=$contado'>". $amigo[$li] .'</a></div> ';
 											$_SESSION['seefriend']=$contado;
@@ -365,9 +365,9 @@
 												
 											}
 											
-										}elseif (($contado!=$lem1) and ($contado!=$lem2) and ($contado!=$lem3) and ($contado!=$lem4)){
+										}elseif (($contado!=$lem1) and ($contado!=$lem2) and ($contado!=$lem3) and ($contado!=$lem4) and (!file_exists("other/". $id ."/amigo/". $contado .".txt"))){
 											
-										if (!file_exists("other/". $contado ."/amigo/block/". $id .".txt") and ($contado!=$id)){//print_r("exploder na tela 4");
+										if (!file_exists("other/". $contado ."/amigo/block/". $id .".txt") and ($contado!=$id) and (!file_exists("other/". $id ."/amigo/". $contado .".txt"))){//print_r("exploder na tela 4");
 											$amigo[$li]=str_replace("1-","",$amigo[$li]);
 											echo "<div class='perfilu'><img id='fotomenor' src='ico/userdefault.png' alt='foto_usuario' /><a href='friend/userseeuser.php?id=$contado'>". $amigo[$li] .'</a></div> ';
 											$_SESSION['seefriend']=$contado;
@@ -536,13 +536,13 @@
 												if (file_exists("other/". $i ."/fotoperso.png")){
 												
 
-													echo "<img style='width: 50px;' src='other/$i/fotoperso.png' alt='foto_user' />". $ler ."  ";
+													echo "<img style='width: 50px;' src='other/$i/fotoperso.png' alt='foto_user' /><a href='friend/userseeuser.php?id=$i'>". $ler ."</a>  ";
 													$pu++;
 													
 													
 												}else{
 													
-													echo "<div><img style='width: 50px;' src='ico/perfil.png' alt='foto_user' />". $ler ." ";
+													echo "<div><img style='width: 50px;' src='ico/perfil.png' alt='foto_user' /><br><a href='friend/userseeuser.php?id=$i'>". $ler ."</a> ";
 													$pu++;
 													
 													
@@ -555,13 +555,13 @@
 												
 												if (file_exists("other/". $i ."/fotoperso.png")){
 												
-													echo "<img style='width: 50px;' src='other/$i/fotoperso.png' alt='foto_user' />". $ler. "</div>";
+													echo "<img style='width: 50px;' src='other/$i/fotoperso.png' alt='foto_user' /><a href='friend/userseeuser.php?id=$i'>". $ler. "</a></div>";
 													$pu=0;
 													
 													
 													}else{
 													
-													echo "<img style='width: 50px;' src='ico/perfil.png' alt='foto_user' />". $ler ."</div>  ";
+													echo "<img style='width: 50px;' src='ico/perfil.png' alt='foto_user' /><a href='friend/userseeuser.php?id=$i'>". $ler ."</a></div>  ";
 													$pu=0;
 													
 													

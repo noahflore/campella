@@ -21,7 +21,7 @@ session_start();
 				$ler=fgets($abrir);
 				fclose($abrir);
 				$abrir=fopen("../other/". $id ."/amigo/". $meuid .".txt","w+");
-				fwrite($brir,$nome);
+				fwrite($abrir,$nome);
 				fclose($abrir);
 				unlink("../other/". $meuid ."/amigo/tmp/". $ler .".txt");
 				unlink("../other/". $meuid ."/amigo/tmp/". $id .".txt");
