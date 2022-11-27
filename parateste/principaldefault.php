@@ -295,10 +295,10 @@
 
 
 
-							if (!file_exists("other/var/". $id ."/". $l ."/updatetcp.txt")){
+					//		if (!file_exists("other/var/". $id ."/". $l ."/updatetcp.txt")){   !!!! esse if no comentario pode se apagado
 								echo "
 
-							<p><div class='bloco'><div class='cmmestilo'><img id='fotope' src='other/var/". $id ."/". $l ."/fotocmm.png' alt='fotocmm' />" . $l . "</div><br>
+							<p><div class='bloco'><div class='cmmestilo'><img id='fotope' src='other/var/". $id ."/". $l ."/fotocmm.png' alt='fotocmm' />    <a href='userpage/usercmm/todotpc.php?id=$id&idcmm=$l' >" . $l . "</a></div><br>
 							<div><b>". $buffer4 ."</b></div>
 							<div></div><br>
 							<div></div><br>
@@ -312,7 +312,7 @@
 
 
 
-							}
+						//	}
 
 						}
 						
