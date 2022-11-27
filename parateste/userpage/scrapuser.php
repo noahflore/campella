@@ -241,7 +241,7 @@
 										  
 										  
 										  
-										  </div><br>
+										  </div></form><br>
 									
 									
 									
@@ -272,7 +272,7 @@
 													$r[2]=str_replace(".txt"," - ",$r[2]);
 													fclose($po);
 													
-														echo "<div class='linha'>". $foto ."   ". $r[2]." ". $receba ."</div><form method='post' action='functionuser/recado.php?i=$i&r=$r[2]&index=$index'>
+														echo "<div class='linha'>". $foto ."   ". $r[2]." ". $receba ."</div><form method='post' action='functionuser/recado.php?i=$i&r=$r[2]&index=$index&ap=$r[1]'>
 														
 																							
 																						<span id='res$i'><input class='aperta' type='button' value='responde' id='responde$i' onclick='responde($i,$r[1])' /></span>
@@ -307,7 +307,22 @@
 									
 								}
 							
-							
+							if (!empty($_GET['tmp'])){
+								
+								$aptmp=$_GET['tmp'];
+								
+									if ($aptmp==1){
+										
+										if (file_exists("../other/". $id ."/recado/tmp/tmpupdate.txt")){
+											
+											unlink("../other/". $id ."/recado/tmp/tmpupdate.txt");
+											rmdir("../other/". $id ."/recado/tmp/");
+											
+										}
+										
+									}
+								
+							}
 							
 							
 							?>
