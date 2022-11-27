@@ -80,7 +80,7 @@
 				<img src="../../ico/logocampella.png" alt="logo do site" />
 				<nav> 
 					<ul>
-						<li><a href="userdefault.php">user</a></li>
+						<?php echo "<li onclick='usuario(1)'><a href='../../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
 						<!-- o de cima é nome do usuario-->
 						<li><a href="../../principaldefault.php">principal</a></li>
 						<li>configuração</li>
