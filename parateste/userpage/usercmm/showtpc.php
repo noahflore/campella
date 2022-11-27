@@ -33,7 +33,7 @@ session_start();
 				<img src="../../ico/logocampella.png" alt="logo do site" />
 				<nav> 
 					<ul>
-						<li><a href="userdefault.php">user</a></li>
+						<?php echo "<li onclick='usuario(1)'><a href='../../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
 						<!-- o de cima é nome do usuario-->
 						<li><a href="../../principaldefault.php">principal</a></li>
 						<li>configuração</li>
@@ -73,13 +73,12 @@ session_start();
 								echo "<li><a href='usercmm/criartpc.php?idcmm=". $idcm ."' >criar topicos</a></li>";
 								
 								?>
+								<?php
 								
-							<?php
-								echo "<li><a href='usercmm/showtpc.php?idcmm=". $idcm ."'>mostra meus topicos</a></li>";
-							
-							
-							
-							?>
+								echo "<li><a href='../insidecmm.php?nomecmm=". $idcm ."' >inicio</a></li>";
+								
+								
+								?>
 							<li>enquetes</li>
 							<li>configuração</li>
 							</ul>
