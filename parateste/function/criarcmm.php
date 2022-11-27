@@ -109,10 +109,13 @@
 							}
 						}
 						
-						
+				/*		
 					$ab=fopen('../other/var/index/1.txt','w+');
 					fwrite($ab,$nome);
 					fclose($ab);
+					
+					
+					*/
 					if ($carregar== 50){
 						$recomeçar=fopen('../other/var/index/update.txt','w+');
 						fwrite($recomeçar,1);
