@@ -28,7 +28,7 @@ session_start();
 
 
 
-		header("location: ../scrapuser.php?index=1");
+		header("location: ../scrapuser.php?index=$index");
 
 
 

@@ -76,8 +76,8 @@
 						
 						unset($update);
 						
-						$update= $cone->prepare("INSERT INTO kants VALUE (?,?,?)");
-						$update->bind_param("iis",$id,$zero,$pin);
+						$update= $cone->prepare("INSERT INTO kants VALUE (?,?,?,?)");
+						$update->bind_param("iisi",$id,$zero,$pin,$zero);
 						$update->execute();
 						
 						

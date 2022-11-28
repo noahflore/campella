@@ -223,4 +223,9 @@
 		
 	}
 
-	
+	function sair(){
+		
+		location.href=location + "&login=off"
+		
+		
+	}

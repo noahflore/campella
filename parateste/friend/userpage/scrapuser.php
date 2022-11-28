@@ -23,7 +23,7 @@
 					<li>configuração</li>
 					<li><s>camp</s></li>
 					<li>feed back</li>
-					<li><a href="sair">sair</a></li>
+					<li><button onclick="sair()">deslongar</button></li>
 				
 				
 				</ul>
@@ -77,7 +77,7 @@
 								if((is_dir('../../other/' . $_SESSION['seefriend'] .'/recado')) && (!file_exists("../../other/". $_SESSION['seefriend'] ."/priva/p1"))){
 									if ((file_exists("../../other/". $id ."/recado/min.txt")) and (file_exists("../../other/". $id ."/recado/max.txt")) and (file_exists("../../other/". $id ."/recado/index.txt"))){
 										
-										//print_r($id);
+										
 										$abrir=fopen("../../other/". $id ."/recado/min.txt","r+");
 										$abrir2=fopen("../../other/". $id ."/recado/index.txt","r+");
 										$abrir3=fopen("../../other/". $id ."/recado/max.txt","r+");
@@ -99,20 +99,36 @@
 												$ler=fgets($abrir);
 												fclose($abrir);
 												
-												if ($ler!=$max){
+												if (($ler!=$max) and ($max-$min==$max-4)){
 													
 													$abrir3=fopen("../../other/". $id ."/recado/max.txt","w+");
 													fwrite($abrir3,$ler);
-													fclose($abrir);
+													//fclose($abrir);
 													fclose($abrir3);
+													
+												}else{
+													
+													$abrir3=fopen("../../other/". $id ."/recado/max.txt","w+");
+													fwrite($abrir3,$min+4);
+													//fclose($abrir);
+													fclose($abrir3);
+													
+													
 													
 												}
 												
-												if($min-$max!=$max-4){
+												if(($min-$max!=$max-4) and ($min-$max>5)){
 													
 													$abrir3=fopen("../../other/". $id ."/recado/min.txt","w+");
 													fwrite($abrir3,$max-4);
 													fclose($abrir3);
+													
+												}else{
+													$abrir3=fopen("../../other/". $id ."/recado/min.txt","w+");
+													fwrite($abrir3,1);
+													fclose($abrir3);
+													
+													
 													
 												}
 												
@@ -123,20 +139,21 @@
 												
 											}elseif ($bo=="<"){
 												if ($min<=5){
+													$max=5;
 													$min=1;
 													
 													$abrir3=fopen("../../other/". $id ."/recado/min.txt","w+");
 													fwrite($abrir3,$min);
 													fclose($abrir3);
-													header("location: scrapuser.php?index=". $min ."&id=$id");
+													header("location: scrapuser.php?index=". $min ."&max=$max&min=$min&id=$id");
 													
 												}else{
-													
+													$max=$min;
 													$min=$min-4;
 													$abrir3=fopen("../../other/". $id ."/recado/min.txt","w+");
 													fwrite($abrir3,$min);
 													fclose($abrir3);
-													header("location: scrapuser.php?index=". $min ."&id=$id");
+													header("location: scrapuser.php?index=". $min ."&max=$max&min=$min&id=$id");
 												}
 												
 												
@@ -165,13 +182,13 @@
 										$abrir2=fopen("../../other/". $id ."/recado/index.txt","w+");
 										$abrir3=fopen("../../other/". $id ."/recado/max.txt","w+");
 										fwrite($abrir,$min);
-										fwrite($abrir2,1);
+										fwrite($abrir2,$ler);
 										fwrite($abrir3,$max);
 										fclose($abrir);
 										fclose($abrir2);
 										fclose($abrir3);
 										
-										header("location: scrapuser.php?index=1");
+										header("location: scrapuser.php?index=$ler&id=$id");
 										
 									}//configura o minimo ,maximo e o index
 									
@@ -192,13 +209,13 @@
 									//exibi o index
 									//print_r($mostrar);
 									echo "<form method='post' action='../../function/recado.php?id=$id&todo=1'>
-										  <input type='text' placeholder='digita aqui seu recado' name='texto' />
+										  <textarea type='text' placeholder='digita aqui seu recado' name='texto' cols='30' rows='5'></textarea>
 										  <input type='submit' value='enviar' />
 										  <div class='recadomeu'>
 										  
 										  
 										  
-										  </div><br>
+										  </div></form><br>
 									
 									
 									
@@ -240,7 +257,7 @@
 								}else{
 									
 									echo "<form method='post' action='../../function/recado.php?id=$id&todo=1'>
-										  <input type='text' placeholder='digita aqui seu recado' name='texto' />
+										  <textarea type='text' placeholder='digita aqui seu recado' name='texto' cols='30' rows='5'></textarea>
 										  <input type='submit' value='enviar' />
 										  <div class='recadomeu'>
 										  
@@ -272,6 +289,8 @@
 	
 	 
 		</section>
+		 
+		 <script src="../../js/scriptbasico.js"></script>
 	 </body>
 
 

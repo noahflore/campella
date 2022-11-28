@@ -50,7 +50,7 @@
 					<!-- o de cima é nome do usuario-->
 					<li><s>camp</s></li>
 					<li>feed back</li>
-					<li><a href="sair">sair</a></li>
+					<li><button onclick="sair()">deslongar</button></li>
 				
 				
 				</ul>

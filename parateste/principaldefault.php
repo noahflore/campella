@@ -49,7 +49,7 @@
 					<li><span id="lista"><input type='button' onclick="config(2)" id="config" value='configuração' /></span></li>
 					<li><s>camp</s></li>
 					<li>feed back</li>
-					<li><a href="sair">sair</a></li>
+					<li><button onclick="sair()">deslongar</button></li>
 				
 				
 				</ul>

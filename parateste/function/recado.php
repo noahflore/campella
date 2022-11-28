@@ -41,6 +41,17 @@
 		$ler=fgets($abrir);
 		fclose($abrir);
 		
+		if (!file_exists("../other/". $id ."/recado/tmp/tmpupdate.txt")){
+			
+			mkdir("../other/". $id ."/recado/tmp/",0777,true);
+			copy("../other/exemplo/exemplo.txt","../other/". $id ."/recado/tmp/tmpupdate.txt");
+			$abrir=fopen("../other/". $id ."/recado/tmp/tmpupdate.txt","w+");
+			fwrite($abrir,0);
+			fclose($abrir);
+			
+			
+		}
+		
 		$abrir=fopen("../other/". $id ."/recado/tmp/tmpupdate.txt","r+");
 		$jesus=fgets($abrir);
 		fclose($abrir);
@@ -134,12 +145,16 @@
 	}
 	if (!empty($_GET['todo'])){
 		
-		header("location: ../friend/userpage/scrapuser.php?id=$id&index=1");
+		if (!empty($ler)){header("location: ../friend/userpage/scrapuser.php?id=$id&index=$ler");}else{
 		
+			header("location: ../friend/userpage/scrapuser.php?id=$id&index=1");
+		}
 		
 	}else{
-		header("location:../userpage/scrapuser.php?index=1");
+		if (!empty($ler)){header("location:../userpage/scrapuser.php?index=$ler");}else{
 		
+			header("location:../userpage/scrapuser.php?index=1");
+		}
 		
 		
 	}
