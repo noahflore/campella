@@ -223,9 +223,18 @@
 		
 	}
 
-	function sair(){
+	function sair(i=0){
 		
-		location.href=location + "&login=off"
+		if (i==1){
+			
+			location.href=location + "?login=off"
+			
+			
+		}else{
+		
+			location.href=location + "&login=off"
+			
+		}
 		
 		
 	}

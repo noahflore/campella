@@ -94,6 +94,7 @@
 	 <meta charset="utf-8" />
 	 <link rel="stylesheet" href="../defaultstyle/baseestilo.css" />
 	 <link rel="stylesheet" href="../defaultstyle/user.css" />
+	 <link rel="icon" href="../ico/logocampella.png" />
 	 
 	 </head>
 	 
@@ -107,7 +108,7 @@
 					<li><a href="../configdefault.php">configuração</a></li>
 					<li><s>camp</s></li>
 					<li>feed back</li>
-					<li><a href="sair">sair</a></li>
+					<li><button onclick="sair()">deslongar</button></li>
 				
 				
 				</ul>
@@ -359,6 +360,7 @@
 	 
 	
 		<script src="js/amigo.js"></script>
+		 <script src="../js/scriptbasico.js"></script>
 	 </body>
 
 

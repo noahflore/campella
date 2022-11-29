@@ -7,7 +7,10 @@
 		
 		
 	}
-	
+
+	if (file_exists("../other/". $_SESSION['id'] ."/manu/1")){$_SESSION['login']="off"; $_SESSION['errologin']= "site em manutenção volte mais tarde";}
+	if (file_exists("../other/". $_SESSION['id'] ."/manu/11")){$_SESSION['login']="off"; $_SESSION['errologin']= "site foi atualizado durante você esteve offiline"; unlink("../other/". $_SESSION['id'] ."/manu/11");}
+		
 	$login=$_SESSION['login'];
 	
 	
@@ -45,7 +48,7 @@
 					<li>configuração</li>
 					<li><s>camp</s></li>
 					<li>feed back</li>
-					<li><a href="sair">sair</a></li>
+					<li><button onclick="sair()">deslongar</button></li>
 				
 				
 				</ul>
@@ -119,6 +122,8 @@
 				</div>
 			</section>
 		
+		
+		<script src="../js/scriptbasico.js"></script>
 		</body>
 
 

@@ -35,7 +35,8 @@
 	 <meta charset="utf-8" />
 	 <link rel="stylesheet" href="defaultstyle/baseestilo.css" />
 	 <link rel="stylesheet" href="defaultstyle/bloco.css" />
-	 
+	 <link rel="icon" href="ico/logocampella.png" />
+		 
 	 </head>
 	 
 	 <body>
@@ -49,7 +50,7 @@
 					<li><span id="lista"><input type='button' onclick="config(2)" id="config" value='configuração' /></span></li>
 					<li><s>camp</s></li>
 					<li>feed back</li>
-					<li><button onclick="sair()">deslongar</button></li>
+					<li><button onclick="sair(1)">deslongar</button></li>
 				
 				
 				</ul>

@@ -181,7 +181,7 @@
 								
 								if ((file_exists("../../other/var/". $id ."/". $idcm ."/autoria/". $meuid)) || ($id==$meuid)){
 									
-									echo "<li><a href='usercmm/criartpc.php?idcmm=". $idcm ."' >criar topicos</a></li>";
+									echo "<li><a href='criartpc.php?idcmm=". $idcm ."' >criar topicos</a></li>";
 									
 								}elseif ($privado==0){
 									

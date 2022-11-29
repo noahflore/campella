@@ -1,13 +1,21 @@
 <?php
 session_start();
 
-	if (!empty($_GET['id'])){
+	if(!empty($_GET['login'])){
+		$_SESSION['login']="off";
 		
-		$id=$_GET['id'];
 		
-	}else{
-		$id=$_SESSION['id'];
+	}
 
+	if (file_exists("../../other/". $_SESSION['id'] ."/manu/1")){$_SESSION['login']="off"; $_SESSION['errologin']= "site em manutenção volte mais tarde";}
+	if (file_exists("../../other/". $_SESSION['id'] ."/manu/11")){$_SESSION['login']="off"; $_SESSION['errologin']= "site foi atualizado durante você esteve offiline"; unlink("../../other/". $_SESSION['id'] ."/manu/11");}
+		
+	$login=$_SESSION['login'];
+	
+	
+	if (($login=="off") || (empty($_SESSION['login']))){
+		
+		header("location: ../../login.php");
 		
 	}
 
@@ -39,7 +47,7 @@ session_start();
 						<li>configuração</li>
 						<li><s>camp</s></li>
 						<li>feed back</li>
-						<li><a href="sair">sair</a></li>
+						<li><button onclick="sair()">deslongar</button></li>
 					
 					
 					</ul>
@@ -53,6 +61,17 @@ session_start();
 						<span class="coluna">
 							<?php
 								$idcm=$_GET['idcmm'];
+							
+								if (!empty($_GET['id'])){
+									
+									$id=$_GET['id'];	
+									
+								}else{
+									
+									$id=$_SESSION['id'];	
+									
+									
+								}
 								
 								if (file_exists("../../other/var/". $id ."/". $idcm ."/fotocmm.png")){
 									
@@ -70,7 +89,7 @@ session_start();
 							?>
 							<ul>
 							<?php
-								echo "<li><a href='usercmm/criartpc.php?idcmm=". $idcm ."' >criar topicos</a></li>";
+								echo "<li><a href='criartpc.php?idcmm=". $idcm ."' >criar topicos</a></li>";
 								
 								?>
 								<?php
