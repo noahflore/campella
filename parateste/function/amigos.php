@@ -77,6 +77,19 @@ session_start();
 			
 		}
 
+	  if ($_POST['friend']=="remove"){
+		  
+		  unlink("../other/". $meuid ."/amigo/". $id .".txt");
+		  unlink("../other/". $id ."/amigo/". $meuid .".txt");
+		  $veri= array_diff(scandir("../other/". $meuid ."/amigo/tmp/"),['.','..']);
+		  if (empty($veri[2])){rmdir("../other/". $meuid ."/amigo/tmp/");}
+		  
+				    $_SESSION['add']="você já removeu essa pessoa!";
+					header("location: ../friend/userseeuser.php?id=$id");
+		  
+		  
+	  }
+
 
 
 

@@ -39,10 +39,46 @@
 
 		let resa= document.getElementById("resa")
 		let mais= document.createElement("button")
+		let idf= Number(resa.innerText)
 		
-		mais.setAttribute("value","mais")
+		resa.innerText=""
+		//console.log(Number(resa.innerText))
+		
+		mais.setAttribute("onclick",`desfaca(${idf})`)
 		mais.innerText= "mais^"
 		resa.appendChild(mais)
+
+
+		function desfaca(id){
+			
+			let remove= document.createElement("input")
+			let formremove= document.createElement("form")
+			let block=document.createElement("input")
+			let denuncia= document.createElement("input")
+			
+			
+			formremove.setAttribute("method","post")
+			formremove.setAttribute("action","../function/amigos.php?id=" + id)
+			remove.setAttribute("type","submit")
+			remove.setAttribute("value","remove")
+			remove.setAttribute("name","friend")
+			block.setAttribute("type","submit")
+			block.setAttribute("value","block")
+			block.setAttribute("name","friend")
+			denuncia.setAttribute("type","submit")
+			denuncia.setAttribute("value","denuncia")
+			denuncia.setAttribute("name","friend")
+			
+			formremove.appendChild(remove)
+			formremove.appendChild(block)
+			formremove.appendChild(denuncia)
+			resa.removeChild(mais)
+			resa.appendChild(formremove)
+			
+			
+			
+			
+		}
 		
 		function qualida(idf){
 			

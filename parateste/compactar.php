@@ -19,7 +19,7 @@
 				$arma= fgets($abrir);
 				fclose($abrir);
 				
-				for ($vare=0; $vare<=$arma; $vare++){
+				for ($vare=1; $vare<=$arma; $vare++){
 					
 					for ($pro=1; $pro<=10; $pro++){
 						
@@ -60,7 +60,7 @@
 				$arma= fgets($abrir);
 				fclose($abrir);
 				
-				for ($vare=0; $vare<=$arma; $vare++){
+				for ($vare=1; $vare<=$arma; $vare++){
 					
 					for ($pro=1; $pro<=10; $pro++){
 						
