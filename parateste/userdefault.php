@@ -518,59 +518,51 @@
 						
 							if (is_dir("other/". $id ."/amigo/")){
 								
-								
 								$pu=0;
-								echo "<div style='display:flex; flex-direction: column'><div>";
+								$aju=0;
+								$div=0; //essa variavel vai se usado no separado de index
+								
+								echo "<div>";
 								
 								for ($i=1; $i<=1000; $i++){
 									
-									$pu++;
+									$div++;
 									
 									if (file_exists("other/". $id ."/amigo/". $i .".txt")){
 										$abrir=fopen("other/". $id ."/amigo/". $i .".txt","r+");
 										$ler=fgets($abrir);
 										fclose($abrir);
 											
-											
-											if ($pu<=3){
+											$pu++;
+											if ($pu<=4){ if ($aju==0){$aju=1;echo "<div>";}
 												
 												if (file_exists("other/". $i ."/fotoperso.png")){
 												
 
-													echo "<img style='width: 50px;' src='other/$i/fotoperso.png' alt='foto_user' /><a href='friend/userseeuser.php?id=$i'>". $ler ."</a>  ";
-													$pu++;
+													echo "<span><img style='width: 50px;' src='other/$i/fotoperso.png' alt='foto_user' /><a href='friend/userseeuser.php?id=$i'>". $ler ."</a></span>  ";
+													
 													
 													
 												}else{
 													
-													echo "<div><img style='width: 50px;' src='ico/perfil.png' alt='foto_user' /><br><a href='friend/userseeuser.php?id=$i'>". $ler ."</a> ";
-													$pu++;
+													echo "<span><img style='width: 50px;' src='ico/perfil.png' alt='foto_user' /><a href='friend/userseeuser.php?id=$i'>". $ler ."</a></span> ";
+													
 													
 													
 												}
-										
 												
-											
-											
+												
 											}else{
 												
-												if (file_exists("other/". $i ."/fotoperso.png")){
-												
-													echo "<img style='width: 50px;' src='other/$i/fotoperso.png' alt='foto_user' /><a href='friend/userseeuser.php?id=$i'>". $ler. "</a></div>";
-													$pu=0;
-													
-													
-													}else{
-													
-													echo "<img style='width: 50px;' src='ico/perfil.png' alt='foto_user' /><a href='friend/userseeuser.php?id=$i'>". $ler ."</a></div>  ";
-													$pu=0;
-													
-													
-												}
+												echo "</div>";
+												$aju=0;
+												$pu=0;
 												
 												
 												
 											}
+											
+											
 										
 										
 									
@@ -581,9 +573,11 @@
 								}
 								
 								
-								echo "</div>";
+								
 							}
-						
+				//	print_r($pu);
+					if ($pu!=0){echo "</div>";}
+						echo "</div>";
 						
 						
 						
