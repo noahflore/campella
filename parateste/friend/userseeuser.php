@@ -288,13 +288,13 @@
 												if (file_exists("../other/". $i ."/fotoperso.png")){
 												
 
-													echo "<span><img style='width: 50px;' src='../other/$i/fotoperso.png' alt='foto_user' /><a href='userseeuser.php?id=$i'>". $ler ."</a></span>  ";
+													echo "<span><img style='width: 50px;height: 50px;' src='../other/$i/fotoperso.png' alt='foto_user' /><a href='userseeuser.php?id=$i'>". $ler ."</a></span>  ";
 													
 													
 													
 												}else{
 													
-													echo "<span><img style='width: 50px;' src='../ico/perfil.png' alt='foto_user' /><a href='userseeuser.php?id=$i'>". $ler ."</a></span> ";
+													echo "<span><img style='width: 50px;height: 50px;' src='../ico/perfil.png' alt='foto_user' /><a href='userseeuser.php?id=$i'>". $ler ."</a></span> ";
 													
 													
 													
