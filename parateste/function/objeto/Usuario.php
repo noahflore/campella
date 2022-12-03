@@ -95,7 +95,7 @@
 				$change->execute();
 				if (file_exists("friend/". $this->getid() ."/3-f")){unlink("friend/". $this->getid() ."/3-f");}
 				if (file_exists("friend/". $this->getid() ."/3-m")){unlink("friend/". $this->getid() ."/3-m");}
-				copy("../other/exemplo/exemplo.txt","friend/". $this->getid() ."/3-o");
+				copy("other/exemplo/exemplo.txt","friend/". $id ."/3-o");
 				$abrir=fopen("friend/". $this->getid() ."/3-o","w+");
 				fwrite($abrir,$outro);
 				fclose($abrir);
@@ -111,6 +111,7 @@
 		if ($_GET['true']==2){
 			
 			$id=$_SESSION['id'];
+			$data=$this->getdata();
 			
 				if (!empty($_POST['nome'])){$nome=$_POST['nome'];$_SESSION['nome']=$_POST['nome'];}else{$nome=$_SESSION['nome'];}
 				if (!empty($_POST['sobrenome'])){$sobrenome=$_POST['sobrenome'];$_SESSION['sobrenome']=$_POST['sobrenome'];}else{$sobrenome=$_SESSION['sobrenome'];}
@@ -129,12 +130,61 @@
 					$this->settipo($tipou);
 					
 				}
+			
+				unset($update);
 					
 					$change= $this->cone->prepare("UPDATE pessoa SET nome = ? ,sobrenome = ?, modi = ?, tipo = ? WHERE pessoa . id = ?");
 					$change->bind_param("ssssi",$nome,$sobrenome,$data,$tipou,$id);
 					$change->execute();
 			
+			if (!empty($_POST['pais'])){
+				
+				$pais= $_POST['pais'];
+					
+					copy("other/exemplo/exemplo.txt","friend/". $id ."/pais.txt");
+					$abrir=fopen("friend/". $id ."/pais.txt","w+");
+					fwrite($abrir,$pais);
+					fclose($abrir);
+				
+				
+			}
 			
+			if (!empty($_POST['estado'])){
+				
+				$estado= $_POST['estado'];
+					
+					copy("other/exemplo/exemplo.txt","friend/". $id ."/estado.txt");
+					$abrir=fopen("friend/". $id ."/estado.txt","w+");
+					fwrite($abrir,$estado);
+					fclose($abrir);
+				
+				
+			}
+			
+			if (!empty($_POST['cidade'])){
+				
+				$cidade= $_POST['cidade'];
+					
+					copy("other/exemplo/exemplo.txt","friend/". $id ."/cidade.txt");
+					$abrir=fopen("friend/". $id ."/cidade.txt","w+");
+					fwrite($abrir,$cidade);
+					fclose($abrir);
+				
+				
+			}
+			
+			
+			
+			if (!empty($_POST['status'])){
+				
+					$status= $_POST['status'];
+					
+					copy("other/exemplo/exemplo.txt","friend/". $id ."/status.txt");
+					$abrir=fopen("friend/". $id ."/status.txt","w+");
+					fwrite($abrir,$status);
+					fclose($abrir);
+				
+			}
 			
 			
 		}
@@ -152,8 +202,8 @@
 		
 		$sql= $this->cone->prepare("SELECT * FROM pessoa WHERE id = ? ");
 		$sql->bind_param("i",$id);
-		$sql->execute();
 		$sql->bind_result($idu,$nomeu,$sobrenomeu,$emaiu,$senhau,$sexou,$creu,$modiu,$diau,$tipou);
+		$sql->execute();
 		
 		while ($sql->fetch()){
 			
@@ -166,7 +216,7 @@
 				
 				$bonus= $this->cone->prepare("SELECT * FROM kants WHERE id = ?");
 				$bonus->bind_param("i",$id);
-				$bonus->bind_result($ida,$qua,$che);
+				$bonus->bind_result($ida,$qua,$che,$meno);
 				$bonus->execute();
 				
 				while($bonus->fetch()){
@@ -207,8 +257,8 @@
 		
 		$exibir= $this->cone->prepare("SELECT * FROM kants WHERE id = ?");
 		$exibir->bind_param("i",$id);
-		$exibir->bind_result($idu,$quau,$cheu);
 		$exibir->execute();
+		$exibir->bind_result($idu,$quau,$cheu);
 		
 		while ($exibir->fetch()){
 			
@@ -224,6 +274,7 @@
 	}
 		
 		
+		
 	function comprar($valor,$pin){
 		
 		$id= $this->getid();
@@ -235,7 +286,9 @@
 		
 		while($exibir->fetch()){
 			
-			if (($quau>0) and ($quau>=$valor)){
+			$true= password_verify($pin,$check);
+			
+			if (($quau>0) and ($quau>=$valor) and ($true)){
 				
 				unset($exibir);
 				
@@ -253,7 +306,9 @@
 		
 		
 		
-	}
+	}//precisa se testado
+		
+	
 			
 	function setnome($nome){
 			
@@ -344,24 +399,34 @@
 			
 		}
 	
+	function setdata($data){
 		
+		$this->data=$data;
+		
+	}
+		
+	function getdata(){
+		
+		return $this->data;	
+		
+	}
 		
 		
 	}
 
 
-//a linha de baixo apenas teste dever apagada na versão final
 		
-	/*	
-		$userteste= new Usuario("noah","flores",1,$cone);
+		function boasvinda($valor,$pin,$id,$cone){
+				
 
-		print_r($userteste);
+			$depo=$cone->prepare("INSERT INTO kants VALUE (?,?,?)");
+			$depo->bind_param("iis",$id,$valor,$pin);
+			$depo->execute();
 
-		$userteste->bonusday();
-		
-		*/
-		
-		//print_r($p1);
+
+
+		}
+
 
 
 

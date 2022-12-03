@@ -1,4 +1,5 @@
-<?php session_start();
+<?php session_start(); require_once "function/objeto/Usuario.php";
+						require_once "function/conexao.php";
 	
 
 	if(!empty($_GET['login'])){
@@ -18,7 +19,9 @@
 		header("location: login.php");
 		
 	}
-
+	
+	$nome=$_SESSION['nome'];
+	$sobrenome=$_SESSION['sobrenome'];
 
 
 
@@ -196,9 +199,10 @@
 							
 							</div>
 					</form>
+							
+							<?php if ((!empty($_GET['true'])) and (($_GET['true']==1) || ($_GET['true']==2))){$user= new Usuario($nome,$sobrenome,$id,$cone); $user->configsql();/*print_r($user);*/} ?>
 					
-					
-							<form method='post' action='function/configsql.php'>
+							<form method='post' action='configdefault.php?true=1'>
 											
 								<fieldset><legend>genero</legend>
 											
@@ -221,14 +225,23 @@
 							</form>
 					
 								
-								<form method='post' action=''>
+								<form method='post' action='configdefault.php?true=2'>
 									
-									nome: <input type='text' /><br>
-									sobrenome: <input type='text' /><br>
-									pais: <input type='text' /><br>
-									estado: <input type='text' /><br>
-									cidade:<input type='text' /><br>
-									status civil: <input type='text' /><br>
+									nome: <input type='text' name="nome" /><br>
+									sobrenome: <input type='text' name="sobrenome" /><br>
+									pais: <input type="text" name='pais' /><br>
+									estado: <input type="text" name='estado' /><br>
+									cidade:<input type="text" name='cidade' /><br>
+									status civil: <select name="status">
+									
+													<option value='casado'>casado</option>
+													<option value='solteiro'>solteiro</option>
+													<option value='namorando'>namorando</option>
+													<option value='complicado'>complicado</option>
+									
+									
+														</select>
+												<input type="submit" value="enviar!" />
 										
 									
 								</form>

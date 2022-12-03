@@ -247,6 +247,57 @@
 								}
 						// descrição do usuario
 						
+						echo "<div>";
+						
+						if(file_exists("friend/". $id ."/status.txt")){
+							
+							$abrir=fopen("friend/". $id ."/status.txt","r+");
+							$status= fgets($abrir);
+							fclose($abrir);
+							
+							
+						}
+						
+						if(file_exists("friend/". $id ."/pais.txt")){
+							
+							$abrir=fopen("friend/". $id ."/pais.txt","r+");
+							$pais= fgets($abrir);
+							fclose($abrir);
+							
+							
+						}
+						
+						if(file_exists("friend/". $id ."/estado.txt")){
+							
+							$abrir=fopen("friend/". $id ."/estado.txt","r+");
+							$estado= fgets($abrir);
+							fclose($abrir);
+							
+							
+						}
+						
+						if(file_exists("friend/". $id ."/cidade.txt")){
+							
+							$abrir=fopen("friend/". $id ."/cidade.txt","r+");
+							$cidade= fgets($abrir);
+							fclose($abrir);
+							
+							
+						}
+						
+						
+						$status= (isset($status))? $status: "";
+						$pais= (isset($pais))? $pais: "";
+						$estado= (isset($estado))? $estado: "";
+						$cidade= (isset($cidade))? $cidade: "";
+						
+						echo "estado civil: ". $status ."<br>";
+						echo "pais: ". $pais ."<br>";
+						echo "estado: ". $estado ."<br>";
+						echo "cidade: ". $cidade ."<br>";
+						
+						
+						echo "</div>";
 						?>
 					
 					</div>
@@ -444,6 +495,10 @@
 								
 								
 							}
+						
+						
+						
+						
 						
 						
 						if (is_dir("other/". $id ."/amigo/tmp/")){

@@ -247,7 +247,57 @@
 									
 								}
 						
+						echo "<div>";
 						
+						if(file_exists("../friend/". $idfriend ."/status.txt")){
+							
+							$abrir=fopen("../friend/". $idfriend ."/status.txt","r+");
+							$status= fgets($abrir);
+							fclose($abrir);
+							
+							
+						}
+						
+						if(file_exists("../friend/". $idfriend ."/pais.txt")){
+							
+							$abrir=fopen("../friend/". $idfriend ."/pais.txt","r+");
+							$pais= fgets($abrir);
+							fclose($abrir);
+							
+							
+						}
+						
+						if(file_exists("../friend/". $idfriend ."/estado.txt")){
+							
+							$abrir=fopen("../friend/". $idfriend ."/estado.txt","r+");
+							$estado= fgets($abrir);
+							fclose($abrir);
+							
+							
+						}
+						
+						if(file_exists("../friend/". $idfriend ."/cidade.txt")){
+							
+							$abrir=fopen("../friend/". $idfriend ."/cidade.txt","r+");
+							$cidade= fgets($abrir);
+							fclose($abrir);
+							
+							
+						}
+						
+						
+						$status= (isset($status))? $status: "";
+						$pais= (isset($pais))? $pais: "";
+						$estado= (isset($estado))? $estado: "";
+						$cidade= (isset($cidade))? $cidade: "";
+						
+						echo "estado civil: ". $status ."<br>";
+						echo "pais: ". $pais ."<br>";
+						echo "estado: ". $estado ."<br>";
+						echo "cidade: ". $cidade ."<br>";
+						
+						
+						echo "</div>";
 						?>
 					
 					</div>
