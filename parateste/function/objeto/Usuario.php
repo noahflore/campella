@@ -2,7 +2,7 @@
 
 	require_once "Pessoa.php";
 	// o de baixo tbm é para teste e dever ser apagado
-	require_once "../conexao.php";
+	//require_once "../conexao.php";
 	
 	
 	class  Usuario extends Pessoa{
@@ -112,6 +112,7 @@
 		if ($_GET['true']==2){
 			
 			$id=$_SESSION['id'];
+			$data=$this->getdata();
 			
 				if (!empty($_POST['nome'])){$nome=$_POST['nome'];$_SESSION['nome']=$_POST['nome'];}else{$nome=$_SESSION['nome'];}
 				if (!empty($_POST['sobrenome'])){$sobrenome=$_POST['sobrenome'];$_SESSION['sobrenome']=$_POST['sobrenome'];}else{$sobrenome=$_SESSION['sobrenome'];}
@@ -135,7 +136,54 @@
 					$change->bind_param("ssssi",$nome,$sobrenome,$data,$tipou,$id);
 					$change->execute();
 			
+			if (!empty($_POST['pais'])){
+				
+				$pais= $_POST['pais'];
+					
+					copy("other/exemplo/exemplo.txt","friend/". $id ."/pais.txt");
+					$abrir=fopen("friend/". $id ."/pais.txt","w+");
+					fwrite($abrir,$pais);
+					fclose($abrir);
+				
+				
+			}
 			
+			if (!empty($_POST['estado'])){
+				
+				$estado= $_POST['estado'];
+					
+					copy("other/exemplo/exemplo.txt","friend/". $id ."/estado.txt");
+					$abrir=fopen("friend/". $id ."/estado.txt","w+");
+					fwrite($abrir,$estado);
+					fclose($abrir);
+				
+				
+			}
+			
+			if (!empty($_POST['cidade'])){
+				
+				$cidade= $_POST['cidade'];
+					
+					copy("other/exemplo/exemplo.txt","friend/". $id ."/cidade.txt");
+					$abrir=fopen("friend/". $id ."/cidade.txt","w+");
+					fwrite($abrir,$cidade);
+					fclose($abrir);
+				
+				
+			}
+			
+			
+			
+			if (!empty($_POST['status'])){
+				
+					$status= $_POST['status'];
+					
+					copy("other/exemplo/exemplo.txt","friend/". $id ."/status.txt");
+					$abrir=fopen("friend/". $id ."/status.txt","w+");
+					fwrite($abrir,$status);
+					fclose($abrir);
+				
+			}
 			
 			
 		}
@@ -350,7 +398,17 @@
 			
 		}
 	
+	function setdata($data){
 		
+		$this->data=$data;
+		
+	}
+		
+	function getdata(){
+		
+		return $this->data;	
+		
+	}
 		
 		
 	}
@@ -378,12 +436,12 @@
 		
 		
 	
-		$userteste= new Usuario("noah","flores",1,$cone);
+	//	$userteste= new Usuario("noah","flores",1,$cone);
 
-		print_r($userteste);
+	//	print_r($userteste);
 
 	//	$userteste->bonusday();
-		$userteste->comprar(1000,"kk");
+	//	$userteste->comprar(1000,"kk");
 		
 		
 		//print_r($p1);

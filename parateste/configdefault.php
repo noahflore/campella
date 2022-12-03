@@ -229,9 +229,9 @@
 									
 									nome: <input type='text' name="nome" /><br>
 									sobrenome: <input type='text' name="sobrenome" /><br>
-									pais: <input type='pais' /><br>
-									estado: <input type='estado' /><br>
-									cidade:<input type='cidade' /><br>
+									pais: <input type="text" name='pais' /><br>
+									estado: <input type="text" name='estado' /><br>
+									cidade:<input type="text" name='cidade' /><br>
 									status civil: <select name="status">
 									
 													<option value='casado'>casado</option>
