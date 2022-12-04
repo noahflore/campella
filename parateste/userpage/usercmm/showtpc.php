@@ -27,9 +27,31 @@ session_start();
 	<html>
 
 		<head>
-			<title>cmm_do_user || campella</title>
+		<?php
+			$idcm=$_GET['idcmm'];
+							
+								if (!empty($_GET['id'])){
+									
+									$id=$_GET['id'];	
+									
+								}else{
+									
+									$id=$_SESSION['id'];	
+									
+									
+								}
+				$nome=$_SESSION['nome'];
+			
+			
+			
+			
+		echo "	<title>". $idcm ." d ". $nome ." || campella</title>";
+				
+				
+				?>
 			<link rel="stylesheet" href="../../defaultstyle/baseestilo.css" />
 			<link rel="stylesheet" href="../../defaultstyle/corpodacmm.css" />
+			<link rel="icon" href="../../ico/logocampella.png" />
 		
 		
 		</head>

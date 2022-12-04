@@ -31,6 +31,7 @@
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="../../defaultstyle/baseestilo.css" />
 		<link rel="stylesheet" href="../../defaultstyle/stylecmm.css" />
+		<link rel="icon" href="../../ico/logocampella.png" />
 		
 		
 	</head>

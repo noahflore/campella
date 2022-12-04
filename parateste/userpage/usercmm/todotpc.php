@@ -69,6 +69,7 @@
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="../../defaultstyle/baseestilo.css" />
 		<link rel="stylesheet" href="../../defaultstyle/corpodacmm.css" />
+		<link rel="icon" href="../../ico/logocampella.png" />
 
 
 	</head>
@@ -181,7 +182,9 @@
 								
 								if ((file_exists("../../other/var/". $id ."/". $idcm ."/autoria/". $meuid)) || ($id==$meuid)){
 									
-									echo "<li><a href='criartpc.php?idcmm=". $idcm ."' >criar topicos</a></li>";
+									//echo "<li><a href='criartpc.php?idcmm=". $idcm ."' >criar topicos</a></li>";
+									
+									// esse echo criar uma cmm fantasma apaga se não tem como corrigir
 									
 								}elseif ($privado==0){
 									

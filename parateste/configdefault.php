@@ -232,15 +232,89 @@
 									pais: <input type="text" name='pais' /><br>
 									estado: <input type="text" name='estado' /><br>
 									cidade:<input type="text" name='cidade' /><br>
-									status civil: <select name="status">
-									
-													<option value='casado'>casado</option>
-													<option value='solteiro'>solteiro</option>
-													<option value='namorando'>namorando</option>
-													<option value='complicado'>complicado</option>
 									
 									
-														</select>
+									<?php
+									
+									if (file_exists("friend/". $id ."/status.txt")){
+										
+										$abrir=fopen("friend/". $id ."/status.txt","r+");
+										$chaka=fgets($abrir);
+										fclose($abrir);
+										
+										if ($chaka=="casado"){
+											
+											echo "		status civil: <select name='status'>
+
+																	<option value='casado'>casado</option>
+																	<option value='solteiro'>solteiro</option>
+																	<option value='namorando'>namorando</option>
+																	<option value='complicado'>complicado</option>
+
+
+																		</select>";
+											
+											
+										}elseif ($chaka=="solteiro"){
+											
+											echo "		status civil: <select name='status'>
+
+																	<option value='solteiro'>solteiro</option>
+																	<option value='casado'>casado</option>
+																	<option value='namorando'>namorando</option>
+																	<option value='complicado'>complicado</option>
+
+
+																		</select>";
+											
+											
+										}elseif ($chaka=="namorando"){
+											
+											echo "		status civil: <select name='status'>
+
+																	<option value='namorando'>namorando</option>
+																	<option value='casado'>casado</option>
+																	<option value='solteiro'>solteiro</option>
+																	<option value='complicado'>complicado</option>
+
+
+																		</select>";
+											
+											
+										}else{
+											
+											echo "		status civil: <select name='status'>
+
+																	<option value='complicado'>complicado</option>
+																	<option value='casado'>casado</option>
+																	<option value='solteiro'>solteiro</option>
+																	<option value='namorando'>namorando</option>
+																	
+
+
+																		</select>";
+											
+											
+										}
+										
+										
+										
+										
+										
+									}else{
+											echo "		status civil: <select name='status'>
+
+																	<option value='casado'>casado</option>
+																	<option value='solteiro'>solteiro</option>
+																	<option value='namorando'>namorando</option>
+																	<option value='complicado'>complicado</option>
+
+
+																		</select>";
+
+									}
+										
+										?>
 												<input type="submit" value="enviar!" />
 										
 									

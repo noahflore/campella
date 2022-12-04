@@ -258,7 +258,7 @@
 		$exibir= $this->cone->prepare("SELECT * FROM kants WHERE id = ?");
 		$exibir->bind_param("i",$id);
 		$exibir->execute();
-		$exibir->bind_result($idu,$quau,$cheu);
+		$exibir->bind_result($idu,$quau,$cheu,$meno);
 		
 		while ($exibir->fetch()){
 			

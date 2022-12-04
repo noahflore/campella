@@ -31,6 +31,7 @@
 		<title>cmm_do_user || campella</title>
 		<link rel="stylesheet" href="../defaultstyle/baseestilo.css" />
 		<link rel="stylesheet" href="../defaultstyle/corpodacmm.css" />
+		<link rel="icon" href="../ico/logocampella.png" />
 	
 	
 	</head>
