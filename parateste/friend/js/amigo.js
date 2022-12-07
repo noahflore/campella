@@ -106,24 +106,24 @@
 					opc[i].setAttribute("value",i)
 				if (i==1){
 					
-					op[i].innerText= "0%"
-					opb[i].innerText= "0%"
-					opc[i].innerText= "0%"
+					op[i].innerText= "legal 0%"
+					opb[i].innerText= "sexy 0%"
+					opc[i].innerText= "amavel 0%"
 				
 				}else if (i==2){
-					op[i].innerText= "25%"
-					opb[i].innerText= "25%"
-					opc[i].innerText= "25%"
+					op[i].innerText= "legal 25%"
+					opb[i].innerText= "sexy 25%"
+					opc[i].innerText= "amavel 25%"
 				
 				}else if (i==3){
-					op[i].innerText= "50%"
-					opb[i].innerText= "50%"
-					opc[i].innerText= "50%"
+					op[i].innerText= "legal 50%"
+					opb[i].innerText= "sexy 50%"
+					opc[i].innerText= "amavel 50%"
 				
 				}else if (i==4){
-					op[i].innerText= "100%"
-					opb[i].innerText= "100%"	
-					opc[i].innerText= "100%"
+					op[i].innerText= "legal 100%"
+					opb[i].innerText= "sexy 100%"	
+					opc[i].innerText= "amavel 100%"
 				
 				}	
 					legala.appendChild(op[i])
@@ -142,7 +142,7 @@
 				
 			
 				pre.setAttribute("method","post")
-				pre.setAttribute("action","../../function/qualida.php")
+				pre.setAttribute("action","../function/qualida.php?id=" + idf)
 				envia.setAttribute("type","submit")
 				envia.setAttribute("value","enviar!")
 				amoa.setAttribute("name","amo")

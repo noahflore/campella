@@ -90,7 +90,17 @@
 
 	 <head>
 	 
-	 <title>user-see-user || campella</title>
+<?php	$abrir=array_diff(scandir("../friend/". $idfriend ."/"),['.','..']);
+		
+				
+				$nomeF=str_replace("1-","",$abrir[2]);
+				
+				
+			
+		// print_r($abrir);
+		   unset($abrir);
+		 
+		 echo "  <title>". $nomeF ." || campella</title>"; ?>
 	 <meta charset="utf-8" />
 	 <link rel="stylesheet" href="../defaultstyle/baseestilo.css" />
 	 <link rel="stylesheet" href="../defaultstyle/user.css" />
@@ -163,11 +173,37 @@
 						
 							if (file_exists("../other/". $idfriend ."/amigo/". $id .".txt")){
 								
+								if (is_dir("../other/". $idfriend ."/score/")){
+									
+									$abrir=fopen("../other/". $idfriend ."/score/amo.txt","r+");
+									$abrirb=fopen("../other/". $idfriend ."/score/legal.txt","r+");
+									$abrirc=fopen("../other/". $idfriend ."/score/fogo.txt","r+");
+									$lera=fgets($abrir);
+									$lerb=fgets($abrirb);
+									$lerc=fgets($abrirc);
+									fclose($abrir);
+									fclose($abrirb);
+									fclose($abrirc);
+									
+									
+								}
 								
+								
+								if ($lera==50){$amo= "<img onclick='qualida($idfriend)' id='amor' src='../ico/heart.png' alt='amavel' />";}
+								if ($lerb==50){$cool= "<img onclick='qualida($idfriend)' id='amor' src='../ico/cool.png' alt='legal' />";}
+								if ($lerc==50){$fogo= "<img onclick='qualida($idfriend)' id='amor' src='../ico/fire.png' alt='sexy' />";}
+								
+								if ($lera==100){$amo= "<img onclick='qualida($idfriend)' id='amor' src='../ico/heart.png' alt='amavel' /><img onclick='qualida($idfriend)' id='amor' src='../ico/heart.png' alt='amavel' />";}
+								if ($lerb==100){$cool= "<img onclick='qualida($idfriend)' id='amor' src='../ico/cool.png' alt='legal' /><img onclick='qualida($idfriend)' id='amor' src='../ico/cool.png' alt='legal' />";}
+								if ($lerc==100){$fogo= "<img onclick='qualida($idfriend)' id='amor' src='../ico/fire.png' alt='sexy' /><img onclick='qualida($idfriend)' id='amor' src='../ico/fire.png' alt='sexy' />";}
+								
+								$amo= (!empty($amo))? $amo:" ";
+								$cool= (!empty($cool))? $cool:" ";
+								$fogo= (!empty($fogo))? $fogo:" ";
 								echo "
-										<img onclick='qualida($idfriend)' id='amor' src='../ico/heart.png' alt='amavel' />
-										<img onclick='qualida($idfriend)' id='legal' src='../ico/cool.png' alt='legal' />
-										<img onclick='qualida($idfriend)' id='fogo' src='../ico/fire.png' alt='sexy' />
+										<img onclick='qualida($idfriend)' id='amor' src='../ico/heart.png' alt='amavel' />$amo
+										<img onclick='qualida($idfriend)' id='legal' src='../ico/cool.png' alt='legal' />$cool
+										<img onclick='qualida($idfriend)' id='fogo' src='../ico/fire.png' alt='sexy' />$fogo
 										<img src='l' alt='bigode/bigode_de_ouro' />
 										<img src='l' alt='conquista %' />
 					
