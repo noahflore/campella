@@ -40,10 +40,11 @@
 		<header class="cabeça">
 		
 			<img src="../ico/logocampella.png" alt="logo do site" />
-			<nav> 
+			<nav id="cabecuda"> 
 				<ul>
 					<?php echo "<li><a href='../../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
 					<!-- o de cima é nome do usuario-->
+					<li><a href="../principaldefault.php">principal</a></li>
 					<li>configuração</li>
 					<li><s>camp</s></li>
 					<li>feed back</li>

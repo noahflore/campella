@@ -51,7 +51,7 @@
 		<header class="cabeça">
 		
 			<img src="ico/logocampella.png" alt="logo do site" /><br>
-			<nav> 
+			<nav id="cabecuda"> 
 				<ul>
 				<?php echo "<li><a href='userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
 					<li><a href="principaldefault.php">principal</a></li>

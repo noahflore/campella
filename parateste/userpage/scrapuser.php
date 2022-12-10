@@ -44,7 +44,7 @@
 		<header class="cabeça">
 		
 			<img src="../ico/logocampella.png" alt="logo do site" />
-			<nav> 
+			<nav id="cabecuda"> 
 				<ul>
 					<?php echo "<li><a id='click' href='../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
 					<li><span id="lista"><input type='button' onclick="config(3)" id="config" value='configuração' /></span></li>

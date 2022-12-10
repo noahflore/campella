@@ -50,7 +50,7 @@
 		
 			<img src="ico/logocampella.png" alt="logo do site" /><br>
 			<div>bem-vindo <?php echo"<span style='line-height:50px;color:white'>". $_SESSION['nome'] ."</span>"; ?> </div>
-			<nav> 
+			<nav id="cabecuda"> 
 				<ul>
 					<li onclick='usuario(2)'><a href="principaldefault.php">principal</a></li>
 					<li><span id="lista"><input type='button' onclick="config(1)" id="config" value='configuração' /></span></li>

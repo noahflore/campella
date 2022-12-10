@@ -45,7 +45,7 @@
 		<header	class="cabeça">
 		
 			<img src="ico/logocampella.png" alt="logo do site" />
-			<nav> 
+			<nav id="cabecuda"> 
 				<ul>
 					<?php echo "<li onclick='usuario(1)'><a href='userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
 					<!-- o de cima é nome do usuario-->

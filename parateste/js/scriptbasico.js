@@ -72,7 +72,7 @@
 		
 			
 			lista.setAttribute('id','voltar')
-			opcao.setAttribute("style","position: fixed; display: flex; flex-direction: column;")
+			opcao.setAttribute("style","position: fixed; display: flex; flex-direction: column;font-size:55px;")
 			op[0].setAttribute('value','modo dark')
 			if (num==3){op[0].setAttribute('onclick','preto(1)');num=1}else{op[0].setAttribute('onclick','preto()')}
 			op[0].innerText= "modo dark"

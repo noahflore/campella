@@ -116,6 +116,22 @@ a:hover {
 		
 	}
 	
+	.amigos img{
+
+		padding-left:10px;
+		width:110px !important;
+		height:110px !important;
+
+		
+	}
+	
+	.amigos a{
+
+		padding-left:10px;
+		font-size:50px !important;
+		
+	}
+	
 	.fotopa img {
 		
 		width: 100px !important;
@@ -123,6 +139,14 @@ a:hover {
 		
 	}
 	
+	.fotopa a{
+
+		font-size:60px;
+		height:100px;
+		width:190px;
+		
+	}
+
 	.flutuar{
 		
 		position: inherit;
@@ -165,8 +189,10 @@ a:hover {
 	}
 	
 	#especial {
-		width: 400px;
-		height: 600px !important;
+		margin-left:110px;
+		margin-top:130px;
+		width: 500px !important;
+		height: 500px !important;
 		
 		
 	}
@@ -175,6 +201,22 @@ a:hover {
 		width: 300px;
 		height: 300px;
 		margin-left: 290px;
+		
+	}
+	
+	#cabecuda li{
+
+		
+		font-size: 55px;
+
+		
+	}
+	
+	#fotoi img{
+
+		margin-top:50px;
+		width:70px;
+		height:70px !important;
 		
 	}
 	
