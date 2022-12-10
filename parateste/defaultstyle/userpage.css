@@ -78,8 +78,15 @@
 	.caixa{
 		
 		font-size: 39px;
+		margin-left: 0px;
 		
 		
+	}
+	
+	.bloco{
+
+		flex-direction:column;
+
 		
 	}
 	
@@ -98,7 +105,44 @@
 		width: 60px;
 		height: 60px;
 		
-	};
+	}
+	
+	.lateral li{
+
+		font-size:70px !important;
+
+
+		
+	}
+	
+	.aperta{
+
+
+		width:940px;
+		font-size:60px;
+
+		
+	}
+	
+	.recado {
+
+		width: 1000px !important;
+		font-size:60px;
+		
+	}
+	
+	.cabemobi{
+
+		font-size:50px;
+		
+	}
+	
+	.configmobi{
+		
+		width:310px;	
+		
+		
+	}
 	
 	
 	#recado{
@@ -114,6 +158,13 @@
 		height: 50px;
 			
 		
-	}	
+	}
+	
+	#especial{
+
+		margin-left:190px;
+
+		
+	}
 	
 }

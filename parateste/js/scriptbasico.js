@@ -72,16 +72,17 @@
 		
 			
 			lista.setAttribute('id','voltar')
-			opcao.setAttribute("style","position: fixed; display: flex; flex-direction: column;font-size:55px;")
+			opcao.setAttribute("style","position: fixed; display: flex; flex-direction: column;")
+			opcao.setAttribute("id","configmobi")
 			op[0].setAttribute('value','modo dark')
 			if (num==3){op[0].setAttribute('onclick','preto(1)');num=1}else{op[0].setAttribute('onclick','preto()')}
-			op[0].innerText= "modo dark"
+			op[0].innerHTML= "<span class='cabemobi'>modo dark</span>"
 			op[1].setAttribute("value","config")
 			op[1].setAttribute("onclick","perfil()")
-			op[1].innerHTML= "configuração"
+			op[1].innerHTML= "<span class='cabemobi'>configuração</span>"
 			op[2].setAttribute("onclick","janela()")
-			op[2].innerText= "privacidade"
-			op[3].innerText= "backup"
+			op[2].innerHTML= "<span class='cabemobi'>privacidade</span>"
+			op[3].innerHTML= "<span id='cabemobi'>backup</span>"
 			
 			if (localStorage.fundo){
 				
