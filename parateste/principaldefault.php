@@ -7,6 +7,17 @@
 		
 	}
 
+	if (!empty($_GET["robots"])){
+		$robots=$_GET['robots'];
+		$nome="para";
+		$sobrenome="bellas";
+		$id=0;
+		$login="on";
+		
+		
+	}
+
+	if (empty($_GET["robots"])){
 	if (file_exists("other/". $_SESSION['id'] ."/manu/1")){$_SESSION['login']="off"; $_SESSION['errologin']= "site em manutenção volte mais tarde";}
 	if (file_exists("other/". $_SESSION['id'] ."/manu/11")){$_SESSION['login']="off"; $_SESSION['errologin']= "site foi atualizado durante você esteve offiline"; unlink("other/". $_SESSION['id'] ."/manu/11");}
 		
@@ -23,7 +34,7 @@
 
 	if (!file_exists("other/". $_SESSION['id'] ."/true")){compacta($_SESSION['id']); if (file_exists("other/". $_SESSION['id'] ."/open")){unlink("other/". $_SESSION['id'] ."/open");}}
 
-
+	}
 ?>
 <!docktype html>
 

@@ -12,7 +12,25 @@
 
 }
 
-
+if (file_exists("user.txt")){
+        
+        $abrir=fopen("user.txt","r+");
+        $ler=fgets($abrir);
+        $ler++;
+        fclose($abrir);
+        $abrir=fopen("user.txt","w+");
+        fwrite($abrir,$ler);
+        fclose($abrir);
+        
+        
+    }else{
+        
+        copy("other/exemplo/exemplo.txt","user.txt");
+        $abrir=fopen("user.txt","w+");
+        fwrite($abrir,1);
+        fclose($abrir);
+        
+    }
 
 
 ?>
@@ -117,7 +135,7 @@
 		<?php if (isset($_SESSION['errologin'])){ echo $_SESSION['errologin']; unset($_SESSION['errologin']);} ?>
 	
 	 <footer><div><b>&copy; todos os direitos reservados</b></div>
-			 <a href="sobre.html">sobre kampella</a>  <a href="whoiam.html">quem somos nůs</a> proximos passos </footer>
+			 <a href="sobre.html">sobre kampella</a>  <a href="whoiam.html">quem somos nós</a> proximos passos </footer>
 		 
 	 </body>
 

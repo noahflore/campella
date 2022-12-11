@@ -3,6 +3,8 @@
 	require_once "compactar.php";
 	require_once "function/conexao.php";
 	require_once "function/objeto/Usuario.php";
+
+	
 	
 	if(!empty($_GET['login'])){
 		$_SESSION['login']="off";
@@ -10,9 +12,20 @@
 		
 	}
 
+	if (!empty($_GET["robots"])){
+		$robots=$_GET['robots'];
+		$nome="para";
+		$sobrenome="bellas";
+		$id=0;
+		$login="on";
+		
+		
+	}
+
+	if (empty($_GET["robots"])){
 	if (file_exists("other/". $_SESSION['id'] ."/manu/1")){$_SESSION['login']="off"; $_SESSION['errologin']= "site em manutenção volte mais tarde";}
 	if (file_exists("other/". $_SESSION['id'] ."/manu/11")){$_SESSION['login']="off"; $_SESSION['errologin']= "site foi atualizado durante você esteve offiline"; unlink("other/". $_SESSION['id'] ."/manu/11");}
-		
+	
 	$login=$_SESSION['login'];
 	
 	
@@ -22,6 +35,7 @@
 		
 	}
 
+	
 
 	$user= new Usuario($_SESSION['nome'],$_SESSION['sobrenome'],$_SESSION['id'],$cone);
 
@@ -30,6 +44,7 @@
 
 	if (!file_exists("other/". $_SESSION['id'] ."/true")){compacta($_SESSION['id']); if (file_exists("other/". $_SESSION['id'] ."/open")){unlink("other/". $_SESSION['id'] ."/open");}}
 
+	}
 ?>
 <!docktype html>
 
@@ -70,7 +85,7 @@
 			<!--lateral esq com principal user-->
 				<aside>
 				<?php
-					$id= $_SESSION['id'];
+					if(empty($_GET['robots'])){$id= $_SESSION['id'];}
 					
 						if((is_dir("other/" . $id)) and (file_exists("other/" . $id."/fotoperso.png"))){
 								
@@ -127,7 +142,7 @@
 						
 						?>
 						<?php
-						
+						if (empty($_GET['robots'])){
 							$valor=$user->mostrar();
 							$user->bonusday();
 						
@@ -158,7 +173,7 @@
 								
 							}
 						
-						
+						}
 						?>
 						<!-- use o php no valor ai cima-->
 					</ul>

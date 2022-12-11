@@ -105,30 +105,42 @@
 	 </head>
 	 
 	 <body>
-		<h1>faça seu registro</h1>
-		<form class="form" method="post" action="function/coleta.php">
-			<label for="nome">nome</label>
-			<input type="text" id="nome" name="nome" required />
-			<label for="sobrenome">sobrenome</label>
-			<input type="text" id="sobrenome" name="sobrenome" required />
-			<label for="email">email</label>
-			<input type="email" id="email"  name="email" required />
-			<label for="senha">senha</label>
-			<input type="password" id="senha" name="senha"  required />
-			<label for="repita">repita a senha</label>
-			<input type="password" id="repita" name="repita"  required /><br>
-coloca sua chave: <input type="text" name="chave" placeholder="esse campo é opcional" />
-			<input type="submit" value="enviar" />
+		 
+		 <?php
+		 
+		 if (file_exists("other/1/manu/1")){
+			 
+			 
+			 echo "o site está em mmanuteção voltei mais tarde";
+			 
+			 
+			 
+		 }else{
+		 
+ 	echo"		<h1>faça seu registro</h1>
+		<form class='form' method='post' action='function/coleta.php'>
+			<label for='nome'>nome</label>
+			<input type='text' id='nome' name='nome' required />
+			<label for='sobrenome'>sobrenome</label>
+			<input type='text' id='sobrenome' name='sobrenome' required />
+			<label for='email'>email</label>
+			<input type='email' id='email'  name='email' required />
+			<label for='senha'>senha</label>
+			<input type='password' id='senha' name='senha'  required />
+			<label for='repita'>repita a senha</label>
+			<input type='password' id='repita' name='repita'  required /><br>
+coloca sua chave: <input type='text' name='chave' placeholder='esse campo é opcional' />
+			<input type='submit' value='enviar' />
 		
 		
 		
 		</form>
-		<span id="baixo">	tem uma conta? click 
-			<a href="login.php">login</a></span> <?php if (!empty($_SESSION['msg'])){ echo $_SESSION['msg']; unset($_SESSION['msg']);} ?>
+		<span id='baixo'>	tem uma conta? click 
+			<a href='login.php'>login</a></span>";  if (!empty($_SESSION['msg'])){ echo $_SESSION['msg']; unset($_SESSION['msg']);}} ?>
 		 
 	
 	 <footer><div><b>&copy; todos os direitos reservados</b></div>
-			 <a href="sobre.html">sobre kampella</a>  <a href="whoiam.html">quem somos n�s</a> proximos passos </footer>
+			 <a href="sobre.html">sobre kampella</a>  <a href="whoiam.html">quem somos nós</a> proximos passos </footer>
 		 
 	 </body>
 
