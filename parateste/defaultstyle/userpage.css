@@ -86,8 +86,22 @@
 	.bloco{
 
 		flex-direction:column;
-
 		
+		
+	}
+	
+	.resjs textarea{
+
+		width:1000px;
+		height:170px;
+		
+	}
+	
+	.resjs input{
+
+		width:1000px;
+		height:90px;
+		font-size:60px;
 	}
 	
 	

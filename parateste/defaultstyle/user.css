@@ -60,7 +60,7 @@
 	.user{
 		
 		flex-direction: column;
-		
+		margin-left:0px;
 		
 	}
 	
@@ -85,4 +85,14 @@
 		
 	}
 	
+	#amigomobi img{
+
+		width:100px !important;
+		height:100px !important;
+	}
+
+	#amigomobi a{
+
+		font-size: 50px;
+	}
 }

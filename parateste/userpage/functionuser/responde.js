@@ -11,6 +11,7 @@
 			butao.setAttribute("type","submit")
 			butao.setAttribute("value","enviar!")
 			formu.setAttribute("method","post")
+			formu.setAttribute("class","resjs")
 			formu.setAttribute("action","../function/recado.php?id="+ id)
 			
 			

@@ -592,7 +592,7 @@
 								$aju=0;
 								$div=0; //essa variavel vai se usado no separado de index
 								
-								echo "<div>";
+								echo "<div id='amigomobi'>";
 								
 								for ($i=1; $i<=1000; $i++){
 									
