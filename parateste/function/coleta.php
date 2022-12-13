@@ -22,6 +22,8 @@ session_start();
 		$min= date("i");
 		$cre= "$ano-$mes-$dia $hora:$min:00";
 		$mod= "0000-00-00 00:00:00";
+		$ip=$_SERVER['REMOTE_ADDR'];
+		//$ip= filter_input(INPUT_SERVER,REMOTE_ADDR,FILTER_VALIDATE_IP);
 		
 		
 			if ($senha!=$repita){
@@ -65,8 +67,8 @@ session_start();
 		
 		
 		
-		$cada=$cone->prepare("insert into pessoa values (?,?,?,?,?,?,?,?,?,?)");
-		$cada->bind_param("isssssssss",$id,$nome,$sobrenome,$email,$senha,$sexo,$cre,$mod,$dia,$tipo);
+		$cada=$cone->prepare("insert into pessoa values (?,?,?,?,?,?,?,?,?,?,?)");
+		$cada->bind_param("issssssssss",$id,$nome,$sobrenome,$email,$senha,$sexo,$cre,$mod,$dia,$tipo,$ip);
 		$cada->execute();
 		
 		$cada->store_result();

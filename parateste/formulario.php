@@ -17,7 +17,7 @@
 ?>
 
 
-<!docktype html>
+<!doctype html>
 
 <html>
 

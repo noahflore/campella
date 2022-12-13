@@ -14,7 +14,7 @@
 		
 		$consulta=$cone->prepare("select  * from pessoa where email = ? limit 1");
 		$consulta->bind_param("s",$email);
-		$consulta->bind_result($id,$nome,$sobrenome,$email,$teste,$sexo,$cre,$mod,$diau,$tipo);
+		$consulta->bind_result($id,$nome,$sobrenome,$email,$teste,$sexo,$cre,$mod,$diau,$tipo,$ip);
 		$consulta->execute();
 		
 		
@@ -31,7 +31,8 @@
 						
 						unset($consulta);
 						
-						$pin=random_bytes(8);
+						$code=random_bytes(8);
+						$pin=bin2hex($code);
 						$pin= password_hash($pin,PASSWORD_DEFAULT);
 						$user= new Usuario($nome,$sobrenome,$id,$cone);// esse arquivo tem que levar ao master
 						
@@ -69,7 +70,8 @@
 					if ($teste==0){
 						
 						$zero=0;
-						$pin=random_bytes(8);
+						$code=random_bytes(8);
+						$pin=bin2hex($code);
 						$_SESSION['pin']= $pin;
 						$pin= password_hash($pin,PASSWORD_DEFAULT);
 						

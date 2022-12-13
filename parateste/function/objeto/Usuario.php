@@ -30,7 +30,7 @@
 				
 				$veri= $cone->prepare("SELECT * FROM pessoa WHERE id = ? and nome = ? and sobrenome = ?");
 				$veri->bind_param("iss",$id,$nome,$sobrenome);
-				$veri->bind_result($idu,$nomeu,$sobrenomeu,$emailu,$senhau,$sexou,$creu,$modiu,$diau,$tipou);
+				$veri->bind_result($idu,$nomeu,$sobrenomeu,$emailu,$senhau,$sexou,$creu,$modiu,$diau,$tipou,$ipu);
 				$veri->execute();
 				$veri->store_result();
 				$teste=$veri->affected_rows;
@@ -113,14 +113,21 @@
 			$id=$_SESSION['id'];
 			$data=$this->getdata();
 			
+			$nome=$_SESSION['nome'];
+			$sobrenome=$_SESSION['sobrenome'];
+			
+			unlink("friend/". $id ."/1-". $nome);
+			unlink("friend/". $id ."/2-". $sobrenome);
+			
 				if (!empty($_POST['nome'])){$nome=$_POST['nome'];$_SESSION['nome']=$_POST['nome'];}else{$nome=$_SESSION['nome'];}
 				if (!empty($_POST['sobrenome'])){$sobrenome=$_POST['sobrenome'];$_SESSION['sobrenome']=$_POST['sobrenome'];}else{$sobrenome=$_SESSION['sobrenome'];}
-			
+				copy("other/exemplo/exemplo.txt","friend/". $id ."/1-". $nome);
+				copy("other/exemplo/exemplo.txt","friend/". $id ."/2-". $sobrenome);
 					
 			
 			$update=$this->cone->prepare("SELECT * FROM pessoa WHERE id = ?");
 			$update->bind_param("i",$id);
-			$update->bind_result($idu,$nou,$sobreu,$emailu,$senhau,$sexou,$creu,$modu,$diau,$tipou);
+			$update->bind_result($idu,$nou,$sobreu,$emailu,$senhau,$sexou,$creu,$modu,$diau,$tipou,$ipu);
 			$update->execute();
 			
 			
@@ -202,7 +209,7 @@
 		
 		$sql= $this->cone->prepare("SELECT * FROM pessoa WHERE id = ? ");
 		$sql->bind_param("i",$id);
-		$sql->bind_result($idu,$nomeu,$sobrenomeu,$emaiu,$senhau,$sexou,$creu,$modiu,$diau,$tipou);
+		$sql->bind_result($idu,$nomeu,$sobrenomeu,$emaiu,$senhau,$sexou,$creu,$modiu,$diau,$tipou,$ipu);
 		$sql->execute();
 		
 		while ($sql->fetch()){

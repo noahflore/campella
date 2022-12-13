@@ -46,7 +46,7 @@
 
 	}
 ?>
-<!docktype html>
+<!doctype html>
 
 <html>
 
@@ -149,8 +149,9 @@
 						
 							if (!empty($_SESSION['pin'])){
 								
+								$pin=$_SESSION['pin'];
 								echo "<span id='pop' style='position:fixed; background-color:white;top:50%;'>essa é sua senha guarde em um local seguro<hr><br>
-								<strong>senha:</strong> ". $_SESSION['pin'] ."</span>";
+								<strong>senha:</strong> ". $pin ."</span>";
 								unset($_SESSION['pin']);
 								
 								
