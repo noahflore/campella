@@ -66,13 +66,17 @@ session_start();
 		
 		
 		if ($_POST['friend']=="denuncia"){
+			$motivo=$_POST['motivo'];
+			
+			if (!is_dir("../other/1/amigo/denuncia/")){
+			mkdir("../other/1/amigo/denuncia/",0777,true);}
+			copy("../other/exemplo/exemplo.txt","../other/1/amigo/denuncia/q". $meuid ."-". $id ."a.txt");
+			$abrir=fopen("../other/1/amigo/denuncia/q". $meuid ."-". $id ."a.txt","w+");
+			fwrite($abrir,$motivo);
+			fclose($abrir);
 			
 			
-			mkdir("../other/". $meuid ."/amigo/denuncia/",0777,true);
-			copy("../other/exemplo/exemplo.txt","../other/". $meuid ."/amigo/denuncia/". $id .".txt");
-			
-			
-			
+			header("location: ../userdefault.php");
 			
 			
 		}

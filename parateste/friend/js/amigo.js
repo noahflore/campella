@@ -7,6 +7,7 @@
 		let add= document.createElement("input")
 		let block=document.createElement("input")
 		let denuncia= document.createElement("input")
+		let motivo= document.createElement("textarea")
 		
 		
 		
@@ -21,11 +22,15 @@
 			denuncia.setAttribute("type","submit")
 			denuncia.setAttribute("value","denuncia")
 			denuncia.setAttribute("name","friend")
+			motivo.setAttribute("name","motivo")
+			motivo.setAttribute("cols","30")
+			motivo.setAttribute("rows","5")
 			
 			
 			formu.appendChild(add)
 			formu.appendChild(block)
 			formu.appendChild(denuncia)
+			formu.appendChild(motivo)
 			res.removeChild(remove)
 			res.appendChild(formu)
 		
@@ -55,6 +60,7 @@
 			let formremove= document.createElement("form")
 			let block=document.createElement("input")
 			let denuncia= document.createElement("input")
+			let motivo= document.createElement("textarea")
 			
 			
 			formremove.setAttribute("method","post")
@@ -68,10 +74,14 @@
 			denuncia.setAttribute("type","submit")
 			denuncia.setAttribute("value","denuncia")
 			denuncia.setAttribute("name","friend")
+			motivo.setAttribute("name","motivo")
+			motivo.setAttribute("cols","30")
+			motivo.setAttribute("rows","5")
 			
 			formremove.appendChild(remove)
 			formremove.appendChild(block)
 			formremove.appendChild(denuncia)
+			formremove.appendChild(motivo)
 			resa.removeChild(mais)
 			resa.appendChild(formremove)
 			

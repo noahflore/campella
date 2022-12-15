@@ -40,6 +40,17 @@
 				
 				$this->settipo($tipou);
 				
+				if ($ipu==false){
+					
+					unset($veri);
+					$ip= $_SERVER["REMOTE_ADDR"];
+					$veri= $cone->prepare("UPDATE pessoa SET ip = ? WHERE pessoa . id = ?");
+					$veri->bind_param("si",$ip,$id);
+					$veri->execute();
+					
+					
+				}
+				
 			}
 		
 				if ($teste>0){
@@ -80,7 +91,7 @@
 				if (file_exists("friend/". $this->getid() ."/3-f")){unlink("friend/". $this->getid() ."/3-f");}
 				if (file_exists("friend/". $this->getid() ."/3-m")){unlink("friend/". $this->getid() ."/3-m");}
 				if (file_exists("friend/". $this->getid() ."/3-o")){unlink("friend/". $this->getid() ."/3-o");}
-				copy("../other/exemplo/exemplo.txt","friend/". $this->getid() ."/3-$genero");
+				copy("other/exemplo/exemplo.txt","friend/". $this->getid() ."/3-$genero");
 				
 				
 				
