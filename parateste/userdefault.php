@@ -52,18 +52,18 @@
 
 	 <head>
 	 
-	 <title><?php echo $_SESSION['nome']. "  ". $_SESSION['sobrenome']; ?> || campella</title>
+	 <title><?php echo $_SESSION['nome']. "  ". $_SESSION['sobrenome']; ?> || kampella</title>
 	 <meta charset="utf-8" />
 	 <link rel="stylesheet" href="defaultstyle/baseestilo.css" />
 	 <link rel="stylesheet" href="defaultstyle/user.css" />
-	 <link rel="icon" href="ico/logocampella.png" />
+	 <link rel="icon" href="ico/logoico.png" />
 	 
 	 </head>
 	 
 	 <body>
 		<header class="cabeça">
 		
-			<img src="ico/logocampella.png" alt="logo do site" /><br>
+			<img src="ico/logobanner.png" alt="logo do site" /><br>
 			<div>bem-vindo <?php echo"<span style='line-height:50px;color:white'>". $_SESSION['nome'] ."</span>"; ?> </div>
 			<nav id="cabecuda"> 
 				<ul>

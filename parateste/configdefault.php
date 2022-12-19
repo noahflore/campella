@@ -29,7 +29,7 @@
 
 
 ?>
-<!docktype html>
+<!doctype html>
 <!--
 		você tem que arruma essa config
 		
@@ -39,18 +39,18 @@
 
 	 <head>
 	 
-	 <title>config || campella</title>
+	 <title>config || kampella</title>
 	 <meta charset="utf-8" />
 	 <link rel="stylesheet" href="defaultstyle/baseestilo.css" />
 	 <link rel="stylesheet" href="defaultstyle/user.css" />
-	 <link rel="icon" href="ico/logocampella.png" />
+	 <link rel="icon" href="ico/logoico.png" />
 	 
 	 </head>
 	 
 	 <body>
 		<header class="cabeça">
 		
-			<img src="ico/logocampella.png" alt="logo do site" /><br>
+			<img src="ico/logobanner.png" alt="logo do site" /><br>
 			<nav id="cabecuda"> 
 				<ul>
 				<?php echo "<li><a href='userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>

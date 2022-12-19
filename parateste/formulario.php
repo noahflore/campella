@@ -23,7 +23,7 @@
 
 	 <head>
 	 
-	 <title>registro || campella</title>
+	 <title>registro || kampella</title>
 	 <meta charset="utf-8" />
 	 <meta name="author" content="giovanne" />
 	 <meta name="description" content="procura uma rede social nova e com uma nova maneira de socializa? ou apenas um passa-tempo em um lugar diferente? aqui é o lugar" />
@@ -32,7 +32,7 @@
 	 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 	 <link rel="stylesheet" href="defaultstyle/baseestilo.css" />
 	 <link rel="stylesheet" href="defaultstyle/form.css" />
- 	 <link rel="icon" href="ico/logocampella.png" />
+ 	 <link rel="icon" href="ico/logoico.png" />
 	 
 	 
 	 <style>

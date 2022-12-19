@@ -34,13 +34,13 @@ if (file_exists("user.txt")){
 
 
 ?>
-<!docktype html>
+<!doctype html>
 
 <html>
 
 	 <head>
 	 
-	 <title>login || campella</title>
+	 <title>login || kampella</title>
 	 <meta charset="utf-8" />
 	 <meta name="author" content="giovanne" />
 	 <meta name="description" content="procura uma rede social nova e com uma nova maneira de socializa? ou apenas um passa-tempo em um lugar diferente? aqui é o lugar" />
@@ -49,7 +49,7 @@ if (file_exists("user.txt")){
 	 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 	 <link rel="stylesheet" href="defaultstyle/baseestilo.css" />
 	 <link rel="stylesheet" href="defaultstyle/form.css" />
- 	 <link rel="icon" href="ico/logocampella.png" />
+ 	 <link rel="icon" href="ico/logoico.png" />
 		 
 		 <style>
 			 

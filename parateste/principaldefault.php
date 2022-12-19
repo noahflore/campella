@@ -36,24 +36,24 @@
 
 	}
 ?>
-<!docktype html>
+<!doctype html>
 
 <html>
 
 	 <head>
 	 
-	 <title>principal || campella</title>
+	 <title>principal || kampella</title>
 	 <meta charset="utf-8" />
 	 <link rel="stylesheet" href="defaultstyle/baseestilo.css" />
 	 <link rel="stylesheet" href="defaultstyle/bloco.css" />
-	 <link rel="icon" href="ico/logocampella.png" />
+	 <link rel="icon" href="ico/logoico.png" />
 		 
 	 </head>
 	 
 	 <body>
 		<header class="cabeça">
 		
-			<img src="ico/logocampella.png" alt="logo do site" />
+			<img src="ico/logobanner.png" alt="logo do site" />
 			<nav id="cabecuda"> 
 				<ul>
 					<?php echo "<li onclick='usuario(1)'><a href='userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>

@@ -26,24 +26,24 @@
 	if (file_exists("../other/". $_SESSION['id'] ."/tmp/tmpupdate.txt")){unlink("../other/". $_SESSION['id'] ."/tmp/tmpupdate.txt"); rmdir("../other/". $_SESSION['id'] ."/tmp/");}
 
 ?>
-<!docktype html>
+<!doctype html>
 
 <html>
 
 	 <head>
 	 
-	 <title><?php echo "recados d ". $_SESSION['nome']; ?> || campella</title>
+	 <title><?php echo "recados d ". $_SESSION['nome']; ?> || kampella</title>
 	 <meta charset="utf-8" />
 	 <link rel="stylesheet" href="../defaultstyle/baseestilo.css" />
 	 <link rel="stylesheet" href="../defaultstyle/userpage.css" />
-	 <link rel="icon" href="../ico/logocampella.png" />
+	 <link rel="icon" href="../ico/logoico.png" />
 	 
 	 </head>
 	 
 	 <body>
 		<header class="cabeça">
 		
-			<img src="../ico/logocampella.png" alt="logo do site" />
+			<img src="../ico/logobanner.png" alt="logo do site" />
 			<nav id="cabecuda"> 
 				<ul>
 					<?php echo "<li><a id='click' href='../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
