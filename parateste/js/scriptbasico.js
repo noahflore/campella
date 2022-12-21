@@ -83,6 +83,8 @@
 			op[2].setAttribute("onclick","janela()")
 			op[2].innerHTML= "<span class='cabemobi'>privacidade</span>"
 			op[3].innerHTML= "<span id='cabemobi'>backup</span>"
+			op[4].setAttribute("onclick","conta()")
+			op[4].innerHTML= "conta"
 			
 			if (localStorage.fundo){
 				
@@ -111,6 +113,7 @@
 		
 		
 	}
+
 	
 	function janela(){
 		
@@ -221,6 +224,13 @@
 	function perfil(){
 		
 		location.href= "configdefault.php"
+		
+	}
+
+	function conta(){
+		
+		location.href= "conta.php"
+		
 		
 	}
 
