@@ -1,3 +1,20 @@
+html{
+	
+	background-image: url(../ico/fundo.png);	
+	background-size:cover;
+	background-position:center,center;
+	
+	
+	
+}
+
+body{
+
+	background-color: #170f0fd6;
+	
+}
+
+
 footer{
 	position:fixed;
 	bottom:0%;
@@ -10,6 +27,12 @@ footer{
 	
 	
 	
+}
+
+
+#baixo{
+
+	color:white;
 }
 
 

@@ -292,6 +292,42 @@
 	}
 		
 		
+	function novasenha($senha,$pin){
+		
+		$id=$this->getid();
+		
+		$chave= $this->cone->prepare("SELECT * FROM kants WHERE id= ?");
+		$chave->bind_param("i",$id);
+		$chave->bind_result($idu,$quau,$check,$meno);
+		$chave->execute();
+		
+		
+		while($chave->fetch()){
+			
+			
+			if (password_verify($pin,$check)){
+				
+				$senha= password_hash($senha,PASSWORD_DEFAULT);
+				
+				
+			}else{ $no=1;}
+			
+			
+			
+		}
+		
+			if ($no!=1){
+				unset($chave);
+				$cha= $this->cone->prepare("UPDATE  pessoa SET senha = ? WHERE pessoa . id= ?");
+				$cha->bind_param("si",$senha,$id);
+				$cha->execute();
+				
+		
+			}
+		
+		
+	}
+		
 		
 	function comprar($valor,$pin){
 		

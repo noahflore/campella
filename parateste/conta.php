@@ -63,7 +63,7 @@
 					<li><span id="lista"><input type='button' onclick="config(2)" id="config" value='configuração' /></span></li>
 					<li><s>camp</s></li>
 					<li>feed back</li>
-					<li><button onclick="sair()">deslongar</button></li>
+					<li><button onclick="sair(1)">deslongar</button></li>
 				
 				
 				</ul>
@@ -83,6 +83,14 @@
 			 
 			 	$user= new Usuario($nome,$sobrenome,$id,$cone);
 			 
+			 if ($_GET['true']==1){
+				 
+				 $senha=$_POST['senha'];
+				 $pin=$_POST['pin'];
+				 
+				 	$user->novasenha($senha,$pin);
+				 
+			 }
 			 
 			 ?>
 			 
@@ -97,18 +105,28 @@
 				 </fieldset>
 			 </form>
 			 
-			 <form method="post" action="conta.php?true=2">
-				 
-				 
-				 
-				 
-				 
-			 </form>
+			 <hr>
+			 esqueceu o pin?: 
+			 <button onclick="pin()">trocar o pin</button><div id="pin"></div>
 			 
 		 </div>
 		 
 		 
 		 <script src="js/scriptbasico.js"></script>
+		 <script> 
+			 
+			 function pin(){
+			 
+			 let pin= document.getElementById("pin")
+			 
+			 	pin.ineerHTML= "você tem certeza disso?<br> troca de pin vai reseta suas moedas kants"
+			 
+			 }
+			 
+			 
+			 
+			 
+		 </script>
 	</body>
 	
 	
