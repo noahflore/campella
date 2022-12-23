@@ -2,7 +2,8 @@
 	
 	background-color: #DD2519;
 	margin-left: 200px;
-	
+	border-radius: 0px 30px 4px 4px;
+	box-shadow: 5px 5px 5px #251c1c;
 	
 }
 
@@ -18,7 +19,7 @@
 	
 	background-color:#5E100A;
 	color: white;
-	
+	border-radius: 0px 30px 0px 0px;
 	
 }
 

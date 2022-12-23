@@ -44,8 +44,8 @@
 				<ul>
 					<?php echo "<li><a href='../../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
 					<!-- o de cima é nome do usuario-->
-					<li><a href="../principaldefault.php">principal</a></li>
-					<li>configuração</li>
+					<li><a href="../../principaldefault.php">principal</a></li>
+					<li><span id="lista"><input type='button' onclick="config(5)" id="config" value='configuração' /></span></li>
 					<li><s>camp</s></li>
 					<li>feed back</li>
 					<li><button onclick="sair()">deslongar</button></li>

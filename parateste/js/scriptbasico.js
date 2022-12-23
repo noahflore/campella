@@ -79,13 +79,14 @@
 			if (num==3){op[0].setAttribute('onclick','preto(1)');num=1}else{op[0].setAttribute('onclick','preto()')}
 			op[0].innerHTML= "<span class='cabemobi'>modo dark</span>"
 			op[1].setAttribute("value","config")
-			op[1].setAttribute("onclick","perfil()")
+		
+			if(num==4){op[1].setAttribute("onclick","perfil(1)")}else if (num==5){op[1].setAttribute("onclick","perfil(2)")}else{	op[1].setAttribute("onclick","perfil()")}
 			op[1].innerHTML= "<span class='cabemobi'>configuração</span>"
 			op[2].setAttribute("onclick","janela()")
 			op[2].innerHTML= "<span class='cabemobi'>privacidade</span>"
-			op[3].innerHTML= "<span id='cabemobi'>backup</span>"
+			op[3].innerHTML= "<span class='cabemobi'>backup</span>"
 			op[4].setAttribute("onclick","conta()")
-			op[4].innerHTML= "conta"
+			op[4].innerHTML= "<span class='cabemobi'>conta</span>"
 			
 			if (localStorage.fundo){
 				
@@ -242,10 +243,23 @@
 	}
 	
 	
-	function perfil(){
+	function perfil(i=0){
 		
-		location.href= "configdefault.php"
+		if (i==1){
+			
+			location.href= "../configdefault.php"
+				
+		}else if (i==2){
+			
+			
+			location.href= "../../configdefault.php"
+			
+			
+		}else{
+			
+			location.href= "configdefault.php"
 		
+		}
 	}
 
 	function conta(){

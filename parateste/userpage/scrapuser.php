@@ -47,7 +47,7 @@
 			<nav id="cabecuda"> 
 				<ul>
 					<?php echo "<li><a id='click' href='../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
-					<li><span id="lista"><input type='button' onclick="config(3)" id="config" value='configuração' /></span></li>
+					<li><span id="lista"><input type='button' onclick="config(4)" id="config" value='configuração' /></span></li>
 					<!-- o de cima é nome do usuario-->
 					<li><s>camp</s></li>
 					<li>feed back</li>

@@ -114,8 +114,9 @@
 			<img src="ico/logobanner.png" alt="logo do site" /><br>
 			<nav> 
 				<ul>
+					<?php echo "<li><a href='../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
 					<li><a href="../principaldefault.php">principal</a></li>
-					<li><a href="../configdefault.php">configuração</a></li>
+					<li><span id="lista"><input type='button' onclick="config(4)" id="config" value='configuração' /></span></li>
 					<li><s>camp</s></li>
 					<li>feed back</li>
 					<li><button onclick="sair()">deslongar</button></li>
@@ -171,7 +172,13 @@
 						
 						<?php
 						
-							if (file_exists("../other/". $idfriend ."/amigo/". $id .".txt")){
+							if (file_exists("../other/". $idfriend ."/amigo/". $id .".txat")){/*
+							
+							
+							
+																						!!!	lembra de que a qualificação esta com problema !!!
+																						
+																						*/
 								
 								if (is_dir("../other/". $idfriend ."/score/")){
 									

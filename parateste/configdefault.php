@@ -22,8 +22,9 @@
 	
 	$nome=$_SESSION['nome'];
 	$sobrenome=$_SESSION['sobrenome'];
+	$id= $_SESSION['id'];
 
-
+	$user= new Usuario($nome,$sobrenome,$id,$cone);
 
 
 
@@ -55,7 +56,6 @@
 				<ul>
 				<?php echo "<li><a href='userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
 					<li><a href="principaldefault.php">principal</a></li>
-					<li><a href="configdefault.php">configuração</a></li>
 					<li><s>camp</s></li>
 					<li>feed back</li>
 					<li><a href="sair">sair</a></li>
@@ -75,16 +75,16 @@
 				<aside>
 				<h1>configurar seu perfil</h1>
 				<?php
-					$id= $_SESSION['id'];
+					
 					
 
 					if((is_dir("other/" . $id)) and (file_exists("other/" . $id."/fotoperso.png"))){
 						
 						echo "<img id='especial' src='other/". $id ."/fotoperso.png' alt='foto do usuario' /><br>
 							 <form method='post' action='configdefault.php' enctype='multipart/form-data'>
-							 <div>
+							 <div class='fotomobi'>
 								<input type='file' accept='imagem/png' name='fotoperso' />
-								<input type='submit' value='enviar' />
+								<input type='submit' value='enviar' /><br>
 								<input type='submit' name='remove' value='remove foto?'
 								</div>";
 						
@@ -110,11 +110,15 @@
 						
 					}else{
 						echo "<img id='especial' src='ico/userdefault.png' alt='foto do usuario' /><br>
+						
+						<div class='fotomobi'>
 							 <form method='post' action='configdefault.php' enctype='multipart/form-data'>
-								<input type='file' accept='imagem/png' name='fotoperso' />
+								<input type='file' accept='imagem/png' name='fotoperso' /><br>
 								<input type='submit' value='enviar' />
 							 
 							 </form>
+							 
+							 </div>
 						
 						
 						";
@@ -136,10 +140,98 @@
 					?>
 					<ul class="fotopa">
 						<li><div><a href="userpage/fotouser.php">fotos</a><img src="ico/perfil.png" alt="foto_png" /></div></li>
-						<li><div>videos<img src="ico/videos.png" alt="videos_png" /></div></li>
-						<li><div>recados<img src="ico/scrapbook.png" alt="scrapbook_png" /></div></li>
-						<li><div>depoimento<img src="ico/depoi.png" alt="depoi_png" /></div></li>
-						<li><div>valor<img src="ico/logocampella.png" alt="valor_png" /></div></li>
+						<li><div><a href="userpage/videouser.php">videos</a><img src="ico/videos.png" alt="videos_png" /></div></li>
+						
+						<?php
+						
+							if(file_exists("other/". $id ."/recado/tmp/tmpupdate.txt")){
+								
+								$abrir=fopen("other/". $id ."/recado/tmp/tmpupdate.txt","r+");
+								$ler=fgets($abrir);
+								fclose($abrir);
+								
+								if (!empty($_GET['mode'])){
+									
+									echo "<li><div><a id='ben' onclick='preto(1)' href='userpage/scrapuser.php?index=1&&tmp=1'>recados   ". $ler ."</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+								
+									
+								}else{
+									echo "<li><div><a id='ben' href='userpage/scrapuser.php?index=1&&tmp=1'>recados   ". $ler ."</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+								
+									
+								}
+							}else{
+								
+								if (!empty($_GET['mode'])){
+									
+									echo "<li><div><a id='ben' onclick='preto(1)' href='userpage/scrapuser.php?index=1'>recados</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+								
+									
+								}else{
+									
+									echo "<li><div><a id='ben' href='userpage/scrapuser.php?index=1'>recados</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+									
+									
+									
+								}
+								
+								
+							}
+							
+							if(file_exists("other/". $id ."/depoi/update.txt")){
+								$abrir=fopen("other/". $id ."/depoi/update.txt","r+");
+								$noti=fgets($abrir);
+								fclose($abrir);
+								
+								
+								echo	"<li><div><a href='userpage/depoiuser.php'>depoi ". $noti ."</a><img src='ico/depoi.png' alt='depoi_png' /></div></li>";
+						
+						
+							}else{
+								
+								echo	"<li><div><a href='userpage/depoiuser.php'>depoimento</a><img src='ico/depoi.png' alt='depoi_png' /></div></li>";
+						
+								
+								
+							}
+						
+						
+						?>
+						<?php
+						if (empty($_GET['robots'])){
+							$valor=$user->mostrar();
+							$user->bonusday();
+						
+						
+							if (!empty($_SESSION['pin'])){
+								
+								$pin=$_SESSION['pin'];
+								echo "<span id='pop' style='position:fixed; background-color:white;top:50%;'>essa é sua senha guarde em um local seguro<hr><br>
+								<strong>senha:</strong> ". $pin ."</span>";
+								unset($_SESSION['pin']);
+								
+								
+								
+							}
+						//	print_r($user);
+						
+							if ($valor>$_SESSION['valor']){
+								
+								$_SESSION['valor']=$valor;
+						
+								echo "<li><div style='font-size:20px;color:green'>+". $_SESSION['valor'] ."<img src='ico/logocampella.png' alt='valor_png' /></div></li>";
+								//unset($valor);
+								
+							}else {
+								
+								
+								echo "<li><div>". $valor ."<img src='ico/logocampella.png' alt='valor_png' /></div></li>";
+								
+								
+							}
+						
+						}
+						?>
 						<!-- use o php no valor ai cima-->
 					</ul>
 				
@@ -161,7 +253,7 @@
 					
 					</div>
 					<form method="post" action="configdefault.php">
-							<div>
+							<div class="formmobi">
 								<?php
 											echo "
 												<textarea placeholder='escreva sua descrição' name='desc' cols='30' rows='5'></textarea>
@@ -201,8 +293,9 @@
 							</div>
 					</form>
 							
-							<?php if ((!empty($_GET['true'])) and (($_GET['true']==1) || ($_GET['true']==2))){$user= new Usuario($nome,$sobrenome,$id,$cone); $user->configsql();/*print_r($user);*/} ?>
+							<?php if ((!empty($_GET['true'])) and (($_GET['true']==1) || ($_GET['true']==2))){ $user->configsql();/*print_r($user);*/} ?>
 					
+					<div class="inputmobi">
 							<form method='post' action='configdefault.php?true=1'>
 											
 								<fieldset><legend>genero</legend>
@@ -320,6 +413,8 @@
 										
 									
 								</form>
+						
+					</div>
 					
 				</div>
 			</section>
