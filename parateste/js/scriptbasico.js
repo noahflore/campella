@@ -43,7 +43,8 @@
 			if (clicar.hasAttribute('class')){
 			
 				clicar.setAttribute('onclick','preto()')
-				
+				clicar.removeAttribute('href')
+				clicar.setAttribute('href','../userdefault.php?mode=1')
 				
 			}else{
 				
@@ -89,7 +90,7 @@
 			if (localStorage.fundo){
 				
 				op[0].removeAttribute("onclick","preto()")
-				op[0].setAttribute("onclick","original()")
+				op[0].setAttribute("onclick","original(1)")
 				op[0].innerHTML= "modo light"
 				
 			}
@@ -203,19 +204,39 @@
 			if (i==0){localStorage.caixa ="#BF9E4B"}else{localStorage.caixa ="#995949"}
 			localStorage.fundo= "#000033"
 			localStorage.cabeça= "#2F4BA1"
+		
+		if (i==1){
 			location= location
+			
+		}else{
+			location= location + "?mode=1"
+			
+		}
 		
 		
 	}
 	
-	function original(){
+	function original(i=0){
 		
 		localStorage.clase= 0
 		localStorage.bloco= "#DD2519"
 		localStorage.caixa ="#FFD463"
 		localStorage.fundo =""
 		localStorage.cabeça= "#4169E1"
-		location= location
+		localStorage.carrega= 1
+		location= location 
+		
+		
+	}
+
+	function carrega(){
+		
+		if (localStorage.carrega==1){
+			location.href= "userdefault.php" 
+			localStorage.carrega=0
+			
+		}
+		
 		
 		
 	}

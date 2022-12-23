@@ -134,7 +134,7 @@ if (file_exists("user.txt")){
 		
 		</form>
 		 <span id="baixo">ainda não tem uma conta? click<a href="formulario.php">registra</a></span>
-		<?php if (isset($_SESSION['errologin'])){ echo $_SESSION['errologin']; unset($_SESSION['errologin']);} ?>
+		<?php if (isset($_SESSION['errologin'])){ echo "<span style='color:white;background-color:red'>". $_SESSION['errologin']. "</span>"; unset($_SESSION['errologin']);} ?>
 	
 	 <footer><div><b>&copy; todos os direitos reservados</b></div>
 			 <a href="sobre.html">sobre kampella</a>  <a href="whoiam.html">quem somos nós</a> proximos passos </footer>

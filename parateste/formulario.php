@@ -137,7 +137,7 @@ coloca sua chave: <input type='text' name='chave' placeholder='esse campo é opc
 		
 		</form>
 		<span id='baixo'>	tem uma conta? click 
-			<a href='login.php'>login</a></span>";  if (!empty($_SESSION['msg'])){ echo $_SESSION['msg']; unset($_SESSION['msg']);}} ?>
+			<a href='login.php'>login</a></span>";  if (!empty($_SESSION['msg'])){ echo "<span style='color:white;background-color:red'>". $_SESSION['msg'] ."</span>"; unset($_SESSION['msg']);}} ?>
 		 
 	
 	 <footer><div><b>&copy; todos os direitos reservados</b></div>

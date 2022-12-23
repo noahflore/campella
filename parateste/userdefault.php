@@ -112,12 +112,30 @@
 								$ler=fgets($abrir);
 								fclose($abrir);
 								
-								echo "<li><div><a id='ben' onclick='preto(1)' href='userpage/scrapuser.php?index=1&&tmp=1'>recados   ". $ler ."</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+								if (!empty($_GET['mode'])){
+									
+									echo "<li><div><a id='ben' onclick='preto(1)' href='userpage/scrapuser.php?index=1&&tmp=1'>recados   ". $ler ."</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
 								
+									
+								}else{
+									echo "<li><div><a id='ben' href='userpage/scrapuser.php?index=1&&tmp=1'>recados   ". $ler ."</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+								
+									
+								}
 							}else{
 								
-								echo "<li><div><a id='ben' onclick='preto(1)' href='userpage/scrapuser.php?index=1'>recados</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+								if (!empty($_GET['mode'])){
+									
+									echo "<li><div><a id='ben' onclick='preto(1)' href='userpage/scrapuser.php?index=1'>recados</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
 								
+									
+								}else{
+									
+									echo "<li><div><a id='ben' href='userpage/scrapuser.php?index=1'>recados</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+									
+									
+									
+								}
 								
 								
 							}
@@ -593,7 +611,7 @@
 								$aju=0;
 								$div=0; //essa variavel vai se usado no separado de index
 								
-								echo "<div id='amigomobi'>";
+								echo "<div onmouseout='carrega()' id='amigomobi'>";
 								
 								for ($i=1; $i<=1000; $i++){
 									
