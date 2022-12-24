@@ -83,15 +83,19 @@
 			 
 			 	$user= new Usuario($nome,$sobrenome,$id,$cone);
 			 
-			 if ($_GET['true']==1){
+			 if (!empty($_GET['true'])){
 				 
-				 $senha=$_POST['senha'];
-				 $pin=$_POST['pin'];
-				 
-				 	$user->novasenha($senha,$pin);
+				 if ($_GET['true']==1){
+
+					 $senha=$_POST['senha'];
+					 $pin=$_POST['pin'];
+
+						$user->novasenha($senha,$pin);
+
+				 }
+			 
 				 
 			 }
-			 
 			 ?>
 			 
 			 <form method="post" action="conta.php?true=1"><!-- em desenvolvimento -->
@@ -107,7 +111,21 @@
 			 
 			 <hr>
 			 esqueceu o pin?: 
-			 <button onclick="pin()">trocar o pin</button><div id="pin"></div>
+			 <button onclick="chave()">trocar o pin</button><span id="pin"></span>
+			 <?php
+			 
+			 if (!empty($_GET['reseta'])){
+				 
+				 $true= $_GET['reseta'];
+				 
+				$novopin= $user->reseta();
+				 echo $novopin;
+				 
+				 
+				 
+			 }
+			 
+			 ?>
 			 
 		 </div>
 		 
@@ -115,14 +133,23 @@
 		 <script src="js/scriptbasico.js"></script>
 		 <script> 
 			 
-			 function pin(){
+			 function chave(){
 			 
 			 let pin= document.getElementById("pin")
 			 
-			 	pin.ineerHTML= "você tem certeza disso?<br> troca de pin vai reseta suas moedas kants"
+			 
+			 	pin.setAttribute("style","position:fixed;left:0%;top:0%;height:100%;width:100%;background-color:#111111d6;color:white;text-align:center;line-height:100px")
+			 	pin.value= "você tem certeza disso?<br> troca de pin vai reseta suas moedas kants<hr><button onclick='reseta()'>sim quero trocar o pin</button>"
+				pin.innerHTML= pin.value
+			//	alert(pin.value)
 			 
 			 }
 			 
+			 function reseta(){
+				 
+				 location= location + "?reseta=1"
+				 
+			 }
 			 
 			 
 			 

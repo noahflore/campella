@@ -329,6 +329,30 @@
 	}
 		
 		
+	function reseta(){
+		
+		$id= $this->getid();
+		
+		
+		$pin= random_bytes(8);
+		$pin= bin2hex($pin);
+		$senha=$pin;
+		$pin= password_hash($pin,PASSWORD_DEFAULT);
+		
+		$rese= $this->cone->prepare("UPDATE kants SET checado = ?, quantidade = 0 WHERE kants . id = ?");
+		$rese->bind_param("si",$pin,$id);
+		$rese->execute();
+		
+		return "<span style='background-color:red;color:white'> essa seu novo pin <strong style='color:black'>". $senha ."</strong> guarde em um local seguro!";
+		
+		
+		
+		
+		
+		
+	}
+		
+		
 	function comprar($valor,$pin){
 		
 		$id= $this->getid();
