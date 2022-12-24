@@ -44,6 +44,11 @@
 	 
 	 <title>principal || kampella</title>
 	 <meta charset="utf-8" />
+	 <meta name="author" content="giovanne" />
+	 <meta name="description" content="procura uma rede social nova e com uma nova maneira de socializa? ou apenas um passa-tempo em um lugar diferente? aqui é o lugar" />
+     <meta name="robots" content="index,nofollow" />
+	 <meta name="keywords" content="rede,social,amigos,jogos,bate papo,chat,depoimentos,recados,comunidades,fotos,gif,fake,prfil,preview" />
+	 <meta name="viewport" content="width=device-width,initial-scale=0.0" />
 	 <link rel="stylesheet" href="defaultstyle/baseestilo.css" />
 	 <link rel="stylesheet" href="defaultstyle/bloco.css" />
 	 <link rel="icon" href="ico/logoico.png" />
