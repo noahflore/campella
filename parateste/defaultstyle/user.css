@@ -55,6 +55,16 @@
 	
 }
 
+#amigomobi{
+
+	margin-left:20px;
+	background-color:#ffd463;
+	border-radius: 0px 5px 30px  5px;
+	box-shadow: 3px 2px 2px #3c3931
+
+	
+}
+
 
 @media (max-width: 980px){
 	

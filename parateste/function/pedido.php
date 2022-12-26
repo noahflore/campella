@@ -25,6 +25,7 @@ session_start();
 				fclose($abrir);
 				unlink("../other/". $meuid ."/amigo/tmp/". $ler .".txt");
 				unlink("../other/". $meuid ."/amigo/tmp/". $id .".txt");
+				rmdir("../other/". $meuid ."/amigo/tmp/");
 				
 				
 				

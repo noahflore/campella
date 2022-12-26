@@ -269,13 +269,14 @@
 					
 					
 					</div>
+					<hr>
 					<div>
 						<?php
 							if (file_exists("other/". $id ."/desc.txt")) {
 								$abrir= fopen("other/". $id ."/desc.txt",'r');
 								while (!feof($abrir)){
 									$buffer= fgets($abrir);
-									echo $buffer;
+									echo "<p>". $buffer ."</p>";
 									
 								}
 								
@@ -330,12 +331,13 @@
 						$estado= (isset($estado))? $estado: "";
 						$cidade= (isset($cidade))? $cidade: "";
 						
+						echo "<hr><div style='background-color: #806932;color:white;padding-top:5px'>";
 						echo "estado civil: ". $status ."<br>";
 						echo "pais: ". $pais ."<br>";
 						echo "estado: ". $estado ."<br>";
 						echo "cidade: ". $cidade ."<br>";
 						
-						
+						echo "</div>";
 						echo "</div>";
 						?>
 					

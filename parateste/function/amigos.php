@@ -13,7 +13,7 @@ session_start();
 				
 				if (!file_exists("../other/". $id ."/amigo/tmp/". $meuid .".txt")){
 					
-					
+					if (!is_dir("../other/". $id ."/amigo/tmp/")){mkdir("../other/". $id ."/amigo/tmp/",0777,true);}
 					copy("../other/exemplo/exemplo.txt","../other/". $id ."/amigo/tmp/". $meuid .".txt");
 					$abrir=fopen("../other/". $id ."/amigo/tmp/". $meuid .".txt","w+");
 					fwrite($abrir,$nome);

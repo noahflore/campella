@@ -73,7 +73,7 @@
 		
 		</header>
 		 
-		 <div style="margin-left:200px;margin-top:90px;">
+		 <div style="margin-left:200px;margin-top:90px;" id="conta">
 			 
 			<?php
 			 	$nome=$_SESSION['nome'];
