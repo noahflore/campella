@@ -111,7 +111,7 @@
 	 <body>
 		<header class="cabeça">
 		
-			<img src="ico/logobanner.png" alt="logo do site" /><br>
+			<img src="../ico/logobanner.png" alt="logo do site" /><br>
 			<nav> 
 				<ul>
 					<?php echo "<li><a href='../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
@@ -280,7 +280,7 @@
 								$abrir= fopen("../other/". $idfriend ."/desc.txt",'r');
 								while (!feof($abrir)){
 									$buffer= fgets($abrir);
-									echo $buffer;
+									echo "<p>". $buffer ."</p>";
 									
 								}
 								
@@ -334,12 +334,14 @@
 						$estado= (isset($estado))? $estado: "";
 						$cidade= (isset($cidade))? $cidade: "";
 						
+						echo "<hr>";
+						echo "<div style='background-color: #806932;color:white;padding-top:5px'";
 						echo "estado civil: ". $status ."<br>";
 						echo "pais: ". $pais ."<br>";
 						echo "estado: ". $estado ."<br>";
 						echo "cidade: ". $cidade ."<br>";
 						
-						
+						echo "</div>";
 						echo "</div>";
 						?>
 					
@@ -364,7 +366,7 @@
 								$aju=0;
 								$div=0; //essa variavel vai se usado no separado de index
 								
-								echo "<div>";
+								echo "<div id='amigomobi'>";
 								
 								for ($i=1; $i<=1000; $i++){
 									

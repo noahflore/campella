@@ -120,6 +120,7 @@
 	function janela(){
 		
 		let janela= document.createElement("div")
+		let janelafundo= document.createElement("div")
 		let palavra= localStorage.pa
 		let palavrb= localStorage.pb
 		
@@ -144,11 +145,24 @@
 			}else{ var pa2="off"}
 		
 		
-			janela.setAttribute("style","background-color: white; position: fixed; top: 43%; right:50%;")
+			janelafundo.setAttribute("style","background-color:#000000cc;position:fixed;top:0%;left:0%;height:100%;width:100%");
+			janelafundo.setAttribute("onclick","fechajanela()")
+			janelafundo.setAttribute("id","fechajanela")
+			janelafundo.appendChild(janela)
+			janela.setAttribute("style","background-color: white; margin-left:400px;margin-top:200px;width:300px;")
 			janela.innerHTML= "<h2> o que você quer privar?</h2><br>"
 			janela.innerHTML+= `meus recados: <button onclick='priva(1)'>${pa1}</button><br>`
 			janela.innerHTML+= `visitantes: <button onclick='priva(2)'>${pa2}</button><br>`
-			document.body.appendChild(janela)
+			document.body.appendChild(janelafundo)
+		
+		
+	}
+
+	function fechajanela(){
+		
+		let janela= document.getElementById("fechajanela")
+		
+		document.body.removeChild(janela)
 		
 		
 	}

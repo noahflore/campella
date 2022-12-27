@@ -241,7 +241,7 @@
 							
 								$dia= date("d");
 								
-								if (is_dir("other/". $id ."/visi/". $dia)){
+								if ((is_dir("other/". $id ."/visi/". $dia)) and (!file_exists("other/". $id ."/priva/p2"))){
 									
 									$scan=array_diff(scandir("other/". $id ."/visi/". $dia),['.','..']);
 									
@@ -252,7 +252,7 @@
 										fclose($abrir);
 										$vi= str_replace(".txt","",$vi);
 										
-										echo "<a style='color: blue; background-color:transparent;' href='friend/userseeuser.php?id=$vi'>". $col ."</a>  ";
+										echo "<a style='color: blue; background-color:transparent;' href='friend/userseeuser.php?id=$vi'>". $col ." ,</a>  ";
 										
 										
 									}
