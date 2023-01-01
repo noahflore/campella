@@ -39,7 +39,7 @@
 	 <body>
 		<header class="cabeça">
 		
-			<img src="../ico/logobanner.png" alt="logo do site" />
+			<img src="../../ico/logobanner.png" alt="logo do site" />
 			<nav id="cabecuda"> 
 				<ul>
 					<?php echo "<li><a href='../../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
@@ -234,8 +234,8 @@
 									//exibi o index
 									//print_r($mostrar);
 									echo "<form method='post' action='../../function/recado.php?id=$id&todo=1'>
-										  <textarea type='text' placeholder='digita aqui seu recado' name='texto' cols='30' rows='5'></textarea>
-										  <input type='submit' value='enviar' />
+										  <textarea class='recado' type='text' placeholder='digita aqui seu recado' name='texto' cols='30' rows='5'></textarea>
+										  <input class='recado' type='submit' value='enviar' />
 										  <div class='recadomeu'>
 										  
 										  
@@ -282,8 +282,8 @@
 								}else{
 									
 									echo "<form method='post' action='../../function/recado.php?id=$id&todo=1'>
-										  <textarea type='text' placeholder='digita aqui seu recado' name='texto' cols='30' rows='5'></textarea>
-										  <input type='submit' value='enviar' />
+										  <textarea class='recado' type='text' placeholder='digita aqui seu recado' name='texto' cols='30' rows='5'></textarea>
+										  <input class='recado' type='submit' value='enviar' />
 										  <div class='recadomeu'>
 										  
 										  

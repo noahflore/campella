@@ -32,11 +32,11 @@
 			
 			
 		}
-	if ((!file_exists("../other/". $id ."/open")) and (file_exists("../other/". $id ."/zip.zip"))){descompacta($id);copy("../other/exemplo/exemplo.txt","../other/". $id ."/open");}
+	if ((!file_exists("../other/". $id ."/open")) and (file_exists("../other/". $id ."/zip.zip"))){descompacta($id);rmdir("../other/". $id ."/zip.zip");copy("../other/exemplo/exemplo.txt","../other/". $id ."/open");}
 	
 	if(file_exists("../other/". $id ."/recado/pasta.txt")){
 		
-		if ((!file_exists("../other/". $id ."/open")) and (file_exists("../other/". $id ."/zip.zip"))){descompacta($id);copy("../other/exemplo/exemplo.txt","../other/". $id ."/open");}
+		if ((!file_exists("../other/". $id ."/open")) and (file_exists("../other/". $id ."/zip.zip"))){descompacta($id);rmdir("../other/". $id ."/zip.zip");copy("../other/exemplo/exemplo.txt","../other/". $id ."/open");}
 		$abrir=fopen("../other/". $id ."/recado/pasta.txt","r+");
 		$ler=fgets($abrir);
 		fclose($abrir);
@@ -116,7 +116,7 @@
 		
 	}else{
 		
-		if ((!file_exists("../other/". $id ."/open")) and (file_exists("../other/". $id ."/zip.zip"))){descompacta($id);copy("../other/exemplo/exemplo.txt","../other/". $id ."/open");}
+		if ((!file_exists("../other/". $id ."/open")) and (file_exists("../other/". $id ."/zip.zip"))){descompacta($id);rmdir("../other/". $id ."/zip.zip");copy("../other/exemplo/exemplo.txt","../other/". $id ."/open");}
 		mkdir("../other/". $id ."/recado/tmp/",0777,true);
 		copy("../other/exemplo/exemplo.txt","../other/". $id ."/recado/pasta.txt");
 		copy("../other/exemplo/exemplo.txt","../other/". $id ."/recado/tmp/tmpupdate.txt");

@@ -51,7 +51,7 @@ session_start();
 				?>
 			<link rel="stylesheet" href="../../defaultstyle/baseestilo.css" />
 			<link rel="stylesheet" href="../../defaultstyle/corpodacmm.css" />
-			<link rel="icon" href="../../ico/logocampella.png" />
+			<link rel="icon" href="../../ico/logoico.png" />
 		
 		
 		</head>
@@ -60,7 +60,7 @@ session_start();
 			
 			<header	class="cabeça">
 			
-				<img src="../../ico/logocampella.png" alt="logo do site" />
+				<img src="../../ico/logobanner.png" alt="logo do site" />
 				<nav> 
 					<ul>
 						<?php echo "<li onclick='usuario(1)'><a href='../../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>

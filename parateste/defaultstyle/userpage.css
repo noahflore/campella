@@ -12,6 +12,14 @@
 	
 }
 
+.lateral a{
+
+	margin-right:50px;
+	margin-top:10px;
+	
+}
+
+
 .lateral div{
 	list-style: none;
 	display: flex;
@@ -23,6 +31,7 @@
 
 .lateral li{
 	list-style: none;
+	margin-left:-40px;
 	
 }
 
