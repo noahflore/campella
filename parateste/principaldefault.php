@@ -1,4 +1,5 @@
 <?php session_start(); require_once "compactar.php";
+					   require_once "function/afiliado.php";
 	
 
 	if(!empty($_GET['login'])){
@@ -58,7 +59,7 @@
 	 <body>
 		<header class="cabeça">
 		
-			<img src="ico/logobanner.png" alt="logo do site" />
+			<img src="ico/logobanner.png" alt="logo do site" /><?php $v=random_int(1,3);echo "<span id='prop'>". anuncio("[p$v]") ."</span>";?>
 			<nav id="cabecuda"> 
 				<ul>
 					<?php echo "<li onclick='usuario(1)'><a href='userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>

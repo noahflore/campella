@@ -3,6 +3,7 @@
 	require_once "compactar.php";
 	require_once "function/conexao.php";
 	require_once "function/objeto/Usuario.php";
+	require_once "function/afiliado.php";
 
 	
 	
@@ -68,7 +69,7 @@
 	 <body>
 		<header class="cabeça">
 		
-			<img src="ico/logobanner.png" alt="logo do site" /><br>
+			<img src="ico/logobanner.png" alt="logo do site" /><br><?php $v=random_int(1,3);echo "<span id='prop'>". anuncio("[p$v]") ."</span>";?>
 			<div>bem-vindo <?php echo"<span style='line-height:50px;color:white'>". $_SESSION['nome'] ."</span>"; ?> </div>
 			<nav id="cabecuda"> 
 				<ul>
@@ -202,7 +203,8 @@
 						<!-- use o php no valor ai cima-->
 					</ul>
 				
-				
+					<?php $v=random_int(7,9);echo "<span id='prop'>". anuncio("[p$v]") ."</span>";?>
+					
 				</aside>
 				<div class="caixa">
 					<div id="fotoi">
@@ -695,7 +697,8 @@
 					<li><div><img src="ico/ad.png" alt="ad_ico" />anuncio</div></li>
 				
 				</ul>
-			
+				
+				<?php $v=random_int(4,6);echo "<span id='prop'>". anuncio("[p$v]") ."</span>";?>
 			
 			</aside>
 		</section>
