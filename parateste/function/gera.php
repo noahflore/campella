@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 
 
 
@@ -15,16 +15,17 @@
 			fclose($abrir);
 			
 			if (!is_dir("../other/$id/venda/")){mkdir("../other/$id/venda/",0777,true);}
-			copy("../other/exemplo/exemplo.txt","../other/$id/venda/". $ler .".txt");
 			$chave=random_bytes(8);
 			$chave=bin2hex($chave);
+			copy("../other/exemplo/exemplo.txt","../other/$id/venda/". $chave .".txt");
 			
 			
-			$abrir=fopen("../other/$id/venda/". $ler .".txt","w+");
-			fwrite($abrir,$chave);
+			$abrir=fopen("../other/$id/venda/". $chave .".txt","w+");
+			fwrite($abrir,$ler);
 			fclose($abrir);
 			
-			
+			$_SESSION['ref']= $chave;
+			header("location: ../sell.php");
 			//em manutenção
 		}
 		

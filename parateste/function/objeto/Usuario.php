@@ -507,7 +507,27 @@
 
 
 
-
+	function registra($id,$n,$ns,$num,$chave,$cone){
+		
+		$res=$cone->prepare("INSERT INTO amigui VALUE (?,?,?,?,0)");
+		$res->bind_param("isss",$id,$n,$ns,$num);
+		$res->execute();
+		
+		if (file_exists("other/$id/venda/". $chave .".txt")){
+			
+			
+			$abrir=fopen("other/$id/venda/". $chave .".txt","r+");
+			$ler=fgets($abrir);
+			fclose($abrir);
+			
+			header("location: https://$ler");
+			
+			
+			
+		}
+		
+		
+	}
 
 
 

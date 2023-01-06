@@ -694,7 +694,7 @@
 					<!--o de cima vai para versão final-->
 					<li><div><img src="ico/loja.png" alt="loja_ico" />lojas</div></li>
 					<li><div><img src="ico/premio.png" alt="premio_ico" /><a href="premio.php">premio</a></div></li>
-					<li><div><img src="ico/ad.png" alt="ad_ico" />anuncio</div></li>
+					<li><div><img src="ico/ad.png" alt="ad_ico" /><a href="anun.php">anuncio</a></div></li>
 				
 				</ul>
 				
