@@ -86,7 +86,7 @@
 							<li>monitor</li>
 							<!-- o de cima vai analisa denuncia e tals-->
 						<?php /*	echo "<li><a href='function/gera.php?id=$id'>convida um amigo/a</a></li>"; */?>
-							<li>vendas de produtos</li>
+							<li><a href="sell.php">vendas de produtos</a></li>
 						
 						
 						</ul>

@@ -509,8 +509,8 @@
 
 	function registra($id,$n,$ns,$num,$chave,$cone){
 		
-		$res=$cone->prepare("INSERT INTO amigui VALUE (?,?,?,?,0)");
-		$res->bind_param("isss",$id,$n,$ns,$num);
+		$res=$cone->prepare("INSERT INTO amigui VALUE (?,?,?,?,?,0)");
+		$res->bind_param("issss",$id,$n,$ns,$num,$chave);
 		$res->execute();
 		
 		if (file_exists("other/$id/venda/". $chave .".txt")){
@@ -528,6 +528,17 @@
 		
 		
 	}
+
+
+   function confirma($id,$chave,$numero,$cone){
+	   
+	   $con=$cone->prepare("UPDATE amigui SET checado = 1 WHERE amigui . id = ? and chave = ? and numero = ?");
+	   $con->bind_param("isi",$id,$chave,$numero);
+	   $con->execute();
+	   
+	   
+	   
+   }
 
 
 
