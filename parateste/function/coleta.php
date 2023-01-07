@@ -31,7 +31,7 @@ session_start();
 				echo "<script>location.href=history.back()</script>";
 				
 			}else{
-				
+				$senhapura=$senha;
 				$senha=password_hash($senha,PASSWORD_DEFAULT);
 				
 				
@@ -77,7 +77,7 @@ session_start();
 		if ($teste>0){
 			
 			$_SESSION['msg']="conta cadastrada com sucesso";
-			header("location: ../formulario.php");
+			header("location: valida.php?email=$email&senha=$senhapura");
 			
 			
 		}else{

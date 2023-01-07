@@ -5,11 +5,11 @@
 	
 	
 	
-	if (!empty($_POST['email']) && (!empty($_POST['senha']))){
+	if (((!empty($_POST['email'])) && (!empty($_POST['senha']))) || ((!empty($_GET['email'])) and (!empty($_GET['senha'])))){
 		
 		
-		$email =$_POST['email'];
-		$senha =$_POST['senha'];
+		$email =(!empty($_POST['email']))? $_POST['email']:$_GET['email'];
+		$senha =(!empty($_POST['senha']))? $_POST['senha']:$_GET['senha'];
 		
 		
 		$consulta=$cone->prepare("select  * from pessoa where email = ? limit 1");

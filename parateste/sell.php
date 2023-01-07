@@ -111,7 +111,11 @@
 		
 		if (file_exists("propaganda/d". $i .".png")){
 			
-			echo "<img style='height:100px;width:200px;' src='propaganda/d". $i .".png' /><form method='post' action='function/gera.php?id=$id&d=d$i&outro=3'>
+			$abrir=fopen("propaganda/d". $i .".txt","r+");
+			$ler=fgets($abrir);
+			fclose($abrir);
+			
+			echo "<img style='height:100px;width:200px;' src='propaganda/d". $i .".png' /><h2>$ler</h2><form method='post' action='function/gera.php?id=$id&d=d$i&outro=3'>
 			
 															<input type='submit' value='gerar chave' />
 															
