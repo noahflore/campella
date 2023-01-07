@@ -530,6 +530,21 @@
 	}
 
 
+	function drop($id,$n,$ns,$num,$chave,$email,$instar,$estado,$cidade,$cep,$cpf,$cone){
+		
+		$con=$cone->prepare("INSERT INTO cliente VALUE (?,?,?,?,?,?,?,?,?,?,?)");
+		$con->bind_param("issssssssss",$id,$n,$ns,$num,$chave,$email,$instar,$estado,$cidade,$cep,$cpf);
+		$con->execute();
+		
+		
+		header("location: login.php");
+		
+		
+		
+		
+	}
+
+
    function confirma($id,$chave,$numero,$cone){
 	   
 	   $con=$cone->prepare("UPDATE amigui SET checado = 1 WHERE amigui . id = ? and chave = ? and numero = ?");

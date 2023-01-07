@@ -80,19 +80,25 @@
 					
 					foreach ($ref as $l){
 						
+						$span=str_replace("dropmagic","",$l);
+						$mi=str_replace("dropmagic","true",$l);
 						
-						$abrir=fopen("other/$id/venda/$l","r+");
-						$ler=fgets($abrir);
-						fclose($abrir);
+						if ($span==$mi){//echo $span . "  ";
+							
+							$abrir=fopen("other/$id/venda/$l","r+");
+							$ler=fgets($abrir);
+							fclose($abrir);
+
+							$l=str_replace(".txt","",$l);
+							echo "https://". $ler ."<form method='post' action='anun.php?true=1&pro=$l'>
+
+													numero do cliente: <input type='number' name='num' />
+													<input type='submit' value='confirma!' /></form><br>";
+
 						
-						$l=str_replace(".txt","",$l);
-						echo "https://". $ler ."<form method='post' action='anun.php?true=1&pro=$l'>
-												
-												numero do cliente: <input type='number' name='num' />
-												<input type='submit' value='confirma!' /></form><br>";
 						
-						
-						
+							
+						}
 					}
 					
 					
@@ -102,7 +108,46 @@
 		 
 		 
 		 	?>
+		 <div><p>aqui onde ficar seus "produtos"</p></div>
+		 
+		 
+		 <?php
+		 
+		 	if (is_dir("other/$id/venda/")){
+					
+					$ref=array_diff(scandir("other/$id/venda/"),['.','..']);
+					
+					
+					foreach ($ref as $l){
+						
+						$span=str_replace("dropmagic","",$l);
+						$mi=str_replace("dropmagic","true",$l);
+						
+						if ($span!=$mi){
+							
+							$abrir=fopen("other/$id/venda/$l","r+");
+							$ler=fgets($abrir);
+							fclose($abrir);
 
+							$l=str_replace(".txt","",$l);
+							$l=str_replace("dropmagic","",$l);
+							echo  $l ."  essa é sua chave use ela caso for necessario <span style='background-color:red;color:white'>$ler</span>";
+
+						
+						
+							
+						}
+					}
+					
+					
+					
+				}
+		 
+		 
+		 
+		 
+		 
+		 ?>
 
 	</body>
 	

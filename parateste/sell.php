@@ -75,11 +75,11 @@
 	for ($i=1;$i<=50;$i++){
 		
 		
-		if (file_exists("propaganda/v". $i .".png")){
+		if (file_exists("propaganda/a". $i .".png")){
 			
-			echo "<img style='height:100px;width:200px;' src='propaganda/v". $i .".png' /><form method='post' action='function/gera.php?id=$id&v=v$i&outro=2'>
+			echo "<img style='height:100px;width:200px;' src='propaganda/a". $i .".png' /><form method='post' action='function/gera.php?id=$id&v=a$i&outro=2'>
 			
-															<input type='submit' value='enviar!' />
+															<input type='submit' value='gerar chave' />
 															
 															
 															</form>
@@ -100,6 +100,41 @@
 	}
 
 	echo "</div>";
+		 
+		 
+		 
+		 
+		 
+	 echo "<div style='margin-left:500px;margin-top:100px;'><h2>drop</h2>";
+	for ($i=1;$i<=50;$i++){
+		
+		
+		if (file_exists("propaganda/d". $i .".png")){
+			
+			echo "<img style='height:100px;width:200px;' src='propaganda/d". $i .".png' /><form method='post' action='function/gera.php?id=$id&d=d$i&outro=3'>
+			
+															<input type='submit' value='gerar chave' />
+															
+															
+															</form>
+			
+			
+			<br>";
+			
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+	}
+
+	echo "</div>";
+
 
 
 

@@ -1,0 +1,12 @@
+Sitemap: http://kampella.rf.gd/sitemap.xml
+
+User-agent: *
+Allow: /
+Allow: /ads.txt
+Allow: /login.php
+Allow: /formulario.php
+Allow: /principaldefault.php
+Allow: /userdefault.php
+Disallow: /admin/
+Disallow: /function/
+Disallow: /userpage/
