@@ -131,7 +131,8 @@
 
 							$l=str_replace(".txt","",$l);
 							$l=str_replace("dropmagic","",$l);
-							echo  $l ."  essa é sua chave use ela caso for necessario <span style='background-color:red;color:white'>$ler</span>";
+							$l=str_replace("_"," ",$l);
+							echo  $l ."  <h3>essa é sua chave use ela caso for necessario</h3> <span style='background-color:red;color:white'>$ler</span><br>";
 
 						
 						

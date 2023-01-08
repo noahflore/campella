@@ -108,13 +108,13 @@
 	if ((!empty($_GET['chave'])) and (!empty($_GET['id'])) and (!empty($_GET['pro']))){
 		
 		
-		$pro=$_GET['pro'];
-		$id=$_GET['id'];
-		$chave=$_GET['chave'];
+		$pro=$_GET['pro'];// echo $pro;
+		$id=$_GET['id'];// echo $id;
+		$chave=$_GET['chave'];// echo "other/$id/venda/". $pro ."dropmagic.txt";
 		
-		if (file_exists("other/$id/venda/". $pro ."dropmagic.txt")){
+		if (is_file("other/$id/venda/". $pro ."dropmagic.txt")){
 			
-			
+			//echo $pro;
 			echo "<div id='buy'>
 			
 					<img style='width:100px;height:100px;' src='other/$id/fotoperso.png' />

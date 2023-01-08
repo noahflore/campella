@@ -114,6 +114,7 @@
 			$abrir=fopen("propaganda/d". $i .".txt","r+");
 			$ler=fgets($abrir);
 			fclose($abrir);
+			$ler=str_replace("_"," ",$ler);
 			
 			echo "<img style='height:100px;width:200px;' src='propaganda/d". $i .".png' /><h2>$ler</h2><form method='post' action='function/gera.php?id=$id&d=d$i&outro=3'>
 			
