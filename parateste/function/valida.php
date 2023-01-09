@@ -96,10 +96,28 @@
 				if (!is_dir('../friend/'. $id)){
 					
 						mkdir('../friend/'. $id,0777,true);
+						mkdir('../other/'. $id .'/recado/1/1/',0777,true);
+						mkdir('../other/'. $id .'/recado/tmp/',0777,true);
+						copy('../other/exemplo/exemplo.txt','../other/'. $id .'/recado/1/010.txt');
+						copy('../other/exemplo/bemvindo.txt','../other/'. $id .'/recado/1/1/bot.txt');
+						copy('../other/exemplo/exemplo.txt','../other/'. $id .'/recado/tmp/tmpupdate.txt');
+						copy('../other/exemplo/exemplo.txt','../other/'. $id .'/recado/pasta.txt');
 						copy('../other/exemplo/exemplo.txt','../friend/'. $id . '/1-'. $nome);
 						copy('../other/exemplo/exemplo.txt','../friend/'. $id . '/2-'. $sobrenome);
 						copy('../other/exemplo/exemplo.txt','../friend/'. $id . '/3-'. $sexo);
 							
+					
+						$abrir=fopen('../other/'. $id .'/recado/1/010.txt','w+');
+						fwrite($abrir,1);
+						fclose($abrir);
+						$abrir=fopen('../other/'. $id .'/recado/tmp/tmpupdate.txt','w+');
+						fwrite($abrir,1);
+						fclose($abrir);
+						$abrir=fopen('../other/'. $id .'/recado/pasta.txt','w+');
+						fwrite($abrir,1);
+						fclose($abrir);
+					
+					
 					}else{
 						
 						

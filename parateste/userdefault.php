@@ -43,7 +43,7 @@
 
 	if (!empty($_SESSION['idfriend'])){ unlink("other/". $_SESSION['idfriend'] ."/true"); unset($_SESSION['idfriend']);}
 
-	if (!file_exists("other/". $_SESSION['id'] ."/true")){compacta($_SESSION['id']); if (file_exists("other/". $_SESSION['id'] ."/open")){unlink("other/". $_SESSION['id'] ."/open");}}
+	if ((!file_exists("other/". $_SESSION['id'] ."/true")) and (!file_exists("other/". $_SESSION['id'] ."/recado/1/1/bot.txt"))){compacta($_SESSION['id']); if (file_exists("other/". $_SESSION['id'] ."/open")){unlink("other/". $_SESSION['id'] ."/open");}}
 
 	}
 ?>

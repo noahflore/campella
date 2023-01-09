@@ -264,7 +264,7 @@
 											
 											for($i=1;$i<=$tmp; $i++){
 												
-												if (is_dir("../other/". $id ."/recado/". $index ."/". $i)){
+												if ((is_dir("../other/". $id ."/recado/". $index ."/". $i)) and (!file_exists("../other/". $id ."/recado/". $index ."/". $i ."/bot.txt"))){
 													$r=array_diff(scandir("../other/". $id ."/recado/". $index ."/". $i),['.','..']);
 													if (!empty($r[3])){$r[1]=$r[2]; $r[2]=$r[3];}
 													$foto= (!empty($r[1]))? "<img style='width: 50px' src='../other/$r[1]/fotoperso.png' alt='foto_png_user' />": "<img src='../ico/perfil.png' alt='foto_png_user' />";
@@ -282,6 +282,27 @@
 														</form><br>";
 													
 												
+												}elseif (file_exists("../other/". $id ."/recado/". $index ."/". $i ."/bot.txt")){
+													
+													$r=array_diff(scandir("../other/". $id ."/recado/". $index ."/". $i),['.','..']);
+													if (!empty($r[3])){$r[1]=$r[2]; $r[2]=$r[3];}
+													$foto= (!empty($r[1]))? "<img style='width: 50px' src='../other/$r[1]/fotoperso.png' alt='foto_png_user' />": "<img src='../ico/perfil.png' alt='foto_png_user' />";
+													$po=fopen("../other/". $id ."/recado/". $index ."/". $i ."/". $r[2],"r+");
+													
+													while (!feof($po)){	$receba= $receba . fgets($po);}
+													$r[2]=str_replace(".txt"," - ",$r[2]);
+													
+													
+													echo "<div class='linha'>". $foto ."   ". $r[2]." ". $receba ."</div><form method='post' action='functionuser/recado.php?i=$i&r=$r[2]&index=$index&ap=-1'>
+														
+																							
+																						
+																							<input class='aperta' type='submit' value='apagar' />
+														
+														</form><br>";
+													
+													
+													fclose($po);
 												}
 												
 											}

@@ -12,7 +12,7 @@ session_start();
 		$t=str_replace(" - ","",$t);
 		
 			unlink("../../other/". $id ."/recado/". $index ."/". $i ."/". $t .".txt");
-			unlink("../../other/". $id ."/recado/". $index ."/". $i ."/". $idapaga);
+			if ($idapaga!=-1){unlink("../../other/". $id ."/recado/". $index ."/". $i ."/". $idapaga);}
 			rmdir("../../other/". $id ."/recado/". $index ."/". $i ."/");
 			
 			/*
