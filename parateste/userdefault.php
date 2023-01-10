@@ -221,6 +221,36 @@
 						
 						<?php
 						
+							if (file_exists("other/$id/sorte/1.txt")){
+								$diadd= date("d");
+								
+							if (file_exists("other/$id/sorte/dia.txt")){
+								$abrir=fopen("other/$id/sorte/dia.txt","r+");
+								$leituraviva=fgets($abrir);
+								fclose($abrir);
+								
+								
+								if ($leituraviva!=$diadd){$sorte=0;
+									
+									while(!file_exists("sorte/". $sorte .".txt")){
+										
+										$sorte=random_int(1,360);
+										
+										if (file_exists("sorte/". $sorte .".txt")){copy("sorte/". $sorte .".txt","other/$id/sorte/1.txt");}
+										
+										
+										
+									}
+									$abrir=fopen("other/$id/sorte/dia.txt","w+");
+									fwrite($abrir,$diadd);
+									fclose($abrir);
+														  
+								}
+								
+							}
+								
+							}
+						
 							if (!file_exists("other/$id/sorte/dia.txt")){
 								$diadd= date("d");
 						
@@ -234,7 +264,14 @@
 								if ($leituraviva!=$diadd){
 								
 									$sorte=random_int(1,360);
-								do{	if (!file_exists("sorte/". $sorte .".txt")){$sorte=random_int(1,360);$abrir=fopen("sorte/". $sorte .".txt","r+");}else{$abrir=fopen("sorte/". $sorte .".txt","r+");}}while(!file_exists("sorte/". $sorte .".txt"));
+								do{	
+									
+									if (!file_exists("sorte/". $sorte .".txt")){
+										
+										$sorte=random_int(1,360);
+									if (file_exists("sorte/". $sorte .".txt")){	copy("sorte/". $sorte .".txt","other/". $id ."/sorte/1.txt");$abrir=fopen("other/". $id ."/sorte/1.txt","r+");}
+										
+									}else{$abrir=fopen("sorte/". $sorte .".txt","r+");copy("sorte/". $sorte .".txt","other/". $id ."/sorte/1.txt");}}while(!file_exists("sorte/". $sorte .".txt"));
 									$sss=fgets($abrir);
 									fclose($abrir);
 									
@@ -249,65 +286,38 @@
 								}
 							
 							
-							}elseif (empty($_GET['sorte'])){
+							}elseif (file_exists("other/$id/sorte/1.txt")){
 									
-									
-									$sorte=random_int(1,360);
-								do{	if (!file_exists("sorte/". $sorte .".txt")){$sorte=random_int(1,360);$abrir=fopen("sorte/". $sorte .".txt","r+");}else{$abrir=fopen("sorte/". $sorte .".txt","r+");}}while(!file_exists("sorte/". $sorte .".txt"));
+									$abrir=fopen("other/$id/sorte/1.txt","r+");
 									$sss=fgets($abrir);
 									fclose($abrir);
-									
-									
-									$abrir=fopen("other/$id/sorte/dia.txt","w+");
-									fwrite($abrir,$diadd);
-									fclose($abrir);
-									
-									header("location: userdefault.php?sorte=$sss");
-									
-									
-									
-									
-									
-									
-									
-								}else{
-								
-								$diadd= date("d");
-						
-								
-								$abrir=fopen("other/$id/sorte/dia.txt","r+");
-								$leituraviva=fgets($abrir);
-								fclose($abrir);
-								
-								
-								if ($leituraviva!=$diadd){
-								
-									$sorte=random_int(1,360);
-								do{	if (!file_exists("sorte/". $sorte .".txt")){$sorte=random_int(1,360);$abrir=fopen("sorte/". $sorte .".txt","r+");}else{$abrir=fopen("sorte/". $sorte .".txt","r+");}}while(!file_exists("sorte/". $sorte .".txt"));
-									$sss=fgets($abrir);
-									fclose($abrir);
-									
-									
-									$abrir=fopen("other/$id/sorte/dia.txt","w+");
-									fwrite($abrir,$diadd);
-									fclose($abrir);
-									
-									header("location: userdefault.php?sorte=$sss");
-									
-									
-								}
-									
-									if (!empty($_GET['sorte'])){
-										$sss=$_GET['sorte'];
 									
 										echo "<b>sorte do dia: </b><span style='background-color:#806932;color:white'>$sss</span>";
 										
 										
-									}
+									}else{
+									
+								
+								do{	
+									
+									if (!file_exists("sorte/". $sorte .".txt")){
+										
+										$sorte=random_int(1,360);
+									if (file_exists("sorte/". $sorte .".txt")){	copy("sorte/". $sorte .".txt","other/". $id ."/sorte/1.txt");$abrir=fopen("other/". $id ."/sorte/1.txt","r+");}
+										
+									}else{$abrir=fopen("sorte/". $sorte .".txt","r+");copy("sorte/". $sorte .".txt","other/". $id ."/sorte/1.txt");}}while(!file_exists("sorte/". $sorte .".txt"));
+									$sss=fgets($abrir);
+									fclose($abrir);
+									
+									
+																
+									header("location: userdefault.php?sorte=$sss");
 									
 									
 								}
-					
+									
+								
+						
 								
 								
 								
