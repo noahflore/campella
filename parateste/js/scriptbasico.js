@@ -4,7 +4,9 @@
 		if (localStorage.num==1){
 		
 			let caixa= document.getElementsByClassName("caixa")[0]
+			let caixab= document.getElementsByClassName("caixa")[1]
 			caixa.style.backgroundColor= localStorage.caixa
+		if (caixab){caixab.style.backgroundColor= localStorage.caixa}
 			
 			
 		}else if (localStorage.num==2){
@@ -76,23 +78,24 @@
 			opcao.setAttribute("style","position: fixed; display: flex; flex-direction: column;")
 			opcao.setAttribute("id","configmobi")
 			op[0].setAttribute('value','modo dark')
-			if (num==3){op[0].setAttribute('onclick','preto(1)');num=1}else{op[0].setAttribute('onclick','preto()')}
+		    if (num==4){op[2].setAttribute("onclick","janela(1)")}else {op[2].setAttribute("onclick","janela()")}
+			if(num==4){op[4].setAttribute("onclick","conta(1)")}else{op[4].setAttribute("onclick","conta()")}var pare=0
+		    if(num==4){op[1].setAttribute("onclick","perfil(1)"); pare=1}
+			if ((num==3) ||(num==4)){op[0].setAttribute('onclick','preto(1)');num=1}else{op[0].setAttribute('onclick','preto()')}
 			op[0].innerHTML= "<span class='cabemobi'>modo dark</span>"
 			op[1].setAttribute("value","config")
 		
-			if(num==4){op[1].setAttribute("onclick","perfil(1)")}else if (num==5){op[1].setAttribute("onclick","perfil(2)")}else{	op[1].setAttribute("onclick","perfil()")}
+		 if (num==5){op[1].setAttribute("onclick","perfil(2)")}else if ((num==1) && (pare==0)){	op[1].setAttribute("onclick","perfil()")}
 			op[1].innerHTML= "<span class='cabemobi'>configuração</span>"
-			op[2].setAttribute("onclick","janela()")
 			op[2].innerHTML= "<span class='cabemobi'>privacidade</span>"
 			op[3].innerHTML= "<span class='cabemobi'>backup</span>"
-			op[4].setAttribute("onclick","conta()")
-			op[4].innerHTML= "<span class='cabemobi'>conta</span>"
+		  	op[4].innerHTML= "<span class='cabemobi'>conta</span>"
 			
 			if (localStorage.fundo){
 				
 				op[0].removeAttribute("onclick","preto()")
 				op[0].setAttribute("onclick","original(1)")
-				op[0].innerHTML= "modo light"
+				op[0].innerHTML= "<span class='cabemobi'>modo light</span>"
 				
 			}
 			
@@ -117,7 +120,7 @@
 	}
 
 	
-	function janela(){
+	function janela(n=0){
 		
 		let janela= document.createElement("div")
 		let janelafundo= document.createElement("div")
@@ -151,8 +154,8 @@
 			janelafundo.appendChild(janela)
 			janela.setAttribute("style","background-color: white; margin-left:400px;margin-top:200px;width:300px;")
 			janela.innerHTML= "<h2> o que você quer privar?</h2><br>"
-			janela.innerHTML+= `meus recados: <button onclick='priva(1)'>${pa1}</button><br>`
-			janela.innerHTML+= `visitantes: <button onclick='priva(2)'>${pa2}</button><br>`
+		if (n==0){janela.innerHTML+= `meus recados: <button onclick='priva(1)'>${pa1}</button><br>`}else if (n==1){janela.innerHTML+= `meus recados: <button onclick='priva(1,1)'>${pa1}</button><br>`}else if(n==2){janela.innerHTML+= `meus recados: <button onclick='priva(1,2)'>${pa1}</button><br>`}
+		if (n==0){janela.innerHTML+= `visitantes: <button onclick='priva(2)'>${pa2}</button><br>`}else if (n==1){janela.innerHTML+= `visitantes: <button onclick='priva(2,1)'>${pa2}</button><br>`}else if (n==2){janela.innerHTML+= `visitantes: <button onclick='priva(2,2)'>${pa2}</button><br>`}
 			document.body.appendChild(janelafundo)
 		
 		
@@ -167,7 +170,7 @@
 		
 	}
 	
-	function priva(p){
+	function priva(p,n=0){
 		
 		if ((localStorage.pa==1) && (p==1)){
 			
@@ -197,8 +200,24 @@
 			
 			
 		}
-		location.href= "function/priva.php?p=" + p
 		
+		if (n==0){
+			
+			location.href= "function/priva.php?p=" + p
+		
+		}else if (n==1){
+			
+			location.href= "../function/priva.php?p=" + p
+			
+			
+		}else if (n==2){
+			
+			location.href= "../../function/priva.php?p=" + p
+			
+			
+		}
+			
+			
 		
 		
 		
@@ -276,10 +295,21 @@
 		}
 	}
 
-	function conta(){
+	function conta(n=0){
 		
-		location.href= "conta.php"
+		if (n==0){
 		
+			location.href= "conta.php"
+		
+	}else if(n==1){
+		
+		location.href= "../conta.php"
+		
+	}else if(n==2){
+		
+		location.href= "../../conta.php"
+		
+	}
 		
 	}
 

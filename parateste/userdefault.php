@@ -724,7 +724,7 @@
 								$aju=0;
 								$div=0; //essa variavel vai se usado no separado de index
 								
-								echo "<div onmouseout='carrega()' id='amigomobi'>";
+								echo "<div class='caixa' onmouseout='carrega()' id='amigomobi'>";
 								
 								for ($i=1; $i<=1000; $i++){
 									
