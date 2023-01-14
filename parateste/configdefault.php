@@ -139,8 +139,8 @@
 					// o de cima modifica foto
 					?>
 					<ul class="fotopa">
-						<li><div><a href="userpage/fotouser.php">fotos</a><img src="ico/perfil.png" alt="foto_png" /></div></li>
-						<li><div><a href="userpage/videouser.php">videos</a><img src="ico/videos.png" alt="videos_png" /></div></li>
+						<li><div><a href="premio.php">fotos</a><img src="ico/perfil.png" alt="foto_png" /></div></li>
+						<li><div><a href="premio.php">videos</a><img src="ico/videos.png" alt="videos_png" /></div></li>
 						
 						<?php
 						

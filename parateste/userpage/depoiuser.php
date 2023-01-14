@@ -15,10 +15,10 @@
 	 <body>
 		<header class="cabeça">
 		
-			<img src="../ico/logocampella.png" alt="logo do site" />
+			<img src="../ico/logobanner.png" alt="logo do site" />
 			<nav> 
 				<ul>
-					<li><a href="../userdefault.php">user</a></li>
+					<?php echo "<li onclick='usuario(1)'><a href='../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
 					<!-- o de cima é nome do usuario-->
 					<li>configuração</li>
 					<li><s>camp</s></li>
@@ -35,10 +35,23 @@
 		
 		<section class="bloco">
 				<aside>
-						<img id="especial" src="../ico/userdefault.png" alt="foto do usuario" />
+						<?php
+					$id= $_SESSION['id'];
+					
+						if((is_dir("../other/" . $id)) and (file_exists("../other/" . $id."/fotoperso.png"))){
+								
+								echo "<img id='especial' src='../other/". $id ."/fotoperso.png' alt='foto do usuario' />";
+							
+						}else{
+							
+							echo"<img id='especial' src='../ico/userdefault.png' alt='foto do usuario' />";
+							
+						}
+						
+						?>
 							<ul  class="lateral">
-								<li><div><a href="fotouser.php">fotos</a><img src="../ico/perfil.png" alt="foto_png" /></div></li>
-								<li><div><a href="videouser.php">videos</a><img src="../ico/videos.png" alt="videos_png" /></div></li>
+								<li><div><a href="../premio.php">fotos</a><img src="../ico/perfil.png" alt="foto_png" /></div></li>
+								<li><div><a href="../premio.php">videos</a><img src="../ico/videos.png" alt="videos_png" /></div></li>
 								<li><div><a href="scrapuser.php?index=1">recados</a><img src="../ico/scrapbook.png" alt="scrapbook_png" /></div></li>
 								<li><div><a href='depoiuser.php'>depoimento</a><img src='../ico/depoi.png' alt='depoi_png' /></div></li>
 								<li><div>valor<img src="../ico/logocampella.png" alt="valor_png" /></div></li>

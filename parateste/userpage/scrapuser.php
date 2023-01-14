@@ -78,8 +78,8 @@
 						
 						?>
 							<ul  class="lateral">
-								<li><div><a href="fotouser.php">fotos</a><img src="../ico/perfil.png" alt="foto_png" /></div></li>
-								<li><div><a href="videouser.php">videos</a><img src="../ico/videos.png" alt="videos_png" /></div></li>
+								<li><div><a href="../premio.php">fotos</a><img src="../ico/perfil.png" alt="foto_png" /></div></li>
+								<li><div><a href="../premio.php">videos</a><img src="../ico/videos.png" alt="videos_png" /></div></li>
 								<li><div><a href="scrapuser.php?index=1">recados</a><img src="../ico/scrapbook.png" alt="scrapbook_png" /></div></li>
 								<li><div><a href='depoiuser.php'>depoimento</a><img src='../ico/depoi.png' alt='depoi_png' /></div></li>
 								<li><div>valor<img src="../ico/logocampella.png" alt="valor_png" /></div></li>
