@@ -13,7 +13,7 @@
 	
 	if (mysqli_connect_errno()){
 		
-		echo "<script> alert('erro na conexão')</script>". mysqli_connect_errno();
+		echo "<script> alert('erro no SQL codigo do erro: ". mysqli_connect_errno() ."')</script>";
 		
 		
 	}
