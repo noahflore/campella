@@ -39,6 +39,7 @@
 	
 
 	$user= new Usuario($_SESSION['nome'],$_SESSION['sobrenome'],$_SESSION['id'],$cone);
+	$lixo=$user->testetipo(1);
 
 
 	if (!empty($_SESSION['idfriend'])){ unlink("other/". $_SESSION['idfriend'] ."/true"); unset($_SESSION['idfriend']);}

@@ -1,23 +1,25 @@
-<!docktype html>
+<?php session_start(); ?>
+<!doctype html>
 
 <html>
 
 	 <head>
 	 
-	 <title>premio || campella</title>
+	 <title>premio || kampella</title>
 	 <meta charset="utf-8" />
 	 <link rel="stylesheet" href="defaultstyle/baseestilo.css" />
 	 <link rel="stylesheet" href="defaultstyle/premio.css" />
+	 <link rel="icon" href="ico/logoico.png" />
 	 
 	 </head>
 	 
 	 <body>
 		<header class="cabeça">
 		
-			<img src="ico/logocampella.png" alt="logo do site" />
+			<img src="ico/logobanner.png" alt="logo do site" />
 			<nav> 
 				<ul>
-					<li><a href="userdefault.php">user</a></li>
+					<?php echo "<li onclick='usuario(1)'><a href='userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
 					<!-- o de cima é nome do usuario-->
 					<li><a href="principaldefault.php">principal</a></li>
 					<li>configuração</li>
@@ -37,11 +39,13 @@
 		
 		<ul class="apresenta">
 			<div><li><h2>silver</h2></li>
-			adquirir sua conta silver<br>
+				adquirir sua <strong>conta silver</strong><br>
 			com ele você pode coloca gif<br>
 			no seu perfil, uma foto no<br>
 			fundo e mudar a cor da comunidade<br>
-			<p>compra custa <s>valor camp</s> receba 1 bigode+conta silver</p>
+			<p>compra custa <span>10 reais</span><br>
+				você vai recebe <strong>1 mês+conta silver</strong><br>
+			<span id="buypix"><button id="pixa" onclick="deletabutao()">compra!</button></span></p>
 			
 			</div>
 			<div><li><h2>gold</h2></li>
@@ -71,7 +75,55 @@
 		
 		</ul>
 	
-	 
+	 		
+			<script>
+	
+				
+				
+				
+			function deletabutao(){
+					
+				let buypixa= document.getElementById("buypix")
+				let pixa= document.getElementById("pixa")
+				let popup= document.createElement("div")
+				let janela= document.createElement("div")
+					
+					janela.setAttribute("style","background-color:white;margin-top:200px;margin-left:500px")
+					popup.setAttribute("style","position:fixed;height:100%;width:100%;top:0%;left:0%;background-color:#272222ad")
+					popup.setAttribute("onclick","fechapop()")
+					popup.setAttribute("id","pop")
+					janela.innerHTML="faça o pagamento via pix<br><strong style='color:red'>7aae2781-3466-44e6-bbc7-5b93ef69eb20</strong><hr>essa é uma chave aleatoria se tiver problemas em enviar consulta o dono"
+					popup.appendChild(janela)
+					buypixa.removeChild(pixa)
+					buypixa.appendChild(popup)
+
+					
+					
+				}
+				
+				function fechapop(){
+					
+					let buypixa= document.getElementById("buypix")
+					let pop= document.getElementById("pop")
+					let pixa= document.createElement("button")
+					
+						
+						pixa.setAttribute("id","pixa")
+						pixa.setAttribute("onclick","deletabutao()")
+						pixa.innerText="compra!"
+						buypixa.removeChild(pop)
+						buypixa.appendChild(pixa)
+					
+					
+					
+					
+					
+				}
+	
+	
+	
+	
+			</script>
 	 </body>
 
 

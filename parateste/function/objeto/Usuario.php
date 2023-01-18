@@ -9,6 +9,7 @@
 		
 	private	$cone;
 	private $data;
+	private $dia;
 		
 	public	function __construct ($nome,$sobrenome,$id,$cone){
 			
@@ -52,6 +53,8 @@
 				}
 				
 			}
+		
+		$this->setdia($diau);
 		
 				if ($teste>0){
 					
@@ -353,6 +356,68 @@
 	}
 		
 		
+	function testetipo($n){
+		$id=$this->getid();
+		
+			$teste=$this->cone->prepare("SELECT * FROM pessoa WHERE id= ?");
+			$teste->bind_param("i",$id);
+			$teste->bind_result($idu,$nomeu,$sobrenomeu,$emaiu,$senhau,$sexou,$creu,$modiu,$diau,$tipou,$ipu);
+			$teste->execute();
+		
+			while ($teste->fetch()){
+				
+				if (($tipou=="SMWM0000") and ($n==true)){
+					
+					header("location: camp/usersilver.php");
+					return 1;
+					
+					
+				}else if (($tipou=="SBWM0000") and ($n==true)){
+					
+					header("location: camp/usersilver.php");
+					return 1;
+					
+					
+				}elseif ($tipou=="SMWM0000"){
+					
+					
+					return 1;
+					
+					
+				}elseif ($tipou=="SBWM0000"){
+					
+					return 1;
+					
+					
+					
+				}else{
+					
+					
+					return 0;
+					
+					
+				}
+				
+				
+			}
+		
+		
+		
+	}
+		
+		
+	function altertipo(){
+		$id=$this->getid();
+		$tipo="DBWM0000";
+		
+		$muda=$this->cone->prepare("UPDATE pessoa SET tipo = ? WHERE pessoa . id= ?");
+		$muda->bind_param("si",$tipo,$id);
+		$muda->execute();
+		
+		
+	}
+		
+		
 	function comprar($valor,$pin){
 		
 		$id= $this->getid();
@@ -387,6 +452,20 @@
 	}//precisa se testado
 		
 	
+		
+	function setdia($dia){
+		
+		$this->dia=$dia;
+		
+		
+	}
+		
+	function getdia(){
+		
+		return $this->dia;
+		
+		
+	}
 			
 	function setnome($nome){
 			

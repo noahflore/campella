@@ -1,10 +1,26 @@
+strong{
+
+	color:white;
+
+	
+}
+
 .apresenta{
 	display: flex;
 	list-style: none;
+	justify-content: space-between;
 	
 	
 }
 
 .apresenta li{
-	margin-left: 25px;
+	margin-left: 50px;
+	
+}
+
+.apresenta div{
+
+	background-color:red;
+
+	
 }

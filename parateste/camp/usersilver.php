@@ -24,21 +24,49 @@
 	}
 
 	if (empty($_GET["robots"])){
-	if (file_exists("other/". $_SESSION['id'] ."/manu/1")){$_SESSION['login']="off"; $_SESSION['errologin']= "site em manutenção volte mais tarde";}
-	if (file_exists("other/". $_SESSION['id'] ."/manu/11")){$_SESSION['login']="off"; $_SESSION['errologin']= "site foi atualizado durante você esteve offiline"; unlink("other/". $_SESSION['id'] ."/manu/11");}
+	if (file_exists("../other/". $_SESSION['id'] ."/manu/1")){$_SESSION['login']="off"; $_SESSION['errologin']= "site em manutenção volte mais tarde";}
+	if (file_exists("../other/". $_SESSION['id'] ."/manu/11")){$_SESSION['login']="off"; $_SESSION['errologin']= "site foi atualizado durante você esteve offiline"; unlink("other/". $_SESSION['id'] ."/manu/11");}
 	
 	$login=$_SESSION['login'];
 	
 	
 	if (($login=="off") || (empty($_SESSION['login']))){
 		
-		header("location: login.php");
+		header("location: ../login.php");
 		
 	}
 
 	
 
 	$user= new Usuario($_SESSION['nome'],$_SESSION['sobrenome'],$_SESSION['id'],$cone);
+	$lixo=$user->testetipo(0);
+		
+		if ($lixo==0){header("location: ../userdefault.php");}
+		$diav= date ("d"); $lulu=$user->getdia();$lulu=str_replace(" ","",$lulu);
+		
+		if ((file_exists("../other/". $_SESSION['id'] ."/bananavirgem")) and ($lulu!=$diav)){//para melhor segurança incopora dentro do sql
+			
+			$abrir=fopen("../other/". $_SESSION['id'] ."/bananavirgem","r+");
+			$lixot=fgets($abrir);
+			fclose($abrir);
+			$lixot--;
+			$abrir=fopen("../other/". $_SESSION['id'] ."/bananavirgem","w+");
+			fwrite($abrir,$lixot);
+			fclose($abrir);
+			
+			if ($lixot<=0){$user->altertipo();unlink("../other/". $_SESSION['id'] ."/bananavirgem");}
+			
+			
+		}elseif (!file_exists("../other/". $_SESSION['id'] ."/bananavirgem")){
+			
+			copy("../other/exemplo/exemplo.txt","../other/". $_SESSION['id'] ."/bananavirgem");
+			$abrir=fopen("../other/". $_SESSION['id'] ."/bananavirgem","w+");
+			fwrite($abrir,30);
+			fclose($abrir);
+			
+			
+			
+		}
 
 
 	if (!empty($_SESSION['idfriend'])){ unlink("../other/". $_SESSION['idfriend'] ."/true"); unset($_SESSION['idfriend']);}
@@ -211,7 +239,14 @@
 						<img src="ico/heart.png" alt="amavel" />
 						<img src="ico/cool.png" alt="legal" />
 						<img src="ico/fire.png" alt="sexy" />
-						<img src="l" alt="bigode/bigode_de_ouro" />
+					<?php
+						//a foto vai se usado para representa os meses
+						
+					echo  "<img src='l' alt='bigode/bigode_de_ouro' />";
+							
+							
+							
+							?>
 						<img src="l" alt="conquista %" />
 					
 					<!-- o php vai se usado para exibi a quantidade de icone no perfil -->
