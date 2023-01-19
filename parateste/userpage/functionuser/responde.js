@@ -45,16 +45,16 @@
 		let fundopopup= document.createElement("div")
 		
 		
-			fundopopup.setAttribute("style","background-color:black;position:fixed;top:0%;left:0%")
+			fundopopup.setAttribute("style","background-color:#30272775;position:fixed;top:0%;left:0%;width:100%;height:100%")
 			fundopopup.setAttribute("onclick","fechapopup()")
 			fundopopup.setAttribute("id","fechapopup")
 			popup.setAttribute("id","fechar")
-			popup.setAttribute("style","position: fixed; top: 50%; right: 50%; background-color: white;")
+			popup.setAttribute("style","margin-top: 200px; margin-left:500px ; background-color: white;")
 			
 			
 			
 				
-				popup.innerHTML= "<b>faça uma doação</b><br> aceitamos qualquer valor desde 1 R$ até 1 mil<br> sua ajuda vai se bem-vindo<br><br><b>pix</b>  7aae2781-3466-44e6-bbc7-5b93ef69eb20<br><b>transferencia bancaria</b>  323 Mercado Pago<br>agencia 0001<br><b>conta</b>1902097335-0<br><b>nome do  proprietario</b>giovanne<br>escolha quais forma de pagamento acima !<br>escreva um comemtario ao enviar<br> após isso preencha esse campo<br>"
+				popup.innerHTML= "<b>faça uma doação</b><br> aceitamos qualquer valor desde 1 R$ até 1 mil<br> sua ajuda vai se bem-vindo<br><br><b>pix</b>  7aae2781-3466-44e6-bbc7-5b93ef69eb20<br><b>transferencia bancaria</b>  323 Mercado Pago<br>agencia 0001<br><b>conta</b>1902097335-0<br><strong style='color:black'>vakinha:</strong> 3404294@vakinha.com.br<br><b>nome do  proprietario</b>giovanne<br>escolha quais forma de pagamento acima !<br>escreva um comemtario ao enviar<br> após isso preencha esse campo<br>"
 				
 				
 				fundopopup.appendChild(popup)
@@ -69,9 +69,14 @@
 	function fechapopup(){
 		
 		let pop= document.getElementById("fechapopup")
-		let res= document.getElementById("filho")
+		let res= document.getElementById("res")
+		let butao= document.createElement("button")
 		
+		butao.setAttribute("id","filho")
+		butao.setAttribute("onclick","popup()")
+		butao.innerText= "clique aqui ^"
 		res.removeChild(pop)
+		res.appendChild(butao)
 		
 		
 		
