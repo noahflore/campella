@@ -54,7 +54,7 @@
 			
 			
 				
-				popup.innerHTML= "<b>faça uma doação</b><br> aceitamos qualquer valor desde 1 R$ até 1 mil<br> sua ajuda vai se bem-vindo<br><br><b>pix</b>  7aae2781-3466-44e6-bbc7-5b93ef69eb20<br><b>transferencia bancaria</b>  323 Mercado Pago<br>agencia 0001<br><b>conta</b>1902097335-0<br><strong style='color:black'>vakinha:</strong> 3404294@vakinha.com.br<br><b>nome do  proprietario</b>giovanne<br>escolha quais forma de pagamento acima !<br>escreva um comemtario ao enviar<br> após isso preencha esse campo<br>"
+				popup.innerHTML= "<b>faça uma doação</b><br> aceitamos qualquer valor desde 1 R$ até 1 mil<br> sua ajuda vai se bem-vindo<br><br><b>pix</b>  7aae2781-3466-44e6-bbc7-5b93ef69eb20<br><b>transferencia bancaria</b>  323 Mercado Pago<br>agencia 0001<br><b>conta</b>1902097335-0<br><strong style='color:black'>vakinha:</strong> https://www.vakinha.com.br/3404294<br><b>nome do  proprietario</b>giovanne<br>escolha quais forma de pagamento acima !<br>escreva um comemtario ao enviar<br> após isso preencha esse campo<br>"
 				
 				
 				fundopopup.appendChild(popup)
