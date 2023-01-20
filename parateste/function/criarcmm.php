@@ -79,60 +79,7 @@
 					
 				}//atualiza cmm do usuario em si e não no index
 				
-			};
-				if (file_exists('../other/var/index/update.txt')){
-					
-					$ab_up=fopen('../other/var/index/update.txt','r+');
-					$carregar=fgets($ab_up);
-					fclose($ab_up);
-					$carregar++;
-					$ab_up=fopen('../other/var/index/update.txt','w+');
-					fwrite($ab_up,$carregar);
-					fclose($ab_up);
-						$lo=$carregar;
-						for($li=$carregar; $li>=1; --$li){
-							
-							if(file_exists('../other/var/index/'. $li .'.txt')){//print_r($li);
-		
-								--$lo;
-								if (file_exists('../other/var/index/'. $lo .'.txt')){
-								copy('../other/var/index/'. $lo .'.txt','../other/var/index/'. $li .'.txt');}
-								
-								
-								
-							}else{
-								--$lo;
-							copy('../other/exemplo/exemplo.txt','../other/var/index/'. $li .'.txt');
-							copy('../other/var/index/'. $lo .'.txt','../other/var/index/'. $li .'.txt');
-						//	echo $lo." ". $li;
-							
-							}
-						}
-						
-				/*		
-					$ab=fopen('../other/var/index/1.txt','w+');
-					fwrite($ab,$nome);
-					fclose($ab);
-					
-					
-					*/
-					if ($carregar== 50){
-						$recomeçar=fopen('../other/var/index/update.txt','w+');
-						fwrite($recomeçar,1);
-						fclose($recomeçar);
-						
-					}
-						
-				}else{
-					copy('../other/exemplo/exemplo.txt','../other/var/index/update.txt');
-					copy('../other/exemplo/exemplo.txt','../other/var/index/1.txt');
-					$ab_up=fopen('../other/var/index/update.txt','w+');
-					fwrite($ab_up,1);
-					fclose($ab_up);
-					
-					
-					
-				}//serve para atualiza as comunidades
+			}; 
 			
 			header('location: ../comunidadesdefault.php');
 		

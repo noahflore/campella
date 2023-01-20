@@ -61,7 +61,15 @@
 			<section class='grupo'>
 				<section>
 						<?php
-							$id= $_SESSION['id'];
+					
+							if (!empty($_GET['id'])){
+								
+								$id=$_GET['id'];
+								
+							}else{
+								$id= $_SESSION['id'];
+								
+							}
 							$idcm= $_GET['nomecmm'];
 							
 							if (file_exists("../other/var/". $id ."/". $idcm ."/fotocmm.png")){
@@ -86,9 +94,17 @@
 								echo "<li><a href='usercmm/criartpc.php?idcmm=". $idcm ."' >criar topicos</a></li>";
 									
 								
+								if (empty($_GET['id'])){
 								
-								
-								echo "<li><a href='usercmm/showtpc.php?idcmm=". $idcm ."'>mostra meus topicos</a></li>";
+									echo "<li><a href='usercmm/showtpc.php?idcmm=". $idcm ."'>mostra meus topicos</a></li>";
+									
+									
+								}else{
+									
+									echo "<li><a href='usercmm/showtpc.php?idcmm=". $idcm ."&id=$id'>mostra  topicos</a></li>";
+									
+									
+								}
 							
 							
 							

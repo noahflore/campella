@@ -16,10 +16,26 @@
 								
 				}
 				
+				if (file_exists("../../other/var/". $id ."/". $idcmm ."/privado/1.txt")){
+					
+					
+					$abrir=fopen("../../other/var/". $id ."/". $idcmm ."/privado/1.txt","r+");
+					$veri=fgets($abrir);
+					fclose($abrir);
 				
-				$abrir=fopen("../../other/var/". $id ."/". $idcmm ."/privado/1.txt","r+");
-				$veri=fgets($abrir);
-				fclose($abrir);
+					
+				}else{
+					
+					mkdir("../../other/var/". $id ."/". $idcmm ."/privado/",0777,true);
+					copy("../../other/exemplo/exemplo.txt","../../other/var/". $id ."/". $idcmm ."/privado/1.txt");
+					$abrir=fopen("../../other/var/". $id ."/". $idcmm ."/privado/1.txt","w+");
+					fwrite($abrir,1);
+					fclose($abrir);
+					$abrir=fopen("../../other/var/". $id ."/". $idcmm ."/privado/1.txt","r+");
+					$veri=fgets($abrir);
+					fclose($abrir);
+					
+				}
 				
 				
 				if ($veri==2){
@@ -221,9 +237,10 @@
 								
 								$idcmm=$_GET['idcmm'];
 								
+								if (file_exists("../../other/var/". $id ."/". $idcmm ."/numero.txt")){
 								$abrir=fopen("../../other/var/". $id ."/". $idcmm ."/numero.txt","r+");
 								$ler=fgets($abrir);
-								fclose($abrir);
+								fclose($abrir);}else{$ler=2;}
 								$meuid=$_SESSION['id'];
 								$stop= 1;
 								

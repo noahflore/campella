@@ -30,6 +30,23 @@ session_start();
 		<?php
 			$idcm=$_GET['idcmm'];
 							
+				$nome=$_SESSION['nome'];
+			
+			
+			
+		if (empty($_GET['id'])){
+			
+			
+			echo "	<title>". $idcm ." d ". $nome ." || campella</title>";
+			
+			
+		}else{
+			
+			echo "	<title>". $idcm ." || campella</title>";
+			
+		}
+			
+			
 								if (!empty($_GET['id'])){
 									
 									$id=$_GET['id'];	
@@ -40,12 +57,6 @@ session_start();
 									
 									
 								}
-				$nome=$_SESSION['nome'];
-			
-			
-			
-			
-		echo "	<title>". $idcm ." d ". $nome ." || campella</title>";
 				
 				
 				?>
@@ -116,7 +127,7 @@ session_start();
 								?>
 								<?php
 								
-								echo "<li><a href='../insidecmm.php?nomecmm=". $idcm ."' >inicio</a></li>";
+								echo "<li><a href='../insidecmm.php?nomecmm=". $idcm ."&id=$id' >inicio</a></li>";
 								
 								
 								?>
@@ -144,7 +155,16 @@ session_start();
 								$mostrar=fgets($abrir);
 								fclose($abrir);
 								
-								echo "<a href='todotpc.php?idcmm=". $idcmm ."-". $mostrar ."'>". $mostrar ."</a><br>";
+								if (empty($_GET['id'])){
+									
+									
+									echo "<a href='todotpc.php?idcmm=". $idcmm ."-". $mostrar ."'>". $mostrar ."</a><br>";
+									
+								}else{
+									
+									echo "<a href='todotpc.php?idcmm=". $idcmm ."-". $mostrar ."&id=$id'>". $mostrar ."</a><br>";
+									
+								}
 								
 								
 							}

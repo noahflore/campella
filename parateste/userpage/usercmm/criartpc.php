@@ -184,8 +184,11 @@
 					copy('../../other/exemplo/exemplo.txt','../../other/var/index/update.txt');
 					copy('../../other/exemplo/exemplo.txt','../../other/var/index/1.txt');
 					$ab_up=fopen('../../other/var/index/update.txt','w+');
+					$ab_upa=fopen('../../other/var/index/1.txt','w+');
+					fwrite($ab_upa,$idcmm ."-". $tpc);
 					fwrite($ab_up,1);
 					fclose($ab_up);
+					fclose($ab_upa);
 					
 					
 					
@@ -196,8 +199,8 @@
 				}
 			
 				echo "<div class='ajuste'><form method='post' action='criartpc.php?idcmm=". $idcmm ."' >
-				<input type='text' name='tpc' placeholder='nome do topico' />
-				<input type='text' name='resumo' placeholder='assunto do topico' />
+				coloque aqui o topico: <input type='text' name='tpc' placeholder='nome do topico' /><br>
+				coloque aqui um comentario: <input type='text' name='resumo' placeholder='assunto do topico' />
 				<input type='submit' value='enviar' />
 			
 			
