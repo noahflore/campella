@@ -120,10 +120,37 @@ session_start();
 								
 							
 							
+							//echo "<a href='../../other/var/". $id ."/". $outrocmm ."/pivado/1.txt'>golfe</a>";
 							
-							
-							
-			
+							if (file_exists("../../other/var/". $id ."/". $outrocmm ."/privado/1.txt")){//echo "aaaaaaaaaaaa";
+								
+								$abrir=fopen("../../other/var/". $id ."/". $outrocmm ."/privado/1.txt","r+");
+								$priv=fgets($abrir);
+								fclose($abrir);
+								
+								
+								if ($priv==1){
+								
+								echo "<form method='post' action='ajuste.php?id=$id&idcmm=$idcm&outro=$outrocmm'>
+								
+										<textarea name='desc' rows='5' cols='30' placeholder='coloque aqui sua descrição'></textarea><br>
+										<fieldset style='border-color: black'> <legend>visibilidade</legend>
+											<select name='visi'>
+													<option value='privado'>privado</option>
+													<option value='publico'>publico</option>
+													<option value='mod'>moderado</option>
+																							</select>
+																							
+										</fieldset>
+										<input type='submit' value='enviar' />
+								
+								
+									</form>";
+									
+									
+								}elseif ($priv==0){
+									
+									
 								echo "<form method='post' action='ajuste.php?id=$id&idcmm=$idcm&outro=$outrocmm'>
 								
 										<textarea name='desc' rows='5' cols='30' placeholder='coloque aqui sua descrição'></textarea><br>
@@ -139,6 +166,38 @@ session_start();
 								
 								
 									</form>";
+									
+									
+								}elseif ($priv==2){
+									
+									
+								echo "<form method='post' action='ajuste.php?id=$id&idcmm=$idcm&outro=$outrocmm'>
+								
+										<textarea name='desc' rows='5' cols='30' placeholder='coloque aqui sua descrição'></textarea><br>
+										<fieldset style='border-color: black'> <legend>visibilidade</legend>
+											<select name='visi'>
+													<option value='mod'>moderado</option>
+													<option value='publico'>publico</option>
+													<option value='privado'>privado</option>
+																							</select>
+																							
+										</fieldset>
+										<input type='submit' value='enviar' />
+								
+								
+									</form>";
+									
+									
+									
+									
+									
+									
+								}
+								
+								
+								
+								
+							}
 			
 							
 							?>

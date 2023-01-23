@@ -227,6 +227,8 @@
 								
 							?>
 							<li>enquetes</li>
+								
+							<?php if (!empty($_SESSION['alerta'])){echo "<span style='background-color:white'>". $_SESSION['alerta'] ."</span>"; unset($_SESSION['alerta']);} ?>
 							
 							</ul>
 						</span>
@@ -272,7 +274,7 @@
 									
 									}else{
 										
-										$foto = (file_exists("../../other/var/". $id ."/". $idcmm ."/". $i ."/fotoperso.png")) ? "<img style='width: 30px; height: 30px;' src='../../other/var/". $id ."/". $idcmm ."/". $i ."/fotoperso.png' alt='foto_perfil' />": "<img src='../../ico/perfil.png' alt='foto_perfil' />";
+										$foto = (file_exists("../../other/var/". $id ."/". $idcmm ."/". $i ."/fotoperso.png")) ? "<img style='width: 30px; height: 30px;' src='../../other/var/". $id ."/". $idcmm ."/". $i ."/fotoperso.png' alt='foto_perfil' />": "<img style='width: 30px; height: 30px;' src='../../ico/perfil.png' alt='foto_perfil' />";
 										echo "<div>". $foto ."<span id='d$i'>". $guarda. "</span><input type='button' id='responde' value='responde' onclick='responde($i)' /><br>";
 									
 										
