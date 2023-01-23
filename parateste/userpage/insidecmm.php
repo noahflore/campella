@@ -138,6 +138,50 @@
 				
 				</div>
 			</section>
+			<aside class="aolado">
+				
+				<?php
+						
+						for ($i=1;$i<=1000;$i++){
+							
+							$abrir=fopen("../other/var/". $id ."/". $idcm ."/updatetcp.txt","r+");
+							$cmmcon=fgets($abrir);
+							fclose($abrir);
+							
+							for ($p=0;$p<=$cmmcon;$p++){
+								
+								if (file_exists("../other/var/". $id ."/". $idcm ."/". $p .".txt")){
+									
+									$abrir=fopen("../other/var/". $id ."/". $idcm ."/". $p .".txt","r+");
+									$naluz=fgets($abrir);
+									fclose($abrir);
+								
+								if (is_dir("../other/var/". $id ."/". $idcm ."-". $naluz ."/")){
+							
+							if (file_exists("../other/var/". $id ."/". $idcm ."-". $naluz ."/autoria/$i")){
+								
+								$foto= (file_exists("../other/$i/fotoperso.png")) ? "<img style='width:50px;height:50px;' src='../other/$i/fotoperso.png' />":"<img style='width:50px;height:50px;' src='../ico/userdefault.png' />";
+								
+								echo $foto;
+								
+								
+							}
+								
+							}
+								}
+							
+							
+						}
+						
+						
+						
+					}
+				
+				
+				?>
+				
+				
+			</aside>
 		
 		
 		<script src="../js/scriptbasico.js"></script>
