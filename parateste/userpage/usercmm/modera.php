@@ -2,7 +2,7 @@
 session_start();
 
 
-	if ((!empty($_GET['id'])) and (!empty($_GET['outro'])) and (!empty($_GET['idcmm']))){
+	if ((!empty($_GET['id'])) and (!empty($_GET['outro'])) and (!empty($_GET['idcmm'])) and (!isset($_GET['true']))){
 		
 		
 		$id=$_GET['id'];
@@ -18,7 +18,7 @@ session_start();
 					
 					copy("../../exemplo/exemplo.txt","../../other/var/". $id ."/". $outro ."/tmp/". $meuid .".txt");
 					$abrir=fopen("../../other/var/". $id ."/". $outro ."/tmp/". $meuid .".txt","w+");
-					fwrite($abrir,$nome);
+					fwrite($abrir,$idcmm);
 					fclose($abrir);
 					
 					
@@ -29,13 +29,35 @@ session_start();
 					
 				}
 
-				header("location: todotpc.php?id=$id&outro=$outro&idcmm=$idcmm");
+				
 
 		
 
 
 
 	}
+
+	if ((!empty($_GET['id'])) and (!empty($_GET['outro'])) and (!empty($_GET['idcmm'])) and (isset($_GET['true']))){
+
+		$id=$_GET['id'];
+		$outro=$_GET['outro'];
+		$idcmm=$_GET['idcmm'];
+		$pu=$_GET['pu'];
+		
+		
+			if (!is_dir("../../other/var/". $id ."/". $idcmm ."/autoria/")){mkdir("../../other/var/". $id ."/". $idcmm ."/autoria/",0777,true);}
+		
+			copy ("../../other/exemplo/exemplo.txt","../../other/var/". $id ."/". $idcmm ."/autoria/" .$pu);
+			unlink("../../other/var/". $id ."/". $outro ."/tmp/". $pu .".txt");
+		
+		
+		
+		
+		
+	}
+
+
+	header("location: todotpc.php?id=$id&outro=$outro&idcmm=$idcmm");
 
 
 ?>

@@ -22,6 +22,7 @@ session_start();
 			<title>cmm_do_user || campella</title>
 			<link rel="stylesheet" href="../../defaultstyle/baseestilo.css" />
 			<link rel="stylesheet" href="../../defaultstyle/corpodacmm.css" />
+			<link rel="icon" href="../../ico/logoico.png" />
 		
 		
 		</head>
@@ -30,7 +31,7 @@ session_start();
 			
 			<header	class="cabeça">
 			
-				<img src="../../ico/logocampella.png" alt="logo do site" />
+				<img src="../../ico/logobanner.png" alt="logo do site" />
 				<nav> 
 					<ul>
 						<li><a href="userdefault.php">user</a></li>
@@ -213,14 +214,53 @@ session_start();
 								
 								foreach ($li as $varia){
 									
-									echo "<img style='width: 50px;' src='../../other/$varia/fotoperso.png' />";
+									$foto= (file_exists("../../other/$varia/fotoperso.png")) ? "<img style='width: 50px;height:50px' src='../../other/$varia/fotoperso.png' />": "<img style='width: 50px;' src='../../ico/userdefault.png' />";
+									
+									echo $foto;
 									
 									
 								}
 								
 								
 								
-							}
+							}// exibi pessoas que participa da comunidade
+						
+						
+						  if (is_dir("../../other/var/". $id ."/". $outrocmm ."/tmp/")){
+							  
+							  echo "<h2>pessoas querendo participa</h2><br>";
+							  
+							  
+							  $redi=array_diff(scandir("../../other/var/". $id ."/". $outrocmm ."/tmp/"),['.','..']);
+							  
+							  
+							  	foreach ($redi as $pula){
+									
+									$abrir=fopen("../../other/var/". $id ."/". $outrocmm ."/tmp/". $pula,"r+");
+									$ler=fgets($abrir);
+									fclose($abrir);
+									
+									$pula= str_replace(".txt","",$pula);
+									$foto= (file_exists("../../other/$pula/fotoperso.png")) ? "<img style='width: 50px;height:50px' src='../../other/$pula/fotoperso.png' />": "<img style='width: 50px;' src='../../ico/userdefault.png' />";
+									
+									echo $foto ."<form method='post' action='modera.php?id=$id&idcmm=$ler&outro=$outrocmm&pu=$pula&true=1'>
+									
+									
+												<input type='submit' value='aceita' />
+									
+																																</form>";
+									
+									
+								}
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+						  }
 						
 						
 						
