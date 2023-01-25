@@ -44,11 +44,22 @@ session_start();
 		$idcmm=$_GET['idcmm'];
 		$pu=$_GET['pu'];
 		
-		
-			if (!is_dir("../../other/var/". $id ."/". $idcmm ."/autoria/")){mkdir("../../other/var/". $id ."/". $idcmm ."/autoria/",0777,true);}
-		
-			copy ("../../other/exemplo/exemplo.txt","../../other/var/". $id ."/". $idcmm ."/autoria/" .$pu);
-			unlink("../../other/var/". $id ."/". $outro ."/tmp/". $pu .".txt");
+			
+			if (empty($_POST['deleta'])){
+				
+				
+				if (!is_dir("../../other/var/". $id ."/". $idcmm ."/autoria/")){mkdir("../../other/var/". $id ."/". $idcmm ."/autoria/",0777,true);}
+
+				copy ("../../other/exemplo/exemplo.txt","../../other/var/". $id ."/". $idcmm ."/autoria/" .$pu);
+				unlink("../../other/var/". $id ."/". $outro ."/tmp/". $pu .".txt");
+				
+				
+			}else{
+				
+				unlink("../../other/var/". $id ."/". $outro ."/tmp/". $pu .".txt");
+				
+				
+			}
 		
 		
 		

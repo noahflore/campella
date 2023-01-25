@@ -210,7 +210,7 @@
 									
 								}
 							
-								if ($privado==2){
+								if (($privado==2) and (!file_exists("../../other/var/". $id ."/". $idcm ."/autoria/". $meuid)) and ($id!=$meuid)){
 									
 									echo "<li><a href='modera.php?id=$id&idcmm=$idcm&outro=$outrocmm'>participar</a></li>";
 									

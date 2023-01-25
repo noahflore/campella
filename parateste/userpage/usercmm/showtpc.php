@@ -122,7 +122,7 @@ session_start();
 							?>
 							<ul>
 							<?php
-								echo "<li><a href='criartpc.php?idcmm=". $idcm ."' >criar topicos</a></li>";
+								echo "<li><a href='criartpc.php?idcmm=". $idcm ."&id=$id' >criar topicos</a></li>";
 								
 								?>
 								<?php

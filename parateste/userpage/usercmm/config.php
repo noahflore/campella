@@ -34,7 +34,7 @@ session_start();
 				<img src="../../ico/logobanner.png" alt="logo do site" />
 				<nav> 
 					<ul>
-						<li><a href="userdefault.php">user</a></li>
+						<?php echo "<li onclick='usuario(1)'><a href='../../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
 						<!-- o de cima é nome do usuario-->
 						<li><a href="../../principaldefault.php">principal</a></li>
 						<li>configuração</li>
@@ -51,7 +51,7 @@ session_start();
 			</header>
 			
 			<section class="grupo">
-						<span>
+						<span class="coluna">
 							<?php
 								$idcm=$_GET['idcmm'];
 								$outrocmm=$_GET['outro'];
@@ -72,18 +72,17 @@ session_start();
 							?>
 							<ul>
 							<?php
-								echo "<li><a href='usercmm/criartpc.php?idcmm=". $idcm ."' >criar topicos</a></li>";
+								echo "<li><a href='criartpc.php?idcmm=". $outrocmm ."&id=$id' >criar topicos</a></li>";
 								
 								?>
 								
 							<?php
-								echo "<li><a href='usercmm/showtpc.php?idcmm=". $idcm ."'>mostra meus topicos</a></li>";
+								echo "<li><a href='showtpc.php?idcmm=". $outrocmm ."&id=$id'>mostra meus topicos</a></li>";
 							
 							
 							
 							?>
 							<li>enquetes</li>
-							<li>configuração</li>
 							</ul>
 						</span>
 					<section>
@@ -247,6 +246,7 @@ session_start();
 									
 									
 												<input type='submit' value='aceita' />
+												<input type='submit' name='deleta' value='deleta' />
 									
 																																</form>";
 									

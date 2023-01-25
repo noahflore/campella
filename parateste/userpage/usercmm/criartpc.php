@@ -62,7 +62,9 @@
 		<div>
 		
 			<?php
-				$id=$_SESSION['id'];
+			
+			
+			if (!empty($_GET['id'])){$id=$_GET['id'];}else{$id=$_SESSION['id'];}
 				$idcmm=$_GET['idcmm'];
 				
 				if ((!empty($_POST['tpc'])) or (!empty($_POST['resumo']))){
@@ -198,6 +200,19 @@
 					
 				}
 			
+				if (!empty($_GET['id'])){$id=$_GET['id'];
+			
+				echo "<div class='ajuste'><form method='post' action='criartpc.php?idcmm=". $idcmm ."&id=$id' >
+				coloque aqui o topico: <input type='text' name='tpc' placeholder='nome do topico' /><br>
+				coloque aqui um comentario: <input type='text' name='resumo' placeholder='assunto do topico' />
+				<input type='submit' value='enviar' />
+			
+			
+				</form></div>";
+										 
+										 
+										}else{
+				
 				echo "<div class='ajuste'><form method='post' action='criartpc.php?idcmm=". $idcmm ."' >
 				coloque aqui o topico: <input type='text' name='tpc' placeholder='nome do topico' /><br>
 				coloque aqui um comentario: <input type='text' name='resumo' placeholder='assunto do topico' />
@@ -205,7 +220,9 @@
 			
 			
 				</form></div>";
-				
+					
+					
+				}
 				
 			
 			?>
