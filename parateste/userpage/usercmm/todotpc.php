@@ -261,7 +261,8 @@
 									fclose($abrir);
 									
 									if ((file_exists("../../other/var/". $id ."/". $idcmm ."/". $i ."/$meuid")) or ($id==$meuid)){
-										$foto = (file_exists("../../other/var/". $id ."/". $idcmm ."/". $i ."/fotoperso.png")) ? "<img style='width: 30px; height: 30px;' src='../../other/var/". $id ."/". $idcmm ."/". $i ."/fotoperso.png' alt='foto_perfil' />": "<img style='width: 30px; height: 30px;' src='../../ico/perfil.png' alt='foto_perfil' />";
+										$busca= array_diff(scandir("../../other/var/". $id ."/". $idcmm ."/". $i ."/"),['.','..']);
+										$foto = (file_exists("../../other/". $busca[2] ."/fotoperso.png")) ? "<img style='width: 30px; height: 30px;' src='../../other/". $busca[2] ."/fotoperso.png' alt='foto_perfil' />": "<img style='width: 30px; height: 30px;' src='../../ico/perfil.png' alt='foto_perfil' />";
 										echo "<div>". $foto ."<span id='d$i'>". $guarda. "</span><input type='button' id='responde' value='responde' onclick='responde($i)' /><form method='post' action='apagarcome.php?idcmm=". $idcmm ."&id=". $id ."&i=". $i ."'>
 										<input type='submit' value='apagar'  />
 										
@@ -274,7 +275,8 @@
 									
 									}else{
 										
-										$foto = (file_exists("../../other/var/". $id ."/". $idcmm ."/". $i ."/fotoperso.png")) ? "<img style='width: 30px; height: 30px;' src='../../other/var/". $id ."/". $idcmm ."/". $i ."/fotoperso.png' alt='foto_perfil' />": "<img style='width: 30px; height: 30px;' src='../../ico/perfil.png' alt='foto_perfil' />";
+										$busca= array_diff(scandir("../../other/var/". $id ."/". $idcmm ."/". $i ."/"),['.','..']);
+										$foto = (file_exists("../../other/". $busca[2] ."/fotoperso.png")) ? "<img style='width: 30px; height: 30px;' src='../../other/". $busca[2] ."/fotoperso.png' alt='foto_perfil' />": "<img style='width: 30px; height: 30px;' src='../../ico/perfil.png' alt='foto_perfil' />";
 										echo "<div>". $foto ."<span id='d$i'>". $guarda. "</span><input type='button' id='responde' value='responde' onclick='responde($i)' /><br>";
 									
 										

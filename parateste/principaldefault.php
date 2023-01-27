@@ -154,6 +154,7 @@
 						<input type="button" value="desce" id="desce" />
 					<?php
 					$lista= 'other/var/index';
+					$meuid=$_SESSION['id'];
 					
 					
 					/* se esse codigo não for util excluar
@@ -229,25 +230,38 @@
 							{ $buffer= fgets($lendo);  
 							  $buffer2= (file_exists("other/var/". $id ."/". $l . "/show2.txt"))? fgets($lendo2): " " ;
 							  $buffer3= (file_exists("other/var/". $id ."/". $l . "/show3.txt"))? fgets($lendo3): " " ;
-							  $fshow=(file_exists("other/var/". $id ."/". $l . "/show.png"))? "<img class='ico' src='other/var/". $id ."/". $l ."/show.png' alt='foto_show' />": "<img class='ico' src='ico/perfil.png' alt='foto_show' /> ";
-							  $fshow2=(file_exists("other/var/". $id ."/". $l . "/show2.png"))? "<img class='ico' src='other/var/". $id ."/". $l ."/show2.png' alt='foto_show' />": "<img class='ico' src='ico/perfil.png' alt='foto_show' /> ";
-							  $fshow3=(file_exists("other/var/". $id ."/". $l . "/show3.png"))? "<img class='ico' src='other/var/". $id ."/". $l ."/show3.png' alt='foto_show' />": "<img class='ico' src='ico/perfil.png' alt='foto_show' /> ";
+							  $sa=(file_exists("other/var/". $id ."/". $l . "/sa.txt")) ? fopen("other/var/". $id ."/". $l . "/sa.txt","r+"):"";
+							  $sb=(file_exists("other/var/". $id ."/". $l . "/sb.txt")) ? fopen("other/var/". $id ."/". $l . "/sb.txt","r+"):"";
+							  $sc=(file_exists("other/var/". $id ."/". $l . "/sc.txt")) ? fopen("other/var/". $id ."/". $l . "/sc.txt","r+"):"";
+							  $saa= (!empty($sa)) ? fgets($sa):"";
+							  $sba= (!empty($sb)) ? fgets($sb):"";
+							  $sca= (!empty($sc)) ? fgets($sc):"";
+							  if (!empty($sa)){fclose($sa);}
+							  if (!empty($sb)){fclose($sb);}
+							  if (!empty($sc)){fclose($sc);}
+							  $fshow=(file_exists("other/". $saa ."/fotoperso.png"))? "<img class='ico' src='other/". $saa ."/fotoperso.png' alt='foto_show' />": "<img class='ico' src='ico/perfil.png' alt='foto_show' /> ";
+							  $fshow2=(file_exists("other/". $sba ."/fotoperso.png"))? "<img class='ico' src='other/". $sba ."/fotoperso.png' alt='foto_show' />": "<img class='ico' src='ico/perfil.png' alt='foto_show' /> ";
+							  $fshow3=(file_exists("other/". $sca ."/fotoperso.png"))? "<img class='ico' src='other/". $sca ."/fotoperso.png' alt='foto_show' />": "<img class='ico' src='ico/perfil.png' alt='foto_show' /> ";
 
 							  $dina++;
 							  $bina= $dina;
 							  $tina= $dina;
 							  $cina= $dina;
 
-				//		if (!file_exists("other/var/". $id ."/". $l ."/updatetcp.txt")){
+							$fonte= (is_dir("other/var/". $id ."/". $l ."/busca/")) ?array_diff(scandir("other/var/". $id ."/". $l ."/busca/"),['.','..']):"ico/fotocmm.png" ;
+							if ($fonte=="ico/fotocmm.png"){$fotocmma="<img src='ico/fotocmm.png' alt='fotocmm' />";}else{$fotocmma="<img id='fotope' src='other/var/". $id ."/". $fonte[2] ."/fotocmm.png' alt='fotocmm' />";}
+								
+								
 							
-							echo "
+								echo "
 
-							<div><div class='bloco'><div class='cmmestilo'><img id='fotope' src='other/var/". $id ."/". $l ."/fotocmm.png' alt='fotocmm' />    <a href='userpage/usercmm/todotpc.php?id=$id&idcmm=$l' >" . $l . "</a></div><br>
-							<div><b id='". $dina ."' >". $buffer4 ."</b><input id='responde' type='button' value='responde' onclick='responde($dina,`d`)' /></div>
-							<div id='t$tina'>". $fshow . $buffer . "<input id='responde' type='button' value='responde' onclick='responde($tina,`t`)' /></div>
-							<div>". $fshow2 ."<span id='b$bina'>". $buffer2 . "</span><input id='responde' type='button' value='responde' onclick='responde($bina,`b`)' /></div>
-							<div id='c$cina'>". $fshow3 .  $buffer3 . "<input id='responde' type='button' value='responde' onclick='responde($cina,`c`)' /></div>";
+								<div><div class='bloco'><div class='cmmestilo'>$fotocmma    <a href='userpage/usercmm/todotpc.php?id=$id&idcmm=$l' >" . $l . "</a></div><br>
+								<div><b id='". $dina ."' >". $buffer4 ."</b><input id='responde' type='button' value='responde' onclick='responde($dina,`d`)' /></div>
+								<div id='t$tina'>". $fshow . $buffer . "<input id='responde' type='button' value='responde' onclick='responde($tina,`t`)' /></div>
+								<div>". $fshow2 ."<span id='b$bina'>". $buffer2 . "</span><input id='responde' type='button' value='responde' onclick='responde($bina,`b`)' /></div>
+								<div id='c$cina'>". $fshow3 .  $buffer3 . "<input id='responde' type='button' value='responde' onclick='responde($cina,`c`)' /></div>";
 
+							
 
 							$meuid=$_SESSION['id'];
 							
@@ -313,22 +327,76 @@
 
 
 
-					//		if (!file_exists("other/var/". $id ."/". $l ."/updatetcp.txt")){   !!!! esse if no comentario pode se apagado
+								$fonte= (is_dir("other/var/". $id ."/". $l ."/busca/")) ?array_diff(scandir("other/var/". $id ."/". $l ."/busca/"),['.','..']):"ico/fotocmm.png" ;
+							if ($fonte=="ico/fotocmm.png"){$fotocmma="<img src='ico/fotocmm.png' alt='fotocmm' />";}else{$fotocmma="<img id='fotope' src='other/var/". $id ."/". $fonte[2] ."/fotocmm.png' alt='fotocmm' />";}
+								
+								/*
+								
+								
+							!!!!	o echo de baixo aparece quando não tem comentario   !!!!
+								
+								
+								
+								
+								
+								
+								*/
+								
+								if (!empty($l)){
+								
 								echo "
 
-							<p><div class='bloco'><div class='cmmestilo'><img id='fotope' src='other/var/". $id ."/". $l ."/fotocmm.png' alt='fotocmm' />    <a href='userpage/usercmm/todotpc.php?id=$id&idcmm=$l' >" . $l . "</a></div><br>
+							<p><div class='bloco'><div class='cmmestilo'>$fotocmma    <a href='userpage/usercmm/todotpc.php?id=$id&idcmm=$l' >" . $l . "</a></div><br>
 							<div><b>". $buffer4 ."</b></div>
 							<div></div><br>
 							<div></div><br>
 							<div></div>
-							<form method='post' action='function/reccmm.php?idcmm=" . $l . "&&id=". $id ."'>
-								<textarea name='texto' cols='100' rows='5'></textarea>
-								<input type='submit' value='enviar' />
+							          </p>";
 
-							</form>
-							</div><br></p>";
+								}
+
+								$meuid=$_SESSION['id'];
+							
+						
+
+							if (is_dir("other/var/". $id ."/". $l ."/busca/")){
 
 
+								$busca=array_diff(scandir("other/var/". $id ."/". $l ."/busca/"),['.','..']);
+
+								if ((is_dir("other/var/". $id ."/". $busca[2] ."/privado/")) && (file_exists("other/var/". $id ."/". $l ."/autoria/". $meuid))){
+
+									$privado=0;
+
+
+								}elseif (is_dir("other/var/". $id ."/". $busca[2] ."/privado/")){
+
+
+									$abrir=fopen("other/var/". $id ."/". $busca[2] ."/privado/1.txt","r+");
+									$privado=fgets($abrir);
+									fclose($abrir);
+
+
+								}
+
+							}
+							if (empty($privado)){$privado=0;}
+
+							if ((file_exists("other/var/". $id ."/". $l ."/autoria/". $meuid) && ($privado==0)) || ($id==$meuid) and (!empty($l))){
+								echo "<form method='post' action='function/reccmm.php?idcmm=" . $l . "&&id=". $id ."'>
+									<textarea id='di$dina' name='texto' cols='100' rows='5'></textarea>
+									<input type='submit' value='enviar' />
+
+									</form>
+									</div><br><br><br></div>";
+
+
+
+							}else{
+
+								echo "</div><br><br>";
+
+							}
 
 						//	}
 

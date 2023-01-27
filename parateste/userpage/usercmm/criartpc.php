@@ -74,18 +74,7 @@
 					if (!is_dir('../../other/var/'. $id .'/'. $idcmm .'-'. $tpc)){
 					mkdir('../../other/var/'. $id .'/'. $idcmm .'-'. $tpc ."/busca/",0777,true);
 					copy ("../../other/exemplo/exemplo.txt","../../other/var/". $id ."/". $idcmm ."-". $tpc ."/busca/$idcmm");
-					if(file_exists('../../other/var/'. $id .'/'. $idcmm .'/fotocmm.png')){
-						
-						copy('../../other/var/'. $id .'/'. $idcmm .'/fotocmm.png','../../other/var/'. $id .'/'. $idcmm .'-'. $tpc .'/fotocmm.png');
-						
-					}elseif (file_exists('../../other/var/'. $id .'/'. $idcmm .'/desc.txt')){
-						
-						
-						copy('../../other/var/'. $id .'/'. $idcmm .'/desc.txt','../../other/var/'. $id .'/'. $idcmm .'-'. $tpc .'/desc.txt');
-						
-						
-						
-					}
+					
 					}
 						copy('../../other/exemplo/exemplo.txt','../../other/var/'. $id .'/'. $idcmm .'-'. $tpc .'/momento.txt');
 					$abrir=fopen('../../other/var/'. $id .'/'. $idcmm .'-'. $tpc .'/momento.txt','r+');

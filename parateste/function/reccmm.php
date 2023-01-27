@@ -13,22 +13,7 @@
 	$ano=date("Y");
 	
 		$texto= bbcode($nome ."-". $texto ."  ". $dia ."/". $mes ."/". $ano);
-		/* se esse codigo não for util pode excluir
-		while(!is_dir("../other/var/". $id ."/". $idcmm ."/")){
-			
-			$abrir=fopen("../other/var/index/update/update.txt","r+");
-			$ler=fgets($abrir);
-			fclose($abrir);
-			for ($i=1; $i<=$ler;$i++){
-				$abrir=fopen("../other/var/index/update/". $i .".txt","r+");
-				$id=fgets($abrir);
-				if (is_dir("../other/var/". $id ."/". $idcmm ."/")){break;}
-				fclose($abrir);
-				
-			}
-			break;
-		}
-		*/
+		
 		if (file_exists("../other/var/". $id ."/". $idcmm ."/numero.txt")){
 			
 			$abr_tmp=fopen("../other/var/". $id ."/". $idcmm ."/numero.txt","r+");
@@ -52,6 +37,10 @@
 		
 		if(file_exists("../other/var/". $id ."/". $idcmm . "/show.txt") && (file_exists("../other/var/". $id ."/". $idcmm . "/show2.txt")) && (!file_exists("../other/var/". $id ."/". $idcmm . "/show3.txt"))){
 			copy($abrir,"../other/var/". $id ."/". $idcmm . "/show3.txt");
+			copy($abrir,"../other/var/". $id ."/". $idcmm . "/sc.txt");
+			$cuca=fopen("../other/var/". $id ."/". $idcmm . "/sc.txt","w+");
+			fwrite($cuca,$meuid);
+			fclose($cuca);
 			
 			mkdir("../other/var/". $id ."/". $idcmm ."/". $tmp,0777,true);
 			copy($abrir,"../other/var/". $id ."/". $idcmm ."/". $tmp ."/". $nome .".txt");
@@ -61,17 +50,19 @@
 			fwrite($copia,$texto);
 			fwrite($escreve,$texto);
 			
-			if (file_exists("../other/". $meuid ."/fotoperso.png")){
-				copy("../other/". $meuid ."/fotoperso.png","../other/var/". $id ."/". $idcmm .  "/". $tmp ."/fotoperso.png");
-				copy("../other/". $meuid ."/fotoperso.png","../other/var/". $id ."/". $idcmm . "/show3.png");
-				
-				
-				}
 			
 		}elseif (file_exists("../other/var/". $id ."/". $idcmm . "/show.txt") && (file_exists("../other/var/". $id ."/". $idcmm . "/show2.txt")) && (file_exists("../other/var/". $id ."/". $idcmm . "/show3.txt"))){
 			$copia1 = "../other/var/". $id ."/". $idcmm . "/show.txt";
 			$copia2 = "../other/var/". $id ."/". $idcmm . "/show2.txt";
 			$copia3 = "../other/var/". $id ."/". $idcmm . "/show3.txt";
+			copy("../other/var/". $id ."/". $idcmm . "/sb.txt","../other/var/". $id ."/". $idcmm . "/sa.txt");
+			copy("../other/var/". $id ."/". $idcmm . "/sc.txt","../other/var/". $id ."/". $idcmm . "/sb.txt");
+			copy($abrir,"../other/var/". $id ."/". $idcmm . "/sc.txt");
+			$cuca=fopen("../other/var/". $id ."/". $idcmm . "/sc.txt","w+");
+			fwrite($cuca,$meuid);
+			fclose($cuca);
+			
+			
 			copy($copia2,$copia1);
 			copy($copia3,$copia2);
 			mkdir("../other/var/". $id ."/". $idcmm ."/". $tmp,0777,true);
@@ -80,15 +71,6 @@
 			$copia3 = fopen("../other/var/". $id ."/". $idcmm . "/show3.txt",'w+');
 			fwrite($copia3,$texto);
 			fwrite($escreve,$texto);
-			
-			if (file_exists("../other/". $meuid ."/fotoperso.png")){
-				copy("../other/". $meuid ."/fotoperso.png","../other/var/". $id ."/". $idcmm .  "/". $tmp ."/fotoperso.png");
-				copy("../other/var/". $id ."/". $idcmm . "/show2.png","../other/var/". $id ."/". $idcmm . "/show.png");
-				copy("../other/var/". $id ."/". $idcmm . "/show3.png","../other/var/". $id ."/". $idcmm . "/show2.png");
-				copy("../other/". $meuid ."/fotoperso.png","../other/var/". $id ."/". $idcmm . "/show3.png");
-				
-				
-				}
 			
 		}
 			
@@ -100,6 +82,10 @@
 		
 		if(file_exists("../other/var/". $id ."/". $idcmm . "/show.txt") && (!file_exists("../other/var/". $id ."/". $idcmm . "/show2.txt"))){
 			copy($abrir,"../other/var/". $id ."/". $idcmm . "/show2.txt");
+			copy($abrir,"../other/var/". $id ."/". $idcmm . "/sb.txt");
+			$cuca=fopen("../other/var/". $id ."/". $idcmm . "/sb.txt","w+");
+			fwrite($cuca,$meuid);
+			fclose($cuca);
 			
 			mkdir("../other/var/". $id ."/". $idcmm ."/". $tmp,0777,true);
 			copy($abrir,"../other/var/". $id ."/". $idcmm ."/". $tmp ."/". $nome .".txt");
@@ -109,15 +95,14 @@
 			fwrite($copia,$texto);
 			fwrite($escreve,$texto);
 			
-			if (file_exists("../other/". $meuid ."/fotoperso.png")){
-				copy("../other/". $meuid ."/fotoperso.png","../other/var/". $id ."/". $idcmm .  "/". $tmp ."/fotoperso.png");
-				copy("../other/". $meuid ."/fotoperso.png","../other/var/". $id ."/". $idcmm . "/show2.png");
-				
-				}
 			
 		}elseif (!file_exists("../other/var/". $id ."/". $idcmm . "/show.txt")){
 		
 			copy($abrir,"../other/var/". $id ."/". $idcmm . "/show.txt");
+			copy($abrir,"../other/var/". $id ."/". $idcmm . "/sa.txt");
+			$cuca=fopen("../other/var/". $id ."/". $idcmm . "/sa.txt","w+");
+			fwrite($cuca,$meuid);
+			fclose($cuca);
 			
 			mkdir("../other/var/". $id ."/". $idcmm ."/". $tmp,0777,true);
 			copy($abrir,"../other/var/". $id ."/". $idcmm ."/". $tmp ."/". $nome .".txt");
@@ -128,11 +113,6 @@
 			fwrite($escreve,$texto);
 			
 			
-			if (file_exists("../other/". $meuid ."/fotoperso.png")){
-				copy("../other/". $meuid ."/fotoperso.png","../other/var/". $id ."/". $idcmm .  "/". $tmp ."/fotoperso.png");
-				copy("../other/". $meuid ."/fotoperso.png","../other/var/". $id ."/". $idcmm . "/show.png");
-				
-				}
 			
 		}
 		/* copy($abrir,'../other/var/index/first.txt');
@@ -141,7 +121,7 @@
 		
 			$backup=$idcmm;
 			echo "<a href='../principaldefault.php?backup=". $backup ."'>volta</a>" */
-	//você precisa configura o id de todos!
+	//você precisa configura o id de todos!  
 		
 		
 		if (file_exists('../other/var/index/update.txt')){
