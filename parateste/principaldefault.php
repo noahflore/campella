@@ -54,6 +54,24 @@
 	 <link rel="stylesheet" href="defaultstyle/bloco.css" />
 	 <link rel="icon" href="ico/logoico.png" />
 		 
+		 
+		 
+		 <style>
+			 
+			 .cita{
+
+				margin-left: 20px;
+				margin-top: 5px;
+
+
+	
+			}
+			 
+			 
+			 
+			 
+		 </style>
+		 
 	 </head>
 	 
 	 <body>
@@ -256,10 +274,10 @@
 								echo "
 
 								<div><div class='bloco'><div class='cmmestilo'>$fotocmma    <a href='userpage/usercmm/todotpc.php?id=$id&idcmm=$l' >" . $l . "</a></div><br>
-								<div><b id='". $dina ."' >". $buffer4 ."</b><input id='responde' type='button' value='responde' onclick='responde($dina,`d`)' /></div>
-								<div id='t$tina'>". $fshow . $buffer . "<input id='responde' type='button' value='responde' onclick='responde($tina,`t`)' /></div>
-								<div>". $fshow2 ."<span id='b$bina'>". $buffer2 . "</span><input id='responde' type='button' value='responde' onclick='responde($bina,`b`)' /></div>
-								<div id='c$cina'>". $fshow3 .  $buffer3 . "<input id='responde' type='button' value='responde' onclick='responde($cina,`c`)' /></div>";
+								<div><b id='". $dina ."' ><span class='escuro'>". $buffer4 ."</span></b><input id='responde' type='button' value='responde' onclick='responde($dina,`d`)' /></div>
+								<div id='t$tina'>". $fshow ."<span class='escuro'>". $buffer . "<span><input id='responde' type='button' value='responde' onclick='responde($tina,`t`)' /></div>
+								<div>". $fshow2 ."<span id='b$bina'><span class='escuro'>". $buffer2 . "</span></span><input id='responde' type='button' value='responde' onclick='responde($bina,`b`)' /></div>
+								<div id='c$cina'>". $fshow3 ."<span class='escuro'>".  $buffer3 . "</span><input id='responde' type='button' value='responde' onclick='responde($cina,`c`)' /></div>";
 
 							
 

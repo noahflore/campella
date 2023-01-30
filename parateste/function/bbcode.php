@@ -11,7 +11,7 @@
 				"@\[i\](.*?)\[\/i\]@i"=>"<i>$1</i>",
 				"@\[s\](.*?)\[\/s\]@i"=>"<s>$1</s>",
 				"@\[color\=(.*?)\](.*?)\[\/color\]@i"=>"<b style='color:$1'>$2</b>",
-				"@\[quote\=(.*?)\](.*?)\[\/quote\]@i"=>"<div style='background-color:orange;width:10px'>  $1</div><br>$2"
+				"@\[quote\=(.*?)\](.*?)\[\/quote\]@i"=>"<div style='background-color:orange;width:10px'><div class='cita'>$1</div></div><br>$2"
 				
 		
 		

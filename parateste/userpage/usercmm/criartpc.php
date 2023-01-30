@@ -67,7 +67,9 @@
 			if (!empty($_GET['id'])){$id=$_GET['id'];}else{$id=$_SESSION['id'];}
 				$idcmm=$_GET['idcmm'];
 				
-				if ((!empty($_POST['tpc'])) or (!empty($_POST['resumo']))){
+			
+				$tpc=$_POST['tpc'];
+				if (((!empty($_POST['tpc'])) or (!empty($_POST['resumo']))) and (!is_dir('../../other/var/'. $id .'/'. $idcmm .'-'. $tpc))){
 					$tpc=$_POST['tpc'];
 					$resumo=(!empty($_POST['resumo']))? $_POST['resumo']: " " ;
 					
