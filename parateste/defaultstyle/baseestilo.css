@@ -182,6 +182,12 @@ a:hover {
 		
 	}
 	
+	.fotopa ul{
+
+		height:740px;
+		
+	}
+	
 	.fotopa img {
 		
 		width: 100px !important;
@@ -193,7 +199,7 @@ a:hover {
 
 		font-size:60px;
 		height:100px;
-		width:190px;
+		width:400px;
 		
 	}
 
@@ -217,6 +223,13 @@ a:hover {
 		color: white;
 		
 		
+		
+	}
+	
+	#prop img{
+
+		display:flex;
+		width:200px;
 		
 	}
 	
