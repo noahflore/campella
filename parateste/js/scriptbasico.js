@@ -86,6 +86,7 @@
 			op[1].setAttribute("value","config")
 		
 		 if (num==5){op[1].setAttribute("onclick","perfil(2)")}else if ((num==1) && (pare==0)){	op[1].setAttribute("onclick","perfil()")}
+		  if (num==2){op[1].setAttribute("onclick","perfil()")}
 			op[1].innerHTML= "<span class='cabemobi'>configuração</span>"
 			op[2].innerHTML= "<span class='cabemobi'>privacidade</span>"
 			op[3].innerHTML= "<span class='cabemobi'>backup</span>"

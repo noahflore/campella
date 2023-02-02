@@ -2,6 +2,9 @@
 	
 	margin-top: 200px;
 	margin-left: 500px;
+	background-color:red;
+	width:300px;
+	box-shadow: 5px 5px 20px #3c3931;
 	
 }
 
@@ -11,7 +14,7 @@
 
 	.ajuste{
 	
-		margin-left:0px;
+		margin-left:50px;
 		font-size:50px;
 
 
