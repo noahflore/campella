@@ -18,7 +18,7 @@
 		
 			<header class="cabeça">
 		
-			<img src="../ico/logocampella.png" alt="logo do site" /><br>
+			<img src="../ico/logobanner.png" alt="logo do site" /><br>
 			<nav> 
 				<ul>
 					<li><a href="principaldefault.php">principal</a></li>
@@ -69,7 +69,7 @@
 						<?php
 						
 
-							echo "<span>";
+							echo "<span id='jane'>";
 							
 								if (!empty($_GET['album'])){
 									
@@ -78,12 +78,14 @@
 									$r=array_diff(scandir('../other/'. $id .'/fotos/'. $album),['.','..']);
 									
 									$pular=0;
+									$p=0;
 									foreach($r as $l){
 										$pular++;
+										$p++;
 										
 										if ($pular<10){
-											echo "<img id='fotope' src='../other/". $id ."/fotos/". $album ."/". $l ."' alt='foto_user' />";}
-										else{echo "<br><img id='fotope' src='../other/". $id ."/fotos/". $album ."/". $l ."' alt='foto_user' />"; $pular=0;}
+											echo "<img onclick='des($p)' style='width:50px;height:50px' id='fotope$p' src='../other/". $id ."/fotos/". $album ."/". $l ."' alt='foto_user' />";}
+										else{echo "<br><img onclick='des($p)' style='width:50px;height:50px'  id='fotope$p' src='../other/". $id ."/fotos/". $album ."/". $l ."' alt='foto_user' />"; $pular=0;}
 										
 									}
 									
@@ -101,6 +103,45 @@
 			
 		</section>
 			
+			<script>
+				
+				function des(p){
+					
+					let res= document.getElementById("jane")
+					let fundo= document.createElement("div")
+					let foto= document.getElementById("fotope" + p)
+					
+					fundo.setAttribute("style","position:fixed;top:0%;left:0%;background-color:#3c393187;width:100%;height:100%")
+					fundo.setAttribute("id","sa")
+					fundo.setAttribute("onclick",`fechou(${p})`)
+					foto.removeAttribute("style")
+					foto.setAttribute("style","width:500px;500px;margin-left:460px;margin-top:60px")
+					
+					fundo.appendChild(foto)
+					res.appendChild(fundo)
+					
+					
+					
+					
+				}
+				
+				function fechou(p){
+					
+					let res= document.getElementById("jane")
+					let foto= document.getElementById("fotope" + p)
+					let fundo= document.getElementById("sa")
+					
+					foto.removeAttribute("style")
+					foto.setAttribute("style","width:50px;height:50px;")
+					
+					res.appendChild(foto)
+					res.removeChild(fundo)
+					
+					
+				}
+				
+				
+			</script>
 		</body>
 		
 	</html>

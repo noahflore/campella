@@ -166,10 +166,13 @@
 			</aside>
 			<main>
 				<div>
+					<div id="descerb" style="margin-left:500px;">
 					<h1>comunidades</h1>
 							<div><a href="updatesee.php">campella-update</a></div>
 					<!-- organizar as comunidades-->
-						<input type="button" value="desce" id="desce" />
+						<input type="button" onclick="desce()" value="desce" id="descer" />
+						
+					</div>
 					<?php
 					$lista= 'other/var/index';
 					$meuid=$_SESSION['id'];
@@ -427,7 +430,12 @@
 					?>
 				</div>
 				
-			
+				<div id="subirb" style="margin-left:500px;margin-top:-50px;">
+					
+					<input type="button" value="subir" onclick="subi()" id="subir" />
+					
+					
+				</div>
 			</main>
 			
 			<!--lateral dir-->

@@ -10,7 +10,7 @@
 	
 	
 	for ($i=0; $i<=1000; $i++){
-		$pasta=random_int(0,1000);
+		$pasta=$i;
 		
 		if (!is_dir("../../other/update/". $pasta)){
 			mkdir("../../other/update/". $pasta,0777,true);
@@ -28,6 +28,7 @@
 		
 	}
 
+	header("location: updatesee.php");
 
 
 

@@ -35,11 +35,25 @@
 		
 		
 	}
-	var l=window.innerWidth
 	
-	if (l>=980){
+	function subi(){
 		
-		document.getElementById('desce').Hidden+true
+		let subi= document.getElementById("descer")
+		
+		subi.focus()
+		
 		
 		
 	}
+
+
+	function desce(){
+		
+		let desce= document.getElementById("subir")
+		
+		desce.focus()
+		
+		
+		
+	}
+

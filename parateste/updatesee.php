@@ -5,17 +5,18 @@
 
 	 <head>
 	 
-	 <title>principal || campella</title>
+	 <title>update || campella</title>
 	 <meta charset="utf-8" />
 	 <link rel="stylesheet" href="defaultstyle/baseestilo.css" />
 	 <link rel="stylesheet" href="defaultstyle/bloco.css" />
+	 <link rel="icon" href="ico/logoico.png" />
 	 
 	 </head>
 	 
 	 <body>
 		<header class="cabeça">
 		
-			<img src="ico/logocampella.png" alt="logo do site" />
+			<img src="ico/logobanner.png" alt="logo do site" />
 			<nav> 
 				<ul>
 					<?php echo "<li><a href='userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
@@ -55,10 +56,46 @@
 				
 				
 				<ul class="fotopa">
-						<li><div>fotos<img src="ico/perfil.png" alt="foto_png"/></div></li>
-						<li><div>videos<img src="ico/videos.png" alt="videos_png" /></div></li>
-						<li><div>recados<img src="ico/scrapbook.png" alt="scrapbook_png" /></div></li>
-						<li><div>depoimento<img src="ico/depoi.png" alt="depoi_png" /></div></li>
+						<li><div><a href="premio.php">fotos</a><img src="ico/perfil.png" alt="foto_png" /></div></li>
+						<li><div><a href="premio.php">videos</a><img src="ico/videos.png" alt="videos_png" /></div></li>
+						
+						<?php
+						
+							if(file_exists("other/". $id ."/recado/tmp/tmpupdate.txt")){
+								
+								$abrir=fopen("other/". $id ."/recado/tmp/tmpupdate.txt","r+");
+								$ler=fgets($abrir);
+								fclose($abrir);
+								
+								echo "<li><div><a href='userpage/scrapuser.php?index=1'>recados   ". $ler ."</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+								
+							}else{
+								
+								echo "<li><div><a href='userpage/scrapuser.php?index=1'>recados</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+								
+								
+								
+							}
+							
+							if(file_exists("other/". $id ."/depoi/update.txt")){
+								$abrir=fopen("other/". $id ."/depoi/update.txt","r+");
+								$noti=fgets($abrir);
+								fclose($abrir);
+								
+								
+								echo	"<li><div><a href='userpage/depoiuser.php'>depoi ". $noti ."</a><img src='ico/depoi.png' alt='depoi_png' /></div></li>";
+						
+						
+							}else{
+								
+								echo	"<li><div><a href='userpage/depoiuser.php'>depoimento</a><img src='ico/depoi.png' alt='depoi_png' /></div></li>";
+						
+								
+								
+							}
+						
+						
+						?>
 						<li><div>valor<img src="ico/logocampella.png" alt="valor_png" /></div></li>
 						<!-- use o php no valor ai cima-->
 					
@@ -67,8 +104,8 @@
 			
 			</aside>
 			<main>
-				<div>
-							<h1>comunidades</h1>
+				<div class='vermobi'>
+					<h1><a href="principaldefault.php"> voltar a comunidades</a></h1>
 					<div><a href="updatesee.php">campella-update</a></div>
 					<!-- mostra as atualização-->
 					
@@ -81,10 +118,11 @@
 								if (is_dir("other/update/". $i)){
 								$r= array_diff(scandir("other/update/". $i),['.','..']);
 								$abrir= fopen("other/update/". $i ."/". $r[2], "r+");
-								while (!feof($abrir)){$ler=fgets($abrir);}
+								while (!feof($abrir)){$ler=$ler . fgets($abrir);}
 								fclose($abrir);
 								
-								echo $ler;
+								echo "<div style='background-color:red'>". $ler ."</div><br><br><br>";
+								unset($ler);
 								
 								
 								}
