@@ -50,6 +50,46 @@
 	 <link rel="stylesheet" href="defaultstyle/bloco.css" />
 	 <link rel="icon" href="ico/logoico.png" />
 		 
+		 <style>
+			 
+			 
+			 
+			 @media (max-width:980px){
+				 
+				 #conta{
+
+					 margin-left:50px !important;
+					 margin-top:500px !important;
+					 font-size:70px;
+
+
+
+
+
+				 }
+				 
+				 #conta input{
+					 
+					 width: 500px;
+					 
+					 
+				 }
+				 
+				#conta button{
+					 
+					 width:200px;
+					 height:90px;
+					 font-size:40px;
+					 
+				 }
+				 
+			 }
+			 
+			 
+			 
+			 
+		 </style>
+		 
 	 </head>
 	 
 	 <body>

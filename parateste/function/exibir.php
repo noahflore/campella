@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start(); $nome=$_SESSION['nome']; ?>
 <!doctype html>
 
 
@@ -6,10 +6,11 @@
 	
 		<head>
 			
-			<title>album_user || campella</title>
+			<?php echo "<title>album d ". $nome ." || campella</title>"; ?>
 			<meta charset='utf-8' />
 			<link rel="stylesheet" href="../defaultstyle/baseestilo.css" />
 			<link rel="stylesheet" href="../defaultstyle/user.css" />
+			<link rel="icon" href="../ico/logoico.png" />
 			
 		</head>
 		
@@ -21,11 +22,11 @@
 			<img src="../ico/logobanner.png" alt="logo do site" /><br>
 			<nav> 
 				<ul>
-					<li><a href="principaldefault.php">principal</a></li>
-					<li><a href="configdefault.php">configuração</a></li>
+					<li><a href="../principaldefault.php">principal</a></li>
+					<li><a href="../configdefault.php">configuração</a></li>
 					<li><s>camp</s></li>
 					<li>feed back</li>
-					<li><a href="userdefault.php?login=off">sair</a></li>
+					<li><a href="../userdefault.php?login=off">sair</a></li>
 				
 				
 				</ul>

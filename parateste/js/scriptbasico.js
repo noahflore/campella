@@ -79,7 +79,7 @@
 			opcao.setAttribute("id","configmobi")
 			op[0].setAttribute('value','modo dark')
 		    if (num==4){op[2].setAttribute("onclick","janela(1)")}else {op[2].setAttribute("onclick","janela()")}
-			if(num==4){op[4].setAttribute("onclick","conta(1)")}else{op[4].setAttribute("onclick","conta()")}var pare=0
+			if(num==4){op[4].setAttribute("onclick","conta(1)")}else if(num==6){op[4].setAttribute("onclick","conta(1)")}else{op[4].setAttribute("onclick","conta()")}var pare=0
 		    if(num==4){op[1].setAttribute("onclick","perfil(1)"); pare=1}
 			if ((num==3) ||(num==4)){op[0].setAttribute('onclick','preto(1)');num=1}else{op[0].setAttribute('onclick','preto()')}
 			op[0].innerHTML= "<span class='cabemobi'>modo dark</span>"
@@ -87,6 +87,7 @@
 		
 		 if (num==5){op[1].setAttribute("onclick","perfil(2)")}else if ((num==1) && (pare==0)){	op[1].setAttribute("onclick","perfil()")}
 		  if (num==2){op[1].setAttribute("onclick","perfil()")}
+		 if (num==6){op[1].setAttribute("onclick","perfil(1)")}
 			op[1].innerHTML= "<span class='cabemobi'>configuração</span>"
 			op[2].innerHTML= "<span class='cabemobi'>privacidade</span>"
 			op[3].innerHTML= "<span class='cabemobi'>backup</span>"

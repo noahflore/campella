@@ -102,7 +102,7 @@
 			<nav id="cabecuda"> 
 				<ul>
 					<li onclick='usuario(2)'><a href="../principaldefault.php">principal</a></li>
-					<li><span id="lista"><input type='button' onclick="config(1)" id="config" value='configuração' /></span></li>
+					<li><span id="lista"><input type='button' onclick="config(6)" id="config" value='configuração' /></span></li>
 					<li><s>camp</s></li>
 					<li>feed back</li>
 					<li><a href="../userdefault.php?login=off">sair</a></li>
