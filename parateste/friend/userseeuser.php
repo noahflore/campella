@@ -335,7 +335,7 @@
 						$cidade= (isset($cidade))? $cidade: "";
 						
 						echo "<hr>";
-						echo "<div style='background-color: #806932;color:white;padding-top:5px'";
+						echo "<div style='background-color: #806932;color:white;padding-top:5px'>";
 						echo "estado civil: ". $status ."<br>";
 						echo "pais: ". $pais ."<br>";
 						echo "estado: ". $estado ."<br>";

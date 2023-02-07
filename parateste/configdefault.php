@@ -54,8 +54,8 @@
 			<img src="ico/logobanner.png" alt="logo do site" /><br>
 			<nav id="cabecuda"> 
 				<ul>
-				<?php echo "<li><a href='userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
-					<li><a href="principaldefault.php">principal</a></li>
+				<?php echo "<li onclick='usuario(1)'><a href='userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
+					<li onclick='usuario(2)'><a href="principaldefault.php">principal</a></li>
 					<li><s>camp</s></li>
 					<li>feed back</li>
 					<li><a href="sair">sair</a></li>
@@ -296,28 +296,100 @@
 							<?php if ((!empty($_GET['true'])) and (($_GET['true']==1) || ($_GET['true']==2))){ $user->configsql();/*print_r($user);*/} ?>
 					
 					<div class="inputmobi">
-							<form method='post' action='configdefault.php?true=1'>
-											
-								<fieldset><legend>genero</legend>
-											
-										<label for='f'>feminino</label>: 
-										<input type='radio' id='f' name='genero' value='f' checked /><br>
-										<label for='m'>masculino</label>: 
-										<input type='radio' name='genero' id='m' value='m' /><br>
-										<label for='o'>outro</label>
-										<input type='radio' name='genero' id='o' value='o' /><br>
-										<input type='text' name='outro' />
-										<input type='submit' value='enviar' />
-										
-										
-											
+						
+						
+						<?php
+						
+						if (file_exists("friend/$id/3-f")){
+
+							echo "
+								<form method='post' action='configdefault.php?true=1'>
+
+									<fieldset><legend>genero</legend>
+
+											<label for='f'>feminino</label>: 
+											<input type='radio' id='f' name='genero' value='f' checked /><br>
+											<label for='m'>masculino</label>: 
+											<input type='radio' name='genero' id='m' value='m' /><br>
+											<label for='o'>outro</label>
+											<input type='radio' name='genero' id='o' value='o' /><br>
+											<input type='text' name='outro' />
+											<input type='submit' value='enviar' />
+
+
+
+
+
+
+									</fieldset>
+
+								</form>";
+							
+							
+						}elseif (file_exists("friend/$id/3-m")){
+							
+							echo "
+								<form method='post' action='configdefault.php?true=1'>
+
+									<fieldset><legend>genero</legend>
+
+											<label for='f'>feminino</label>: 
+											<input type='radio' id='f' name='genero' value='f' /><br>
+											<label for='m'>masculino</label>: 
+											<input type='radio' name='genero' id='m' value='m' checked /><br>
+											<label for='o'>outro</label>
+											<input type='radio' name='genero' id='o' value='o' /><br>
+											<input type='text' name='outro' />
+											<input type='submit' value='enviar' />
+
+
+
+
+
+
+									</fieldset>
 									
-									
-									
-								</fieldset>
-									
-							</form>
+									</form>";
+
+							
+							
+							
+							
+							
+							
+							
+						}else{
+							
+							
+							
+							
+							echo "
+								<form method='post' action='configdefault.php?true=1'>
+
+									<fieldset><legend>genero</legend>
+
+											<label for='f'>feminino</label>: 
+											<input type='radio' id='f' name='genero' value='f'  /><br>
+											<label for='m'>masculino</label>: 
+											<input type='radio' name='genero' id='m' value='m' /><br>
+											<label for='o'>outro</label>
+											<input type='radio' name='genero' id='o' value='o' checked /><br>
+											<input type='text' name='outro' />
+											<input type='submit' value='enviar' />
+
+
+
+
+
+
+									</fieldset>
+
+							</form>";
+							
+							
+						}
 					
+											?>
 								
 								<form method='post' action='configdefault.php?true=2'>
 									
@@ -436,7 +508,7 @@
 		</section>
 	 
 	
-	 
+		 <script src="js/scriptbasico.js"></script>
 	 </body>
 
 

@@ -94,7 +94,25 @@
 				
 				<div>
 					<div>
-						<h2>meus recados</h2>
+						
+						<?php 
+						
+						$nomefriendu=array_diff(scandir("../../friend/". $_SESSION['seefriend']),['.','..']);
+						
+						for ($i=2;$i<=5;$i++){
+							
+							$nomefriendu[$i]=str_replace("1-","",$nomefriendu[$i]);
+							
+							
+						}
+						
+						
+					
+					echo"	<h2>recados d ". $nomefriendu[2] ."</h2>";
+							
+							
+							
+							?>
 							<?php
 							
 							$id=$_GET['id'];
@@ -285,7 +303,8 @@
 										  <textarea class='recado' type='text' placeholder='digita aqui seu recado' name='texto' cols='30' rows='5'></textarea>
 										  <input class='recado' type='submit' value='enviar' />
 										  <div class='recadomeu'>
-										  
+										  essa pagina de recado está oculta pelo usuario<br>
+										  você pode envia recado mas não pode ver o que tem dentro
 										  
 										  
 										  </div>

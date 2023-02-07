@@ -85,8 +85,8 @@
 			op[0].innerHTML= "<span class='cabemobi'>modo dark</span>"
 			op[1].setAttribute("value","config")
 		
-		 if (num==5){op[1].setAttribute("onclick","perfil(2)")}else if ((num==1) && (pare==0)){	op[1].setAttribute("onclick","perfil()")}
-		  if (num==2){op[1].setAttribute("onclick","perfil()")}
+		 if (num==5){op[1].setAttribute("onclick","perfil(2)")}else if ((num==1) && (pare==0)){	op[1].setAttribute("onclick","perfil(0,1)")}
+		  if (num==2){op[1].setAttribute("onclick","perfil(0,1)")}
 		 if (num==6){op[1].setAttribute("onclick","perfil(1)")}
 			op[1].innerHTML= "<span class='cabemobi'>configuração</span>"
 			op[2].innerHTML= "<span class='cabemobi'>privacidade</span>"
@@ -278,7 +278,7 @@
 	}
 	
 	
-	function perfil(i=0){
+	function perfil(i=0,n=0){
 		
 		if (i==1){
 			
@@ -292,6 +292,7 @@
 			
 		}else{
 			
+			usuario(n)
 			location.href= "configdefault.php"
 		
 		}
