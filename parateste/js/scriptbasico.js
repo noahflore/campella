@@ -235,8 +235,9 @@
 	function preto(i=0){
 		
 			
+			
 			localStorage.clase= "p"
-			localStorage.bloco= "#9E1B11"
+			if(i==0){	localStorage.bloco= "#9E1B11"}else{usuario(1)}
 			if (i==0){localStorage.caixa ="#BF9E4B"}else{localStorage.caixa ="#995949"}
 			localStorage.fundo= "#000033"
 			localStorage.cabeça= "#2F4BA1"

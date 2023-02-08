@@ -74,7 +74,44 @@
 			<div>bem-vindo <?php echo"<span style='line-height:50px;color:white'>". $_SESSION['nome'] ."</span>"; ?> </div>
 			<nav id="cabecuda"> 
 				<ul>
-					<li onclick='usuario(2)'><a href="principaldefault.php">principal</a></li>
+					
+					<?php
+					
+						if ((!empty($_GET['mode'])) and (empty($_SESSION['modo']))){
+							
+							if (($_GET['mode']==1) and (empty($_SESSION['modo']))){
+
+								$_SESSION['modo']=2;
+
+								header("location: userdefault.php?mode=2");
+
+
+
+							}else if (!empty($_SESSION['modo'])){
+								
+								
+								unset($_SESSION['modo']);
+								
+							}
+								
+								
+								}
+					
+						if (!empty($_GET['mode'])){
+							
+							echo "<li onclick='usuario(2)'><a href='principaldefault.php?mode=1'>principal</a></li>";
+							
+							
+							
+							}else{
+							
+							echo "<li onclick='usuario(2)'><a href='principaldefault.php'>principal</a></li>";
+							
+							
+						}
+							
+							
+							?>
 					<li><span id="lista"><input type='button' onclick="config(1)" id="config" value='configuração' /></span></li>
 					<li><s>camp</s></li>
 					<li>feed back</li>

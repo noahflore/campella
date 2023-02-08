@@ -80,7 +80,22 @@
 			<img src="ico/logobanner.png" alt="logo do site" /><?php $v=random_int(1,3);echo "<span id='prop'>". anuncio("[p$v]") ."</span>";?>
 			<nav id="cabecuda"> 
 				<ul>
-					<?php echo "<li onclick='usuario(1)'><a href='userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
+					<?php
+					
+						if (!empty($_GET['mode'])){
+					
+							echo "<li onclick='usuario(1)'><a href='userdefault.php?mode=1'>". $_SESSION['nome'] ."</a></li>"; 
+					
+						}else{
+							
+							echo "<li onclick='usuario(1)'><a href='userdefault.php'>". $_SESSION['nome'] ."</a></li>"; 
+							
+							
+						}
+					
+					
+					
+					?>
 					<!-- o de cima é nome do usuario-->
 					<li><span id="lista"><input type='button' onclick="config(2)" id="config" value='configuração' /></span></li>
 					<li><s>camp</s></li>
@@ -128,12 +143,30 @@
 								$ler=fgets($abrir);
 								fclose($abrir);
 								
-								echo "<li><div><a href='userpage/scrapuser.php?index=1'>recados   ". $ler ."</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+								if (!empty($_GET['mode'])){
+									
+									echo "<li><div><a id='ben' onclick='preto(1)' href='userpage/scrapuser.php?index=1&&tmp=1'>recados   ". $ler ."</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
 								
+									
+								}else{
+									echo "<li><div><a id='ben' href='userpage/scrapuser.php?index=1&&tmp=1'>recados   ". $ler ."</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+								
+									
+								}
 							}else{
 								
-								echo "<li><div><a href='userpage/scrapuser.php?index=1'>recados</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+								if (!empty($_GET['mode'])){
+									
+									echo "<li><div><a id='ben' onclick='preto(1)' href='userpage/scrapuser.php?index=1'>recados</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
 								
+									
+								}else{
+									
+									echo "<li><div><a id='ben' href='userpage/scrapuser.php?index=1'>recados</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+									
+									
+									
+								}
 								
 								
 							}
