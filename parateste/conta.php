@@ -61,7 +61,7 @@
 					 margin-left:50px !important;
 					 margin-top:500px !important;
 					 font-size:70px;
-
+					 width:700px !important;
 
 
 
@@ -113,7 +113,7 @@
 		
 		</header>
 		 
-		 <div style="margin-left:200px;margin-top:90px;" id="conta">
+		 <div style="margin-left:400px;margin-top:120px;width:500px" id="conta">
 			 
 			<?php
 			 	$nome=$_SESSION['nome'];

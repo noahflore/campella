@@ -158,11 +158,11 @@
 								
 								if (!empty($_GET['mode'])){
 									
-									echo "<li><div><a id='ben' onclick='preto(1)' href='userpage/scrapuser.php?index=1&&tmp=1'>recados   ". $ler ."</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+									echo "<li><div><a id='ben' onclick='preto(1)' href='userpage/scrapuser.php?index=1&&tmp=1'>recados   ". $ler ."</a><img style='width:30px;height:30px;' src='ico/scrapbooka.png' alt='scrapbook_png' /></div></li>";
 								
 									
 								}else{
-									echo "<li><div><a id='ben' href='userpage/scrapuser.php?index=1&&tmp=1'>recados   ". $ler ."</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+									echo "<li><div><a id='ben' href='userpage/scrapuser.php?index=1&&tmp=1'>recados   ". $ler ."</a><img style='width:30px;height:30px;' src='ico/scrapbooka.png' alt='scrapbook_png' /></div></li>";
 								
 									
 								}
@@ -170,12 +170,12 @@
 								
 								if (!empty($_GET['mode'])){
 									
-									echo "<li><div><a id='ben' onclick='preto(1)' href='userpage/scrapuser.php?index=1'>recados</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+									echo "<li><div><a id='ben' onclick='preto(1)' href='userpage/scrapuser.php?index=1'>recados</a><img style='width:30px;height:30px;' src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
 								
 									
 								}else{
 									
-									echo "<li><div><a id='ben' href='userpage/scrapuser.php?index=1'>recados</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+									echo "<li><div><a id='ben' href='userpage/scrapuser.php?index=1'>recados</a><img style='width:30px;height:30px;' src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
 									
 									
 									

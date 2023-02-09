@@ -226,6 +226,29 @@ a:hover {
 		
 	}
 	
+	#fechajanela{
+
+		font-size:70px;
+		
+
+		
+	}
+
+	#fechajanela button{
+
+		font-size:70px
+
+		
+	}
+
+	#fechajanela div{
+
+		margin-top:500px !important;
+		margin-left:100px !important;
+		width:600px !important;
+		
+	}
+	
 	#configmobi{
 
 		margin-top:200px;
