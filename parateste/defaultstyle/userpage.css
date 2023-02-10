@@ -19,6 +19,13 @@
 	
 }
 
+.lateral img{
+
+	width:30px;
+	height:23px;
+}
+
+
 .lateral a{
 
 	margin-right:50px;
@@ -136,10 +143,20 @@
 		
 	}
 	
-	.lateral img{
+	.lateral{
 		
-		width: 60px;
-		height: 60px;
+		margin-left:0px;
+		
+		
+		
+	}
+	
+	.lateral img{
+
+		margin-right:300px;
+		
+		width: 100px !important;
+		height: 100px !important;
 		
 	}
 	
@@ -186,7 +203,8 @@
 	
 	#especial{
 
-		margin-left:190px;
+		margin-left:130px;
+		margin-top:150px;
 
 		
 	}

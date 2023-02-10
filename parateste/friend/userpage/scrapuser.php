@@ -27,8 +27,25 @@
 <html>
 
 	 <head>
+		 
+		 <?php
+		 
+			 $id= $_SESSION['id'];
+		 	 $meunome=$_SESSION['nome'];
+			 if (!empty($_GET['id'])){$_SESSION['seefriend']= $_GET['id'];}
+		 
+		 	$nomedoamigo=array_diff(scandir("../". $_SESSION['seefriend'] ."/"),['.','..']);
+		 
+					
+					$sofia=str_replace("1-","",$nomedoamigo[2]);
+		 			unset($nomedoamigo);
+					
+				
 	 
-	 <title>user-see-scrap || kampella</title>
+			echo	" <title>$meunome na pagina d $sofia || kampella</title>";
+				 
+				 
+				 ?>
 	 <meta charset="utf-8" />
 	 <link rel="stylesheet" href="../../defaultstyle/baseestilo.css" />
 	 <link rel="stylesheet" href="../../defaultstyle/userpage.css" />
@@ -61,8 +78,7 @@
 		<section class="bloco">
 				<aside>
 						<?php
-					$id= $_SESSION['id'];
-					if (!empty($_GET['id'])){$_SESSION['seefriend']= $_GET['id'];}
+					
 					
 						if((is_dir("../../other/" . $_SESSION['seefriend'])) and (file_exists("../../other/" . $_SESSION['seefriend']."/fotoperso.png"))){
 								

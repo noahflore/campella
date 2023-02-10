@@ -174,13 +174,13 @@
 									$busca= array_diff(scandir("../../other/var/". $id ."/". $idcm ."/busca/"),['.','..']);
 									
 									
-									
-									echo "<li><a href='showtpc.php?idcmm=". $busca[2] ."&id=$id'>mostra topicos</a></li>";
 									$outrocmm=$busca[2];
+									echo "<li><a href='showtpc.php?idcmm=". $busca[2] ."&id=$id&outro=$outrocmm&correto=$idcm'>mostra topicos</a></li>";
+									
 									
 								}else{
 								
-									echo "<li><a href='usercmm/showtpc.php?idcmm=". $idcm ."'>mostra meus topicos</a></li>";
+									echo "<li><a href='usercmm/showtpc.php?idcmm=". $idcm ."&outro=$outrocmm&correto=$idcm'>mostra meus topicos</a></li>";
 							
 								}
 								

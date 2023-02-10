@@ -1,6 +1,8 @@
 <?php session_start(); 
 
 	require_once "../compactar.php";
+	require_once "../function/objeto/Usuario.php";
+	require_once "../function/conexao.php";
 
 	if(!empty($_GET['login'])){
 		$_SESSION['login']="off";
@@ -25,6 +27,13 @@
 
 	if (file_exists("../other/". $_SESSION['id'] ."/tmp/tmpupdate.txt")){unlink("../other/". $_SESSION['id'] ."/tmp/tmpupdate.txt"); rmdir("../other/". $_SESSION['id'] ."/tmp/");}
 
+
+	
+	$nome=$_SESSION['nome'];
+	$sobrenome=$_SESSION['sobrenome'];
+	$id= $_SESSION['id'];
+
+	$user= new Usuario($nome,$sobrenome,$id,$cone);
 ?>
 <!doctype html>
 
@@ -82,7 +91,41 @@
 								<li><div><a href="../premio.php">videos</a><img src="../ico/videos.png" alt="videos_png" /></div></li>
 								<li><div><a href="scrapuser.php?index=1">recados</a><img src="../ico/scrapbook.png" alt="scrapbook_png" /></div></li>
 								<li><div><a href='depoiuser.php'>depoimento</a><img src='../ico/depoi.png' alt='depoi_png' /></div></li>
-								<li><div>valor<img src="../ico/logocampella.png" alt="valor_png" /></div></li>
+								<?php
+						if (empty($_GET['robots'])){
+							$valor=$user->mostrar();
+							$user->bonusday();
+						
+						
+							if (!empty($_SESSION['pin'])){
+								
+								$pin=$_SESSION['pin'];
+								echo "<span id='pop' style='position:fixed; background-color:white;top:50%;'>essa é sua senha guarde em um local seguro<hr><br>
+								<strong>senha:</strong> ". $pin ."</span>";
+								unset($_SESSION['pin']);
+								
+								
+								
+							}
+						//	print_r($user);
+						
+							if ($valor>$_SESSION['valor']){
+								
+								$_SESSION['valor']=$valor;
+						
+								echo "<li><div style='font-size:20px;color:green'>+". $_SESSION['valor'] ."<img src='../ico/logocampella.png' alt='valor_png' /></div></li>";
+								//unset($valor);
+								
+							}else {
+								
+								
+								echo "<li><div>". $valor ."<img src='../ico/logocampella.png' alt='valor_png' /></div></li>";
+								
+								
+							}
+						
+						}
+						?>
 								<!-- use o php no valor ai cima-->
 							</ul>
 						

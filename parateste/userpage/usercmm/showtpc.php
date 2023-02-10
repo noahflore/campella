@@ -94,6 +94,7 @@ session_start();
 						<span class="coluna">
 							<?php
 								$idcm=$_GET['idcmm'];
+								$meuid=$_SESSION['id'];
 							
 								if (!empty($_GET['id'])){
 									
@@ -105,7 +106,7 @@ session_start();
 									
 									
 								}
-								
+														
 								if (file_exists("../../other/var/". $id ."/". $idcm ."/fotocmm.png")){
 									
 								echo  "<img id='foto' src='../../other/var/". $id ."/". $idcm ."/fotocmm.png' />";
@@ -130,9 +131,18 @@ session_start();
 								echo "<li><a href='../insidecmm.php?nomecmm=". $idcm ."&id=$id' >inicio</a></li>";
 								
 								
+								
+							echo "<li>enquetes</li>";
+							if ($id==$meuid){
+								
+									$correto=$_GET['correto'];
+									$outrocmm=$_GET['outro'];
+									
+									echo "<li><a href='config.php?idcmm=$correto&outro=$outrocmm'> configuração</a></li>";
+									
+								}
+								
 								?>
-							<li>enquetes</li>
-							<li>configuração</li>
 							</ul>
 						</span>
 					<section>

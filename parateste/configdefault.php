@@ -249,7 +249,7 @@
 					</div>
 					
 					<div>
-						<b>sorte do dia</b>
+						<b>conte-nos sobre você </b>
 					
 					</div>
 					<form method="post" action="configdefault.php">

@@ -1,6 +1,8 @@
 <?php session_start(); require_once "compactar.php";
 					   require_once "function/afiliado.php";
-	
+					   require_once "function/objeto/Usuario.php";
+					   require_once "function/conexao.php";
+
 
 	if(!empty($_GET['login'])){
 		$_SESSION['login']="off";
@@ -36,6 +38,12 @@
 	if ((!file_exists("other/". $_SESSION['id'] ."/true")) and (!file_exists("other/". $_SESSION['id'] ."/recado/1/1/bot.txt"))){compacta($_SESSION['id']); if (file_exists("other/". $_SESSION['id'] ."/open")){unlink("other/". $_SESSION['id'] ."/open");}}
 
 	}
+
+	$nome=$_SESSION['nome'];
+	$sobrenome=$_SESSION['sobrenome'];
+	$meuid=$_SESSION['id'];
+
+	$user= new Usuario($nome,$sobrenome,$meuid,$cone);
 ?>
 <!doctype html>
 
@@ -190,7 +198,42 @@
 						
 						
 						?>
-						<li><div>valor<img src="ico/logocampella.png" alt="valor_png" /></div></li>
+					
+						<?php
+						if (empty($_GET['robots'])){
+							$valor=$user->mostrar();
+							$user->bonusday();
+						
+						
+							if (!empty($_SESSION['pin'])){
+								
+								$pin=$_SESSION['pin'];
+								echo "<span id='pop' style='position:fixed; background-color:white;top:50%;'>essa é sua senha guarde em um local seguro<hr><br>
+								<strong>senha:</strong> ". $pin ."</span>";
+								unset($_SESSION['pin']);
+								
+								
+								
+							}
+						//	print_r($user);
+						
+							if ($valor>$_SESSION['valor']){
+								
+								$_SESSION['valor']=$valor;
+						
+								echo "<li><div style='font-size:20px;color:green'>+". $_SESSION['valor'] ."<img src='ico/logocampella.png' alt='valor_png' /></div></li>";
+								//unset($valor);
+								
+							}else {
+								
+								
+								echo "<li><div>". $valor ."<img src='ico/logocampella.png' alt='valor_png' /></div></li>";
+								
+								
+							}
+						
+						}
+						?>
 						<!-- use o php no valor ai cima-->
 					
 				</ul>
@@ -303,7 +346,7 @@
 							  $cina= $dina;
 
 							$fonte= (is_dir("other/var/". $id ."/". $l ."/busca/")) ?array_diff(scandir("other/var/". $id ."/". $l ."/busca/"),['.','..']):"ico/fotocmm.png" ;
-							if ($fonte=="ico/fotocmm.png"){$fotocmma="<img src='ico/fotocmm.png' alt='fotocmm' />";}else{$fotocmma="<img id='fotope' src='other/var/". $id ."/". $fonte[2] ."/fotocmm.png' alt='fotocmm' />";}
+							if (!file_exists("other/var/". $id ."/". $fonte[2] ."/fotocmm.png")){$fotocmma="<img id='fotope' src='ico/fotocmm.png' alt='fotocmm' />";}else{$fotocmma="<img id='fotope' src='other/var/". $id ."/". $fonte[2] ."/fotocmm.png' alt='fotocmm' />";}
 								
 								
 							
