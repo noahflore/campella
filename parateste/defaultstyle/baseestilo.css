@@ -13,6 +13,24 @@ body{
 	
 }
 
+button{
+	
+	background-color:black;
+	color:#EBBA28;
+	border-color:#f060dd;
+	
+}
+
+input{
+
+	background-color:#2b7c9e;
+	border-radius: 10px;
+	color:#EBBA28;
+	border-color:#f060dd;
+
+	
+}
+
 a {
 	text-decoration:none;
 	background-color:#3E16A1;
