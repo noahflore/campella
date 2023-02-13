@@ -150,7 +150,7 @@
 					
 					
 					<ul class="fotopa">
-						<li><div><a href="userpage/fotouser.php">fotos</a><img src="ico/perfil.png" alt="foto_png" /></div></li>
+						<?php echo "<li><div><a href='userpage/fotouser.php?id=". $idfriend ."'>fotos</a><img src='ico/perfil.png' alt='foto_png' /></div></li>"; ?>
 						<li><div>videos<img src="ico/videos.png" alt="videos_png" /></div></li>
 						<?php
 						echo "<li><div><a href='userpage/scrapuser.php?id=$idfriend&index=1'>recados</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";

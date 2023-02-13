@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<!docktype html>
+<!doctype html>
 
 <html>
 
@@ -7,19 +7,20 @@
 	 
 	 <title>userfoto || campella</title>
 	 <meta charset="utf-8" />
-	 <link rel="stylesheet" href="../defaultstyle/baseestilo.css" />
-	 <link rel="stylesheet" href="../defaultstyle/userpage.css" />
-	 <link rel="stylesheet" href="../defaultstyle/fotouser.css" />
+	 <link rel="stylesheet" href="../../defaultstyle/baseestilo.css" />
+	 <link rel="stylesheet" href="../../defaultstyle/userpage.css" />
+	 <link rel="stylesheet" href="../../defaultstyle/fotouser.css" />
+	 <link rel="icon" href="../../ico/logoico.png" />
 	 
 	 </head>
 	 
 	 <body>
 		<header class="cabeça">
 		
-			<img src="../ico/logocampella.png" alt="logo do site" />
+			<img src="../../ico/logobanner.png" alt="logo do site" />
 			<nav> 
 				<ul>
-					<?php echo "<li><a href='../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
+					<?php echo "<li><a href='../../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
 					<!-- o de cima é nome do usuario-->
 					<li>configuração</li>
 					<li><s>camp</s></li>
@@ -37,25 +38,25 @@
 		<section class="bloco">
 				<aside>
 						<?php
-					$id= $_SESSION['id'];
+					$id= $_GET['id'];
 					
-						if((is_dir("../other/" . $id)) and (file_exists("../other/" . $id."/fotoperso.png"))){
+						if((is_dir("../../other/" . $id)) and (file_exists("../../other/" . $id."/fotoperso.png"))){
 								
-								echo "<img id='especial' src='../other/". $id ."/fotoperso.png' alt='foto do usuario' />";
+								echo "<img id='especial' src='../../other/". $id ."/fotoperso.png' alt='foto do usuario' />";
 							
 						}else{
 							
-							echo"<img id='especial' src='../ico/userdefault.png' alt='foto do usuario' />";
+							echo"<img id='especial' src='../../ico/userdefault.png' alt='foto do usuario' />";
 							
 						}
 						
 						?>
 							<ul  class="lateral">
-								<li><div>fotos<img src="../ico/perfil.png" alt="foto_png" /></div></li>
-								<li><div>videos<img src="../ico/videos.png" alt="videos_png" /></div></li>
-								<li><div>recados<img src="../ico/scrapbook.png" alt="scrapbook_png" /></div></li>
-								<li><div>depoimento<img src="../ico/depoi.png" alt="depoi_png" /></div></li>
-								<li><div>valor<img src="../ico/logocampella.png" alt="valor_png" /></div></li>
+								<li><div>fotos<img src="../../ico/perfil.png" alt="foto_png" /></div></li>
+								<li><div>videos<img src="../../ico/videos.png" alt="videos_png" /></div></li>
+								<li><div>recados<img src="../../ico/scrapbook.png" alt="scrapbook_png" /></div></li>
+								<li><div>depoimento<img src="../../ico/depoi.png" alt="depoi_png" /></div></li>
+								<li><div>valor<img src="../../ico/logocampella.png" alt="valor_png" /></div></li>
 								<!-- use o php no valor ai cima-->
 							</ul>
 						
@@ -71,7 +72,7 @@
 				
 					<?php
 						if (is_dir('../other/'. $id .'/fotos')){
-							echo "<h2>criar o seu albuns de fotos</h2>
+						/*	echo "<h2>criar o seu albuns de fotos</h2>
 								   <div class='for'><form enctype='multipart/form-data' method='post' action='../function/criarfotos.php'>
 										<input type='text' placeholder='nome do album' name='album' />
 										<input type='file' name='capa' accept='imagem/png' />
@@ -87,12 +88,14 @@
 							
 							
 							";
-							if (is_dir('../other/'. $id .'/fotos/')) {
-							$exibiralbum=array_diff(scandir('../other/'. $id .'/fotos/'), ['.','..','contado.txt']);
+							
+							*/
+							if (is_dir('../../other/'. $id .'/fotos/')) {
+							$exibiralbum=array_diff(scandir('../../other/'. $id .'/fotos/'), ['.','..','contado.txt']);
 							
 							foreach($exibiralbum as $li){
-								if(file_exists('../other/'. $id .'/fotos/'. $li .'/capa.png')){
-									echo"<div class='foto'><img src='../other/". $id ."/fotos/". $li ."/capa.png'  alt='foto_album' />". $li ."</div><br>
+								if(file_exists('../../other/'. $id .'/fotos/'. $li .'/capa.png')){
+									echo"<div class='foto'><img src='../../other/". $id ."/fotos/". $li ."/capa.png'  alt='foto_album' /><a href='../../function/exibir.php?id=$id&album=$li'>". $li ."</a></div><br>
 									
 									
 									
@@ -100,7 +103,7 @@
 									";
 									
 								}else{
-									echo"<div class='foto'><img src='../ico/album.png' alt='foto_album' />". $li ."</div><br>
+									echo"<div class='foto'><img src='../../ico/album.png' alt='foto_album' />". $li ."</div><br>
 									
 									
 									
@@ -117,7 +120,7 @@
 							
 							
 							
-						}else{
+						}/*else{
 							
 							mkdir('../other/'. $id .'/fotos',0777,true);
 							echo "<h2>criar o seu albuns de fotos</h2>
@@ -137,6 +140,8 @@
 							";
 							
 						}
+						
+						*/
 					
 					
 					

@@ -77,7 +77,7 @@
 	
 	.caixa{
 		
-		margin-top:50px;
+		margin-top:130px;
 		font-size: 50px;
 		
 		
@@ -132,12 +132,30 @@
 	
 	#resa{
 
+		margin-top:100px;
+
+
+		
+	}
+	#resa button ,input{
+
+		
+		width:200px;
+		height:80px;
+		font-size:50px;
+		
+
+
+	
+	}
+	#res{
+
 		margin-top:30px;
 
 
 		
 	}
-	#resa button{
+	#res button ,input{
 
 		
 		width:200px;

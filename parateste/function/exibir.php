@@ -1,4 +1,24 @@
-<?php session_start(); $nome=$_SESSION['nome']; ?>
+<?php session_start(); 
+	
+	if (!empty($_GET['id'])){
+			
+		$id=$_GET['id'];
+		
+		$leitura=array_diff(scandir("../friend/". $id ."/"),['.','..']);
+			
+		$nome=str_replace("1-","",$leitura[2]);
+		
+		
+		
+	}else{
+		
+		$id= $_SESSION['id'];
+		$nome=$_SESSION['nome'];
+
+
+	}
+
+	?>
 <!doctype html>
 
 
@@ -42,7 +62,7 @@
 			<!--lateral esq com principal user-->
 				<aside>
 				<?php
-					$id= $_SESSION['id'];
+					
 					
 						if((is_dir("../other/" . $id)) and (file_exists("../other/" . $id."/fotoperso.png"))){
 								

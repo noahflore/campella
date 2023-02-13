@@ -305,7 +305,7 @@
 													$r[2]=str_replace(".txt"," - ",$r[2]);
 													fclose($po);
 													
-														echo $foto . $r[2]." ". $receba ."<br>";
+														echo "<div class='linha'>". $foto . $r[2]." ". $receba ."</div><br>";
 													
 												}
 												

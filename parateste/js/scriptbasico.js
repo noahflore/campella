@@ -78,7 +78,7 @@
 			opcao.setAttribute("style","position: fixed; display: flex; flex-direction: column;")
 			opcao.setAttribute("id","configmobi")
 			op[0].setAttribute('value','modo dark')
-		    if (num==4){op[2].setAttribute("onclick","janela(1)")}else {op[2].setAttribute("onclick","janela()")}
+		    if (num==4){op[2].setAttribute("onclick","janela(1)")}else if (num==5){op[2].setAttribute("onclick","janela(2)")}else {op[2].setAttribute("onclick","janela()")}
 			if(num==4){op[4].setAttribute("onclick","conta(1)")}else if(num==6){op[4].setAttribute("onclick","conta(1)")}else{op[4].setAttribute("onclick","conta()")}var pare=0
 		    if(num==4){op[1].setAttribute("onclick","perfil(1)"); pare=1}
 			if ((num==3) ||(num==4)){op[0].setAttribute('onclick','preto(1)');num=1}else{op[0].setAttribute('onclick','preto()')}
