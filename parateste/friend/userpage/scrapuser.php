@@ -92,7 +92,16 @@
 						
 						?>
 							<ul  class="lateral">
-								<li><div><a href="fotouser.php">fotos</a><img src="../../ico/perfil.png" alt="foto_png" /></div></li>
+							<?php
+								
+								echo "<li><div><a href='fotouser.php?id=". $_SESSION['seefriend'] ."'>fotos</a><img src='../../ico/perfil.png' alt='foto_png' /></div></li>";
+								
+								
+								
+								
+								
+								
+								?>
 								<li><div><a href="videouser.php">videos</a><img src="../../ico/videos.png" alt="videos_png" /></div></li>
 								<li><div><a href="scrapuser.php?index=1">recados</a><img src="../../ico/scrapbook.png" alt="scrapbook_png" /></div></li>
 								<li><div><a href='depoiuser.php'>depoimento</a><img src='../../ico/depoi.png' alt='depoi_png' /></div></li>
@@ -299,7 +308,16 @@
 												if (is_dir("../../other/". $id ."/recado/". $index ."/". $i)){
 													$r=array_diff(scandir("../../other/". $id ."/recado/". $index ."/". $i),['.','..']);
 													if (!empty($r[3])){$r[1]=$r[2]; $r[2]=$r[3];}
-													$foto= (!empty($r[1]))? "<img style='width: 50px' src='../../other/$r[1]/fotoperso.png' alt='foto_png_user' />": "<img src='../../ico/perfil.png' alt='foto_png_user' />";
+													if (file_exists("../../other/$r[1]/fotoperso.png")){ 
+														$foto= 	"<img style='width: 50px' src='../../other/$r[1]/fotoperso.png' alt='foto_png_user' />";
+														
+														
+													}else{
+														
+														$foto= "<img src='../../ico/perfil.png' alt='foto_png_user' />";
+														
+														
+													}
 													$po=fopen("../../other/". $id ."/recado/". $index ."/". $i ."/". $r[2],"r+");
 													$receba=fgets($po);
 													$r[2]=str_replace(".txt"," - ",$r[2]);
