@@ -24,3 +24,43 @@ strong{
 
 	
 }
+
+#pop div{
+
+	width:300px;
+
+
+
+	
+}
+
+@media (max-width:980px){
+
+
+	.apresenta{
+
+		display:flex;
+		flex-direction:column;
+		
+	}
+
+
+	#pixa{
+
+		width:300px;
+		font-size:60px;
+		
+	}
+	
+	#pop div{
+
+		margin-left:70px !important;
+		margin-top:500px !important;
+		font-size:70px;
+		width:700px;
+
+		
+	}
+
+
+	

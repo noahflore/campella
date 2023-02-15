@@ -5,6 +5,16 @@ section{
 	
 }
 
+aside{
+
+	margin-left:20px;
+	background-color:#e8186c;
+	border-radius: 3px 00px 3px 0px;
+	box-shadow: 4px 4px 0px #372424;
+
+	
+}
+
 .meucmm{
 	
 	margin-top: 100px;	
@@ -63,6 +73,38 @@ section{
 		font-size: 100px;
 		
 	}
+	
+	section{
+
+		flex-direction:column;
+
+		
+	}
+
+	aside{
+
+		font-size:70px;
+		margin-left:50px;
+
+		
+	}
+	
+	.cmm{
+
+		margin-top:300px;
+		margin-left:50px;
+
+		
+	}
+
+	.cmm h1{
+
+		width:320px;
+		font-size:60px;
+
+	
+	}
+	
 	
 	
 	

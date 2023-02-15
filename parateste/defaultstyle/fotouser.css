@@ -17,3 +17,33 @@
 	flex-direction: column;
 	
 }
+
+@media (max-width:980px){
+
+	.foto{
+
+
+		margin-left:50px;
+		font-size:90px;
+
+		
+	}
+
+	.foto a{
+
+		width:300px;
+
+
+
+		
+	}
+
+	
+	.foto img{
+
+		width:200px;
+		height:200px;
+		
+	}
+
+	
