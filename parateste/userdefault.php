@@ -761,13 +761,31 @@
 								$pu=0;
 								$aju=0;
 								$div=0; //essa variavel vai se usado no separado de index
+								if (!empty($_GET['i'])){$dora=$_GET['i'];}else{$dora=1;}
+								if (!empty($_GET['ma'])){$mar=$_GET['ma'];}else{$mar=0;}
 								
 								echo "<div class='caixa' onmouseout='carrega()' id='amigomobi'>";
 								
-								for ($i=1; $i<=1000; $i++){
+								for ($i=$dora; $i<=1000; $i++){
 									
-									$div++;
+									// print_r($i);
 									
+									if ($div>=16){$mar++;echo "<a href='userdefault.php?i=$i&ma=$mar'>>>></a>";break;}
+									if (isset($_GET['ma'])){
+										
+										$mm=$_GET['ma'];
+										for($golfe=1;$golfe<=$mm;$golfe++){
+											$im= $im-16; if ($im<=0){$im=0;}
+															
+											echo "<a href='userdefault.php?i=$im&ma=$golfe'>$golfe</a>";
+											
+											
+										}
+										unset($_GET['ma']);
+										
+										
+										
+									}
 									if (file_exists("other/". $id ."/amigo/". $i .".txt")){
 										$abrir=fopen("other/". $id ."/amigo/". $i .".txt","r+");
 										$ler=fgets($abrir);
@@ -781,13 +799,13 @@
 
 													echo "<span><img style='width: 50px; height: 50px;' src='other/$i/fotoperso.png' alt='foto_user' /><a href='friend/userseeuser.php?id=$i'>". $ler ."</a></span>  ";
 													
-													
+													$div++;
 													
 												}else{
 													
 													echo "<span><img style='width: 50px; height: 50px;' src='ico/perfil.png' alt='foto_user' /><a href='friend/userseeuser.php?id=$i'>". $ler ."</a></span> ";
 													
-													
+													$div++;
 													
 												}
 												
