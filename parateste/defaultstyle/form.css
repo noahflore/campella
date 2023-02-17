@@ -17,16 +17,17 @@ h1{
 @media(max-width:980px){
 	
 	
-	.form input{
-		
-		width: 210px;
-		height: 50px;
-		font-size:20px;
-		
+	.form{
+		margin-left:40px;
 	}
 	
-	.form{
-		margin-left:50px;
+	.form input{
+		
+		width: 100px;
+		height: 30px;
+		font-size:20px;
+
+		
 	}
 
 	label {

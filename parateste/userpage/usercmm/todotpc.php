@@ -293,7 +293,7 @@
 											
 											
 											//print_r($ler);
-											echo "<a href='todotpc.php?id=$id&idcmm=$idcmm&memo=$memoria'>$num<a/> ==  "; 
+											echo "<a href='todotpc.php?id=$id&idcmm=$idcmm&memo=$memoria'>$num<a/> , "; 
 											
 											
 										$memoria+=10;
@@ -301,7 +301,9 @@
 										$con++;
 										}while ($con*10<=$ler);
 										$ler-=2;
-										echo "<a href='todotpc.php?id$id&idcmm=$idcmm&memo=$ler'> >>></a>";
+										echo "<br><br><a href='todotpc.php?id=$id&idcmm=$idcmm&memo=$ler'> >>></a>";
+										
+										
 										
 											break;
 										
@@ -331,6 +333,32 @@
 								//print_r($exibir);
 								
 							}
+				
+							if (isset($_GET['memo'])){
+										
+										$ista=$_GET['memo'];
+										$ist=1;
+										$i=1;
+										$nn=1;
+										
+										if ($ista>=10){
+											
+											while ($i<=$ista){
+												
+												echo "<a href='todotpc.php?id=$id&idcmm=$idcmm&memo=$ist'>$nn , </a>";
+												$ist+=10;
+												$i+=10;
+												$nn++;
+											}
+											
+											
+											
+											
+										}
+								
+									echo "<a href='todotpc.php?id=$id&idcmm=$idcmm&memo=1'><<< , </a>";
+									
+									}
 						
 						
 						

@@ -50,13 +50,22 @@ footer{
 	}
 	
 	div{
+		 font-size: 0px !important; 
+	}
+
+	footer{
+
 		
-		font-size: 40px;	
+		line-height: 9px;
+		
 		
 		
 	}
-	
-	
-	
-	
+	.rodape{
+
+		font-size:36px;
+		display:block;
+		padding-bottom:40px;
+		padding-left:10px;
+	}
 }
