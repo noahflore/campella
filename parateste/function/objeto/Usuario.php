@@ -76,9 +76,9 @@
 		
 	function configsql(){
 		
+		$tudook=$this->getverificado();
 		
-		
-
+		if ($tudook){
 
 		if (!empty($_POST['genero'])){
 			
@@ -211,12 +211,18 @@
 		}
 		
 		
-		
+		}
 		
 	}
 		
 		
 	function bonusday(){
+		
+		
+		$tudook=$this->getverificado();
+		
+		if ($tudook){
+		
 		
 		$dia= date("d");
 		$id=$this->getid();
@@ -266,13 +272,18 @@
 		}
 			
 		
-		
+		}
 		
 		
 	}//em desevolvimento
 		
 		
 	function mostrar(){
+		
+		
+		$tudook=$this->getverificado();
+		
+		if ($tudook){
 		
 		$id= $this->getid();
 		
@@ -289,13 +300,17 @@
 		}
 		
 		
-		
+		}
 		
 		
 	}
 		
 		
 	function novasenha($senha,$pin){
+		
+		$tudook=$this->getverificado();
+		
+		if ($tudook){
 		
 		$id=$this->getid();
 		
@@ -328,11 +343,17 @@
 		
 			}
 		
+			
+		}
 		
 	}
 		
 		
 	function reseta(){
+		
+		$tudook=$this->getverificado();
+		
+		if ($tudook){
 		
 		$id= $this->getid();
 		
@@ -350,13 +371,17 @@
 		
 		
 		
-		
+		}
 		
 		
 	}
 		
 		
 	function testetipo($n){
+		
+		$tudook=$this->getverificado();
+		
+		if ($tudook){
 		$id=$this->getid();
 		
 			$teste=$this->cone->prepare("SELECT * FROM pessoa WHERE id= ?");
@@ -401,12 +426,17 @@
 				
 			}
 		
-		
+		}
 		
 	}
 		
 		
 	function altertipo(){
+		
+		$tudook=$this->getverificado();
+		
+		if ($tudook){
+			
 		$id=$this->getid();
 		$tipo="DBWM0000";
 		
@@ -414,11 +444,15 @@
 		$muda->bind_param("si",$tipo,$id);
 		$muda->execute();
 		
-		
+		}
 	}
 		
 		
 	function comprar($valor,$pin){
+		
+		$tudook=$this->getverificado();
+		
+		if ($tudook){
 		
 		$id= $this->getid();
 		
@@ -446,7 +480,7 @@
 		}
 		
 		
-		
+		}
 		
 		
 	}//precisa se testado

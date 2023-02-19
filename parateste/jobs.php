@@ -48,6 +48,32 @@
 	 <meta charset="utf-8" />
 	 <link rel="stylesheet" href="defaultstyle/baseestilo.css" />
 	 <link rel="icon" href="ico/logoico.png" />
+		 
+		 <style>
+			 
+			 .apresenta{
+				 
+				 margin-top:200px;
+				 margin-left:500px;
+				 background-color:red;
+				 width:300px;
+				 border-radius: 5px 5px 5px 5px;
+				 box-shadow: 3px 3px 3px black;
+				 
+				 
+				 
+			 }
+			 
+			 .apresenta li{
+				 
+				 list-style:none;
+				 
+				 
+			 }
+			 
+			 
+			 
+		 </style>
 	 
 	 </head>
 	 
@@ -76,7 +102,7 @@
 			
 			
 		</header>
-			<div>
+			<div class="apresenta">
 				<h1> faça tarefas e ganhar camp</h1>
 				<div>
 					<h2> listas</h2>
@@ -85,7 +111,7 @@
 							<li><s>validação</s></li>
 							<li>monitor</li>
 							<!-- o de cima vai analisa denuncia e tals-->
-						<?php /*	echo "<li><a href='function/gera.php?id=$id'>convida um amigo/a</a></li>"; */?>
+						<?php 	echo "<li><a href='function/gera.php?id=$id&outro=1'>convida um amigo/a</a></li>"; ?>
 							<li><a href="sell.php">vendas de produtos</a></li>
 						
 						
