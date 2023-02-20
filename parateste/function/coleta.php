@@ -44,11 +44,28 @@ session_start();
 					$abrir=fopen("../other/". $i ."/convida/". $chavek,"r+");
 					$ler=fgets($abrir);
 					
-					if($ler==0){
+					if($ler<=0){
 						
 						unlink("../other/". $i ."/convida/". $chavek);	
 						rmdir("../other/". $i ."/convida/");
 						fclose($abrir);
+						
+						$fast=$cone->prepare("SELECT * FROM kants WHERE id = ?");
+						$fast->bind_param("i",$i);
+						$fast->execute();
+						$fast->bind_result($idf,$quaf,$chef,$mef);
+						
+						
+						
+							
+							$quaf+=30000;
+							unset($fast);
+							
+						
+							$fast=$cone->prepare("UPDATE kants SET quantidade = ? WHERE kants . id = ? ");
+							$fast->bind_param("ii",$quaf,$i);
+							$fast->execute();
+							unset($fast);
 						
 					}else{
 						
@@ -57,6 +74,27 @@ session_start();
 						fwrite($abrir,$ler-1);
 						fclose($abrir);
 						$tipo="SBWM0000";
+						
+						$fast=$cone->prepare("SELECT * FROM kants WHERE id = ?");
+						$fast->bind_param("i",$i);
+						$fast->execute();
+						$fast->bind_result($idf,$quaf,$chef,$mef);
+						
+						
+						
+							
+							$quaf+=30000;
+							unset($fast);
+							
+						
+							$fast=$cone->prepare("UPDATE kants SET quantidade = ? WHERE kants . id = ? ");
+							$fast->bind_param("ii",$quaf,$i);
+							$fast->execute();
+							unset($fast);
+							
+					
+							
+						
 						
 					}
 					

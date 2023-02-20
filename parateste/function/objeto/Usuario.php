@@ -610,7 +610,7 @@
 		function boasvinda($valor,$pin,$id,$cone){
 				
 
-			$depo=$cone->prepare("INSERT INTO kants VALUE (?,?,?)");
+			$depo=$cone->prepare("INSERT INTO kants VALUE (?,?,?,0)");
 			$depo->bind_param("iis",$id,$valor,$pin);
 			$depo->execute();
 

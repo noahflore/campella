@@ -373,9 +373,8 @@
 									$div++;
 									
 									if (file_exists("../other/". $idfriend ."/amigo/". $i .".txt")){
-										$abrir=fopen("../other/". $idfriend ."/amigo/". $i .".txt","r+");
-										$ler=fgets($abrir);
-										fclose($abrir);
+										$abrir=array_diff(scandir("../friend/". $i),['.','..']);
+										$ler=str_replace("1-","",$abrir[2]);
 											
 											$pu++;
 											if ($pu<=4){ if ($aju==0){$aju=1;echo "<div>";}
