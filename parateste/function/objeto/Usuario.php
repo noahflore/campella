@@ -458,32 +458,43 @@
 		
 		$exibir= $this->cone->prepare("SELECT * FROM kants WHERE id = ?");
 		$exibir->bind_param("i",$id);
-		$exibir->bind_result($idu,$quau,$check);
 		$exibir->execute();
+		$exibir->bind_result($idu,$quau,$check,$meno);
 		
 		while($exibir->fetch()){
 			
 			$true= password_verify($pin,$check);
+			$quauu=$quau;
 			
-			if (($quau>0) and ($quau>=$valor) and ($true)){
+			
+			
+		}
+			
+		if (($quauu>0) and ($quauu>=$valor) and ($true)){
 				
 				unset($exibir);
 				
+				$quauu-=$valor;
 				$com=$this->cone->prepare("UPDATE kants SET quantidade = ? WHERE kants . id = ?");
-				$com->bind_param("ii",$valor,$id);
+				$com->bind_param("ii",$quauu,$id);
 				$com->execute();
-				
+				$this->settipo("SBWM0000");
+				unset($com);
 				
 			}
 			
+			if (!empty($exibir)){unset($exibir);}
+			$tipo=$this->gettipo();
 			
-		}
+			$mudo=$this->cone->prepare("UPDATE pessoa SET tipo = ? WHERE pessoa . id = ?");
+			$mudo->bind_param("si",$tipo,$id);
+			$mudo->execute();
 		
 		
 		}
 		
 		
-	}//precisa se testado
+	}
 		
 	
 		

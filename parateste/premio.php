@@ -1,4 +1,24 @@
-<?php session_start(); ?>
+<?php session_start();
+	  require_once "function/objeto/Usuario.php";
+	  require_once "function/conexao.php";
+
+	
+	$nome=$_SESSION['nome'];
+	$sobrenome=$_SESSION['sobrenome'];
+	$id=$_SESSION['id'];
+
+$user= new Usuario($nome,$sobrenome,$id,$cone);
+
+	if ((!empty($_GET['buy'])) and (!empty($_POST['pin']))){
+		$pin=$_POST['pin'];
+		
+		$user->comprar(30000,$pin);
+		
+		
+	}
+
+
+?>
 <!doctype html>
 
 <html>
@@ -92,11 +112,22 @@
 					popup.setAttribute("style","position:fixed;height:100%;width:100%;top:0%;left:0%;background-color:#272222ad")
 					popup.setAttribute("onclick","fechapop()")
 					popup.setAttribute("id","pop")
-					janela.innerHTML="faça o pagamento via pix<br><strong style='color:red'>7aae2781-3466-44e6-bbc7-5b93ef69eb20</strong><hr>essa é uma chave aleatoria se tiver problemas em enviar consulta o dono"
+					janela.setAttribute("onmouseenter","esconde()")
+					janela.innerHTML="faça o pagamento via pix<br><strong style='color:red'>7aae2781-3466-44e6-bbc7-5b93ef69eb20</strong><hr>essa é uma chave aleatoria se tiver problemas em enviar consulta o dono<hr><form method='post' action='premio.php?buy=1'><input type='submit' value='comprar!' /><input type='tet' name='pin' placeholder='coloque sua chave pin' /></form><br><br>click nesse botão se quer pagar com kant"
 					popup.appendChild(janela)
 					buypixa.removeChild(pixa)
 					buypixa.appendChild(popup)
 
+					
+					
+				}
+				
+				function esconde(){
+					
+					let janela= document.getElementById("pop")
+					
+					janela.removeAttribute("onclick")
+					
 					
 					
 				}

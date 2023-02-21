@@ -58,7 +58,11 @@ session_start();
 						
 						
 							
-							$quaf+=30000;
+							while ($fast->fetch()){
+								
+									$quaf+=30000;
+								
+							}
 							unset($fast);
 							
 						
@@ -82,8 +86,11 @@ session_start();
 						
 						
 						
-							
-							$quaf+=30000;
+							while ($fast->fetch()){
+								
+									$quaf+=30000;
+								
+							}
 							unset($fast);
 							
 						
