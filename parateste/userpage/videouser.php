@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<!docktype html>
+<!doctype html>
 
 <html>
 
@@ -35,7 +35,21 @@
 		
 		<section class="bloco">
 				<aside>
-						<img id="especial" src="../ico/userdefault.png" alt="foto do usuario" />
+					
+					<?php
+					
+					$id=$_SESSION['id'];
+						if((is_dir("../other/" . $id)) and (file_exists("../other/" . $id."/fotoperso.png"))){
+								
+								echo "<img id='especial' src='../other/". $id ."/fotoperso.png' alt='foto do usuario' />";
+							
+						}else{
+							
+							echo"<img id='especial' src='../ico/userdefault.png' alt='foto do usuario' />";
+							
+						}
+						
+						?>
 							<ul  class="lateral">
 								<li><div>fotos<img src="../ico/perfil.png" alt="foto_png" /></div></li>
 								<li><div>videos<img src="../ico/videos.png" alt="videos_png" /></div></li>
@@ -59,8 +73,8 @@
 						if (is_dir('../other/'. $id .'/videos')){
 							echo "<h2>coloque aqui seu videos do youtube</h2>
 								   <div class='for'><form method='post' action='../function/criarvideos.php'>
-										<input type='text' placeholder='nome da playlist' name='play' />
-										<input type='text' placeholder='url do video' name='link' />
+										<input type='text' style='background-color:white' placeholder='nome da playlist' name='play' />
+										<input type='text' style='background-color:white' placeholder='url do video' name='link' />
 										<input type='submit' value='enviar' />
 									
 									
