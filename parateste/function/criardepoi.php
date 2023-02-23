@@ -10,7 +10,7 @@ session_start();
 	if (!empty($_POST['texto'])){
 		$texto=$_POST['texto'];
 		
-		$amigo=$_SESSION['seefriend'];
+		$amigo=$_GET['id'];
 		if(file_exists("../other/". $amigo ."/depoi/update.txt")){
 			$abrir=fopen("../other/". $amigo ."/depoi/update.txt","r+");
 			$ler=fgets($abrir);
@@ -20,33 +20,15 @@ session_start();
 			fwrite($abrir,$ler);
 			fclose($abrir);
 			
-			while(is_dir("../other/". $amigo ."/depoi/tmp/". $ler)){
-				
-					$ler++;
-					$abrir=fopen("../other/". $amigo ."/depoi/update.txt","w+");
-					fwrite($abrir,$ler);
-					fclose($abrir);
-					
-				
-				
-				
-				
-				
-					
-				
-			}
+			if(!is_dir("../other/". $amigo ."/depoi/tmp/". $ler ."/")){mkdir("../other/". $amigo ."/depoi/tmp/". $ler ."/",0777,true);}
 			
 			
-				if (!is_dir("../other/". $amigo ."/depoi/tmp/". $ler)){
-					
-					mkdir("../other/". $amigo ."/depoi/tmp/". $ler,0777,true);
-					
 				
-				}
 			
 			
 			copy("../other/exemplo/exemplo.txt","../other/". $amigo ."/depoi/tmp/". $ler ."/". $nome .".txt");
 			$abrir=fopen("../other/". $amigo ."/depoi/tmp/". $ler ."/". $nome .".txt","w+");
+			copy("../other/exemplo/exemplo.txt","../other/". $amigo ."/depoi/tmp/". $ler ."/$id");
 			fwrite($abrir,$texto);
 			fclose($abrir);
 			
@@ -58,9 +40,9 @@ session_start();
 			$abrir=fopen("../other/". $amigo ."/depoi/update.txt","w+");
 			fwrite($abrir,1);
 			fclose($abrir);
-			mkdir("../other/". $amigo ."/depoi/tmp",0777,true);
 			mkdir("../other/". $amigo ."/depoi/tmp/1/",0777,true);
 			copy("../other/exemplo/exemplo.txt","../other/". $amigo ."/depoi/tmp/1/". $nome .".txt");
+			copy("../other/exemplo/exemplo.txt","../other/". $amigo ."/depoi/tmp/1/$id");
 			$abrir=fopen("../other/". $amigo ."/depoi/tmp/1/". $nome .".txt","w+");
 			fwrite($abrir,$texto);
 			fclose($abrir);
@@ -74,7 +56,7 @@ session_start();
 	}
 
 
-
+	header("location: ../friend/userpage/depoiuser.php?id=$amigo");
 
 
 

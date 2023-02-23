@@ -155,11 +155,11 @@
 						<?php
 						echo "<li><div><a href='userpage/scrapuser.php?id=$idfriend&index=1'>recados</a><img src='ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
 						
-						
+						echo "<li><div><a href='userpage/depoiuser.php?id=". $idfriend ."'>depoimento</a><img src='ico/depoi.png' alt='depoi_png' /></div></li>";
 						
 						?>
-						<li><div><a href="userpage/depoiuser.php">depoimento</a><img src="ico/depoi.png" alt="depoi_png" /></div></li>
-						<li><div>valor<img src="ico/logocampella.png" alt="valor_png" /></div></li>
+						
+						
 						<?php if (!file_exists("../other/". $idfriend ."/amigo/". $id .".txt")){echo "<li><div id='res'><button id='add' onclick='amigo($idfriend)'>mais^</button></div></li>";}else{echo "<div id='resa'>$idfriend</div>";}
 							  if (!empty($_SESSION['add'])){ echo $_SESSION['add']; unset($_SESSION['add']);}?>
 						<!-- use o php no valor ai cima-->

@@ -1,5 +1,10 @@
-<?php session_start(); ?>
-<!docktype html>
+<?php session_start(); 
+
+	if (!empty($_GET['id'])){$idfriend=$_GET['id'];}
+
+
+?>
+<!doctype html>
 
 <html>
 
@@ -7,18 +12,19 @@
 	 
 	 <title>depoimento-user || campella</title>
 	 <meta charset="utf-8" />
-	 <link rel="stylesheet" href="../defaultstyle/baseestilo.css" />
-	 <link rel="stylesheet" href="../defaultstyle/userpage.css" />
+	 <link rel="stylesheet" href="../../defaultstyle/baseestilo.css" />
+	 <link rel="stylesheet" href="../../defaultstyle/userpage.css" />
+     <link rel="icon" href="../../ico/logoico.png" />
 	 
 	 </head>
 	 
 	 <body>
 		<header class="cabeça">
 		
-			<img src="../ico/logocampella.png" alt="logo do site" />
+			<img src="../../ico/logobanner.png" alt="logo do site" />
 			<nav> 
 				<ul>
-					<li><a href="../userdefault.php">user</a></li>
+					<?php echo "<li onclick='usuario(1)'><a href='../../userdefault.php'>". $_SESSION['nome'] ."</a></li>"; ?>
 					<!-- o de cima é nome do usuario-->
 					<li>configuração</li>
 					<li><s>camp</s></li>
@@ -35,7 +41,21 @@
 		
 		<section class="bloco">
 				<aside>
-						<img id="especial" src="../ico/userdefault.png" alt="foto do usuario" />
+						<?php
+					
+					
+					
+						if((is_dir("../../other/" . $idfriend)) and (file_exists("../../other/" . $idfriend ."/fotoperso.png"))){
+								
+								echo "<img id='especial' src='../../other/". $idfriend ."/fotoperso.png' alt='foto do usuario' />";
+							
+						}else{
+							
+							echo"<img id='especial' src='../../ico/userdefault.png' alt='foto do usuario' />";
+							
+						}
+						
+						?>
 							<ul  class="lateral">
 								<li><div>fotos<img src="../ico/perfil.png" alt="foto_png" /></div></li>
 								<li><div>videos<img src="../ico/videos.png" alt="videos_png" /></div></li>
@@ -56,9 +76,9 @@
 				<div>
 					<?php
 					
-						echo "<form method='post' action='../../function/criardepoi.php'>
+						echo "<form method='post' action='../../function/criardepoi.php?id=$idfriend'>
 								
-								<input type='text' name='texto' placeholder='não seja timido começa a digitar'  />
+								<textarea cols='30' rows='5' name='texto' placeholder='não seja timido começa a digitar'  /></textarea>
 								<input type='submit' value='enviar' />
 						
 						

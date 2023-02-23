@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<!docktype html>
+<!doctype html>
 
 <html>
 
@@ -71,7 +71,7 @@
 						$id=$_SESSION['id'];
 					
 					
-						if (is_dir('../other/'. $id .'/depoi')){
+						if ((is_dir('../other/'. $id .'/depoi')) and (file_exists("../other/". $id ."/depoi/update.txt"))){
 							$abrir=fopen("../other/". $id ."/depoi/update.txt","r+");
 							$ler=fgets($abrir);
 							fclose($abrir);
@@ -85,13 +85,16 @@
 									
 									if(is_dir("../other/". $id ."/depoi/tmp/". $lo)){
 										$r=array_diff(scandir("../other/". $id ."/depoi/tmp/". $lo),['.','..']);
-										$abrir=fopen("../other/". $id ."/depoi/tmp/". $lo ."/". $r[2],"r+");
+										$abrir=fopen("../other/". $id ."/depoi/tmp/". $lo ."/". $r[3],"r+");
 										$mostrar=fgets($abrir);
 									fclose($abrir);
 									
+									$r[3]=str_replace(".txt","",$r[3]);
+										
+										$foto= (file_exists("../other/$r[2]/fotoperso.png")) ? "../other/$r[2]/fotoperso.png":"../ico/perfil.png";
 								
-								echo "<div>". $r[2] ." ". $mostrar ."<br>
-								<form method='post' action='../function/aceitar.php?mostrar=". $r[2] ."&li=". $lo ."'>
+								echo "<div class='depoi'><img src='$foto' />". $r[3] ." ". $mostrar ."<br>
+								<form method='post' action='../function/aceitar.php?mostrar=". $r[3] ."&li=". $lo ."&id=$r[2]'>
 									<input type='submit' value='aceitar' name='delete' />
 									<input type='submit' name='delete' value='deletar' />
 								
@@ -112,25 +115,40 @@
 							
 						}
 					
-						echo "<h2> depoimenntos amostrar</h2><br>
+						echo "<h2> depoimentos amostrar</h2><br>
 						
 						
 						
 						";
-						if (is_dir('../other/'. $id .'/depoi')){
+						if (is_dir('../other/'. $id .'/depoi/')){$ler=1000;
 							
-							if ($ler<1000){$ler=1000;};
+							
 							
 							
 							for ($lo=1;$lo<=$ler;$lo++){
 								
 									
-									if (is_dir('../other/'. $id .'/depoi/'. $lo)){
-										$s=array_diff(scandir('../other/'. $id .'/depoi/'. $lo),['.','..']);
-										$abrir=fopen("../other/". $id ."/depoi/". $lo ."/" . $s[2],"r+");
-										$exibi= fgets($abrir);
-										fclose($abrir);
-										echo "<div>". $s[2] ." - ". $exibi ."</div><br>";
+									if (is_dir('../other/'. $id .'/depoi/'. $lo ."/")){//echo $lo;
+										$s=array_diff(scandir('../other/'. $id .'/depoi/'. $lo ."/"),['.','..']);
+																					   
+										if (file_exists("../other/". $id ."/depoi/". $lo ."/" . $s[3])){
+											
+											
+											$abrir=fopen("../other/". $id ."/depoi/". $lo ."/" . $s[3],"r+");//print_r($s);
+											$exibi= fgets($abrir);
+											fclose($abrir);
+											
+										}else{
+											
+											$s[3]="";
+											$exibir="";
+											
+										}
+										
+										$s[2]=str_replace(".txt","",$s[2]);
+										$s[3]=str_replace(".txt","",$s[3]);
+										$foto= (file_exists("../other/". $s[2] ."/fotoperso.png")) ? "../other/". $s[2] ."/fotoperso.png": "../ico/perfil.png";
+										echo "<div class='depoi'><img src='$foto' />". $s[3] ." - ". $exibi ."</div><br>";
 										
 									}
 									

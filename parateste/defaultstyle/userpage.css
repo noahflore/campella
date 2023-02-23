@@ -94,6 +94,14 @@
 	
 }
 
+.depoi img {
+
+	width:70px;
+	height:70px;
+
+	
+}
+
 #especial{
 
 	margin-top:20px;
@@ -191,6 +199,20 @@
 		font-size:60px;
 		
 	}
+	
+	.depoi{
+
+		font-size:53px;
+		
+	}
+
+	.depoi img {
+
+	width:200px;
+	height:200px;
+
+	
+}
 	
 	
 	

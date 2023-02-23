@@ -7,6 +7,7 @@ session_start();
 		if (!empty($_POST['delete'])){
 			$delete=$_POST['delete'];
 			$mostrar=$_GET['mostrar'];
+			$idfriend=$_GET['id'];
 			$li=$_GET['li'];
 			
 			
@@ -21,8 +22,13 @@ session_start();
 				
 				
 				
-				copy("../other/". $id ."/depoi/tmp/". $li ."/". $mostrar,"../other/". $id ."/depoi/". $ale ."/". $mostrar);
-				unlink("../other/". $id ."/depoi/tmp/". $li ."/". $mostrar);
+				copy("../other/". $id ."/depoi/tmp/". $li ."/". $mostrar .".txt","../other/". $id ."/depoi/". $ale ."/". $mostrar .".txt");
+				copy("../other/". $id ."/depoi/tmp/". $li ."/$idfriend","../other/". $id ."/depoi/". $ale ."/". $idfriend .".txt");
+				$abrir=fopen("../other/". $id ."/depoi/". $ale ."/". $idfriend .".txt","w+");
+				fwrite($abrir,$mostrar);
+				fclose($abrir);
+				unlink("../other/". $id ."/depoi/tmp/". $li ."/". $mostrar .".txt");
+				unlink("../other/". $id ."/depoi/tmp/". $li ."/$idfriend");
 				rmdir("../other/". $id ."/depoi/tmp/". $li);
 				$abrir=fopen("../other/". $id ."/depoi/update.txt","r+");
 				$ler=fgets($abrir);
@@ -48,7 +54,8 @@ session_start();
 			}elseif($delete=="deletar"){
 				
 				
-				unlink("../other/". $id ."/depoi/tmp/". $li ."/". $mostrar);
+				unlink("../other/". $id ."/depoi/tmp/". $li ."/". $mostrar .".txt");
+				unlink("../other/". $id ."/depoi/tmp/". $li ."/$idfriend");
 				rmdir("../other/". $id ."/depoi/tmp/". $li);
 				$abrir=fopen("../other/". $id ."/depoi/update.txt","r+");
 				$ler=fgets($abrir);
@@ -79,6 +86,6 @@ session_start();
 			
 		}
 
-
+		header("location: ../userpage/depoiuser.php");
 
 ?>
