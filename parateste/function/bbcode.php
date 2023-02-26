@@ -4,6 +4,10 @@
 	
 	function bbcode ($texto){
 		
+		$texto=str_replace("https://www.youtube.com/watch?v=","https://www.youtube.com/embed/",$texto);
+		$texto= str_replace("script","block script",$texto);
+		$texto=str_replace("\n","<br>",$texto);
+		$texto=str_replace(".js",".png",$texto);
 		
 		$valor= array(
 		
@@ -11,10 +15,11 @@
 				"@\[i\](.*?)\[\/i\]@i"=>"<i>$1</i>",
 				"@\[s\](.*?)\[\/s\]@i"=>"<s>$1</s>",
 				"@\[color\=(.*?)\](.*?)\[\/color\]@i"=>"<b style='color:$1'>$2</b>",
+				"@\[img\=(.*?)\]\[\/img\]@i"=>"<img style='width:400px;height:400px' src='$1' alt='image_out_website' />",
 				"@\[quote\=(.*?)\](.*?)\[\/quote\]@i"=>"<div style='background-color:orange;width:10px'><div class='cita'>$1</div></div><br>$2",
-				"@<script>(.*?)<\/script>@i"=> "script block",
-				"@<script src='(.*?)'>(.*?)<\/script>@i"=> "script block"
-				
+				"@\[youtube=(.*?)\]\[\/youtube\]@i"=>"<iframe width='200' height='200' src='$1' title='video_user' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen=''></iframe>",
+				"@\[youtube=(.*?)\](.*?)\[\/youtube\]@i"=>"<fieldset><legend><h2>$2</h2></legend><iframe width='200' height='200' src='$1' title='video_user' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen=''></iframe></fieldset>",
+				"@\?help\?@i"=>"[b]<strong>palavra em negrito</strong>[/b]<br>[i]<i>palavra em italica</i>[/i]<br>[s]<strong>palavra sublinada</s>[/s]<br>[quote]cita um comntario de alguém[/quote]<br>[color= o valor da cor]cor da palavra[/color]<br>[youtube=url do video]um titulo por video[/youtube]<br>[img=url da image][/img]<br>"
 		
 		
 		
@@ -27,9 +32,7 @@
 		
 		
 	}
-
-
-    
+		
 
 
 ?>
