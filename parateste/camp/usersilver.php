@@ -663,8 +663,14 @@
 										$abrir=fopen("../other/". $id ."/depoi/". $i ."/". $depoi[2],"r+");
 										$ler=fgets($abrir);
 										fclose($abrir);
+										$abrir=fopen("../other/". $id ."/depoi/". $i ."/". $depoi[3],"r+");
+										$volw=fgets($abrir);
+										fclose($abrir);
 										
-										echo "<div>". $ler ."</div><br>";
+										$depoi[2]=str_replace(".txt","",$depoi[2]);
+										$fotore= (($ler . ".txt"==$depoi[3]) and (file_exists("../other/$depoi[2]/fotoperso.png"))) ? "../other/$depoi[2]/fotoperso.png":"../ico/perfil.png";
+										
+										echo "<div><img style='width:100px;height:100px' src='$fotore' />". $ler ." - ". $volw ."</div><br>";
 									
 									
 									

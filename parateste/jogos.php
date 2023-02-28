@@ -1,4 +1,4 @@
-<!docktype html>
+<!doctype html>
 
 <html>
 
@@ -52,7 +52,7 @@
 				<ul>
 					<li><s>criar seu jogo</s></li>
 					<li>categorias</li>
-					<li><a href="jogos/rpgdetexto.php">teste</a></li>
+					<li><a href="jogos/index.html">eclipse</a></li>
 					<!-- o de cima precisa se modificado -->
 				
 				</ul>

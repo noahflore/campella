@@ -19,9 +19,10 @@
 	fwrite($conta,$contado);
 	fclose($conta);
 	
-	if((!empty($_POST['album'])) and (!empty($_FILES['foto']))){
+	//print_r( $_FILES['foto']);
+	if((!empty($_POST['album'])) || (!empty($_GET['album'])) and (!empty($_FILES['foto']))){
 			$foto=$_FILES['foto'];
-			$album=$_POST['album'];
+			$album=(isset($_POST['album'])) ? $_POST['album']:$_GET['album']; echo 'foi'. album;
 			
 		if(!is_dir('../other/'. $id .'/fotos/'. $album))
 		{mkdir('../other/'. $id .'/fotos/'. $album);}
@@ -44,7 +45,7 @@
 	}
 
 
-	header('location: ../userpage/fotouser.php');
+//	header('location: ../userpage/fotouser.php');
 
 
 ?>

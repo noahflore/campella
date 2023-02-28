@@ -88,9 +88,21 @@
 			
 		
 						<?php
+					
+							if (!empty($_GET['album'])){
+									
+									$album=$_GET['album'];
+								
+							}
 						
 
-							echo "<span id='jane'>";
+							echo "<div><form method='post' action='criarfotos.php?album=$album' enctype='multipart/form-data'>
+							
+									<input type='file' accept='imagem/png' name='foto'  />
+									<input type='submit' value='enviar!' />
+							
+							
+							</form></div><span id='jane'>";
 							
 								if (!empty($_GET['album'])){
 									
