@@ -26,9 +26,9 @@
 	 <title>registro || kampella</title>
 	 <meta charset="utf-8" />
 	 <meta name="author" content="giovanne" />
-	 <meta name="description" content="procura uma rede social nova e com uma nova maneira de socializa? ou apenas um passa-tempo em um lugar diferente? aqui é o lugar" />
+	 <meta name="description" content="procura uma rede social alternativa ao orkut ,anônimo,chat online? ou apenas fazer amizades em um lugar diferente? vem para kampella aqui você vai encontra pessoas divertidas ,engraçadas ,paquera e até encontra um love; compartilhar com seus familiares essa nova rede social" />
 	 <meta name="robots" content="index,follow" />
-	 <meta name="keywords" content="rede,social,amigos,jogos,bate papo,chat,depoimentos,recados,comunidades,fotos,gif,fake" />
+	 <meta name="keywords" content="chat,anÔnimo,rede,social,amigos,jogos,bate papo,chat,depoimentos,recados,comunidades,fotos,gif,fake,anonimo,agradavel,saudavel,fletar,amizade,passa tempo,novidade,novo,divertido,site,dating,email" />
 	 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 	 <link rel="stylesheet" href="defaultstyle/baseestilo.css" />
 	 <link rel="stylesheet" href="defaultstyle/form.css" />

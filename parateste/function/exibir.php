@@ -117,7 +117,10 @@
 										$p++;
 										
 										if ($pular<10){
-											echo "<img onclick='des($p)' style='width:50px;height:50px' id='fotope$p' src='../other/". $id ."/fotos/". $album ."/". $l ."' alt='foto_user' />";}
+											echo "<form style='display:inline' method='post' action='criarfotos.php?dele=1&fot=$l&album=$album'>
+											<img onclick='des($p)' style='width:50px;height:50px' id='fotope$p' src='../other/". $id ."/fotos/". $album ."/". $l ."' alt='foto_user' />
+											<input type='submit' value='apagar' />
+											</form>";}
 										else{echo "<br><img onclick='des($p)' style='width:50px;height:50px'  id='fotope$p' src='../other/". $id ."/fotos/". $album ."/". $l ."' alt='foto_user' />"; $pular=0;}
 										
 									}

@@ -22,7 +22,7 @@
 	//print_r( $_FILES['foto']);
 	if((!empty($_POST['album'])) || (!empty($_GET['album'])) and (!empty($_FILES['foto']))){
 			$foto=$_FILES['foto'];
-			$album=(isset($_POST['album'])) ? $_POST['album']:$_GET['album']; echo 'foi'. album;
+			$album=(isset($_POST['album'])) ? $_POST['album']:$_GET['album']; //echo 'foi'. $album;
 			
 		if(!is_dir('../other/'. $id .'/fotos/'. $album))
 		{mkdir('../other/'. $id .'/fotos/'. $album);}
@@ -44,8 +44,16 @@
 		
 	}
 
+	if (isset($_GET['dele'])){
+		$foto=$_GET['fot'];
+		$album=(isset($_POST['album'])) ? $_POST['album']:$_GET['album'];
+		
+		unlink('../other/'. $id .'/fotos/'. $album .'/'. $foto);
+		
+		
+	}
 
-//	header('location: ../userpage/fotouser.php');
+	header("location: exibir.php?album=$album");
 
 
 ?>

@@ -50,11 +50,67 @@
 						}
 						
 						?>
-							<ul  class="lateral">
-								<li><div>fotos<img src="../ico/perfil.png" alt="foto_png" /></div></li>
-								<li><div>videos<img src="../ico/videos.png" alt="videos_png" /></div></li>
-								<li><div>recados<img src="../ico/scrapbook.png" alt="scrapbook_png" /></div></li>
-								<li><div>depoimento<img src="../ico/depoi.png" alt="depoi_png" /></div></li>
+					
+					<ul class="lateral">
+					
+						<li><div><a href="fotouser.php">fotos</a><img src="../ico/perfil.png" alt="foto_png" /></div></li>
+						
+						
+						<?php
+						
+							if(file_exists("../other/". $id ."/recado/tmp/tmpupdate.txt")){
+								
+								$abrir=fopen("../other/". $id ."/recado/tmp/tmpupdate.txt","r+");
+								$ler=fgets($abrir);
+								fclose($abrir);
+								
+								if (!empty($_GET['mode'])){
+									
+									echo "<li><div><a id='ben' onclick='preto(1)' href='../userpage/scrapuser.php?index=1&&tmp=1'>recados   ". $ler ."</a><span style='background-color:red;border-radius:5px;'><img src='../ico/scrapbooka.png' alt='scrapbook_png' /></span></div></li>";
+								
+									
+								}else{
+									echo "<li><div><a id='ben' href='../userpage/scrapuser.php?index=1&&tmp=1'>recados   ". $ler ."</a><span style='background-color:red;border-radius:5px;'><img src='../ico/scrapbooka.png' alt='scrapbook_png' /></span></div></li>";
+								
+									
+								}
+							}else{
+								
+								if (!empty($_GET['mode'])){
+									
+									echo "<li><div><a id='ben' onclick='preto(1)' href='../userpage/scrapuser.php?index=1'>recados</a><img src='../ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+								
+									
+								}else{
+									
+									echo "<li><div><a id='ben' href='../userpage/scrapuser.php?index=1'>recados</a><img src='../ico/scrapbook.png' alt='scrapbook_png' /></div></li>";
+									
+									
+									
+								}
+								
+								
+							}
+							
+							if(file_exists("../other/". $id ."/depoi/update.txt")){
+								$abrir=fopen("../other/". $id ."/depoi/update.txt","r+");
+								$noti=fgets($abrir);
+								fclose($abrir);
+								
+								
+								echo	"<li><div><a href='../userpage/depoiuser.php'>depoi ". $noti ."</a><img src='../ico/depoi.png' alt='depoi_png' /></div></li>";
+						
+						
+							}else{
+								
+								echo	"<li><div><a href='../userpage/depoiuser.php'>depoimento</a><img src='../ico/depoi.png' alt='depoi_png' /></div></li>";
+						
+								
+								
+							}
+						
+						
+						?>
 								<li><div>valor<img src="../ico/logocampella.png" alt="valor_png" /></div></li>
 								<!-- use o php no valor ai cima-->
 							</ul>

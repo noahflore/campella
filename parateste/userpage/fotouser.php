@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<!docktype html>
+<!doctype html>
 
 <html>
 
@@ -73,7 +73,7 @@
 						if (is_dir('../other/'. $id .'/fotos')){
 							echo "<h2>criar o seu albuns de fotos</h2>
 								   <div class='for'><form enctype='multipart/form-data' method='post' action='../function/criarfotos.php'>
-										<input type='text' placeholder='nome do album' name='album' />
+										<input style='background-color:white' type='text' placeholder='nome do album' name='album' />
 										<input type='file' name='capa' accept='imagem/png' />
 										<input type='file' name='foto' accept='imagem/png' />
 										<input type='submit' value='enviar' />
