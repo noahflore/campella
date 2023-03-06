@@ -50,7 +50,7 @@ footer{
 	}
 	
 	div{
-		 font-size: 0px !important; 
+		 font-size: 20px !important; 
 	}
 
 	footer{
@@ -59,6 +59,16 @@ footer{
 		line-height: 9px;
 		
 		
+		
+	}
+	
+	h1{
+		font-size:40px;
+	}
+
+	.corre{
+
+		background-color:black;
 		
 	}
 	.rodape{
