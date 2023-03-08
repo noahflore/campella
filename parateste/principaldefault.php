@@ -354,9 +354,9 @@
 
 								<div><div class='bloco'><div class='cmmestilo'>$fotocmma    <a href='userpage/usercmm/todotpc.php?id=$id&idcmm=$l' >" . $l . "</a></div><br>
 								<div><b id='". $dina ."' ><span class='escuro'>". $buffer4 ."</span></b><input id='responde' type='button' value='responde' onclick='responde($dina,`d`)' /></div>
-								<div id='t$tina'>". $fshow ."<span class='escuro'>". $buffer . "<span><input id='responde' type='button' value='responde' onclick='responde($tina,`t`)' /></div>
-								<div>". $fshow2 ."<span id='b$bina'><span class='escuro'>". $buffer2 . "</span></span><input id='responde' type='button' value='responde' onclick='responde($bina,`b`)' /></div>
-								<div id='c$cina'>". $fshow3 ."<span class='escuro'>".  $buffer3 . "</span><input id='responde' type='button' value='responde' onclick='responde($cina,`c`)' /></div>";
+								<div id='t$tina'><a href='friend/userseeuser.php?id=$saa'>". $fshow ."</a><span class='escuro'>". $buffer . "<span><input id='responde' type='button' value='responde' onclick='responde($tina,`t`)' /></div>
+								<div><a href='friend/userseeuser.php?id=$sba'>". $fshow2 ."</a><span id='b$bina'><span class='escuro'>". $buffer2 . "</span></span><input id='responde' type='button' value='responde' onclick='responde($bina,`b`)' /></div>
+								<div id='c$cina'><a href='friend/userseeuser.php?id=$sca'>". $fshow3 ."</a><span class='escuro'>".  $buffer3 . "</span><input id='responde' type='button' value='responde' onclick='responde($cina,`c`)' /></div>";
 
 							
 
