@@ -194,8 +194,8 @@
 				if (!empty($_GET['id'])){$id=$_GET['id'];
 			
 				echo "<div class='ajuste'><form method='post' action='criartpc.php?idcmm=". $idcmm ."&id=$id' >
-				coloque aqui o topico: <input type='text' name='tpc' placeholder='nome do topico' /><br>
-				coloque aqui um comentario: <input type='text' name='resumo' placeholder='assunto do topico' />
+				coloque aqui o topico: <input style='background-color:white' type='text' name='tpc' placeholder='nome do topico' /><br>
+				coloque aqui um comentario: <textarea style='background-color:white' rows='5' cols='30' type='text' name='resumo' placeholder='assunto do topico'></textarea>
 				<input type='submit' value='enviar' />
 			
 			
@@ -205,8 +205,8 @@
 										}else{
 				
 				echo "<div class='ajuste'><form method='post' action='criartpc.php?idcmm=". $idcmm ."' >
-				coloque aqui o topico: <input type='text' name='tpc' placeholder='nome do topico' /><br>
-				coloque aqui um comentario: <input type='text' name='resumo' placeholder='assunto do topico' />
+				coloque aqui o topico: <input style='background-color:white' type='text' name='tpc' placeholder='nome do topico' /><br>
+				coloque aqui um comentario: <textarea style='background-color:white' type='text' name='resumo' placeholder='assunto do topico'></textarea>
 				<input type='submit' value='enviar' />
 			
 			
