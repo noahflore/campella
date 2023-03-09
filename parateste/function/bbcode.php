@@ -23,7 +23,7 @@
 				"@\[link\=(.*?)\](.*?)\[\/link\]@i"=>"<a href='$1' target='_blank'>$2</a>",
 				"[:\)]"=>"<span>&#x1F60A;</span>",
 				"[:\(]"=>"<span>&#x1F61F;</span>",
-				"[:\/]"=>"<span>&#x1F615;</span>",
+				"[:S]"=>"<span>&#x1F615;</span>",
 				"[:D]"=>"<span>&#x1F92D;</span>",
 				"[<3]"=>"<span>&#x2764;</span>",
 				"@\?help\?@i"=>"[link=url do site]titulo do site [/link]<br>[b]<strong>palavra em negrito</strong>[/b]<br>[i]<i>palavra em italica</i>[/i]<br>[s]<strong>palavra sublinada</s>[/s]<br>[quote]cita um comntario de alguém[/quote]<br>[color= o valor da cor]cor da palavra[/color]<br>[youtube=url do video]um titulo por video[/youtube]<br>[img=url da image][/img]<br>"

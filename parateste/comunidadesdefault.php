@@ -109,11 +109,36 @@
 							sort($r);
 						}
 						
+						$pula=1;
+						$fecho=true;
 						foreach ($r as $lista){
-							echo "<a href='userpage/insidecmm.php?nomecmm=". $lista ."'>". $lista . "</a><br>";
 							
-						};
-				
+							if ((!isset($_GET['index'])) or ($_GET['index']==$lista) or ($fecho==false)){$fecho=false;
+								
+								echo "<a href='userpage/insidecmm.php?nomecmm=". $lista ."'>". $lista . "</a><br>";
+								$pula++;
+								if ($pula>=10){$inde=$lista;echo "<a href='comunidadesdefault.php?index=$inde'>>></a>"; break;}
+								
+							}
+						}
+						if (isset($_GET['index'])){$pp=0;
+						
+							$loob=array_keys($r);// print_r($loob);
+							foreach ($loob as $mane){
+								
+								$looba=$mane;
+								
+							}
+							for ($i=0;$i<=$looba;$i+=10){
+								$pp++;
+								echo "<a href='comunidadesdefault.php?index=". $r[$i] ."&nume=$i'>$pp ,</a>";
+								
+							}
+							
+							echo "<a href='comunidadesdefault.php'><<</a>";
+						
+						
+						}
 					}
 				//lembra de configura o id
 				?>
