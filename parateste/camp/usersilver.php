@@ -415,11 +415,9 @@
 						<?php
 							if (file_exists("../other/". $id ."/desc.txt")) {
 								$abrir= fopen("../other/". $id ."/desc.txt",'r');
-								while (!feof($abrir)){
-									$buffer= fgets($abrir);
-									echo "<p>". $buffer ."</p>";
-									
-								}
+								while (!feof($abrir)){$buffer= $buffer . fgets($abrir);}
+								
+								echo "<p>". $buffer ."</p>";
 								
 							}
 								else{

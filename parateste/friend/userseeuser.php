@@ -278,11 +278,9 @@
 						<?php
 							if (file_exists("../other/". $idfriend ."/desc.txt")) {
 								$abrir= fopen("../other/". $idfriend ."/desc.txt",'r');
-								while (!feof($abrir)){
-									$buffer= fgets($abrir);
-									echo "<p>". $buffer ."</p>";
-									
-								}
+								while (!feof($abrir)){$buffer= $buffer . fgets($abrir);}
+								
+								echo "<p>". $buffer ."</p>";
 								
 							}
 								else{

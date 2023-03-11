@@ -133,7 +133,7 @@ session_start();
 								
 								
 							echo "<li>enquetes</li>";
-							if ($id==$meuid){
+							if ($id==-2){//essa configuração não conserguer encontra a cmm , lembre-se de coloca  var meuid no if
 								
 									$correto=$_GET['correto'];
 									$outrocmm=$_GET['outro'];
