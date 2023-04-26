@@ -264,8 +264,8 @@
 				$update->bind_param("ii",$dia,$id);
 				$update->execute();
 				
-				
-			}
+				return $mil;
+			}else {return 0;}
 			
 			
 			

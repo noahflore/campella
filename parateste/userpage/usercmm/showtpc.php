@@ -145,7 +145,7 @@ session_start();
 								?>
 							</ul>
 						</span>
-					<section>
+					<section class="paramobi">
 			<?php
 				
 				

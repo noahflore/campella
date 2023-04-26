@@ -151,7 +151,7 @@
 			 
 			 <hr>
 			 esqueceu o pin?: 
-			 <button onclick="chave()">trocar o pin</button><span id="pin"></span>
+			 <button onclick="chave()">trocar o pin</button><div id="pin2"><span id="pin"></span></div>
 			 <?php
 			 
 			 if (!empty($_GET['reseta'])){
@@ -176,13 +176,34 @@
 			 function chave(){
 			 
 			 let pin= document.getElementById("pin")
+			 let outro= document.getElementById("pin2")
 			 
 			 
 			 	pin.setAttribute("style","position:fixed;left:0%;top:0%;height:100%;width:100%;background-color:#111111d6;color:white;text-align:center;line-height:100px")
 			 	pin.value= "você tem certeza disso?<br> troca de pin vai reseta suas moedas kants<hr><button onclick='reseta()'>sim quero trocar o pin</button>"
 				pin.innerHTML= pin.value
+				outro.setAttribute("onclick","amfechou()")
+				outro.setAttribute("style","position:fixed;left:0%;top:0%;height:100%;width:100%;background-color:#111111d6;color:white;text-align:center;line-height:100px")
+				outro.setAttribute("id","janelu")
+				// document.body.appendChild(outro)
+				outro.appendChild(pin)
+				
 			//	alert(pin.value)
 			 
+			 }
+			 
+			 function amfechou(){
+				 
+				 let pin= document.getElementById("pin")
+				 let janela= document.getElementById("janelu")
+				 let novo= document.createElement("span")
+				 
+				 janela.style.zIndex=-1
+				 janela.removeAttribute("style")
+				 janela.removeChild(pin)
+				 novo.setAttribute("id","pin")
+				 janela.appendChild(novo)
+				 
 			 }
 			 
 			 function reseta(){
