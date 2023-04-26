@@ -202,7 +202,7 @@
 						<?php
 						if (empty($_GET['robots'])){
 							$valor=$user->mostrar();
-							$user->bonusday();
+							$compara=$user->bonusday();
 						
 						
 							if (!empty($_SESSION['pin'])){
@@ -217,9 +217,9 @@
 							}
 						//	print_r($user);
 						
-							if ($valor>$_SESSION['valor']){
+							if (($compara>$valor) and ($compara>0)){
 								
-								$_SESSION['valor']=$valor;
+								$_SESSION['valor']=$compara;
 						
 								echo "<li><div style='font-size:20px;color:green'>+". $_SESSION['valor'] ."<img src='ico/logocampella.png' alt='valor_png' /></div></li>";
 								//unset($valor);

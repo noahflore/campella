@@ -1,5 +1,5 @@
-<?php session_start(); ?>
-<!docktype html>
+<?php session_start(); include_once "function/update.php";?>
+<!doctype html>
 
 <html>
 
