@@ -28,7 +28,15 @@
 		
 	}
 
-	header("location: updatesee.php");
+	if (isset($_GET['indi'])){
+		
+	header("../../location: updatesee.php");
+		
+	}else{
+		
+		header("location: updatesee.php");
+		
+	}
 
 
 
