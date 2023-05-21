@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<!docktype html>
+<!doctype html>
 
 <html>
 
@@ -7,8 +7,8 @@
 	 
 	 <title>videouser || campella</title>
 	 <meta charset="utf-8" />
-	 <link rel="stylesheet" href="../defaultstyle/baseestilo.css" />
-	 <link rel="stylesheet" href="../defaultstyle/userpage.css" />
+	 <link rel="stylesheet" href="../../defaultstyle/baseestilo.css" />
+	 <link rel="stylesheet" href="../../defaultstyle/userpage.css" />
 	 
 	 </head>
 	 
@@ -51,16 +51,33 @@
 				
 					
 				<div class="caixa">
-				<h1>galeria de videos</h1>
-				
-				<div>
+					
 					<?php
-					$id= $_SESSION['id'];
-						if (is_dir('../other/'. $id .'/videos')){
-							echo "<h2>coloque aqui seu videos do youtube</h2>
-								   <div class='for'><form method='post' action='../function/criarvideos.php'>
-										<input type='text' placeholder='nome da playlist' name='play' />
-										<input type='text' placeholder='url do video' name='link' />
+					
+						
+					$idfriend= $_SESSION['idfriend'];
+					//echo $id;
+					
+					$abrir=array_diff(scandir("../../friend/". $idfriend ."/"),['.','..']);
+		
+
+					$nomeF=str_replace("1-","",$abrir[2]);
+
+
+
+				// print_r($abrir);
+				   unset($abrir);
+					
+					echo	"<h1>galeria de videos D $nomeF</h1>
+
+						<div>";
+					
+					
+						if (is_dir('../../other/'. $idfriend .'/videos')){
+							echo "<h2>procura aqui o video do youtube</h2>
+								   <div class='for'><form method='post' action='../function/procuravideos.php'>
+										<input style='background-color:white' type='text' placeholder='nome da playlist' name='play' />
+										<input style='background-color:white' type='text' placeholder='url do video' name='link' />
 										<input type='submit' value='enviar' />
 									
 									
@@ -72,8 +89,12 @@
 							
 							
 							";
-							if (is_dir('../other/'. $id .'/videos')) {
-							$exibirvideo=array_diff(scandir('../other/'. $id .'/videos/'), ['.','..','contado.txt']);
+							
+							// o formulario de cima precisa se organizado
+							
+							
+							if (is_dir('../../other/'. $idfriend .'/videos')) {
+							$exibirvideo=array_diff(scandir('../../other/'. $idfriend .'/videos/'), ['.','..','contado.txt']);
 							
 							foreach($exibirvideo as $li){
 									echo"<div><a href='listavideos.php?play=". $li ."'>". $li ."</a></div><br>

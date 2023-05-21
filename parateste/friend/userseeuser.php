@@ -280,7 +280,7 @@
 								$abrir= fopen("../other/". $idfriend ."/desc.txt",'r');
 								while (!feof($abrir)){$buffer= $buffer . fgets($abrir);}
 								
-								echo "<p>". $buffer ."</p>";
+								echo "<p style='color:white'>". $buffer ."</p>";
 								
 							}
 								else{
