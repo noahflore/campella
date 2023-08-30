@@ -142,8 +142,8 @@
 				
 				<?php
 						
-						for ($i=1;$i<=1000;$i++){
-							
+						for ($i=1;$i<=1000;$i++){//corrigi o erro de varios usuarios do mesmo id
+							$impa=0;
 							$abrir=fopen("../other/var/". $id ."/". $idcm ."/updatetcp.txt","r+");
 							$cmmcon=fgets($abrir);
 							fclose($abrir);
@@ -162,7 +162,15 @@
 								
 								$foto= (file_exists("../other/$i/fotoperso.png")) ? "<img style='width:50px;height:50px;' src='../other/$i/fotoperso.png' />":"<img style='width:50px;height:50px;' src='../ico/userdefault.png' />";
 								
+								if ($impa == 3)
+									echo "<br>";
+								else
 								echo $foto;
+								
+								if ($impa == 3)
+									$impa=0;
+								else
+								$impa++;
 								
 								
 							}

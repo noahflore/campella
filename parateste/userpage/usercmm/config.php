@@ -218,7 +218,7 @@ session_start();
 									$nomedolado= array_diff(scandir("../../friend/$varia/"),['.','..']);
 									$nomedolado[2]=str_replace("1-","",$nomedolado[2]);
 									
-									echo "<span>". $foto ." ". $nomedolado[2] ."</span>";
+									echo "<span>". $foto ." <a href='../../friend/userseeuser.php?id=$varia'>". $nomedolado[2] ."</a></span>";
 									
 									
 								}
