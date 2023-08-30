@@ -19,7 +19,7 @@ session_start();
 	<html>
 
 		<head>
-			<title>cmm_do_user || campella</title>
+			<?php echo "<title>cmm de ". $_SESSION['nome'] ." || campella</title>"; ?>
 			<link rel="stylesheet" href="../../defaultstyle/baseestilo.css" />
 			<link rel="stylesheet" href="../../defaultstyle/corpodacmm.css" />
 			<link rel="icon" href="../../ico/logoico.png" />
@@ -205,6 +205,7 @@ session_start();
 					
 					<section>
 					
+						<h2>pessoas participando da cmm </h2>
 						<?php
 						
 							if (is_dir("../../other/var/". $id ."/". $idcm ."/autoria/")){
@@ -214,8 +215,10 @@ session_start();
 								foreach ($li as $varia){
 									
 									$foto= (file_exists("../../other/$varia/fotoperso.png")) ? "<img style='width: 50px;height:50px' src='../../other/$varia/fotoperso.png' />": "<img style='width: 50px;' src='../../ico/userdefault.png' />";
+									$nomedolado= array_diff(scandir("../../friend/$varia/"),['.','..']);
+									$nomedolado[2]=str_replace("1-","",$nomedolado[2]);
 									
-									echo $foto;
+									echo "<span>". $foto ." ". $nomedolado[2] ."</span>";
 									
 									
 								}
